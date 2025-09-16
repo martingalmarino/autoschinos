@@ -156,7 +156,7 @@ const FeaturedModels: React.FC = () => {
                 <span className="text-sm font-bold text-gray-800 truncate pr-2 flex-1">
                   {car.brand}
                 </span>
-                <span className="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">
+                <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">
                   Más visto
                 </span>
               </div>

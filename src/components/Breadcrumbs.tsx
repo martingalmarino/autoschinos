@@ -16,6 +16,7 @@ const Breadcrumbs: React.FC = () => {
     '/': 'Inicio',
     '/catalogo': 'Catálogo',
     '/marcas': 'Marcas',
+    '/modelo': 'Modelo',
     '/resenas': 'Reseñas',
     '/contacto': 'Contacto'
   };

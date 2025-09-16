@@ -9,7 +9,7 @@
         "categoria": "SUV",
         "combustible": "Nafta",
         "transmision": "Manual / CVT",
-        "precio": "USD 19.900-21.900 (según versión) • ~$21.900.000 ARS (versión Intelligent)",
+        "precio": "USD 21.900 (estimado)",
         "imagen": "/images/models/jac/jac-s2-2025.svg",
         "descripcion": "SUV compacto con motor 1.5 Nafta aspirado, equipamiento moderno, buen espacio interior y garantía extendida en Argentina.",
         "especificaciones": {
@@ -36,7 +36,7 @@
         "categoria": "Pick-Up mediana doble cabina",
         "combustible": "Diésel",
         "transmision": "Manual de 6 velocidades",
-        "precio": "USD 34.900 aprox (versión Intelligent en Argentina)",
+        "precio": "USD 34.900 (estimado)",
         "imagen": "/images/models/jac/jac-t8-2024.svg",
         "descripcion": "Pick-up robusta doble cabina, tracción 4×4, motor diésel 2.0, ideal para trabajo y terrenos exigentes.",
         "especificaciones": {
@@ -64,7 +64,7 @@
         "categoria": "Vehículo de carga / utilitario",
         "combustible": "Diésel",
         "transmision": "Manual de 6 velocidades / 5 velocidades según versión",
-        "precio": "USD 31.900 aprox (versiones Luxury en Argentina)",
+        "precio": "USD 31.900 (estimado)",
         "imagen": "/images/models/jac/jac-x200-2025.svg",
         "descripcion": "Utilitario chasis cabina / carga liviana con motor diésel, buena capacidad de carga, útil para uso comercial o de trabajo.",
         "especificaciones": {

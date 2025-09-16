@@ -13,33 +13,33 @@ const FAQ: React.FC = () => {
   const faqItems: FAQItem[] = [
     {
       id: 1,
-      question: '¿Cómo saber cuánto debo pagar de patente en Córdoba?',
-      answer: 'El monto de la patente en Córdoba depende del valor fiscal del vehículo y el año de fabricación. Para autos chinos, generalmente se calcula sobre el valor de adquisición. Puedes consultar el monto exacto en la página web de la Dirección General de Rentas de Córdoba o acercarte a nuestras oficinas donde te ayudamos con el cálculo.'
+      question: '¿Qué marcas chinas de autos hay en Argentina?',
+      answer: 'En Argentina se comercializan alrededor de 17 marcas chinas de autos, entre ellas: Chery, Changan, JAC Motors, DFSK, FAW, Great Wall, Jetour, Haval, Skywell, Baic, Foton, KyC, Victory, Shineray, Maxus y Geely.'
     },
     {
       id: 2,
-      question: '¿Dónde puedo financiar mi auto chino?',
-      answer: 'Trabajamos con las principales entidades financieras del país. Ofrecemos financiación a través de bancos como Banco Nación, Santander, Galicia, y también con financieras especializadas en vehículos. Nuestro equipo te asesora para encontrar la mejor opción según tu perfil crediticio y capacidad de pago.'
+      question: '¿Cuál es la mejor marca de coches china?',
+      answer: 'No existe una respuesta única, depende del criterio: si es por volumen, tecnología eléctrica o confiabilidad. Marcas como BYD, Chery, Geely y Great Wall son frecuentemente destacadas por buen desempeño, innovación y crecimiento.'
     },
     {
       id: 3,
-      question: '¿Qué garantía tienen los autos 0km?',
-      answer: 'Los vehículos 0km chinos que comercializamos cuentan con garantía de fábrica que varía según la marca: Chery (3 años o 100.000 km), Geely (3 años o 100.000 km), JAC (3 años o 100.000 km), Haval (5 años o 150.000 km), BYD (6 años o 150.000 km). Además, ofrecemos garantía extendida opcional.'
+      question: '¿Cuáles son los autos chinos más baratos en Argentina?',
+      answer: 'Algunos de los autos chinos más accesibles en Argentina son modelos compactos o SUVs base de marcas como Chery; por ejemplo el Chery Tiggo 4 PRO Comfort aparece entre los más económicos.'
     },
     {
       id: 4,
-      question: '¿Puedo hacer una prueba de manejo?',
-      answer: '¡Por supuesto! Todos nuestros vehículos están disponibles para prueba de manejo. Solo necesitas presentar tu licencia de conducir vigente y un comprobante de domicilio. Las pruebas se realizan con un vendedor acompañante y tienen una duración aproximada de 30 minutos. Te recomendamos agendar tu cita con anticipación.'
+      question: '¿Cuál es la marca de coches más vendida en China?',
+      answer: 'La marca más vendida en China actualmente es BYD.'
     },
     {
       id: 5,
-      question: '¿Los repuestos son fáciles de conseguir?',
-      answer: 'Sí, trabajamos con una red de distribuidores oficiales y talleres especializados. Los repuestos para autos chinos son cada vez más accesibles en Argentina. Además, muchas marcas como Chery, Geely y JAC tienen centros de servicio oficiales en las principales ciudades del país.'
+      question: '¿Cuántas marcas de autos fabrica China?',
+      answer: 'Se estima que hay cerca de 150 marcas de autos diferentes operando en China: unas 97 marcas locales, unas 43 marcas conjuntas (joint-ventures), y el resto extranjeras o colaboraciones.'
     },
     {
       id: 6,
-      question: '¿Qué documentación necesito para comprar un auto?',
-      answer: 'Para la compra necesitas: DNI, comprobante de ingresos (últimos 3 recibos de sueldo o declaración de ganancias), comprobante de domicilio, y si es financiado, documentación adicional según la entidad financiera. Nuestro equipo te guía paso a paso en todo el proceso de documentación.'
+      question: '¿Cuál es el auto chino más seguro?',
+      answer: 'El BYD Dolphin Plus es hasta ahora el primer auto chino eléctrico que logró 5 estrellas en los test de Latin NCAP, convirtiéndose en referente de seguridad.'
     }
   ];
 
@@ -98,17 +98,23 @@ const FAQ: React.FC = () => {
         <div className="text-center mt-12">
           <div className="bg-gray-50 rounded-lg p-8">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
-              ¿No encontrás la respuesta que buscás?
+              ¿Tenés más preguntas sobre autos chinos?
             </h3>
             <p className="text-gray-600 mb-6">
-              Nuestro equipo de expertos está listo para ayudarte con cualquier consulta
+              Explorá nuestro catálogo completo o conocé más sobre las marcas disponibles
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary">
-                Contactar por WhatsApp
+              <button 
+                className="btn-primary"
+                onClick={() => window.location.href = '/catalogo'}
+              >
+                Ver catálogo completo
               </button>
-              <button className="btn-secondary">
-                Llamar por teléfono
+              <button 
+                className="btn-secondary"
+                onClick={() => window.location.href = '/marcas'}
+              >
+                Explorar marcas
               </button>
             </div>
           </div>

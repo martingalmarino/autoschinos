@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
     { name: 'Inicio', href: '/' },
     { name: 'Modelos', href: '/catalogo' },
     { name: 'Marcas', href: '/marcas' },
-    { name: 'Financiación', href: '#' },
+    { name: 'Reseñas', href: '#' },
     { name: 'Contacto', href: '#' },
   ];
 

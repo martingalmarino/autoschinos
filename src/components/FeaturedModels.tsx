@@ -1,18 +1,18 @@
 import React from 'react';
-
-interface CarModel {
-  id: number;
-  name: string;
-  brand: string;
-  year: string;
-  category: string;
-  fuel: string;
-  image: string;
-  brandLogo: string;
-}
+import { useModels } from '../hooks/useModels';
 
 const FeaturedModels: React.FC = () => {
-  const featuredCars: CarModel[] = [
+  const { allModels } = useModels();
+  
+  // Seleccionar los primeros 6 modelos disponibles para mostrar como destacados
+  const featuredCars = allModels.slice(0, 6);
+
+  if (featuredCars.length === 0) {
+    return null; // No mostrar la sección si no hay modelos
+  }
+
+  // Código anterior hardcodeado removido - ahora usa datos dinámicos
+  /*const oldFeaturedCars = [
     {
       id: 1,
       name: 'Tiggo 3 Pro',
@@ -133,7 +133,7 @@ const FeaturedModels: React.FC = () => {
       image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxyZWN0IHg9IjUwIiB5PSI1MCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiM2QjcyODAiLz4KCjwvc3ZnPgo=',
       brandLogo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM2QjcyODAiLz4KCjwvc3ZnPg=='
     }
-  ];
+  ]; */
 
   return (
     <section className="py-20 bg-white">
@@ -149,7 +149,7 @@ const FeaturedModels: React.FC = () => {
 
         {/* Grid de 4 columnas por línea */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-          {featuredCars.map((car) => (
+          {featuredCars.map((car, index) => (
             <div key={car.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               {/* Header con marca y badge separados */}
               <div className="flex justify-between items-center p-3 bg-gray-50 border-b border-gray-200">
@@ -157,15 +157,15 @@ const FeaturedModels: React.FC = () => {
                   {car.brand}
                 </span>
                 <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex-shrink-0">
-                  Más visto
+                  Destacado
                 </span>
               </div>
 
               {/* Car Image */}
               <div className="relative h-48 bg-gray-100">
                 <img
-                  src={car.image}
-                  alt={car.name}
+                  src={car.imagen}
+                  alt={`${car.brand} ${car.nombre}`}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -174,10 +174,10 @@ const FeaturedModels: React.FC = () => {
               <div className="p-3 sm:p-4">
                 <div className="mb-3">
                   <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1 uppercase">
-                    {car.name}
+                    {car.nombre}
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-600">
-                    {car.year} | {car.fuel}
+                    {car.año} | {car.combustible}
                   </p>
                 </div>
 
@@ -185,12 +185,10 @@ const FeaturedModels: React.FC = () => {
                   <button 
                     className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-3 sm:px-4 rounded text-xs sm:text-sm transition-colors duration-200"
                     onClick={() => {
-                      // Para los modelos existentes, usar una URL temporal hasta que agregues más marcas
-                      if (car.brand === 'JAC') {
-                        window.location.href = `/marcas/jac/${car.name.toLowerCase().replace(' ', '-')}`;
-                      } else {
-                        window.location.href = '/catalogo';
-                      }
+                      // Usar la estructura de URL jerárquica
+                      const brandSlug = car.brand.toLowerCase().replace(' ', '-');
+                      const modelSlug = car.nombre.toLowerCase().replace(' ', '-');
+                      window.location.href = `/marcas/${brandSlug}/${modelSlug}`;
                     }}
                   >
                     Ver detalle

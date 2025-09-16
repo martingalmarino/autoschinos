@@ -149,7 +149,7 @@ const FeaturedModels: React.FC = () => {
 
         {/* Grid de 4 columnas por línea */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-          {featuredCars.map((car, index) => (
+          {featuredCars.map((car) => (
             <div key={car.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               {/* Header con marca y badge separados */}
               <div className="flex justify-between items-center p-3 bg-gray-50 border-b border-gray-200">

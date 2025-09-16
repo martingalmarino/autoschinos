@@ -7,10 +7,13 @@ import Footer from '../components/Footer';
 import { useModels } from '../hooks/useModels';
 
 const ModelDetail: React.FC = () => {
-  const { modelId } = useParams<{ modelId: string }>();
+  const { brandName, modelName } = useParams<{ brandName: string; modelName: string }>();
   const { allModels } = useModels();
   
-  const model = allModels.find(m => m.id === modelId);
+  const model = allModels.find(m => 
+    m.brand.toLowerCase() === brandName?.toLowerCase() && 
+    m.nombre.toLowerCase() === modelName?.toLowerCase()
+  );
 
   if (!model) {
     return (
@@ -32,7 +35,7 @@ const ModelDetail: React.FC = () => {
         title={`${model.brand} ${model.nombre} ${model.año} – Ficha Técnica y Características`}
         description={`${model.descripcion} Conocé todas las especificaciones, características y precio del ${model.brand} ${model.nombre} ${model.año}.`}
         keywords={`${model.brand.toLowerCase()}, ${model.nombre.toLowerCase()}, ${model.año}, ${model.categoria.toLowerCase()}, ficha tecnica, especificaciones`}
-        canonical={`https://www.autoschinos.ar/modelo/${modelId}`}
+        canonical={`https://www.autoschinos.ar/marcas/${brandName}/${modelName}`}
       />
       <Navbar />
       <Breadcrumbs />
@@ -146,15 +149,15 @@ const ModelDetail: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200"
-              onClick={() => window.location.href = `/catalogo?marca=${model.brand}`}
+              onClick={() => window.location.href = `/marcas/${brandName}`}
             >
               Ver más modelos {model.brand}
             </button>
             <button 
               className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200"
-              onClick={() => window.location.href = '/catalogo'}
+              onClick={() => window.location.href = `/marcas/${brandName}`}
             >
-              Volver al catálogo
+              Volver a {model.brand}
             </button>
           </div>
         </div>

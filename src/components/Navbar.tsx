@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
               </div>
               <input
                 type="text"
-                placeholder="Buscá tu próximo auto..."
+                placeholder="Busca por marca o modelo"
                 className="block w-full pl-10 pr-3 py-2 text-sm border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 shadow-sm"
               />
             </div>

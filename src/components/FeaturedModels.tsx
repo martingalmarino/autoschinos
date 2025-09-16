@@ -140,10 +140,10 @@ const FeaturedModels: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
-            ¡Aprovechá estas oportunidades únicas!
+            Autos Chinos destacados en Argentina
           </h2>
           <p className="text-base sm:text-lg text-gray-600 px-4 sm:px-0">
-            Stock limitado con garantía incluida por 3 meses
+            Estos son los modelos y marcas más buscados por nuestros usuarios.
           </p>
         </div>
 

@@ -59,16 +59,26 @@ const Catalogo: React.FC = () => {
             <div className="lg:w-3/4">
               {/* Resultados header */}
               <div className="mb-6">
-                <div className="flex justify-between items-center">
-                  <h2 className="text-xl font-bold text-gray-900">
+                {/* Título principal */}
+                <div className="mb-4">
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-900">
                     Resultados de búsqueda
                   </h2>
-                  <div className="flex items-center space-x-4">
-                    <span className="text-sm text-gray-600">
+                </div>
+                
+                {/* Controles responsive */}
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+                  {/* Información de página */}
+                  <div className="flex items-center justify-center sm:justify-start">
+                    <span className="text-sm text-gray-600 bg-gray-100 px-3 py-2 rounded-lg">
                       Página {currentPage} de {totalPages}
                     </span>
+                  </div>
+                  
+                  {/* Selector de ordenamiento */}
+                  <div className="w-full sm:w-auto">
                     <select 
-                      className="px-3 py-1 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                      className="w-full sm:w-auto px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white"
                       aria-label="Ordenar resultados"
                     >
                       <option>Ordenar por precio</option>

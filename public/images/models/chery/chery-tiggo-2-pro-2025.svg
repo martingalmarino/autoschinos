@@ -1,8 +1,0 @@
-<svg width="400" height="240" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="400" height="240" fill="#F3F4F6"/>
-  <rect x="20" y="120" width="360" height="80" rx="10" fill="#E11D48"/>
-  <rect x="40" y="140" width="80" height="40" rx="20" fill="#1F2937"/>
-  <rect x="280" y="140" width="80" height="40" rx="20" fill="#1F2937"/>
-  <text x="200" y="100" text-anchor="middle" fill="#374151" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Chery Tiggo 2 Pro</text>
-  <text x="200" y="120" text-anchor="middle" fill="#6B7280" font-family="Arial, sans-serif" font-size="12">SUV Compacto 2025</text>
-</svg>

@@ -21,7 +21,10 @@ const Hero: React.FC = () => {
             Descubrí el auto chino ideal para vos
           </h1>
           <div className="flex justify-center sm:justify-start">
-            <button className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg text-base sm:text-lg transition-colors duration-200 w-full sm:w-auto max-w-xs sm:max-w-none">
+            <button 
+              className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg text-base sm:text-lg transition-colors duration-200 w-full sm:w-auto max-w-xs sm:max-w-none"
+              onClick={() => window.location.href = '/catalogo'}
+            >
               Ver catálogo
             </button>
           </div>

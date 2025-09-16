@@ -116,7 +116,10 @@ const BrandPills: React.FC = () => {
           <p className="text-gray-600 mb-4">
             ¿Buscás información de otra marca?
           </p>
-          <button className="btn-primary">
+          <button 
+            className="btn-primary"
+            onClick={() => window.location.href = '/catalogo'}
+          >
             Explorar catálogo completo
           </button>
         </div>

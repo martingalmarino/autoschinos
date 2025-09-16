@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
+import Breadcrumbs from '../components/Breadcrumbs';
 import Footer from '../components/Footer';
 import BrandGrid from '../components/BrandGrid';
 
@@ -19,6 +20,7 @@ const Marcas: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-50 to-white pt-32 pb-20">

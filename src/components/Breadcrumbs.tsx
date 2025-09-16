@@ -58,10 +58,10 @@ const Breadcrumbs: React.FC = () => {
   }
 
   return (
-    <nav className="bg-white border-b border-gray-200" aria-label="Breadcrumb">
+    <nav className="bg-white border-b border-gray-200 shadow-sm" aria-label="Breadcrumb">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center py-4">
-          <ol className="flex items-center space-x-2">
+        <div className="flex items-center py-3">
+          <ol className="flex items-center space-x-1">
             {breadcrumbs.map((breadcrumb, index) => (
               <li key={breadcrumb.href} className="flex items-center">
                 {index > 0 && (
@@ -69,19 +69,19 @@ const Breadcrumbs: React.FC = () => {
                 )}
                 
                 {breadcrumb.current ? (
-                  <span className="flex items-center text-sm font-medium text-gray-500">
+                  <span className="flex items-center text-sm font-semibold text-gray-600 bg-gray-100 px-3 py-1 rounded-md">
                     {index === 0 && breadcrumb.name === 'Inicio' && (
-                      <HomeIcon className="h-4 w-4 mr-1" />
+                      <HomeIcon className="h-4 w-4 mr-2" />
                     )}
                     {breadcrumb.name}
                   </span>
                 ) : (
                   <Link
                     to={breadcrumb.href}
-                    className="flex items-center text-sm font-medium text-gray-700 hover:text-primary-500 transition-colors duration-200"
+                    className="flex items-center text-sm font-medium text-gray-700 hover:text-primary-500 hover:bg-gray-50 px-3 py-1 rounded-md transition-all duration-200"
                   >
                     {index === 0 && breadcrumb.name === 'Inicio' && (
-                      <HomeIcon className="h-4 w-4 mr-1" />
+                      <HomeIcon className="h-4 w-4 mr-2" />
                     )}
                     {breadcrumb.name}
                   </Link>

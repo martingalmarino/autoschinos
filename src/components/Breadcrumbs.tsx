@@ -58,7 +58,7 @@ const Breadcrumbs: React.FC = () => {
   }
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-sm" aria-label="Breadcrumb">
+    <nav className="bg-white border-b border-gray-200 shadow-sm mt-20" aria-label="Breadcrumb">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center py-3">
           <ol className="flex items-center space-x-1">

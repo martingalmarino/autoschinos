@@ -1,0 +1,89 @@
+{
+  "JAC": {
+    "marca": "JAC",
+    "modelos": [
+      {
+        "id": "jac-s2-2025",
+        "nombre": "S2",
+        "año": "2025",
+        "categoria": "SUV",
+        "combustible": "Nafta",
+        "transmision": "Manual / CVT",
+        "precio": "USD 19.900-21.900 (según versión) • ~$21.900.000 ARS (versión Intelligent)",
+        "imagen": "/images/models/jac/jac-s2-2025.svg",
+        "descripcion": "SUV compacto con motor 1.5 Nafta aspirado, equipamiento moderno, buen espacio interior y garantía extendida en Argentina.",
+        "especificaciones": {
+          "motor": "1.5L VVT",
+          "potencia": "105-113 HP",
+          "traccion": "4×2 Delantera",
+          "capacidad_tanque": "42 L",
+          "peso": "≈ 1.155 kg"
+        },
+        "caracteristicas": [
+          "Pantalla táctil 9″ compatible con Android Auto y Apple CarPlay", 
+          "Sensores traseros", 
+          "Cámara de retroceso",
+          "Aire acondicionado",
+          "Barras de techo",
+          "Llantas de aleación 17″",
+          "Control de estabilidad (ESP), ABS, Doble airbag frontal"
+        ]
+      },
+      {
+        "id": "jac-t8-2024",
+        "nombre": "T8",
+        "año": "2024",
+        "categoria": "Pick-Up mediana doble cabina",
+        "combustible": "Diésel",
+        "transmision": "Manual de 6 velocidades",
+        "precio": "USD 34.900 aprox (versión Intelligent en Argentina)",
+        "imagen": "/images/models/jac/jac-t8-2024.svg",
+        "descripcion": "Pick-up robusta doble cabina, tracción 4×4, motor diésel 2.0, ideal para trabajo y terrenos exigentes.",
+        "especificaciones": {
+          "motor": "2.0L Turbo Diésel (Common Rail + Intercooler)",
+          "potencia": "136-139 HP",
+          "traccion": "4×4",
+          "capacidad_tanque": "76 L",
+          "peso": "≈ 1.970 kg vacío • carga útil ≈ 900 kg"
+        },
+        "caracteristicas": [
+          "Frenos de disco en las 4 ruedas",
+          "Control de estabilidad (ESC), ABS, HBA, BOS, EBD, HHC, TCS, VDC",
+          "Sensores traseros y cámara de retroceso",
+          "Tapizado en ecocuero",
+          "Pantalla táctil 9″ + Android Auto / Apple CarPlay",
+          "Dirección asistida",
+          "Faros antiniebla, llantas de aleación",
+          "Capacidad de carga 900 kg"
+        ]
+      },
+      {
+        "id": "jac-x200-2025",
+        "nombre": "X200",
+        "año": "2025",
+        "categoria": "Vehículo de carga / utilitario",
+        "combustible": "Diésel",
+        "transmision": "Manual de 6 velocidades / 5 velocidades según versión",
+        "precio": "USD 31.900 aprox (versiones Luxury en Argentina)",
+        "imagen": "/images/models/jac/jac-x200-2025.svg",
+        "descripcion": "Utilitario chasis cabina / carga liviana con motor diésel, buena capacidad de carga, útil para uso comercial o de trabajo.",
+        "especificaciones": {
+          "motor": "2.0 CTI Turbo Diésel / 2.8L diésel según país",
+          "potencia": "≈ 134 HP",
+          "traccion": "4×2",
+          "capacidad_tanque": "65 L",
+          "peso": "Peso en vacío ≈ 1.790-1.985 kg • carga útil alta ( hasta ≈ 1.500-1.800 kg segun versión)"
+        },
+        "caracteristicas": [
+          "Frenos delanteros de disco",
+          "Suspensión trasera rígida con ballestas (o similar)",
+          "3 pasajeros en cabina",
+          "Neumáticos 195/70 R15",
+          "Bluetooth, aire acondicionado",
+          "Caja de carga robusta / chasis reforzado",
+          "Normas de emisión Euro V / VI según país"
+        ]
+      }
+    ]
+  }
+}

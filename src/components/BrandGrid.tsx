@@ -19,7 +19,7 @@ const BrandGrid: React.FC<BrandGridProps> = ({ currentPage }) => {
     {
       id: 1,
       name: 'JAC',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiNGRjYzNDciLz4KCjwvc3ZnPg==',
+      logo: '/images/brands/logos/jac-logo.png',
       slogan: 'FEEL A BETTER DRIVE',
       color: '#FF6347',
       modelsCount: 8

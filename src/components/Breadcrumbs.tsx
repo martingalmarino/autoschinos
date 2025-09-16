@@ -58,9 +58,9 @@ const Breadcrumbs: React.FC = () => {
   }
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-sm mt-20" aria-label="Breadcrumb">
+    <nav className="bg-white border-b border-gray-200 shadow-sm mt-20 mb-8" aria-label="Breadcrumb">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center py-4">
+        <div className="flex items-center py-6">
           <ol className="flex items-center space-x-1">
             {breadcrumbs.map((breadcrumb, index) => (
               <li key={breadcrumb.href} className="flex items-center">

@@ -1,24 +1,13 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import SearchBlock from './components/SearchBlock';
-import FeaturedModels from './components/FeaturedModels';
-import BrandPills from './components/BrandPills';
-import FAQ from './components/FAQ';
-import Footer from './components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Catalogo from './pages/Catalogo';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <SearchBlock />
-        <FeaturedModels />
-        <BrandPills />
-        <FAQ />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/catalogo" element={<Catalogo />} />
+    </Routes>
   );
 }
 

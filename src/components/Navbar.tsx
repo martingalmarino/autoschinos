@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navigation = [
-    { name: 'Inicio', href: '#' },
-    { name: 'Modelos', href: '#' },
+    { name: 'Inicio', href: '/' },
+    { name: 'Modelos', href: '/catalogo' },
     { name: 'Marcas', href: '#' },
     { name: 'Financiación', href: '#' },
     { name: 'Contacto', href: '#' },
@@ -37,26 +39,40 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-12 border-t border-gray-200">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#" className="text-lg sm:text-xl lg:text-2xl font-bold text-primary-500">
+            <Link to="/" className="text-lg sm:text-xl lg:text-2xl font-bold text-primary-500">
               autoschinos.ar
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-6 lg:space-x-8">
               {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={`px-2 lg:px-3 py-2 text-xs lg:text-sm font-medium transition-colors duration-200 ${
-                    item.name === 'Inicio' 
-                      ? 'text-primary-500 border-b-2 border-primary-500' 
-                      : 'text-gray-700 hover:text-primary-500'
-                  }`}
-                >
-                  {item.name}
-                </a>
+                item.href.startsWith('#') ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className={`px-2 lg:px-3 py-2 text-xs lg:text-sm font-medium transition-colors duration-200 ${
+                      location.pathname === item.href 
+                        ? 'text-primary-500 border-b-2 border-primary-500' 
+                        : 'text-gray-700 hover:text-primary-500'
+                    }`}
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`px-2 lg:px-3 py-2 text-xs lg:text-sm font-medium transition-colors duration-200 ${
+                      location.pathname === item.href 
+                        ? 'text-primary-500 border-b-2 border-primary-500' 
+                        : 'text-gray-700 hover:text-primary-500'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
             </div>
           </div>
@@ -84,14 +100,25 @@ const Navbar: React.FC = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-primary-500 block px-3 py-2 text-base font-medium transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
+              item.href.startsWith('#') ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-700 hover:text-primary-500 block px-3 py-2 text-base font-medium transition-colors duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-gray-700 hover:text-primary-500 block px-3 py-2 text-base font-medium transition-colors duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </div>
         </div>

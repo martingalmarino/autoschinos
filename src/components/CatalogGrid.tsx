@@ -143,8 +143,8 @@ const CatalogGrid: React.FC<CatalogGridProps> = ({ filters, currentPage }) => {
             <span className="text-sm font-bold text-gray-800">
               {car.brand}
             </span>
-            <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-              DISPONIBLE
+            <span className="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+              Más visto
             </span>
           </div>
 

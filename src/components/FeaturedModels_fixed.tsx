@@ -165,8 +165,8 @@ const FeaturedModels: React.FC = () => {
                 </div>
                 {/* Available Badge */}
                 <div className="absolute top-3 right-3">
-                  <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                    DISPONIBLE
+                  <span className="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    Más visto
                   </span>
                 </div>
               </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import heroBg from '../assets/images/hero-bg.jpg';
 
 const Hero: React.FC = () => {
   return (
@@ -8,7 +7,7 @@ const Hero: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(${heroBg})`
+          backgroundImage: `url('/images/hero-bg.jpg')`
         }}
       />
       

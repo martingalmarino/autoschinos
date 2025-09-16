@@ -49,26 +49,44 @@ const Marcas: React.FC = () => {
           {/* Grid de marcas */}
           <BrandGrid currentPage={currentPage} />
 
-          {/* Botón Cargar Más */}
-          {hasMoreBrands && (
-            <div className="text-center mt-12">
-              <button 
-                onClick={handleLoadMore}
-                className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
-              >
-                CARGAR MÁS
-              </button>
-            </div>
-          )}
+          {/* Controles de paginación */}
+          <div className="text-center mt-12">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+              {/* Botón Volver Atrás */}
+              {currentPage > 1 && (
+                <button 
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                  className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+                >
+                  ← MOSTRAR MENOS
+                </button>
+              )}
 
-          {/* Mensaje cuando se muestran todas */}
-          {!hasMoreBrands && currentPage > 1 && (
-            <div className="text-center mt-12">
-              <p className="text-gray-600 bg-white rounded-full px-6 py-3 inline-block shadow-sm border">
+              {/* Botón Cargar Más */}
+              {hasMoreBrands && (
+                <button 
+                  onClick={handleLoadMore}
+                  className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+                >
+                  CARGAR MÁS →
+                </button>
+              )}
+            </div>
+
+            {/* Mensaje cuando se muestran todas */}
+            {!hasMoreBrands && currentPage === 1 && (
+              <p className="text-gray-600 bg-white rounded-full px-6 py-3 inline-block shadow-sm border mt-4">
+                ✨ Todas las marcas están siendo mostradas
+              </p>
+            )}
+
+            {/* Mensaje cuando se llegó al final */}
+            {!hasMoreBrands && currentPage > 1 && (
+              <p className="text-gray-600 bg-white rounded-full px-6 py-3 inline-block shadow-sm border mt-4">
                 ✨ Has visto todas las marcas disponibles
               </p>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </section>
 

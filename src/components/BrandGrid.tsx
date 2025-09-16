@@ -147,7 +147,7 @@ const BrandGrid: React.FC<BrandGridProps> = ({ currentPage }) => {
 
             {/* Botón Ver Modelos */}
             <button 
-              className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg border border-gray-300 transition-colors duration-200"
+              className="w-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200"
               onClick={() => {
                 // Aquí se podría navegar al catálogo filtrado por marca
                 window.location.href = `/catalogo?marca=${brand.name}`;

@@ -33,15 +33,29 @@ const Catalogo: React.FC = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative bg-white pt-20 pb-8">
+      <section className="relative bg-gradient-to-br from-gray-50 to-white pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Catálogo de Modelos
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
               Explorá nuestra amplia selección de autos chinos. Usados y 0km con garantía incluida.
             </p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-sm text-gray-500">
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                Stock actualizado diariamente
+              </div>
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                Garantía incluida
+              </div>
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+                Financiación disponible
+              </div>
+            </div>
           </div>
         </div>
       </section>

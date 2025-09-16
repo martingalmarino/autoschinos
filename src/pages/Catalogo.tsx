@@ -49,7 +49,7 @@ const Catalogo: React.FC = () => {
               Catálogo de Modelos
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Explorá nuestra amplia selección de autos chinos. Usados y 0km disponibles.
+              Conocé la variedad de modelos de autos chinos en el mercado argentino: fichas técnicas, marcas y datos relevantes.
             </p>
           </div>
         </div>

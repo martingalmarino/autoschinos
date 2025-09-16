@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import CatalogFilters from '../components/CatalogFilters';
 import CatalogGrid from '../components/CatalogGrid';
 import Pagination from '../components/Pagination';
+import ContactForm from '../components/ContactForm';
 
 const Catalogo: React.FC = () => {
   const [filters, setFilters] = useState({
@@ -113,6 +114,7 @@ const Catalogo: React.FC = () => {
         </div>
       </section>
 
+      <ContactForm />
       <Footer />
     </div>
   );

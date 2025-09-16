@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Navbar from '../components/Navbar';
 import Breadcrumbs from '../components/Breadcrumbs';
+import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import { useModels } from '../hooks/useModels';
 
@@ -153,6 +154,7 @@ const BrandDetail: React.FC = () => {
         </div>
       </section>
 
+      <ContactForm vehicleOfInterest={`Modelos ${brand.name}`} />
       <Footer />
     </div>
   );

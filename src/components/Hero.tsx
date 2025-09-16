@@ -17,12 +17,9 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 text-center sm:text-left text-white px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="max-w-2xl mx-auto sm:mx-0 py-8 sm:py-12">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight uppercase">
-            Tu próximo auto chino te está esperando
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 leading-tight uppercase">
+            Descubrí el auto chino ideal para vos
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-gray-200 leading-relaxed">
-            Explorá nuestro catálogo de usados y 0km disponibles
-          </p>
           <div className="flex justify-center sm:justify-start">
             <button className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-lg text-base sm:text-lg transition-colors duration-200 w-full sm:w-auto max-w-xs sm:max-w-none">
               Ver catálogo

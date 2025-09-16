@@ -60,7 +60,7 @@ const CatalogGrid: React.FC<CatalogGridProps> = ({ filters, currentPage }) => {
               </span>
               <button 
                 className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors duration-200 flex-shrink-0"
-                onClick={() => window.location.href = `/modelo/${car.id}`}
+                onClick={() => window.location.href = `/marcas/${car.brand.toLowerCase()}/${car.nombre.toLowerCase()}`}
               >
                 Ver detalle
               </button>

@@ -182,7 +182,17 @@ const FeaturedModels: React.FC = () => {
                 </div>
 
                 <div className="flex justify-end">
-                  <button className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-3 sm:px-4 rounded text-xs sm:text-sm transition-colors duration-200">
+                  <button 
+                    className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-3 sm:px-4 rounded text-xs sm:text-sm transition-colors duration-200"
+                    onClick={() => {
+                      // Para los modelos existentes, usar una URL temporal hasta que agregues más marcas
+                      if (car.brand === 'JAC') {
+                        window.location.href = `/marcas/jac/${car.name.toLowerCase().replace(' ', '-')}`;
+                      } else {
+                        window.location.href = '/catalogo';
+                      }
+                    }}
+                  >
                     Ver detalle
                   </button>
                 </div>

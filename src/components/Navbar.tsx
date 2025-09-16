@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-12 border-t border-gray-200">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="text-lg sm:text-xl lg:text-2xl font-bold text-primary-500">
+            <Link to="/" className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-red-500 via-primary-500 to-red-600 bg-clip-text text-transparent drop-shadow-sm hover:drop-shadow-md transition-all duration-300">
               autoschinos.ar
             </Link>
           </div>

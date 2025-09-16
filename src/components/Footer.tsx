@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
           {/* Logo y descripción */}
           <div className="space-y-4">
             <div>
-              <h3 className="text-2xl font-bold text-primary-500 mb-2">
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-red-400 via-primary-400 to-red-500 bg-clip-text text-transparent drop-shadow-sm mb-2">
                 autoschinos.ar
               </h3>
               <p className="text-gray-300 leading-relaxed">

@@ -1,4 +1,85 @@
 {
+  "Chery": {
+    "marca": "Chery",
+    "modelos": [
+      {
+        "id": "chery-tiggo-2-pro-2025",
+        "nombre": "Tiggo 2 Pro",
+        "año": "2025",
+        "categoria": "SUV compacto",
+        "combustible": "Nafta",
+        "transmision": "Manual / Automática",
+        "precio": "$29.500.000 ARS aproximadamente",
+        "imagen": "/images/models/chery/chery-tiggo-2-pro-2025.svg",
+        "descripcion": "SUV compacto con motor 1.5, ideal para uso urbano con buen equipamiento de seguridad y conectividad.",
+        "especificaciones": {
+          "motor": "1.5L",
+          "potencia": "≈ 114-113 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "Por especificar",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "Pantalla táctil",
+          "Android Auto / Apple CarPlay",
+          "Airbags frontales y laterales",
+          "Frenos ABS + EBD"
+        ]
+      },
+      {
+        "id": "chery-tiggo-4-pro-2025",
+        "nombre": "Tiggo 4 Pro",
+        "año": "2025",
+        "categoria": "SUV mediano / crossover",
+        "combustible": "Nafta",
+        "transmision": "Automática CVT",
+        "precio": "$29.500.000 ARS aproximadamente",
+        "imagen": "/images/models/chery/chery-tiggo-4-pro-2025.svg",
+        "descripcion": "SUV con motor turbo 1.5, buen nivel de confort y tecnología, versiones Luxury disponibles en Argentina.",
+        "especificaciones": {
+          "motor": "1.5L Turbo",
+          "potencia": "≈ 147 HP en versión Luxury",
+          "traccion": "4x2",
+          "capacidad_tanque": "Por especificar",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "Luces LED",
+          "ESP / control de estabilidad",
+          "Sensores de estacionamiento",
+          "Pantalla central grande",
+          "Llantas de aleación",
+          "Interior más equipado"
+        ]
+      },
+      {
+        "id": "chery-tiggo-8-pro-2023",
+        "nombre": "Tiggo 8 Pro",
+        "año": "2023",
+        "categoria": "SUV grande / 7 plazas",
+        "combustible": "Nafta",
+        "transmision": "Automática doble embrague",
+        "precio": "≈ U$S 54.056 • más de $32.000.000 ARS",
+        "imagen": "/images/models/chery/chery-tiggo-8-pro-2023.svg",
+        "descripcion": "SUV de tres filas, versión Luxury, con equipamiento completo, confort, tecnología y muchas ayudas a la conducción.",
+        "especificaciones": {
+          "motor": "1.6L Turbo",
+          "potencia": "186 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "Por especificar",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "7 plazas",
+          "Faros LED",
+          "Pantalla táctil HD 12,3″ + instrumental digital 12,3″",
+          "Cámara 360°",
+          "Techo panorámico",
+          "Sistemas ADAS: frenado autónomo, detector de punto ciego, alerta de cambio involuntario de carril"
+        ]
+      }
+    ]
+  },
   "JAC": {
     "marca": "JAC",
     "modelos": [

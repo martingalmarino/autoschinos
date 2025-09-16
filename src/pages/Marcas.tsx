@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar';
 import Breadcrumbs from '../components/Breadcrumbs';
 import Footer from '../components/Footer';
 import BrandGrid from '../components/BrandGrid';
-import ContactForm from '../components/ContactForm';
 
 const Marcas: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -195,7 +194,6 @@ const Marcas: React.FC = () => {
         </div>
       </section>
 
-      <ContactForm />
       <Footer />
     </div>
   );

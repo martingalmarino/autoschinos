@@ -70,18 +70,18 @@ const BrandDetail: React.FC = () => {
           </div>
 
           {/* Estadísticas de la marca */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center bg-white rounded-xl p-6 shadow-lg">
-              <div className="text-3xl font-bold text-primary-500 mb-2">{models.length}</div>
-              <div className="text-gray-600">Modelos disponibles</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="text-center bg-white rounded-lg p-4 shadow-md">
+              <div className="text-2xl font-bold text-primary-500 mb-1">{models.length}</div>
+              <div className="text-sm text-gray-600">Modelos disponibles</div>
             </div>
-            <div className="text-center bg-white rounded-xl p-6 shadow-lg">
-              <div className="text-3xl font-bold text-primary-500 mb-2">2024-2025</div>
-              <div className="text-gray-600">Años de modelos</div>
+            <div className="text-center bg-white rounded-lg p-4 shadow-md">
+              <div className="text-2xl font-bold text-primary-500 mb-1">2024-2025</div>
+              <div className="text-sm text-gray-600">Años de modelos</div>
             </div>
-            <div className="text-center bg-white rounded-xl p-6 shadow-lg">
-              <div className="text-3xl font-bold text-primary-500 mb-2">3+</div>
-              <div className="text-gray-600">Categorías</div>
+            <div className="text-center bg-white rounded-lg p-4 shadow-md">
+              <div className="text-2xl font-bold text-primary-500 mb-1">3+</div>
+              <div className="text-sm text-gray-600">Categorías</div>
             </div>
           </div>
         </div>

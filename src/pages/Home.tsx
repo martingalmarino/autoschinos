@@ -25,11 +25,9 @@ const Home: React.FC = () => {
         <BrandPills />
         <FAQ />
       </main>
-      <ContactForm />
       <Footer />
     </div>
   );
 };
 
 export default Home;
-// Force rebuild

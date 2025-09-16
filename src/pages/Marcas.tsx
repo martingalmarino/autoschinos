@@ -23,7 +23,7 @@ const Marcas: React.FC = () => {
       <Breadcrumbs />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-50 to-white pt-12 pb-20">
+      <section className="relative bg-gradient-to-br from-gray-50 to-white pt-10 pb-20" style={{ paddingTop: '2.5rem' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight">

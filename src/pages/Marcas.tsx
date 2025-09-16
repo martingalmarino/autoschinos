@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
 import Navbar from '../components/Navbar';
 import Breadcrumbs from '../components/Breadcrumbs';
 import Footer from '../components/Footer';
@@ -19,6 +20,12 @@ const Marcas: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title="Marcas de Autos Chinos en Argentina – Guía Completa 2025"
+        description="Descubrí todas las marcas chinas que se venden en Argentina. Información sobre Chery, JAC, Haval, Geely, DFSK y más fabricantes líderes del mercado."
+        keywords="marcas chinas argentina, chery, jac, haval, geely, byd, dfsk, great wall, changan, fabricantes chinos"
+        canonical="https://autoschinos.vercel.app/marcas"
+      />
       <Navbar />
       <Breadcrumbs />
       

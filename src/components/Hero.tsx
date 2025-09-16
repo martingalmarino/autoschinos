@@ -1,4 +1,5 @@
 import React from 'react';
+import heroBg from '../assets/images/hero-bg.jpg';
 
 const Hero: React.FC = () => {
   return (
@@ -7,7 +8,7 @@ const Hero: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiBmaWxsPSIjRjNGNEY2Ii8+CjxyZWN0IHg9IjAiIHk9IjQwMCIgd2lkdGg9IjE5MjAiIGhlaWdodD0iNjgwIiBmaWxsPSIjRTVFN0VCIi8+CjxyZWN0IHg9IjIwMCIgeT0iNTAwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0QxRDVEQiIvPgo8cmVjdCB4PSI2MDAiIHk9IjQ4MCIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMjAiIGZpbGw9IiNEQzI2MjYiLz4KPHJlY3QgeD0iMTAwMCIgeT0iNTAwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0QxRDVEQiIvPgo8cmVjdCB4PSIxNDAwIiB5PSI0ODAiIHdpZHRoPSIzMDAiIGhlaWdodD0iMjIwIiBmaWxsPSIjRkY2MzQ3Ii8+Cjx0ZXh0IHg9Ijk2MCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNkI3MjgwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNDgiIGZvbnQtd2VpZ2h0PSJib2xkIj5Db25jZXNpb25hcmlvIGRlIEF1dG9zPC90ZXh0Pgo8L3N2Zz4K')`
+          backgroundImage: `url(${heroBg})`
         }}
       />
       

@@ -17,6 +17,96 @@ const BrandDetail: React.FC = () => {
       description: 'JAC Motors es una de las marcas chinas más importantes en Argentina, ofreciendo vehículos de alta calidad con tecnología moderna y precios competitivos. Desde SUV familiares hasta pick-ups robustas, JAC combina diseño, confort y eficiencia.',
       logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjRkY2MzQ3Ii8+Cjwvc3ZnPg==',
       color: '#FF6347'
+    },
+    'chery': {
+      name: 'Chery',
+      description: 'Chery es una de las marcas chinas más reconocidas en Argentina, destacándose por su innovación tecnológica y diseño moderno. Con el Tiggo 4 Pro, Chery ofrece un SUV compacto que combina elegancia, confort y tecnología de vanguardia a precios accesibles.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjRTExRDQ4Ii8+Cjwvc3ZnPg==',
+      color: '#E11D48'
+    },
+    'geely': {
+      name: 'Geely',
+      description: 'Geely es una de las marcas chinas más innovadoras en Argentina, reconocida por su compromiso con la tecnología y el diseño moderno. Con modelos como el Emgrand GS y Emgrand X7 Sport, Geely ofrece SUV que combinan elegancia, confort y tecnología de vanguardia.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjMDA1NkIzIi8+Cjwvc3ZnPg==',
+      color: '#0056B3'
+    },
+    'dfsk': {
+      name: 'DFSK',
+      description: 'DFSK es una marca china especializada en vehículos comerciales y SUV en Argentina, ofreciendo soluciones versátiles para el trabajo y la familia. Con una amplia gama que incluye pick-ups robustas, utilitarios prácticos y SUV confortables, DFSK combina funcionalidad y tecnología a precios accesibles.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjOEI1Q0IwIi8+Cjwvc3ZnPg==',
+      color: '#8B5CB0'
+    },
+    'baic': {
+      name: 'BAIC',
+      description: 'BAIC es una de las marcas chinas más prestigiosas en Argentina, reconocida por su innovación tecnológica y diseño de vanguardia. Con una amplia gama que incluye SUV familiares y sedanes elegantes, BAIC combina confort, tecnología y rendimiento a precios competitivos.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjNkI3MjgwIi8+Cjwvc3ZnPg==',
+      color: '#6B7280'
+    },
+    'foton': {
+      name: 'Foton',
+      description: 'Foton es una marca china especializada en vehículos comerciales y pick-ups en Argentina, ofreciendo soluciones robustas y confiables para el trabajo. Con una amplia gama que incluye pick-ups de cabina simple y doble, así como utilitarios, Foton combina durabilidad, capacidad de carga y tecnología a precios accesibles.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjNkI3MjgwIi8+Cjwvc3ZnPg==',
+      color: '#6B7280'
+    },
+    'shineray': {
+      name: 'Shineray',
+      description: 'Shineray es una marca china especializada en vehículos comerciales compactos en Argentina, ofreciendo soluciones prácticas y eficientes para el trabajo urbano. Con una gama que incluye pick-ups compactas de cabina simple y doble, así como utilitarios versátiles, Shineray combina funcionalidad, economía y tecnología a precios muy accesibles.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjRUY0NDQ0Ii8+Cjwvc3ZnPg==',
+      color: '#EF4444'
+    },
+    'haval': {
+      name: 'Haval',
+      description: 'Haval es una marca china de vanguardia en Argentina, especializada en SUV de alta gama con tecnología híbrida y eléctrica. Con modelos como el H6, Jolion y ORA 3, Haval combina diseño moderno, innovación tecnológica y eficiencia energética, ofreciendo soluciones sustentables para el futuro de la movilidad.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjNjM3NDg3Ii8+Cjwvc3ZnPg==',
+      color: '#637487'
+    },
+    'great-wall': {
+      name: 'Great Wall',
+      description: 'Great Wall es una marca china de prestigio en Argentina, reconocida por su compromiso con la calidad y la innovación tecnológica. Con modelos como el Poer y Wingle 7, Great Wall ofrece vehículos robustos y confiables que combinan durabilidad, confort y tecnología de vanguardia a precios competitivos.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjNkI3MjgwIi8+Cjwvc3ZnPg==',
+      color: '#6B7280'
+    },
+    'swm': {
+      name: 'SWM',
+      description: 'SWM es una marca que combina la elegancia italiana con la tecnología china, ofreciendo vehículos de alta calidad en Argentina. Con modelos como el G01 y X7, SWM representa la perfecta fusión entre diseño europeo y confiabilidad asiática, brindando una experiencia de conducción premium a precios accesibles.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjOUM0MEIzIi8+Cjwvc3ZnPg==',
+      color: '#9C40B3'
+    },
+    'changan': {
+      name: 'Changan',
+      description: 'Changan es una de las marcas automotrices más importantes de China, reconocida por su innovación tecnológica y calidad de construcción. En Argentina, Changan ofrece una gama de vehículos utilitarios y pick-ups que combinan funcionalidad, durabilidad y tecnología de vanguardia para satisfacer las necesidades del mercado local.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjOUM0MEIzIi8+Cjwvc3ZnPg==',
+      color: '#9C40B3'
+    },
+    'kyc': {
+      name: 'KYC',
+      description: 'KYC es una marca china especializada en vehículos utilitarios y comerciales, reconocida por su compromiso con la funcionalidad y la durabilidad. En Argentina, KYC ofrece la línea Mamut, una gama de vehículos utilitarios que combinan versatilidad, capacidad de carga y tecnología moderna para satisfacer las necesidades del mercado empresarial y comercial local.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjMDU5NjY5Ii8+Cjwvc3ZnPg==',
+      color: '#059669'
+    },
+    'jetour': {
+      name: 'Jetour',
+      description: 'Jetour es una marca china de vanguardia que se destaca por su diseño innovador y tecnología de punta. En Argentina, Jetour ofrece una gama de SUV que combinan elegancia, confort y rendimiento excepcional. Con modelos como el Dashing, T1, X70 y X70 Plus, Jetour representa la perfecta fusión entre estilo contemporáneo y funcionalidad avanzada para el mercado argentino.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjMTQ5NEFBIi8+Cjwvc3ZnPg==',
+      color: '#1494AA'
+    },
+    'faw': {
+      name: 'FAW',
+      description: 'FAW (First Automobile Works) es una de las marcas automotrices más antiguas y prestigiosas de China, con más de 60 años de experiencia en la industria. En Argentina, FAW ofrece una gama de vehículos que combinan la robustez tradicional china con tecnología moderna, incluyendo pick-ups confiables y SUV elegantes que satisfacen las necesidades del mercado local.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjREM0Mzc5Ii8+Cjwvc3ZnPg==',
+      color: '#DC4379'
+    },
+    'jmc': {
+      name: 'JMC',
+      description: 'JMC (Jiangling Motors Corporation) es una marca china reconocida por su compromiso con la calidad y la innovación en vehículos comerciales. En Argentina, JMC ofrece la línea Grand Avenue, una gama de pick-ups que combinan robustez, confiabilidad y tecnología moderna. Con modelos como el Dadao Pro y Plus, JMC satisface las necesidades del mercado empresarial y comercial local.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjMDU5NjY5Ii8+Cjwvc3ZnPg==',
+      color: '#059669'
+    },
+    'maxus': {
+      name: 'Maxus',
+      description: 'Maxus es una marca china de vanguardia que se destaca por su innovación tecnológica y compromiso con la movilidad sostenible. En Argentina, Maxus ofrece una gama diversa de vehículos que incluye SUV elegantes, pick-ups robustos y opciones eléctricas de última generación. Con modelos como el D90, eDeliver 9, T60, T90 y T90 EV, Maxus representa el futuro de la movilidad en el mercado argentino.',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjMDBBNkY2Ii8+Cjwvc3ZnPg==',
+      color: '#00A6F6'
     }
   };
 

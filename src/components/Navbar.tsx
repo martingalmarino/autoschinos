@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50">
+    <nav className="fixed top-0 left-0 right-0 bg-gradient-to-b from-gray-50 to-white shadow-lg z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Search Bar - Ancho completo hasta Contacto */}
         <div className="flex items-center py-2">
@@ -98,7 +98,7 @@ const Navbar: React.FC = () => {
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gradient-to-b from-gray-50 to-white border-t border-gray-200">
             {navigation.map((item) => (
               item.href.startsWith('#') ? (
                 <a

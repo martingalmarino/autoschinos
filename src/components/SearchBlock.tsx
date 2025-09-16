@@ -45,7 +45,7 @@ const SearchBlock: React.FC = () => {
     <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-b from-white to-gray-50 rounded-xl shadow-lg hover:shadow-xl p-8 -mt-8 relative z-10 transition-shadow duration-300">
+          <div className="bg-gradient-to-br from-gray-100 via-gray-50 to-white rounded-xl shadow-lg hover:shadow-xl p-8 -mt-8 relative z-10 transition-shadow duration-300 border border-gray-200">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Buscá tu próximo auto
             </h2>

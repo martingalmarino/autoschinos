@@ -9,7 +9,8 @@ const Footer: React.FC = () => {
     { name: 'Financiación', href: '#' }
   ];
 
-  const socialLinks = [
+  // Redes sociales removidas - reemplazadas por crédito de desarrollo
+  /*const socialLinks = [
     {
       name: 'Facebook',
       href: '#',
@@ -35,7 +36,7 @@ const Footer: React.FC = () => {
       href: '#',
       icon: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwLjQ0IDJIMy41NkMuNzkgMiAwIDIuNzkgMCAzLjU2djE2Ljg4QzAgMjEuMjEuNzkgMjIgMy41NiAyMmgxNi44OGMyLjc3IDAgMy41Ni0uNzkgMy41Ni0zLjU2VjMuNTZDMjQgMi43OSAyMy4yMSAyIDIwLjQ0IDJ6bS0xNi4zMyAxOC4yM0gzLjU2VjguNDNoLjU1djExLjh6bS0uMjgtMTMuNDFjLS4xOCAwLS4zMy0uMTUtLjMzLS4zM3MuMTUtLjMzLjMzLS4zMy4zMy4xNS4zMy4zMy0uMTUuMzMtLjMzLjMzem0xMy40MSAxMy40MWgtLjU1di01LjY0YzAtMS4zMS0uNDctMS45Ny0xLjQ3LTEuOTctLjgxIDAtMS4yOS41NS0xLjUxIDEuMDh2Ni41M2gtLjU1VjguNDNoLjU1djEuNTFjLjQ0LS42OSAxLjIxLTEuMDcgMi4wNy0xLjA3IDEuNTMgMCAyLjY4IDEuMDQgMi42OCAzLjI5djYuMDF6IiBmaWxsPSIjNjM3NDg3Ii8+Cjwvc3ZnPg=='
     }
-  ];
+  ]; */
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -89,23 +90,16 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="mt-6">
-              <h5 className="text-gray-300 font-medium mb-3">Seguinos en nuestras redes</h5>
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    className="text-gray-400 hover:text-primary-500 transition-colors duration-200"
-                    aria-label={social.name}
-                  >
-                    <img
-                      src={social.icon}
-                      alt={social.name}
-                      className="w-6 h-6"
-                    />
-                  </a>
-                ))}
-              </div>
+              <p className="text-gray-400 text-sm">
+                Desarrollado por{' '}
+                <a 
+                  href="mailto:m.galmarino@gmail.com" 
+                  className="text-primary-500 hover:text-primary-400 transition-colors duration-200 font-medium"
+                >
+                  Martín Galmarino
+                </a>
+                {' '}🤖
+              </p>
             </div>
           </div>
         </div>

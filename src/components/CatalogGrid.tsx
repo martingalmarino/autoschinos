@@ -1,5 +1,5 @@
 import React from 'react';
-import { useModels, CarModel } from '../hooks/useModels';
+import { useModels } from '../hooks/useModels';
 
 interface CatalogGridProps {
   filters: any;

@@ -24,7 +24,7 @@ const Marcas: React.FC = () => {
         title="Marcas de Autos Chinos en Argentina – Guía Completa 2025"
         description="Descubrí todas las marcas chinas que se venden en Argentina. Información sobre Chery, JAC, Haval, Geely, DFSK y más fabricantes líderes del mercado."
         keywords="marcas chinas argentina, chery, jac, haval, geely, byd, dfsk, great wall, changan, fabricantes chinos"
-        canonical="https://autoschinos.vercel.app/marcas"
+        canonical="https://www.autoschinos.ar/marcas"
       />
       <Navbar />
       <Breadcrumbs />

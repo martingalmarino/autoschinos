@@ -36,7 +36,7 @@ const Catalogo: React.FC = () => {
         title="Catálogo de Autos Chinos en Argentina – Modelos y Fichas Técnicas"
         description="Explorá el catálogo completo de autos chinos en Argentina: SUV, sedanes, pick-ups y eléctricos. Detalles de cada modelo, versiones y características."
         keywords="catalogo autos chinos, modelos chinos argentina, suv chinos, sedanes chinos, pickups chinos, electricos chinos"
-        canonical="https://autoschinos.vercel.app/catalogo"
+        canonical="https://www.autoschinos.ar/catalogo"
       />
       <Navbar />
       <Breadcrumbs />

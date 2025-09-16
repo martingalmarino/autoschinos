@@ -9,7 +9,7 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonical }) => {
-  const siteUrl = 'https://autoschinos.vercel.app';
+  const siteUrl = 'https://www.autoschinos.ar';
   const fullTitle = `${title} | autoschinos.ar`;
 
   return (

@@ -186,8 +186,8 @@ const FeaturedModels: React.FC = () => {
                     className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-3 sm:px-4 rounded text-xs sm:text-sm transition-colors duration-200"
                     onClick={() => {
                       // Usar la estructura de URL jerárquica
-                      const brandSlug = car.brand.toLowerCase().replace(' ', '-');
-                      const modelSlug = car.nombre.toLowerCase().replace(' ', '-');
+                      const brandSlug = car.brand.toLowerCase().replace(/ /g, '-');
+                      const modelSlug = car.nombre.toLowerCase().replace(/ /g, '-');
                       window.location.href = `/marcas/${brandSlug}/${modelSlug}`;
                     }}
                   >

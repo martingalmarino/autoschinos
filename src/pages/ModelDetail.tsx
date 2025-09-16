@@ -12,8 +12,8 @@ const ModelDetail: React.FC = () => {
   const { allModels } = useModels();
   
   const model = allModels.find(m => 
-    m.brand.toLowerCase() === brandName?.toLowerCase() && 
-    m.nombre.toLowerCase() === modelName?.toLowerCase()
+    m.brand.toLowerCase().replace(/ /g, '-') === brandName?.toLowerCase() && 
+    m.nombre.toLowerCase().replace(/ /g, '-') === modelName?.toLowerCase()
   );
 
   if (!model) {

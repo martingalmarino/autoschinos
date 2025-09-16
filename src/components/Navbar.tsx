@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
   const navigation = [
     { name: 'Inicio', href: '/' },
     { name: 'Modelos', href: '/catalogo' },
-    { name: 'Marcas', href: '#' },
+    { name: 'Marcas', href: '/marcas' },
     { name: 'Financiación', href: '#' },
     { name: 'Contacto', href: '#' },
   ];

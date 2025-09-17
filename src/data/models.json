@@ -511,7 +511,7 @@
         "categoria": "SUV compacto",
         "combustible": "Nafta",
         "transmision": "Automática DCT 7",
-        "precio": "Por consultar",
+        "precio": "Consultar precio",
         "imagen": "/images/models/baic/baic-x55-ii-2025.jpg",
         "descripcion": "SUV compacto de nueva generación con diseño moderno, motor turbo 1.5 L y alto nivel de equipamiento.",
         "especificaciones": {
@@ -536,7 +536,7 @@
         "categoria": "SUV compacto",
         "combustible": "Nafta",
         "transmision": "CVT",
-        "precio": "Por consultar",
+        "precio": "Consultar precio",
         "imagen": "/images/models/baic/baic-x55-plus-2025.jpg",
         "descripcion": "Versión mejorada del X55 con diseño renovado, motor 1.5 turbo eficiente y tecnología avanzada de asistencia.",
         "especificaciones": {
@@ -561,7 +561,7 @@
         "categoria": "SUV todoterreno",
         "combustible": "Nafta",
         "transmision": "Automática 8 velocidades",
-        "precio": "Por consultar",
+        "precio": "Consultar precio",
         "imagen": "/images/models/baic/baic-bj30-2025.jpg",
         "descripcion": "SUV estilo off-road inspirado en el diseño cuadrado clásico, con tracción AWD y motor turbo.",
         "especificaciones": {
@@ -586,7 +586,7 @@
         "categoria": "SUV todoterreno",
         "combustible": "Nafta",
         "transmision": "Manual / Automática",
-        "precio": "Por consultar",
+        "precio": "Consultar precio",
         "imagen": "/images/models/baic/baic-bj40-2025.jpg",
         "descripcion": "SUV todoterreno estilo Jeep Wrangler, con carrocería robusta, chasis de largueros y tracción 4x4.",
         "especificaciones": {
@@ -611,7 +611,7 @@
         "categoria": "SUV grande off-road",
         "combustible": "Nafta",
         "transmision": "Automática 8 velocidades",
-        "precio": "Por consultar",
+        "precio": "Consultar precio",
         "imagen": "/images/models/baic/baic-bj60-2025.jpg",
         "descripcion": "SUV todoterreno grande, rival de Prado, con motor turbo 2.0, tracción 4x4 y lujo interior.",
         "especificaciones": {
@@ -636,7 +636,7 @@
         "categoria": "Sedán eléctrico",
         "combustible": "100% Eléctrico",
         "transmision": "Automática",
-        "precio": "Por consultar",
+        "precio": "Consultar precio",
         "imagen": "/images/models/baic/baic-eu5-2025.jpg",
         "descripcion": "Sedán eléctrico con hasta 416 km de autonomía, diseñado para movilidad urbana sostenible.",
         "especificaciones": {
@@ -661,7 +661,7 @@
         "categoria": "Sedán compacto",
         "combustible": "Nafta",
         "transmision": "Manual / CVT",
-        "precio": "Por consultar",
+        "precio": "Consultar precio",
         "imagen": "/images/models/baic/baic-u5-plus-2025.jpg",
         "descripcion": "Sedán compacto de estilo urbano con motor 1.5 L y buen nivel de equipamiento.",
         "especificaciones": {
@@ -686,7 +686,7 @@
         "categoria": "SUV subcompacto",
         "combustible": "Nafta",
         "transmision": "Manual / Automática",
-        "precio": "Por consultar",
+        "precio": "Consultar precio",
         "imagen": "/images/models/baic/baic-x35-2025.jpg",
         "descripcion": "SUV chico urbano con motor 1.5 L, pensado para ciudad y trayectos cortos.",
         "especificaciones": {

@@ -4,8 +4,18 @@ import { useModels } from '../hooks/useModels';
 const FeaturedModels: React.FC = () => {
   const { allModels } = useModels();
   
-  // Seleccionar los primeros 6 modelos disponibles para mostrar como destacados
-  const featuredCars = allModels.slice(0, 6);
+  // Función para mezclar array aleatoriamente (Fisher-Yates shuffle)
+  const shuffleArray = (array: any[]) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
+
+  // Seleccionar 12 modelos aleatorios para mostrar como destacados
+  const featuredCars = shuffleArray(allModels).slice(0, 12);
 
   if (featuredCars.length === 0) {
     return null; // No mostrar la sección si no hay modelos
@@ -147,7 +157,7 @@ const FeaturedModels: React.FC = () => {
           </p>
         </div>
 
-        {/* Grid de 4 columnas por línea */}
+        {/* Grid de 4 columnas por línea para 12 modelos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {featuredCars.map((car) => (
             <div key={car.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">

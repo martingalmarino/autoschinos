@@ -27,7 +27,7 @@ const BrandGrid: React.FC<BrandGridProps> = ({ currentPage }) => {
     {
       id: 2,
       name: 'Chery',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiNFMTFENDgiLz4KPC9zdmc+',
+      logo: '/images/brands/logos/chery-logo.png',
       slogan: 'LIFE IS EASIER',
       color: '#E11D48',
       modelsCount: 12
@@ -35,7 +35,7 @@ const BrandGrid: React.FC<BrandGridProps> = ({ currentPage }) => {
     {
       id: 3,
       name: 'Geely',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiMwMDU2QjMiLz4KPC9zdmc+',
+      logo: '/images/brands/logos/geely-logo.png',
       slogan: 'MAKE LIFE WONDERFUL',
       color: '#0056B3',
       modelsCount: 15
@@ -43,7 +43,7 @@ const BrandGrid: React.FC<BrandGridProps> = ({ currentPage }) => {
     {
       id: 4,
       name: 'Haval',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiM2Mzc0ODciLz4KPC9zdmc+',
+      logo: '/images/brands/logos/haval-logo.png',
       slogan: 'LOVE THE WAY FORWARD',
       color: '#637487',
       modelsCount: 9

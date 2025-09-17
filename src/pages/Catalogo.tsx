@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Navbar from '../components/Navbar';
 import Breadcrumbs from '../components/Breadcrumbs';
@@ -8,6 +9,7 @@ import CatalogGrid from '../components/CatalogGrid';
 import Pagination from '../components/Pagination';
 
 const Catalogo: React.FC = () => {
+  const [searchParams] = useSearchParams();
   const [filters, setFilters] = useState({
     marca: '',
     combustible: '',
@@ -15,6 +17,21 @@ const Catalogo: React.FC = () => {
     segmento: ''
   });
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Leer parámetros de búsqueda de la URL al cargar el componente
+  useEffect(() => {
+    const marca = searchParams.get('marca') || '';
+    const modelo = searchParams.get('modelo') || '';
+    
+    if (marca || modelo) {
+      setFilters(prev => ({
+        ...prev,
+        marca: marca,
+        // Si hay un modelo específico, podríamos agregarlo como filtro adicional
+        // Por ahora solo usamos la marca
+      }));
+    }
+  }, [searchParams]);
 
   const handleFiltersChange = (newFilters: any) => {
     setFilters(newFilters);
@@ -42,7 +59,7 @@ const Catalogo: React.FC = () => {
       <Breadcrumbs />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-50 to-white pt-10 pb-20" style={{ paddingTop: '2.5rem' }}>
+      <section className="relative bg-gradient-to-br from-gray-50 to-white pt-10 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight">

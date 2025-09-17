@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { useNavigate } from 'react-router-dom';
 import { useModels } from '../hooks/useModels';
 
 interface SearchForm {
@@ -9,6 +10,7 @@ interface SearchForm {
 
 const SearchBlock: React.FC = () => {
   const { allModels } = useModels();
+  const navigate = useNavigate();
   
   const [formData, setFormData] = useState<SearchForm>({
     marca: '',
@@ -54,8 +56,21 @@ const SearchBlock: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Búsqueda:', formData);
-    // Aquí se implementaría la lógica de búsqueda
+    
+    // Crear parámetros de búsqueda
+    const searchParams = new URLSearchParams();
+    
+    if (formData.marca) {
+      searchParams.set('marca', formData.marca);
+    }
+    
+    if (formData.modelo) {
+      searchParams.set('modelo', formData.modelo);
+    }
+    
+    // Navegar al catálogo con los filtros aplicados
+    const queryString = searchParams.toString();
+    navigate(`/catalogo${queryString ? `?${queryString}` : ''}`);
   };
 
   return (
@@ -139,12 +154,13 @@ const SearchBlock: React.FC = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end space-y-4 sm:space-y-0">
-                <a 
-                  href="#" 
-                  className="text-primary-500 hover:text-primary-600 font-medium transition-colors duration-200 text-center sm:text-left"
+                <button
+                  type="button"
+                  onClick={() => navigate('/catalogo')}
+                  className="text-primary-500 hover:text-primary-600 font-medium transition-colors duration-200 text-center sm:text-left bg-transparent border-none cursor-pointer"
                 >
                   • Ver todos los vehículos disponibles
-                </a>
+                </button>
                 <button
                   type="submit"
                   className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200 w-full sm:w-auto"

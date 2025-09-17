@@ -63,9 +63,9 @@
     @apply relative h-52 bg-gray-100 overflow-hidden;
   }
 
-  /* Footer con fondo gris azulado profundo elegante */
+  /* Footer con fondo gris neutro moderno */
   .footer-neutral-gray {
-    background-color: #2B2F36;
+    background-color: #27272A;
   }
 }
 

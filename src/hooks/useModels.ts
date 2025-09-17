@@ -47,10 +47,20 @@ export const useModels = () => {
 
   const getFilteredModels = (filters: any) => {
     return allModels.filter(model => {
-      return (!filters.marca || model.brand === filters.marca) &&
-             (!filters.combustible || model.combustible.includes(filters.combustible)) &&
-             (!filters.transmision || model.transmision.includes(filters.transmision)) &&
-             (!filters.segmento || model.categoria.includes(filters.segmento));
+      // Filtro por marca específica
+      const marcaMatch = !filters.marca || model.brand.toLowerCase() === filters.marca.toLowerCase();
+      
+      // Filtro por búsqueda general (busca en marca y modelo)
+      const searchMatch = !filters.search || 
+        model.brand.toLowerCase().includes(filters.search.toLowerCase()) ||
+        model.nombre.toLowerCase().includes(filters.search.toLowerCase());
+      
+      // Otros filtros
+      const combustibleMatch = !filters.combustible || model.combustible.includes(filters.combustible);
+      const transmisionMatch = !filters.transmision || model.transmision.includes(filters.transmision);
+      const segmentoMatch = !filters.segmento || model.categoria.includes(filters.segmento);
+      
+      return marcaMatch && searchMatch && combustibleMatch && transmisionMatch && segmentoMatch;
     });
   };
 

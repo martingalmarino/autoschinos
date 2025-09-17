@@ -24,15 +24,20 @@ const Catalogo: React.FC = () => {
     const modelo = searchParams.get('modelo') || '';
     const searchTerm = searchParams.get('search') || '';
     
+    // Resetear filtros primero
+    setFilters({
+      marca: '',
+      combustible: '',
+      transmision: '',
+      segmento: ''
+    });
+    
+    // Aplicar filtros según los parámetros
     if (marca || modelo || searchTerm) {
       setFilters(prev => ({
         ...prev,
         marca: marca,
-        // Si hay un término de búsqueda general, intentar detectar si es marca o modelo
-        ...(searchTerm && !marca && {
-          // Si el término coincide con alguna marca conocida, usarlo como marca
-          marca: searchTerm
-        })
+        search: searchTerm // Añadir el término de búsqueda como filtro separado
       }));
     }
   }, [searchParams]);

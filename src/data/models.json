@@ -339,5 +339,166 @@
         ]
       }
     ]
+  },
+  "Haval": {
+    "marca": "Haval",
+    "modelos": [
+      {
+        "id": "haval-h6-2025",
+        "nombre": "H6",
+        "año": "2025",
+        "categoria": "SUV mediano",
+        "combustible": "Nafta",
+        "transmision": "Automática DCT 7 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/haval/haval-h6-2025.jpg",
+        "descripcion": "SUV mediano, uno de los más vendidos de Haval a nivel global, con motor turbo 2.0 L y alto nivel de equipamiento.",
+        "especificaciones": {
+          "motor": "2.0L Turbo",
+          "potencia": "201 HP",
+          "traccion": "4x2 / AWD según versión",
+          "capacidad_tanque": "60 L",
+          "peso": "≈ 1.650 kg"
+        },
+        "caracteristicas": [
+          "6 airbags",
+          "ADAS (asistencia avanzada a la conducción)",
+          "Pantalla central 12,3″",
+          "Android Auto / Apple CarPlay",
+          "Cámara 360°",
+          "Control crucero adaptativo"
+        ]
+      },
+      {
+        "id": "haval-h6-hev-2025",
+        "nombre": "H6 HEV",
+        "año": "2025",
+        "categoria": "SUV híbrido mediano",
+        "combustible": "Híbrido (Nafta + Eléctrico)",
+        "transmision": "E-CVT",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/haval/haval-h6-hev-2025.jpg",
+        "descripcion": "Versión híbrida del H6, combina motor naftero 1.5 turbo y motor eléctrico para mayor eficiencia y menor consumo.",
+        "especificaciones": {
+          "motor": "1.5L Turbo + motor eléctrico",
+          "potencia": "243 HP combinados",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "55 L",
+          "peso": "≈ 1.700 kg"
+        },
+        "caracteristicas": [
+          "Sistema híbrido autorrecargable",
+          "Pantalla táctil 12,3″",
+          "Frenado autónomo de emergencia",
+          "Alerta de punto ciego",
+          "Cámara 360°",
+          "Consumo promedio < 6 L/100km"
+        ]
+      },
+      {
+        "id": "haval-h6gt-2025",
+        "nombre": "H6GT",
+        "año": "2025",
+        "categoria": "SUV coupé",
+        "combustible": "Nafta",
+        "transmision": "DCT 7 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/haval/haval-h6gt-2025.jpg",
+        "descripcion": "Versión coupé deportiva del H6, con diseño fastback, motor turbo 2.0 y tracción AWD.",
+        "especificaciones": {
+          "motor": "2.0L Turbo",
+          "potencia": "201 HP",
+          "traccion": "AWD",
+          "capacidad_tanque": "60 L",
+          "peso": "≈ 1.680 kg"
+        },
+        "caracteristicas": [
+          "Diseño SUV coupé fastback",
+          "6 airbags",
+          "Pantalla central multimedia",
+          "Sensores de estacionamiento",
+          "Techo panorámico",
+          "Control de descenso (HDC)"
+        ]
+      },
+      {
+        "id": "haval-jolion-2025",
+        "nombre": "Jolion",
+        "año": "2025",
+        "categoria": "SUV compacto",
+        "combustible": "Nafta",
+        "transmision": "DCT 7 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/haval/haval-jolion-2025.jpg",
+        "descripcion": "SUV compacto con motor 1.5 turbo, gran equipamiento en conectividad y seguridad, ideal para ciudad y viajes.",
+        "especificaciones": {
+          "motor": "1.5L Turbo",
+          "potencia": "141 HP",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "55 L",
+          "peso": "≈ 1.550 kg"
+        },
+        "caracteristicas": [
+          "Pantalla táctil central 12,3″",
+          "Android Auto / Apple CarPlay",
+          "Sensores delanteros y traseros",
+          "Cámara 360°",
+          "Control de estabilidad (ESP)",
+          "ISOFIX"
+        ]
+      },
+      {
+        "id": "ora-3-2025",
+        "nombre": "ORA 3 (Good Cat)",
+        "año": "2025",
+        "categoria": "Hatchback eléctrico",
+        "combustible": "100% Eléctrico",
+        "transmision": "Automática (e-drive)",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/haval/ora-3-2025.jpg",
+        "descripcion": "Hatchback 100% eléctrico de la marca ORA (GWM), con diseño retro-futurista y hasta 400 km de autonomía.",
+        "especificaciones": {
+          "motor": "Motor eléctrico 105 kW",
+          "potencia": "143 HP",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "N/A (batería 47,8 kWh o 63 kWh)",
+          "peso": "≈ 1.540 kg"
+        },
+        "caracteristicas": [
+          "Autonomía hasta 400 km",
+          "Carga rápida CCS2",
+          "Pantalla táctil central 10,25″",
+          "Airbags múltiples",
+          "Control de crucero adaptativo",
+          "Alerta de cambio de carril"
+        ]
+      },
+      {
+        "id": "haval-jolion-pro-hev-2025",
+        "nombre": "Jolion PRO HEV",
+        "año": "2025",
+        "categoria": "SUV compacto híbrido",
+        "combustible": "Híbrido (Nafta + Eléctrico)",
+        "transmision": "E-CVT",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/haval/haval-jolion-pro-hev-2025.jpg",
+        "descripcion": "Versión híbrida del Jolion PRO, combina motor 1.5 L turbo y eléctrico para mayor eficiencia y menor consumo.",
+        "especificaciones": {
+          "motor": "1.5L Turbo + motor eléctrico",
+          "potencia": "190 HP combinados",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "55 L",
+          "peso": "≈ 1.600 kg"
+        },
+        "caracteristicas": [
+          "Híbrido autorrecargable",
+          "ADAS completo",
+          "Pantalla táctil 12,3″",
+          "Cámara 360°",
+          "Techo panorámico",
+          "Control crucero adaptativo"
+        ]
+      }
+    ]
   }
 }

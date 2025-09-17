@@ -1,5 +1,6 @@
 import React from 'react';
 import { getBrandLogo, getBrandColor } from '../utils/logoUtils';
+import { useModels } from '../hooks/useModels';
 
 interface Brand {
   id: number;
@@ -15,32 +16,56 @@ interface BrandGridProps {
 }
 
 const BrandGrid: React.FC<BrandGridProps> = ({ currentPage }) => {
-  // Sistema dinámico de marcas - se actualiza automáticamente cuando subas nuevos logos
+  const { getModelsByBrand } = useModels();
+  
+  // Sistema dinámico de marcas - solo información estática, modelsCount será dinámico
   const brandData = [
-    { name: 'JAC', slogan: 'FEEL A BETTER DRIVE', modelsCount: 8 },
-    { name: 'Chery', slogan: 'LIFE IS EASIER', modelsCount: 12 },
-    { name: 'Geely', slogan: 'MAKE LIFE WONDERFUL', modelsCount: 15 },
-    { name: 'Haval', slogan: 'LOVE THE WAY FORWARD', modelsCount: 9 },
-    { name: 'BYD', slogan: 'BUILD YOUR DREAMS', modelsCount: 18 },
-    { name: 'Dongfeng', slogan: 'QUALITY DRIVES US', modelsCount: 7 },
-    { name: 'Great Wall', slogan: 'DARE TO CHALLENGE', modelsCount: 11 },
-    { name: 'Lifan', slogan: 'SMART & RELIABLE', modelsCount: 6 },
-    { name: 'MG', slogan: 'MAKE THINGS BETTER', modelsCount: 10 },
-    { name: 'Changan', slogan: 'INNOVATION FOR LIFE', modelsCount: 13 },
-    { name: 'Foton', slogan: 'POWER YOUR BUSINESS', modelsCount: 5 },
-    { name: 'BAIC', slogan: 'DRIVE THE FUTURE', modelsCount: 4 },
-    { name: 'DFSK', slogan: 'POWER FOR LIFE', modelsCount: 6 }
+    { name: 'JAC', slogan: 'FEEL A BETTER DRIVE' },
+    { name: 'Chery', slogan: 'LIFE IS EASIER' },
+    { name: 'Geely', slogan: 'MAKE LIFE WONDERFUL' },
+    { name: 'Haval', slogan: 'LOVE THE WAY FORWARD' },
+    { name: 'BYD', slogan: 'BUILD YOUR DREAMS' },
+    { name: 'Dongfeng', slogan: 'QUALITY DRIVES US' },
+    { name: 'Great Wall', slogan: 'DARE TO CHALLENGE' },
+    { name: 'Lifan', slogan: 'SMART & RELIABLE' },
+    { name: 'MG', slogan: 'MAKE THINGS BETTER' },
+    { name: 'Changan', slogan: 'INNOVATION FOR LIFE' },
+    { name: 'Foton', slogan: 'POWER YOUR BUSINESS' },
+    { name: 'BAIC', slogan: 'DRIVE THE FUTURE' },
+    { name: 'DFSK', slogan: 'POWER FOR LIFE' }
   ];
 
-  // Generar marcas dinámicamente con logos automáticos
-  const allBrands: Brand[] = brandData.map((brand, index) => ({
-    id: index + 1,
-    name: brand.name,
-    logo: getBrandLogo(brand.name), // Automáticamente usa el PNG si existe
-    slogan: brand.slogan,
-    color: getBrandColor(brand.name), // Color automático
-    modelsCount: brand.modelsCount
-  }));
+  // Generar marcas dinámicamente con conteo real de modelos
+  const allBrands: Brand[] = brandData.map((brand, index) => {
+    // Mapeo correcto para obtener nombre exacto del JSON
+    const brandNameMapping: { [key: string]: string } = {
+      'JAC': 'JAC',
+      'Chery': 'Chery',
+      'Geely': 'Geely',
+      'Haval': 'Haval',
+      'BYD': 'BYD',
+      'Dongfeng': 'Dongfeng',
+      'Great Wall': 'Great Wall',
+      'Lifan': 'Lifan',
+      'MG': 'MG',
+      'Changan': 'Changan',
+      'Foton': 'Foton',
+      'BAIC': 'BAIC',
+      'DFSK': 'DFSK'
+    };
+    
+    const exactBrandName = brandNameMapping[brand.name] || brand.name;
+    const realModelsCount = getModelsByBrand(exactBrandName).length;
+    
+    return {
+      id: index + 1,
+      name: brand.name,
+      logo: getBrandLogo(brand.name),
+      slogan: brand.slogan,
+      color: getBrandColor(brand.name),
+      modelsCount: realModelsCount // ✅ DINÁMICO - Conteo real del JSON
+    };
+  });
 
   // Paginación: 9 marcas por página
   const brandsPerPage = 9;

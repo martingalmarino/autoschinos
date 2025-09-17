@@ -21,13 +21,13 @@ const BrandDetail: React.FC = () => {
     'chery': {
       name: 'Chery',
       description: 'Chery es una de las marcas chinas más reconocidas en Argentina, destacándose por su innovación tecnológica y diseño moderno. Con el Tiggo 4 Pro, Chery ofrece un SUV compacto que combina elegancia, confort y tecnología de vanguardia a precios accesibles.',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjRTExRDQ4Ii8+Cjwvc3ZnPg==',
+      logo: '/images/brands/logos/chery-logo.png',
       color: '#E11D48'
     },
     'geely': {
       name: 'Geely',
       description: 'Geely es una de las marcas chinas más innovadoras en Argentina, reconocida por su compromiso con la tecnología y el diseño moderno. Con modelos como el Emgrand GS y Emgrand X7 Sport, Geely ofrece SUV que combinan elegancia, confort y tecnología de vanguardia.',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjMDA1NkIzIi8+Cjwvc3ZnPg==',
+      logo: '/images/brands/logos/geely-logo.png',
       color: '#0056B3'
     },
     'dfsk': {
@@ -57,7 +57,7 @@ const BrandDetail: React.FC = () => {
     'haval': {
       name: 'Haval',
       description: 'Haval es una marca china de vanguardia en Argentina, especializada en SUV de alta gama con tecnología híbrida y eléctrica. Con modelos como el H6, Jolion y ORA 3, Haval combina diseño moderno, innovación tecnológica y eficiencia energética, ofreciendo soluciones sustentables para el futuro de la movilidad.',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjUwIiBmaWxsPSIjNjM3NDg3Ii8+Cjwvc3ZnPg==',
+      logo: '/images/brands/logos/haval-logo.png',
       color: '#637487'
     },
     'great-wall': {

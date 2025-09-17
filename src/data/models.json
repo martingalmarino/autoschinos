@@ -500,5 +500,210 @@
         ]
       }
     ]
+  },
+  "BAIC": {
+    "marca": "BAIC",
+    "modelos": [
+      {
+        "id": "baic-x55-ii-2025",
+        "nombre": "X55 II",
+        "año": "2025",
+        "categoria": "SUV compacto",
+        "combustible": "Nafta",
+        "transmision": "Automática DCT 7",
+        "precio": "Por consultar",
+        "imagen": "/images/models/baic/baic-x55-ii-2025.jpg",
+        "descripcion": "SUV compacto de nueva generación con diseño moderno, motor turbo 1.5 L y alto nivel de equipamiento.",
+        "especificaciones": {
+          "motor": "1.5L Turbo",
+          "potencia": "188 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "55 L",
+          "peso": "≈ 1.580 kg"
+        },
+        "caracteristicas": [
+          "Pantalla táctil 10,1″",
+          "Airbags múltiples",
+          "Control de estabilidad",
+          "Cámara 360°",
+          "Android Auto / Apple CarPlay"
+        ]
+      },
+      {
+        "id": "baic-x55-plus-2025",
+        "nombre": "X55 Plus",
+        "año": "2025",
+        "categoria": "SUV compacto",
+        "combustible": "Nafta",
+        "transmision": "CVT",
+        "precio": "Por consultar",
+        "imagen": "/images/models/baic/baic-x55-plus-2025.jpg",
+        "descripcion": "Versión mejorada del X55 con diseño renovado, motor 1.5 turbo eficiente y tecnología avanzada de asistencia.",
+        "especificaciones": {
+          "motor": "1.5L Turbo",
+          "potencia": "≈ 174 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "55 L",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "Asistencias ADAS",
+          "Pantalla táctil multimedia",
+          "Control de crucero adaptativo",
+          "Sensores delanteros y traseros",
+          "Interior con materiales premium"
+        ]
+      },
+      {
+        "id": "baic-bj30-2025",
+        "nombre": "BJ30",
+        "año": "2025",
+        "categoria": "SUV todoterreno",
+        "combustible": "Nafta",
+        "transmision": "Automática 8 velocidades",
+        "precio": "Por consultar",
+        "imagen": "/images/models/baic/baic-bj30-2025.jpg",
+        "descripcion": "SUV estilo off-road inspirado en el diseño cuadrado clásico, con tracción AWD y motor turbo.",
+        "especificaciones": {
+          "motor": "1.5L Turbo",
+          "potencia": "≈ 190 HP",
+          "traccion": "AWD",
+          "capacidad_tanque": "Por especificar",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "Diseño off-road",
+          "Pantalla digital",
+          "4x4 con modos de conducción",
+          "Faros LED",
+          "Control de descenso"
+        ]
+      },
+      {
+        "id": "baic-bj40-2025",
+        "nombre": "BJ40",
+        "año": "2025",
+        "categoria": "SUV todoterreno",
+        "combustible": "Nafta",
+        "transmision": "Manual / Automática",
+        "precio": "Por consultar",
+        "imagen": "/images/models/baic/baic-bj40-2025.jpg",
+        "descripcion": "SUV todoterreno estilo Jeep Wrangler, con carrocería robusta, chasis de largueros y tracción 4x4.",
+        "especificaciones": {
+          "motor": "2.0L Turbo",
+          "potencia": "≈ 224 HP",
+          "traccion": "4x4",
+          "capacidad_tanque": "75 L",
+          "peso": "≈ 2.200 kg"
+        },
+        "caracteristicas": [
+          "Techo desmontable",
+          "Control de descenso",
+          "7 airbags",
+          "Asistente de arranque en pendiente",
+          "Cámara 360°"
+        ]
+      },
+      {
+        "id": "baic-bj60-2025",
+        "nombre": "BJ60",
+        "año": "2025",
+        "categoria": "SUV grande off-road",
+        "combustible": "Nafta",
+        "transmision": "Automática 8 velocidades",
+        "precio": "Por consultar",
+        "imagen": "/images/models/baic/baic-bj60-2025.jpg",
+        "descripcion": "SUV todoterreno grande, rival de Prado, con motor turbo 2.0, tracción 4x4 y lujo interior.",
+        "especificaciones": {
+          "motor": "2.0L Turbo",
+          "potencia": "≈ 267 HP",
+          "traccion": "4x4",
+          "capacidad_tanque": "80 L",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "Suspensión neumática",
+          "Pantallas duales",
+          "ADAS completo",
+          "7 plazas",
+          "Diferenciales bloqueables"
+        ]
+      },
+      {
+        "id": "baic-eu5-2025",
+        "nombre": "EU5",
+        "año": "2025",
+        "categoria": "Sedán eléctrico",
+        "combustible": "100% Eléctrico",
+        "transmision": "Automática",
+        "precio": "Por consultar",
+        "imagen": "/images/models/baic/baic-eu5-2025.jpg",
+        "descripcion": "Sedán eléctrico con hasta 416 km de autonomía, diseñado para movilidad urbana sostenible.",
+        "especificaciones": {
+          "motor": "Eléctrico",
+          "potencia": "163 HP",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "N/A (batería 60 kWh)",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "Autonomía hasta 416 km",
+          "Pantalla central táctil",
+          "Control de estabilidad",
+          "Cámara de retroceso",
+          "Airbags múltiples"
+        ]
+      },
+      {
+        "id": "baic-u5-plus-2025",
+        "nombre": "U5 Plus",
+        "año": "2025",
+        "categoria": "Sedán compacto",
+        "combustible": "Nafta",
+        "transmision": "Manual / CVT",
+        "precio": "Por consultar",
+        "imagen": "/images/models/baic/baic-u5-plus-2025.jpg",
+        "descripcion": "Sedán compacto de estilo urbano con motor 1.5 L y buen nivel de equipamiento.",
+        "especificaciones": {
+          "motor": "1.5L",
+          "potencia": "≈ 113 HP",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "Por especificar",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "Pantalla multimedia",
+          "Airbags frontales",
+          "ABS + EBD",
+          "Control de estabilidad",
+          "Interior confortable"
+        ]
+      },
+      {
+        "id": "baic-x35-2025",
+        "nombre": "X35",
+        "año": "2025",
+        "categoria": "SUV subcompacto",
+        "combustible": "Nafta",
+        "transmision": "Manual / Automática",
+        "precio": "Por consultar",
+        "imagen": "/images/models/baic/baic-x35-2025.jpg",
+        "descripcion": "SUV chico urbano con motor 1.5 L, pensado para ciudad y trayectos cortos.",
+        "especificaciones": {
+          "motor": "1.5L",
+          "potencia": "≈ 116 HP",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "Por especificar",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "Pantalla multimedia",
+          "Airbags frontales",
+          "ABS",
+          "Control de tracción",
+          "Sensores de estacionamiento traseros"
+        ]
+      }
+    ]
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { getBrandLogo, getBrandColor } from '../utils/logoUtils';
 
 interface Brand {
   id: number;
@@ -14,105 +15,32 @@ interface BrandGridProps {
 }
 
 const BrandGrid: React.FC<BrandGridProps> = ({ currentPage }) => {
-  // Datos de marcas con información más detallada
-  const allBrands: Brand[] = [
-    {
-      id: 1,
-      name: 'JAC',
-      logo: '/images/brands/logos/jac-logo.png',
-      slogan: 'FEEL A BETTER DRIVE',
-      color: '#FF6347',
-      modelsCount: 8
-    },
-    {
-      id: 2,
-      name: 'Chery',
-      logo: '/images/brands/logos/chery-logo.png',
-      slogan: 'LIFE IS EASIER',
-      color: '#E11D48',
-      modelsCount: 12
-    },
-    {
-      id: 3,
-      name: 'Geely',
-      logo: '/images/brands/logos/geely-logo.png',
-      slogan: 'MAKE LIFE WONDERFUL',
-      color: '#0056B3',
-      modelsCount: 15
-    },
-    {
-      id: 4,
-      name: 'Haval',
-      logo: '/images/brands/logos/haval-logo.png',
-      slogan: 'LOVE THE WAY FORWARD',
-      color: '#637487',
-      modelsCount: 9
-    },
-    {
-      id: 5,
-      name: 'BYD',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiMwMEE2RjYiLz4KPC9zdmc+',
-      slogan: 'BUILD YOUR DREAMS',
-      color: '#00A6F6',
-      modelsCount: 18
-    },
-    {
-      id: 6,
-      name: 'Dongfeng',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiM4QjVDQjAiLz4KPC9zdmc+',
-      slogan: 'QUALITY DRIVES US',
-      color: '#8B5CB0',
-      modelsCount: 7
-    },
-    {
-      id: 7,
-      name: 'Great Wall',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiM2QjcyODAiLz4KPC9zdmc+',
-      slogan: 'DARE TO CHALLENGE',
-      color: '#6B7280',
-      modelsCount: 11
-    },
-    {
-      id: 8,
-      name: 'Lifan',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiNFRjQ0NDQiLz4KPC9zdmc+',
-      slogan: 'SMART & RELIABLE',
-      color: '#EF4444',
-      modelsCount: 6
-    },
-    {
-      id: 9,
-      name: 'MG',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiM4QjVDQjAiLz4KPC9zdmc+',
-      slogan: 'MAKE THINGS BETTER',
-      color: '#8B5CB0',
-      modelsCount: 10
-    },
-    {
-      id: 10,
-      name: 'Changan',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiM5QzQwQjMiLz4KPC9zdmc+',
-      slogan: 'INNOVATION FOR LIFE',
-      color: '#9C40B3',
-      modelsCount: 13
-    },
-    {
-      id: 11,
-      name: 'Foton',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiM2QjcyODAiLz4KPC9zdmc+',
-      slogan: 'POWER YOUR BUSINESS',
-      color: '#6B7280',
-      modelsCount: 5
-    },
-    {
-      id: 12,
-      name: 'BAIC',
-      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiM2QjcyODAiLz4KPC9zdmc+',
-      slogan: 'DRIVE THE FUTURE',
-      color: '#6B7280',
-      modelsCount: 4
-    }
+  // Sistema dinámico de marcas - se actualiza automáticamente cuando subas nuevos logos
+  const brandData = [
+    { name: 'JAC', slogan: 'FEEL A BETTER DRIVE', modelsCount: 8 },
+    { name: 'Chery', slogan: 'LIFE IS EASIER', modelsCount: 12 },
+    { name: 'Geely', slogan: 'MAKE LIFE WONDERFUL', modelsCount: 15 },
+    { name: 'Haval', slogan: 'LOVE THE WAY FORWARD', modelsCount: 9 },
+    { name: 'BYD', slogan: 'BUILD YOUR DREAMS', modelsCount: 18 },
+    { name: 'Dongfeng', slogan: 'QUALITY DRIVES US', modelsCount: 7 },
+    { name: 'Great Wall', slogan: 'DARE TO CHALLENGE', modelsCount: 11 },
+    { name: 'Lifan', slogan: 'SMART & RELIABLE', modelsCount: 6 },
+    { name: 'MG', slogan: 'MAKE THINGS BETTER', modelsCount: 10 },
+    { name: 'Changan', slogan: 'INNOVATION FOR LIFE', modelsCount: 13 },
+    { name: 'Foton', slogan: 'POWER YOUR BUSINESS', modelsCount: 5 },
+    { name: 'BAIC', slogan: 'DRIVE THE FUTURE', modelsCount: 4 },
+    { name: 'DFSK', slogan: 'POWER FOR LIFE', modelsCount: 6 }
   ];
+
+  // Generar marcas dinámicamente con logos automáticos
+  const allBrands: Brand[] = brandData.map((brand, index) => ({
+    id: index + 1,
+    name: brand.name,
+    logo: getBrandLogo(brand.name), // Automáticamente usa el PNG si existe
+    slogan: brand.slogan,
+    color: getBrandColor(brand.name), // Color automático
+    modelsCount: brand.modelsCount
+  }));
 
   // Paginación: 9 marcas por página
   const brandsPerPage = 9;
@@ -130,6 +58,19 @@ const BrandGrid: React.FC<BrandGridProps> = ({ currentPage }) => {
                 src={brand.logo}
                 alt={brand.name}
                 className="brand-logo-standard"
+                onError={(e) => {
+                  // Fallback si el PNG no existe - usar SVG genérico
+                  const target = e.target as HTMLImageElement;
+                  const svgContent = `
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="40" cy="40" r="40" fill="${brand.color}"/>
+                      <text x="40" y="50" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+                        ${brand.name.charAt(0)}
+                      </text>
+                    </svg>
+                  `;
+                  target.src = `data:image/svg+xml;base64,${btoa(svgContent)}`;
+                }}
               />
             </div>
 

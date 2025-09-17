@@ -67,6 +67,11 @@
   .footer-neutral-gray {
     background-color: #0f172a;
   }
+
+  /* Sombra extra profunda para el buscador */
+  .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
 }
 
 

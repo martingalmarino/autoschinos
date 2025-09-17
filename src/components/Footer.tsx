@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
                 Desarrollado por{' '}
                 <a 
                   href="mailto:m.galmarino@gmail.com" 
-                  className="text-primary-500 hover:text-primary-400 transition-colors duration-200 font-medium"
+                  className="text-white hover:text-gray-300 transition-colors duration-200 font-medium"
                 >
                   Martín Galmarino
                 </a>

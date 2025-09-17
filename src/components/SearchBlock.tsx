@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { useModels } from '../hooks/useModels';
 
 interface SearchForm {
   marca: string;
@@ -7,6 +8,8 @@ interface SearchForm {
 }
 
 const SearchBlock: React.FC = () => {
+  const { allModels } = useModels();
+  
   const [formData, setFormData] = useState<SearchForm>({
     marca: '',
     modelo: ''
@@ -17,21 +20,35 @@ const SearchBlock: React.FC = () => {
     modelo: false
   });
 
-  const marcas = [
-    'Chery', 'Geely', 'JAC', 'Haval', 'BYD', 'Dongfeng', 
-    'Great Wall', 'Lifan', 'MG', 'Changan', 'Foton', 'BAIC'
-  ];
+  // Obtener marcas dinámicamente de los datos
+  const marcas = useMemo(() => {
+    const uniqueBrands = [...new Set(allModels.map(model => model.brand))];
+    return uniqueBrands.sort();
+  }, [allModels]);
 
-  const modelos = [
-    'Tiggo 3', 'Tiggo 5', 'Tiggo 7', 'Tiggo 8', 'Arrizo 5', 'Arrizo 6',
-    'Coolray', 'Atlas', 'Emgrand', 'Vision', 'GC2', 'GC6',
-    'T40', 'T50', 'T60', 'T70', 'T80', 'T90',
-    'H2', 'H6', 'H9', 'F7', 'F7x', 'Jolion'
-  ];
+  // Obtener modelos dinámicamente basados en la marca seleccionada
+  const modelos = useMemo(() => {
+    if (!formData.marca) {
+      // Si no hay marca seleccionada, mostrar todos los modelos únicos
+      const uniqueModels = [...new Set(allModels.map(model => model.nombre))];
+      return uniqueModels.sort();
+    } else {
+      // Si hay marca seleccionada, mostrar solo modelos de esa marca
+      const brandModels = allModels
+        .filter(model => model.brand === formData.marca)
+        .map(model => model.nombre);
+      return [...new Set(brandModels)].sort();
+    }
+  }, [allModels, formData.marca]);
 
 
   const handleInputChange = (field: keyof SearchForm, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    if (field === 'marca') {
+      // Si cambia la marca, resetear el modelo
+      setFormData(prev => ({ marca: value, modelo: '' }));
+    } else {
+      setFormData(prev => ({ ...prev, [field]: value }));
+    }
     setIsDropdownOpen(prev => ({ ...prev, [field]: false }));
   };
 
@@ -45,7 +62,7 @@ const SearchBlock: React.FC = () => {
     <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="rounded-xl shadow-lg hover:shadow-xl p-8 -mt-8 relative z-10 transition-shadow duration-300 border border-gray-200" style={{ background: 'linear-gradient(to right, #f5f5f5 0%, #fafafa 60%, #ffffff 100%)' }}>
+          <div className="rounded-xl shadow-lg hover:shadow-xl p-8 -mt-8 relative z-10 transition-shadow duration-300 border border-gray-200 bg-gradient-to-r from-gray-100 via-gray-50 to-white">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Buscá tu próximo auto
             </h2>

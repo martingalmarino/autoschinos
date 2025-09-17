@@ -113,7 +113,7 @@ const BrandPills: React.FC = () => {
         </div>
 
         <div className="text-center mt-8">
-          <div className="inline-block rounded-lg px-8 py-6" style={{ background: 'linear-gradient(to right, #f5f5f5 0%, #fafafa 60%, #ffffff 100%)' }}>
+          <div className="bg-gray-50 rounded-lg px-8 py-6 shadow-sm">
             <p className="text-gray-600 mb-4">
               ¿Buscás información de otra marca?
             </p>

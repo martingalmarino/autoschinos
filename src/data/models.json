@@ -705,5 +705,230 @@
         ]
       }
     ]
+  },
+  "Foton": {
+    "marca": "Foton",
+    "modelos": [
+      {
+        "id": "foton-aumark-tm1-cd-2025",
+        "nombre": "Aumark TM1 Cabina Doble",
+        "año": "2025",
+        "categoria": "Camión liviano / Pick-up",
+        "combustible": "Nafta",
+        "transmision": "Manual 5 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/foton/foton-aumark-tm1-cd-2025.jpg",
+        "descripcion": "Camión liviano doble cabina con capacidad de carga de hasta 1 tonelada, ideal para trabajo urbano y transporte comercial.",
+        "especificaciones": {
+          "motor": "1.5L Nafta",
+          "potencia": "110 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "45 L",
+          "peso": "≈ 1.400 kg"
+        },
+        "caracteristicas": [
+          "ABS + EBD",
+          "Doble airbag",
+          "Dirección asistida",
+          "Aire acondicionado",
+          "Capacidad de carga 1.000 kg"
+        ]
+      },
+      {
+        "id": "foton-aumark-tm1-cs-2025",
+        "nombre": "Aumark TM1 Cabina Simple",
+        "año": "2025",
+        "categoria": "Camión liviano / Pick-up",
+        "combustible": "Nafta",
+        "transmision": "Manual 5 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/foton/foton-aumark-tm1-cs-2025.jpg",
+        "descripcion": "Versión cabina simple del TM1 con caja de carga más amplia, pensada para trabajo intensivo y mayor carga útil.",
+        "especificaciones": {
+          "motor": "1.5L Nafta",
+          "potencia": "110 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "45 L",
+          "peso": "≈ 1.350 kg"
+        },
+        "caracteristicas": [
+          "Caja de carga ampliada",
+          "ABS + EBD",
+          "Airbags frontales",
+          "Dirección asistida"
+        ]
+      },
+      {
+        "id": "foton-gratour-t3-cd-2025",
+        "nombre": "Gratour T3 Cabina Doble",
+        "año": "2025",
+        "categoria": "Mini truck / utilitario",
+        "combustible": "Nafta",
+        "transmision": "Manual 5 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/foton/foton-gratour-t3-cd-2025.jpg",
+        "descripcion": "Utilitario compacto doble cabina con motor eficiente, pensado para reparto urbano y transporte liviano.",
+        "especificaciones": {
+          "motor": "1.2L Nafta",
+          "potencia": "85 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "40 L",
+          "peso": "≈ 1.200 kg"
+        },
+        "caracteristicas": [
+          "Cabina doble",
+          "ABS",
+          "Dirección asistida",
+          "Capacidad de carga ≈ 900 kg"
+        ]
+      },
+      {
+        "id": "foton-gratour-t3-cs-2025",
+        "nombre": "Gratour T3 Cabina Simple",
+        "año": "2025",
+        "categoria": "Mini truck / utilitario",
+        "combustible": "Nafta",
+        "transmision": "Manual 5 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/foton/foton-gratour-t3-cs-2025.jpg",
+        "descripcion": "Versión cabina simple del Gratour T3, con mayor espacio de carga y diseño compacto para uso urbano.",
+        "especificaciones": {
+          "motor": "1.2L Nafta",
+          "potencia": "85 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "40 L",
+          "peso": "≈ 1.150 kg"
+        },
+        "caracteristicas": [
+          "Caja de carga extendida",
+          "Dirección asistida",
+          "ABS",
+          "Capacidad de carga ≈ 1.000 kg"
+        ]
+      },
+      {
+        "id": "foton-tunland-g7-2025",
+        "nombre": "Tunland G7",
+        "año": "2025",
+        "categoria": "Pick-up mediana",
+        "combustible": "Diésel",
+        "transmision": "Manual / Automática",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/foton/foton-tunland-g7-2025.jpg",
+        "descripcion": "Pick-up mediana con motor diésel Cummins, tracción 4x4 y capacidad de carga para trabajo pesado.",
+        "especificaciones": {
+          "motor": "2.0L Turbo Diésel (Cummins)",
+          "potencia": "161 HP",
+          "traccion": "4x4",
+          "capacidad_tanque": "70 L",
+          "peso": "≈ 2.050 kg"
+        },
+        "caracteristicas": [
+          "Airbags frontales",
+          "ABS + EBD",
+          "Control de estabilidad",
+          "Pantalla táctil",
+          "Capacidad de carga 1.000 kg"
+        ]
+      },
+      {
+        "id": "foton-v9-2025",
+        "nombre": "V9",
+        "año": "2025",
+        "categoria": "Van / transporte de pasajeros",
+        "combustible": "Diésel",
+        "transmision": "Manual / Automática",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/foton/foton-v9-2025.jpg",
+        "descripcion": "Van de gran tamaño diseñada para transporte de pasajeros o uso ejecutivo, con motor diésel eficiente.",
+        "especificaciones": {
+          "motor": "2.0L Turbo Diésel",
+          "potencia": "≈ 150 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "70 L",
+          "peso": "≈ 2.200 kg"
+        },
+        "caracteristicas": [
+          "Capacidad hasta 15 pasajeros",
+          "Aire acondicionado trasero",
+          "ABS + EBD",
+          "Airbags frontales",
+          "Asientos reclinables"
+        ]
+      },
+      {
+        "id": "foton-view-cs2-2025",
+        "nombre": "View CS2",
+        "año": "2025",
+        "categoria": "Van / utilitario",
+        "combustible": "Diésel",
+        "transmision": "Manual",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/foton/foton-view-cs2-2025.jpg",
+        "descripcion": "Van de uso mixto (pasajeros y carga), ideal para empresas de transporte y logística urbana.",
+        "especificaciones": {
+          "motor": "2.0L Turbo Diésel",
+          "potencia": "129 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "70 L",
+          "peso": "≈ 2.000 kg"
+        },
+        "caracteristicas": [
+          "Configurable pasajeros/carga",
+          "ABS",
+          "Dirección asistida",
+          "Aire acondicionado",
+          "Sistema multimedia básico"
+        ]
+      },
+      {
+        "id": "foton-wonder-2025",
+        "nombre": "Wonder",
+        "año": "2025",
+        "categoria": "Mini truck / utilitario",
+        "combustible": "Nafta",
+        "transmision": "Manual",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/foton/foton-wonder-2025.jpg",
+        "descripcion": "Mini truck urbano con motor pequeño, ideal para delivery y carga liviana.",
+        "especificaciones": {
+          "motor": "1.2L Nafta",
+          "potencia": "85 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "40 L",
+          "peso": "≈ 1.150 kg"
+        },
+        "caracteristicas": [
+          "ABS",
+          "Airbag conductor",
+          "Dirección asistida",
+          "Caja de carga de tamaño medio"
+        ]
+      },
+      {
+        "id": "foton-wonder-cd-2025",
+        "nombre": "Wonder Cabina Doble",
+        "año": "2025",
+        "categoria": "Mini truck / utilitario doble cabina",
+        "combustible": "Nafta",
+        "transmision": "Manual",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/foton/foton-wonder-cd-2025.jpg",
+        "descripcion": "Versión doble cabina del Wonder, con mayor espacio para pasajeros y caja de carga reducida.",
+        "especificaciones": {
+          "motor": "1.2L Nafta",
+          "potencia": "85 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "40 L",
+          "peso": "≈ 1.200 kg"
+        },
+        "caracteristicas": [
+          "Cabina doble",
+          "ABS",
+          "Airbag conductor",
+          "Capacidad de carga ≈ 850 kg"
+        ]
+      }
+    ]
   }
 }

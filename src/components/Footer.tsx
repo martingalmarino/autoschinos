@@ -1,12 +1,28 @@
 import React from 'react';
 
 const Footer: React.FC = () => {
-  const quickLinks = [
-    { name: 'Inicio', href: '#' },
-    { name: 'Modelos', href: '#' },
-    { name: 'Marcas', href: '#' },
+  // Navegación y exploración
+  const navigationLinks = [
+    { name: 'Inicio', href: '/' },
+    { name: 'Catálogo', href: '/catalogo' },
+    { name: 'Marcas', href: '/marcas' },
+    { name: 'Buscar Modelos', href: '/catalogo' }
+  ];
+
+  // Información de la empresa
+  const companyLinks = [
+    { name: 'Acerca de AutosChinos', href: '#' },
     { name: 'Contacto', href: '#' },
-    { name: 'Financiación', href: '#' }
+    { name: 'Información Técnica', href: '#' },
+    { name: 'Preguntas Frecuentes', href: '#' }
+  ];
+
+  // Enlaces legales
+  const legalLinks = [
+    { name: 'Términos y Condiciones', href: '#' },
+    { name: 'Política de Privacidad', href: '#' },
+    { name: 'Cookies', href: '#' },
+    { name: 'Aviso Legal', href: '#' }
   ];
 
   // Redes sociales removidas - reemplazadas por crédito de desarrollo
@@ -41,30 +57,19 @@ const Footer: React.FC = () => {
   return (
     <footer className="text-white footer-neutral-gray">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Logo y descripción */}
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-red-400 via-primary-400 to-red-500 bg-clip-text text-transparent drop-shadow-sm mb-2">
-                autoschinos.ar
-              </h3>
-              <p className="text-gray-300 leading-relaxed">
-                Tu portal de información sobre autos chinos en Argentina. Explorá fichas técnicas, especificaciones y toda la información de las principales marcas chinas disponibles en el mercado.
-              </p>
-            </div>
-          </div>
-
-          {/* Enlaces rápidos */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          
+          {/* Navegación & Exploración */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-white mb-4">
-              Enlaces Rápidos
+              Navegación & Exploración
             </h4>
             <ul className="space-y-2">
-              {quickLinks.map((link, index) => (
+              {navigationLinks.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-primary-500 transition-colors duration-200"
+                    className="text-gray-300 hover:text-white transition-colors duration-200 underline"
                   >
                     {link.name}
                   </a>
@@ -73,35 +78,67 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Información de contacto y redes sociales */}
+          {/* Información de la Empresa */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-white mb-4">
-              Contacto
+              Nuestra Empresa
             </h4>
-            <div className="space-y-3">
-              <div>
-                <p className="text-gray-300 font-medium">Email</p>
-                <p className="text-gray-400">info@autoschinos.ar</p>
-              </div>
-              <div>
-                <p className="text-gray-300 font-medium">Ubicación</p>
-                <p className="text-gray-400">Argentina</p>
-              </div>
-            </div>
+            <ul className="space-y-2">
+              {companyLinks.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    className="text-gray-300 hover:text-white transition-colors duration-200 underline"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div className="mt-6">
-              <p className="text-gray-400 text-sm">
-                Desarrollado por{' '}
-                <a 
-                  href="mailto:m.galmarino@gmail.com" 
-                  className="text-white hover:text-gray-300 transition-colors duration-200 font-medium"
-                >
-                  Martín Galmarino
-                </a>
-                {' '}🤖
+          {/* Enlaces Legales */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white mb-4">
+              Legal & Privacidad
+            </h4>
+            <ul className="space-y-2">
+              {legalLinks.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    className="text-gray-300 hover:text-white transition-colors duration-200 underline"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Información del Sitio */}
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-red-400 via-primary-400 to-red-500 bg-clip-text text-transparent drop-shadow-sm mb-4">
+                autoschinos.ar
+              </h3>
+              <p className="text-gray-300 leading-relaxed text-sm mb-6">
+                Tu portal de información sobre autos chinos en Argentina. Explorá fichas técnicas y especificaciones de las principales marcas.
               </p>
             </div>
+            
+            <div className="space-y-3">
+              <div>
+                <p className="text-gray-300 font-medium text-sm">Email</p>
+                <p className="text-gray-400 text-sm">info@autoschinos.ar</p>
+              </div>
+              <div>
+                <p className="text-gray-300 font-medium text-sm">Ubicación</p>
+                <p className="text-gray-400 text-sm">Argentina</p>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
 
@@ -110,18 +147,17 @@ const Footer: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © autoschinos.ar 2025 – Todos los derechos reservados
+              © 2025 autoschinos.ar. Todos los derechos reservados.
             </p>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-primary-500 transition-colors duration-200">
-                Política de Privacidad
+            <div className="text-gray-400 text-sm">
+              Desarrollado por{' '}
+              <a 
+                href="mailto:m.galmarino@gmail.com" 
+                className="text-white hover:text-gray-300 transition-colors duration-200 font-medium underline"
+              >
+                Martín Galmarino
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary-500 transition-colors duration-200">
-                Términos y Condiciones
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary-500 transition-colors duration-200">
-                Cookies
-              </a>
+              {' '}🤖
             </div>
           </div>
         </div>

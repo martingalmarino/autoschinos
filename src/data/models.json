@@ -930,5 +930,89 @@
         ]
       }
     ]
+  },
+  "Great Wall": {
+    "marca": "Great Wall",
+    "modelos": [
+      {
+        "id": "greatwall-poer-luxury-2025",
+        "nombre": "Poer Luxury",
+        "año": "2025",
+        "categoria": "Pick-up mediana",
+        "combustible": "Diésel",
+        "transmision": "Automática 8 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/great-wall/greatwall-poer-luxury-2025.jpg",
+        "descripcion": "Versión tope de gama de la Great Wall Poer, una pick-up mediana con motor diésel 2.0 turbo, alto equipamiento de confort y seguridad avanzada.",
+        "especificaciones": {
+          "motor": "2.0L Turbo Diésel",
+          "potencia": "188 HP",
+          "traccion": "4x4",
+          "capacidad_tanque": "80 L",
+          "peso": "≈ 2.050 kg"
+        },
+        "caracteristicas": [
+          "6 airbags",
+          "Control de estabilidad (ESP)",
+          "Cámara 360°",
+          "Asistente de arranque en pendiente",
+          "Tapizados en cuero",
+          "Pantalla táctil multimedia",
+          "Control crucero adaptativo"
+        ]
+      },
+      {
+        "id": "greatwall-poer-elite-2025",
+        "nombre": "Poer Elite",
+        "año": "2025",
+        "categoria": "Pick-up mediana",
+        "combustible": "Diésel",
+        "transmision": "Manual 6 velocidades / Automática",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/great-wall/greatwall-poer-elite-2025.jpg",
+        "descripcion": "Versión intermedia de la Great Wall Poer, con motor 2.0L turbo diésel, excelente capacidad de carga y seguridad reforzada.",
+        "especificaciones": {
+          "motor": "2.0L Turbo Diésel",
+          "potencia": "163-188 HP según versión",
+          "traccion": "4x4",
+          "capacidad_tanque": "80 L",
+          "peso": "≈ 2.000 kg"
+        },
+        "caracteristicas": [
+          "Airbags frontales y laterales",
+          "ABS + EBD",
+          "Pantalla central multimedia",
+          "Control de descenso",
+          "Sensores traseros de estacionamiento",
+          "Llantas de aleación"
+        ]
+      },
+      {
+        "id": "greatwall-wingle-7-2025",
+        "nombre": "Wingle 7",
+        "año": "2025",
+        "categoria": "Pick-up mediana",
+        "combustible": "Diésel",
+        "transmision": "Manual 6 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/great-wall/greatwall-wingle-7-2025.jpg",
+        "descripcion": "Pick-up robusta orientada al trabajo y carga pesada, equipada con motor diésel 2.0 turbo y tracción 4x4.",
+        "especificaciones": {
+          "motor": "2.0L Turbo Diésel",
+          "potencia": "143 HP",
+          "traccion": "4x2 / 4x4",
+          "capacidad_tanque": "70 L",
+          "peso": "≈ 1.950 kg"
+        },
+        "caracteristicas": [
+          "Airbags frontales",
+          "ABS + EBD",
+          "Dirección asistida",
+          "Pantalla multimedia",
+          "Caja de carga reforzada",
+          "Control de estabilidad (ESP)"
+        ]
+      }
+    ]
   }
 }

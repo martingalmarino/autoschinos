@@ -22,13 +22,17 @@ const Catalogo: React.FC = () => {
   useEffect(() => {
     const marca = searchParams.get('marca') || '';
     const modelo = searchParams.get('modelo') || '';
+    const searchTerm = searchParams.get('search') || '';
     
-    if (marca || modelo) {
+    if (marca || modelo || searchTerm) {
       setFilters(prev => ({
         ...prev,
         marca: marca,
-        // Si hay un modelo específico, podríamos agregarlo como filtro adicional
-        // Por ahora solo usamos la marca
+        // Si hay un término de búsqueda general, intentar detectar si es marca o modelo
+        ...(searchTerm && !marca && {
+          // Si el término coincide con alguna marca conocida, usarlo como marca
+          marca: searchTerm
+        })
       }));
     }
   }, [searchParams]);

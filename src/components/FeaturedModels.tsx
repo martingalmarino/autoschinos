@@ -172,11 +172,11 @@ const FeaturedModels: React.FC = () => {
               </div>
 
               {/* Car Image */}
-              <div className="relative h-48 bg-gray-100">
+              <div className="image-container-featured">
                 <img
                   src={car.imagen}
                   alt={`${car.brand} ${car.nombre}`}
-                  className="w-full h-full object-cover"
+                  className="model-image-featured"
                 />
               </div>
 

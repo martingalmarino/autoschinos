@@ -129,7 +129,7 @@ const BrandGrid: React.FC<BrandGridProps> = ({ currentPage }) => {
               <img
                 src={brand.logo}
                 alt={brand.name}
-                className="w-20 h-20 rounded-full shadow-md"
+                className="brand-logo-standard"
               />
             </div>
 

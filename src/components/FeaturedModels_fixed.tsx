@@ -151,11 +151,11 @@ const FeaturedModels: React.FC = () => {
           {featuredCars.map((car) => (
             <div key={car.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               {/* Car Image */}
-              <div className="relative h-48 bg-gray-100">
+              <div className="image-container-featured">
                 <img
                   src={car.image}
                   alt={car.name}
-                  className="w-full h-full object-cover"
+                  className="model-image-featured"
                 />
                 {/* Brand Badge */}
                 <div className="absolute top-3 left-3">

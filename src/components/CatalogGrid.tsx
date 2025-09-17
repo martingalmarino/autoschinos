@@ -32,11 +32,11 @@ const CatalogGrid: React.FC<CatalogGridProps> = ({ filters, currentPage }) => {
           </div>
 
           {/* Car Image */}
-          <div className="relative h-48 bg-gray-100">
+          <div className="image-container-card">
             <img
               src={car.imagen}
               alt={car.nombre}
-              className="w-full h-full object-cover"
+              className="model-image-card"
             />
           </div>
 

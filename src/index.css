@@ -28,6 +28,40 @@
   .pill {
     @apply bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-full transition-colors duration-200 border border-gray-200;
   }
+
+  /* Clases estandarizadas para imágenes de modelos */
+  .model-image-card {
+    @apply w-full h-48 object-cover object-center;
+  }
+  
+  .model-image-featured {
+    @apply w-full h-44 object-cover object-center;
+  }
+  
+  .model-image-detail {
+    @apply w-full h-96 object-cover object-center rounded-2xl shadow-2xl;
+  }
+  
+  .model-image-grid {
+    @apply w-full h-52 object-cover object-center;
+  }
+  
+  .brand-logo-standard {
+    @apply w-20 h-20 object-contain object-center rounded-full shadow-md;
+  }
+  
+  /* Container estandarizado para imágenes */
+  .image-container-card {
+    @apply relative h-48 bg-gray-100 overflow-hidden;
+  }
+  
+  .image-container-featured {
+    @apply relative h-44 bg-gray-100 overflow-hidden;
+  }
+  
+  .image-container-grid {
+    @apply relative h-52 bg-gray-100 overflow-hidden;
+  }
 }
 
 

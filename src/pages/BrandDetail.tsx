@@ -203,11 +203,11 @@ const BrandDetail: React.FC = () => {
                 </div>
 
                 {/* Imagen del modelo */}
-                <div className="relative h-48 bg-gray-100">
+                <div className="image-container-grid">
                   <img
                     src={model.imagen}
                     alt={model.nombre}
-                    className="w-full h-full object-cover"
+                    className="model-image-grid"
                   />
                 </div>
 

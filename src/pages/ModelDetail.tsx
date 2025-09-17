@@ -50,7 +50,7 @@ const ModelDetail: React.FC = () => {
               <img
                 src={model.imagen}
                 alt={`${model.brand} ${model.nombre}`}
-                className="w-full h-96 object-cover rounded-2xl shadow-2xl"
+                className="model-image-detail"
               />
               <div className="absolute top-4 left-4">
                 <span className="bg-green-500 text-white text-sm font-bold px-3 py-1 rounded-full">

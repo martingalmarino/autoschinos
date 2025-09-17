@@ -34,14 +34,15 @@ const BrandDetail: React.FC = () => {
   }
 
   const normalizedBrandName = brandName.toLowerCase();
-  const displayName = brandName.toUpperCase();
+  // Capitalizar solo la primera letra para que coincida con el JSON
+  const displayName = brandName.charAt(0).toUpperCase() + brandName.slice(1).toLowerCase();
   const description = brandDescriptions[normalizedBrandName] || `${displayName} es una marca china reconocida en Argentina por su calidad, innovación y precios competitivos.`;
   
   // Generar logo y color dinámicamente
   const brandLogo = getBrandLogo(displayName);
   const brandColor = getBrandColor(displayName);
   
-  // Obtener modelos de la marca
+  // Obtener modelos de la marca usando el nombre capitalizado correcto
   const models = getModelsByBrand(displayName);
 
   return (
@@ -85,7 +86,7 @@ const BrandDetail: React.FC = () => {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight">
-              Modelos {displayName}
+              Modelos {displayName.toUpperCase()}
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               {description}
@@ -99,7 +100,7 @@ const BrandDetail: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Catálogo de Modelos {displayName}
+              Catálogo de Modelos {displayName.toUpperCase()}
             </h2>
             <p className="text-lg text-gray-600">
               Explorá toda la gama de vehículos {displayName} disponibles en Argentina
@@ -107,7 +108,7 @@ const BrandDetail: React.FC = () => {
           </div>
 
           {models.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {models.map((model) => (
                 <div key={model.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   {/* Header con marca y badge */}
@@ -130,29 +131,29 @@ const BrandDetail: React.FC = () => {
                   </div>
 
                   {/* Detalles del modelo */}
-                  <div className="p-4">
+                  <div className="p-3 sm:p-4">
                     <div className="mb-3">
-                      <h3 className="text-lg font-bold text-gray-900 mb-1 uppercase">
+                      <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1 uppercase">
                         {model.nombre}
                       </h3>
-                      <p className="text-sm text-gray-600 mb-2">
+                      <p className="text-xs sm:text-sm text-gray-600 mb-2">
                         {model.año} | {model.combustible} | {model.transmision}
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-xs sm:text-sm text-gray-500">
                         {model.categoria}
                       </p>
                     </div>
 
-                    <div className="flex justify-between items-center">
-                      <div className="text-right">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-3 sm:space-y-0">
+                      <div className="text-left sm:text-right">
                         <p className="text-xs text-gray-500">Precio estimado</p>
-                        <p className="text-lg font-bold text-primary-600">
+                        <p className="text-sm sm:text-lg font-bold text-primary-600">
                           {model.precio}
                         </p>
                       </div>
                       <button
                         onClick={() => window.location.href = `/marcas/${brandName}/${model.nombre.toLowerCase().replace(/\s+/g, '-')}`}
-                        className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200"
+                        className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-3 sm:px-4 rounded-lg transition-colors duration-200 text-sm sm:text-base w-full sm:w-auto"
                       >
                         Ver Detalles
                       </button>

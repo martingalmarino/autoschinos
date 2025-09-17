@@ -1094,5 +1094,112 @@
         ]
       }
     ]
+  },
+  "MG": {
+    "marca": "MG",
+    "modelos": [
+      {
+        "id": "mg-3-2025",
+        "nombre": "New MG 3",
+        "año": "2025",
+        "categoria": "Hatchback compacto",
+        "combustible": "Nafta",
+        "transmision": "Manual / Automática CVT",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/mg/mg-3-2025.jpg",
+        "descripcion": "Hatchback urbano renovado, con motor 1.5L eficiente, buen equipamiento tecnológico y diseño juvenil.",
+        "especificaciones": {
+          "motor": "1.5L Nafta",
+          "potencia": "115 HP",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "45 L",
+          "peso": "≈ 1.200 kg"
+        },
+        "caracteristicas": [
+          "Pantalla táctil central",
+          "Android Auto / Apple CarPlay",
+          "Airbags frontales y laterales",
+          "ABS + EBD",
+          "Cámara de retroceso"
+        ]
+      },
+      {
+        "id": "mg-zs-2025",
+        "nombre": "New MG ZS",
+        "año": "2025",
+        "categoria": "SUV compacto",
+        "combustible": "Nafta",
+        "transmision": "Manual / Automática CVT",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/mg/mg-zs-2025.jpg",
+        "descripcion": "SUV compacto de gran popularidad global, con motor 1.5L, diseño renovado y amplia conectividad.",
+        "especificaciones": {
+          "motor": "1.5L Nafta",
+          "potencia": "118 HP",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "48 L",
+          "peso": "≈ 1.320 kg"
+        },
+        "caracteristicas": [
+          "Pantalla táctil de 10″",
+          "Android Auto / Apple CarPlay",
+          "Control de estabilidad (ESP)",
+          "Airbags múltiples",
+          "Sensores traseros de estacionamiento"
+        ]
+      },
+      {
+        "id": "mg-4-2025",
+        "nombre": "MG 4",
+        "año": "2025",
+        "categoria": "Hatchback eléctrico",
+        "combustible": "100% Eléctrico",
+        "transmision": "Automática (e-drive)",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/mg/mg-4-2025.jpg",
+        "descripcion": "Hatchback eléctrico con hasta 450 km de autonomía, diseño moderno y prestaciones destacadas en el segmento EV.",
+        "especificaciones": {
+          "motor": "Motor eléctrico",
+          "potencia": "170-204 HP (según versión)",
+          "traccion": "4x2 trasera",
+          "capacidad_tanque": "N/A (batería 51-64 kWh)",
+          "peso": "≈ 1.650 kg"
+        },
+        "caracteristicas": [
+          "Autonomía hasta 450 km",
+          "Carga rápida CCS2",
+          "Pantalla táctil 10,25″",
+          "Control crucero adaptativo",
+          "Frenado autónomo de emergencia (AEB)",
+          "Alerta de cambio de carril"
+        ]
+      },
+      {
+        "id": "mg-cyberster-2025",
+        "nombre": "MG Cyberster",
+        "año": "2025",
+        "categoria": "Roadster eléctrico deportivo",
+        "combustible": "100% Eléctrico",
+        "transmision": "Automática (e-drive)",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/mg/mg-cyberster-2025.jpg",
+        "descripcion": "Roadster eléctrico biplaza de altas prestaciones, diseño futurista y más de 500 km de autonomía.",
+        "especificaciones": {
+          "motor": "Motores eléctricos duales (versión AWD)",
+          "potencia": "≈ 536 HP",
+          "traccion": "AWD",
+          "capacidad_tanque": "N/A (batería 77 kWh aprox.)",
+          "peso": "≈ 1.850 kg"
+        },
+        "caracteristicas": [
+          "Autonomía hasta 500 km",
+          "Aceleración 0-100 km/h en ~3,2 s",
+          "Pantallas digitales envolventes",
+          "Conducción autónoma nivel 2",
+          "Techo eléctrico retráctil",
+          "Frenado regenerativo avanzado"
+        ]
+      }
+    ]
   }
 }

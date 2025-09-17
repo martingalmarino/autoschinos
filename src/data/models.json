@@ -1206,26 +1206,79 @@
     "marca": "FAW",
     "modelos": [
       {
-        "id": "faw-placeholder-2025",
-        "nombre": "Próximamente",
+        "id": "faw-actis-box-2025",
+        "nombre": "Actis Box",
         "año": "2025",
-        "categoria": "Modelos en preparación",
-        "combustible": "Por definir",
-        "transmision": "Por definir",
+        "categoria": "Furgón utilitario",
+        "combustible": "Nafta",
+        "transmision": "Manual 5 velocidades",
         "precio": "Consultar precio",
-        "imagen": "/images/models/faw/faw-placeholder-2025.jpg",
-        "descripcion": "FAW está preparando el lanzamiento de sus modelos en Argentina. Pronto tendremos información completa de su gama de vehículos.",
+        "imagen": "/images/models/faw/faw-actis-box-2025.jpg",
+        "descripcion": "Utilitario urbano cerrado con motor 1.0L, pensado para reparto liviano en ciudad.",
         "especificaciones": {
-          "motor": "Por definir",
-          "potencia": "Por definir",
-          "traccion": "Por definir",
-          "capacidad_tanque": "Por definir",
-          "peso": "Por definir"
+          "motor": "1.0L",
+          "potencia": "60 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "37 L",
+          "peso": "≈ 950 kg"
         },
         "caracteristicas": [
-          "Información próximamente",
-          "Modelos en preparación",
-          "Especificaciones por confirmar"
+          "Dirección asistida",
+          "ABS",
+          "Airbag conductor",
+          "Puertas traseras de doble hoja",
+          "Capacidad de carga ≈ 600 kg"
+        ]
+      },
+      {
+        "id": "faw-actis-truck-2025",
+        "nombre": "Actis Truck",
+        "año": "2025",
+        "categoria": "Mini truck",
+        "combustible": "Nafta",
+        "transmision": "Manual 5 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/faw/faw-actis-truck-2025.jpg",
+        "descripcion": "Mini truck de cabina simple con caja abierta, ideal para pequeñas cargas urbanas.",
+        "especificaciones": {
+          "motor": "1.0L",
+          "potencia": "60 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "37 L",
+          "peso": "≈ 930 kg"
+        },
+        "caracteristicas": [
+          "ABS",
+          "Airbag conductor",
+          "Dirección asistida",
+          "Caja abierta funcional",
+          "Capacidad de carga ≈ 700 kg"
+        ]
+      },
+      {
+        "id": "faw-t33-2025",
+        "nombre": "T33",
+        "año": "2025",
+        "categoria": "SUV compacto",
+        "combustible": "Nafta",
+        "transmision": "Automática DCT 7",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/faw/faw-t33-2025.jpg",
+        "descripcion": "SUV compacto de 4,3 metros con motor 1.2L turbo y equipamiento moderno en seguridad y confort.",
+        "especificaciones": {
+          "motor": "1.2L Turbo",
+          "potencia": "143 HP",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "50 L",
+          "peso": "≈ 1.350 kg"
+        },
+        "caracteristicas": [
+          "Pantalla táctil multimedia",
+          "Cámara de retroceso",
+          "6 airbags",
+          "Control de estabilidad (ESP)",
+          "Sensores de estacionamiento",
+          "Control crucero"
         ]
       }
     ]

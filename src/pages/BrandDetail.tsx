@@ -131,59 +131,59 @@ const BrandDetail: React.FC = () => {
 
           {models.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              {models.map((model) => (
-                <div key={model.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            {models.map((model) => (
+              <div key={model.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   {/* Header con marca y badge */}
-                  <div className="flex justify-between items-center p-3 bg-gray-50 border-b border-gray-200">
-                    <span className="text-sm font-bold text-gray-800">
+                <div className="flex justify-between items-center p-3 bg-gray-50 border-b border-gray-200">
+                  <span className="text-sm font-bold text-gray-800">
                       {model.brand}
-                    </span>
-                    <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                      Más visto
-                    </span>
-                  </div>
+                  </span>
+                  <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    Más visto
+                  </span>
+                </div>
 
-                  {/* Imagen del modelo */}
+                {/* Imagen del modelo */}
                   <div className="image-container-grid">
-                    <img
-                      src={model.imagen}
-                      alt={model.nombre}
+                  <img
+                    src={model.imagen}
+                    alt={model.nombre}
                       className="model-image-grid"
-                    />
-                  </div>
+                  />
+                </div>
 
-                  {/* Detalles del modelo */}
+                {/* Detalles del modelo */}
                   <div className="p-3 sm:p-4">
-                    <div className="mb-3">
+                  <div className="mb-3">
                       <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1 uppercase">
-                        {model.nombre}
-                      </h3>
+                      {model.nombre}
+                    </h3>
                       <p className="text-xs sm:text-sm text-gray-600 mb-2">
-                        {model.año} | {model.combustible} | {model.transmision}
-                      </p>
+                      {model.año} | {model.combustible} | {model.transmision}
+                    </p>
                       <p className="text-xs sm:text-sm text-gray-500">
-                        {model.categoria}
-                      </p>
-                    </div>
+                      {model.categoria}
+                    </p>
+                  </div>
 
                     <div className="space-y-3">
                       <div className="text-left">
                         <p className="text-xs text-gray-500 mb-1">Precio estimado</p>
                         <p className="text-base sm:text-lg font-bold text-primary-600 leading-tight">
-                          {model.precio}
+                      {model.precio}
                         </p>
                       </div>
-                      <button
+                    <button 
                         onClick={() => window.location.href = `/marcas/${brandName}/${model.nombre.toLowerCase().replace(/\s+/g, '-')}`}
                         className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2.5 px-4 rounded-lg transition-colors duration-200 text-sm w-full"
-                      >
+                    >
                         Ver Detalles
-                      </button>
+                    </button>
                     </div>
-                  </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
           ) : (
             <div className="text-center py-12">
               <div className="text-6xl mb-4">🚗</div>

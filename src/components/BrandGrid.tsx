@@ -33,7 +33,7 @@ const BrandGrid: React.FC<BrandGridProps> = ({ currentPage }) => {
     { name: 'Foton', slogan: 'POWER YOUR BUSINESS' },
     { name: 'BAIC', slogan: 'DRIVE THE FUTURE' },
     { name: 'DFSK', slogan: 'POWER FOR LIFE' },
-    { name: 'FAW', slogan: 'COMING SOON' }
+    { name: 'FAW', slogan: 'INNOVATION & RELIABILITY' }
   ];
 
   // Generar marcas dinámicamente con conteo real de modelos

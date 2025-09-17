@@ -62,6 +62,11 @@
   .image-container-grid {
     @apply relative h-52 bg-gray-100 overflow-hidden;
   }
+
+  /* Footer con fondo gris neutro elegante */
+  .footer-neutral-gray {
+    background-color: #333333;
+  }
 }
 
 

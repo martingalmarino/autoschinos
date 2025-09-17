@@ -115,7 +115,7 @@ const BrandGrid: React.FC<BrandGridProps> = ({ currentPage }) => {
             <button 
               className="w-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200"
               onClick={() => {
-                window.location.href = `/marcas/${brand.name.toLowerCase()}`;
+                window.location.href = `/marcas/${brand.name.toLowerCase().replace(/\s+/g, '-')}`;
               }}
             >
               VER MODELOS

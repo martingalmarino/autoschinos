@@ -32,7 +32,8 @@ const BrandGrid: React.FC<BrandGridProps> = ({ currentPage }) => {
     { name: 'Changan', slogan: 'INNOVATION FOR LIFE' },
     { name: 'Foton', slogan: 'POWER YOUR BUSINESS' },
     { name: 'BAIC', slogan: 'DRIVE THE FUTURE' },
-    { name: 'DFSK', slogan: 'POWER FOR LIFE' }
+    { name: 'DFSK', slogan: 'POWER FOR LIFE' },
+    { name: 'FAW', slogan: 'COMING SOON' }
   ];
 
   // Generar marcas dinámicamente con conteo real de modelos
@@ -51,7 +52,8 @@ const BrandGrid: React.FC<BrandGridProps> = ({ currentPage }) => {
       'Changan': 'Changan',
       'Foton': 'Foton',
       'BAIC': 'BAIC',
-      'DFSK': 'DFSK'
+      'DFSK': 'DFSK',
+      'FAW': 'FAW'
     };
     
     const exactBrandName = brandNameMapping[brand.name] || brand.name;

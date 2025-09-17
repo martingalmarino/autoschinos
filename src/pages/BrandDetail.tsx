@@ -26,7 +26,8 @@ const BrandDetail: React.FC = () => {
     'great-wall': 'Great Wall es una marca china de prestigio en Argentina, reconocida por su compromiso con la calidad y la innovación tecnológica. Con modelos como el Poer y Wingle 7, Great Wall ofrece vehículos robustos y confiables que combinan durabilidad, confort y tecnología de vanguardia a precios competitivos.',
     'changan': 'Changan es una de las marcas chinas más antiguas y respetadas, presente en Argentina con una amplia gama de vehículos. Con SUV modernos y tecnología avanzada, Changan se destaca por su compromiso con la innovación, la seguridad y la eficiencia.',
     'byd': 'BYD es líder mundial en vehículos eléctricos e híbridos, llegando a Argentina con tecnología de vanguardia. Especializada en movilidad sustentable, BYD ofrece desde sedanes híbridos hasta SUV eléctricos, combinando innovación, eficiencia energética y respeto por el medio ambiente.',
-    'shineray': 'Shineray es una marca china especializada en vehículos comerciales compactos en Argentina, ofreciendo soluciones prácticas y eficientes para el trabajo urbano. Con una gama que incluye pick-ups compactas de cabina simple y doble, así como utilitarios versátiles, Shineray combina funcionalidad, economía y tecnología a precios muy accesibles.'
+    'shineray': 'Shineray es una marca china especializada en vehículos comerciales compactos en Argentina, ofreciendo soluciones prácticas y eficientes para el trabajo urbano. Con una gama que incluye pick-ups compactas de cabina simple y doble, así como utilitarios versátiles, Shineray combina funcionalidad, economía y tecnología a precios muy accesibles.',
+    'faw': 'FAW (First Automotive Works) es una de las marcas automotrices más grandes y prestigiosas de China, preparándose para su llegada al mercado argentino. Con más de 70 años de experiencia en la industria, FAW se destaca por su innovación tecnológica, calidad de manufactura y amplia gama de vehículos que van desde automóviles familiares hasta vehículos comerciales de alta gama.'
   };
 
   if (!brandName) {
@@ -50,7 +51,8 @@ const BrandDetail: React.FC = () => {
     'dongfeng': 'Dongfeng',
     'great-wall': 'Great Wall',
     'changan': 'Changan',
-    'shineray': 'Shineray'
+    'shineray': 'Shineray',
+    'faw': 'FAW'
   };
   
   // Obtener el nombre exacto como está en el JSON

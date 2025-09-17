@@ -37,7 +37,8 @@ export const brandColors: { [key: string]: string } = {
   'dongfeng': '#8B5CB0',
   'great-wall': '#6B7280',
   'changan': '#9C40B3',
-  'shineray': '#EF4444'
+  'shineray': '#EF4444',
+  'faw': '#1E40AF'
 };
 
 export const getBrandColor = (brandName: string): string => {

@@ -1201,5 +1201,33 @@
         ]
       }
     ]
+  },
+  "FAW": {
+    "marca": "FAW",
+    "modelos": [
+      {
+        "id": "faw-placeholder-2025",
+        "nombre": "Próximamente",
+        "año": "2025",
+        "categoria": "Modelos en preparación",
+        "combustible": "Por definir",
+        "transmision": "Por definir",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/faw/faw-placeholder-2025.jpg",
+        "descripcion": "FAW está preparando el lanzamiento de sus modelos en Argentina. Pronto tendremos información completa de su gama de vehículos.",
+        "especificaciones": {
+          "motor": "Por definir",
+          "potencia": "Por definir",
+          "traccion": "Por definir",
+          "capacidad_tanque": "Por definir",
+          "peso": "Por definir"
+        },
+        "caracteristicas": [
+          "Información próximamente",
+          "Modelos en preparación",
+          "Especificaciones por confirmar"
+        ]
+      }
+    ]
   }
 }

@@ -1014,5 +1014,85 @@
         ]
       }
     ]
+  },
+  "Changan": {
+    "marca": "Changan",
+    "modelos": [
+      {
+        "id": "changan-md201-cargo-box-2025",
+        "nombre": "MD201 Cargo Box",
+        "año": "2025",
+        "categoria": "Utilitario / Furgón caja cerrada",
+        "combustible": "Nafta",
+        "transmision": "Manual 5 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/changan/changan-md201-cargo-box-2025.jpg",
+        "descripcion": "Utilitario compacto con caja cerrada, diseñado para transporte urbano de carga ligera y logística.",
+        "especificaciones": {
+          "motor": "1.2L Nafta",
+          "potencia": "97 HP",
+          "traccion": "4x2 trasera",
+          "capacidad_tanque": "40 L",
+          "peso": "≈ 1.200 kg"
+        },
+        "caracteristicas": [
+          "ABS",
+          "Airbag conductor",
+          "Dirección asistida",
+          "Caja cerrada amplia",
+          "Capacidad de carga ≈ 800-1.000 kg"
+        ]
+      },
+      {
+        "id": "changan-md201-cargo-van-2025",
+        "nombre": "MD201 Cargo Van",
+        "año": "2025",
+        "categoria": "Van de carga",
+        "combustible": "Nafta",
+        "transmision": "Manual 5 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/changan/changan-md201-cargo-van-2025.jpg",
+        "descripcion": "Furgón urbano ideal para reparto, con espacio interior cerrado y motor económico.",
+        "especificaciones": {
+          "motor": "1.2L Nafta",
+          "potencia": "97 HP",
+          "traccion": "4x2 trasera",
+          "capacidad_tanque": "40 L",
+          "peso": "≈ 1.250 kg"
+        },
+        "caracteristicas": [
+          "Puertas traseras doble hoja",
+          "ABS",
+          "Airbag conductor",
+          "Capacidad de carga ≈ 800-900 kg",
+          "Dirección asistida"
+        ]
+      },
+      {
+        "id": "changan-md201-pickup-2025",
+        "nombre": "MD201 Pickup",
+        "año": "2025",
+        "categoria": "Mini truck / Pickup liviana",
+        "combustible": "Nafta",
+        "transmision": "Manual 5 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/changan/changan-md201-pickup-2025.jpg",
+        "descripcion": "Versión pickup del MD201 con caja abierta, pensada para transporte urbano y pequeñas cargas.",
+        "especificaciones": {
+          "motor": "1.2L Nafta",
+          "potencia": "97 HP",
+          "traccion": "4x2 trasera",
+          "capacidad_tanque": "40 L",
+          "peso": "≈ 1.180 kg"
+        },
+        "caracteristicas": [
+          "ABS",
+          "Airbag conductor",
+          "Caja abierta de gran tamaño",
+          "Capacidad de carga ≈ 900-1.000 kg",
+          "Dirección asistida"
+        ]
+      }
+    ]
   }
 }

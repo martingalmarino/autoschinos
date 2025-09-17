@@ -45,7 +45,7 @@ const SearchBlock: React.FC = () => {
   const handleInputChange = (field: keyof SearchForm, value: string) => {
     if (field === 'marca') {
       // Si cambia la marca, resetear el modelo
-      setFormData(prev => ({ marca: value, modelo: '' }));
+      setFormData({ marca: value, modelo: '' });
     } else {
       setFormData(prev => ({ ...prev, [field]: value }));
     }

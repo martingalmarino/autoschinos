@@ -80,6 +80,64 @@
       }
     ]
   },
+  "Geely": {
+    "marca": "Geely",
+    "modelos": [
+      {
+        "id": "geely-emgrand-gs-2025",
+        "nombre": "Emgrand GS",
+        "año": "2025",
+        "categoria": "Crossover / SUV compacto",
+        "combustible": "Nafta",
+        "transmision": "Manual / Automática",
+        "precio": "≈ ARS $14.181.000 a $20.563.000 según versión y año",
+        "imagen": "/images/models/geely/geely-emgrand-gs-2025.jpg",
+        "descripcion": "SUV crossover mediano con motor 1.8 L de ~140 HP, versiones manuales y automáticas, buena calidad interior y seguridad media-alta.",
+        "especificaciones": {
+          "motor": "1.8L Nafta",
+          "potencia": "≈ 140 HP",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "Por especificar",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "Seis airbags en versiones más equipadas",
+          "Control de estabilidad (ESP)",
+          "ABS, EBD",
+          "ISOFIX",
+          "Tapizados de calidad",
+          "Pantalla multimedia + conectividad",
+          "Garantía extensa (5 años / 150.000 km)"
+        ]
+      },
+      {
+        "id": "geely-emgrand-x7-sport-2025",
+        "nombre": "Emgrand X7 Sport",
+        "año": "2025",
+        "categoria": "SUV mediano / familiar",
+        "combustible": "Nafta",
+        "transmision": "Manual / Automática",
+        "precio": "≈ ARS $34.850.000 para versión usada de 2025 con pocos km",
+        "imagen": "/images/models/geely/geely-emgrand-x7-sport-2025.jpg",
+        "descripcion": "SUV familiar con versiones 2.0 y 2.4 L, varias opciones de transmisión. Buen espacio interior y equipamiento completo en las versiones superiores.",
+        "especificaciones": {
+          "motor": "2.0L / 2.4L Nafta",
+          "potencia": "141 HP (2.0 L) / 162 HP (2.4 L) según versión",
+          "traccion": "4x2",
+          "capacidad_tanque": "60 L",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "Tapizados de cuero en versiones tope",
+          "Seis airbags en versiones superiores",
+          "ABS + control de estabilidad",
+          "Pantalla táctil central + cámara de reversa",
+          "Sensores de estacionamiento delanteros y traseros",
+          "Garantía de 5 años / 150.000 km"
+        ]
+      }
+    ]
+  },
   "JAC": {
     "marca": "JAC",
     "modelos": [

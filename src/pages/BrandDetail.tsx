@@ -34,16 +34,36 @@ const BrandDetail: React.FC = () => {
   }
 
   const normalizedBrandName = brandName.toLowerCase();
-  // Capitalizar solo la primera letra para que coincida con el JSON
-  const displayName = brandName.charAt(0).toUpperCase() + brandName.slice(1).toLowerCase();
+  
+  // Mapeo correcto de nombres de URL a nombres exactos del JSON
+  const brandNameMapping: { [key: string]: string } = {
+    'jac': 'JAC',
+    'chery': 'Chery',
+    'geely': 'Geely',
+    'haval': 'Haval',
+    'dfsk': 'DFSK',
+    'byd': 'BYD',
+    'baic': 'BAIC',
+    'foton': 'Foton',
+    'mg': 'MG',
+    'lifan': 'Lifan',
+    'dongfeng': 'Dongfeng',
+    'great-wall': 'Great Wall',
+    'changan': 'Changan',
+    'shineray': 'Shineray'
+  };
+  
+  // Obtener el nombre exacto como está en el JSON
+  const exactBrandName = brandNameMapping[normalizedBrandName] || brandName.charAt(0).toUpperCase() + brandName.slice(1).toLowerCase();
+  const displayName = exactBrandName;
   const description = brandDescriptions[normalizedBrandName] || `${displayName} es una marca china reconocida en Argentina por su calidad, innovación y precios competitivos.`;
   
   // Generar logo y color dinámicamente
   const brandLogo = getBrandLogo(displayName);
   const brandColor = getBrandColor(displayName);
   
-  // Obtener modelos de la marca usando el nombre capitalizado correcto
-  const models = getModelsByBrand(displayName);
+  // Obtener modelos de la marca usando el nombre exacto del JSON
+  const models = getModelsByBrand(exactBrandName);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -144,16 +164,16 @@ const BrandDetail: React.FC = () => {
                       </p>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-3 sm:space-y-0">
-                      <div className="text-left sm:text-right">
-                        <p className="text-xs text-gray-500">Precio estimado</p>
-                        <p className="text-sm sm:text-lg font-bold text-primary-600">
+                    <div className="space-y-3">
+                      <div className="text-left">
+                        <p className="text-xs text-gray-500 mb-1">Precio estimado</p>
+                        <p className="text-base sm:text-lg font-bold text-primary-600 leading-tight">
                           {model.precio}
                         </p>
                       </div>
                       <button
                         onClick={() => window.location.href = `/marcas/${brandName}/${model.nombre.toLowerCase().replace(/\s+/g, '-')}`}
-                        className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-3 sm:px-4 rounded-lg transition-colors duration-200 text-sm sm:text-base w-full sm:w-auto"
+                        className="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2.5 px-4 rounded-lg transition-colors duration-200 text-sm w-full"
                       >
                         Ver Detalles
                       </button>

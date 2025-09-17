@@ -138,6 +138,121 @@
       }
     ]
   },
+  "DFSK": {
+    "marca": "DFSK",
+    "modelos": [
+      {
+        "id": "dfsk-c31-2025",
+        "nombre": "C31",
+        "año": "2025",
+        "categoria": "Pick-up cabina simple",
+        "combustible": "Nafta",
+        "transmision": "Manual (5 velocidades)",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/dfsk/dfsk-c31-2025.jpg",
+        "descripcion": "Pick-up de cabina simple con motor 1.5 L, buena capacidad de carga, orientada al trabajo liviano.",
+        "especificaciones": {
+          "motor": "1.5 L",
+          "potencia": "≈ 101-114 HP",
+          "traccion": "4x2 trasera",
+          "capacidad_tanque": "Por especificar",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "ABS + EBD",
+          "Doble airbag frontal",
+          "Cierre centralizado",
+          "Caja de carga de ~2,9 m de largo",
+          "Capacidad de carga hasta 1.250 kg",
+          "Dirección asistida",
+          "Vidrios delanteros eléctricos (según versión)"
+        ]
+      },
+      {
+        "id": "dfsk-c32-2025",
+        "nombre": "C32/Doble Cabina",
+        "año": "2025",
+        "categoria": "Pick-up cabina doble",
+        "combustible": "Nafta",
+        "transmision": "Manual 5 velocidades",
+        "precio": "≈ USD 19.500 (precio de lista oficial Argentina)",
+        "imagen": "/images/models/dfsk/dfsk-c32-2025.jpg",
+        "descripcion": "Pick-up doble cabina con motor 1.5 L, capacidad de carga de hasta 1.200 kg, ideal para trabajo y transporte en ruta urbana/periférica.",
+        "especificaciones": {
+          "motor": "1.5 L nafta",
+          "potencia": "101-114 HP",
+          "traccion": "4x2 trasera",
+          "capacidad_tanque": "55 L",
+          "peso": "Vehículo completo ~2.295 kg (peso bruto vehicular)"
+        },
+        "caracteristicas": [
+          "ABS + EBD",
+          "Doble airbag frontal",
+          "ESP",
+          "Capacidad de carga 1.200 kg",
+          "Caja de carga interna 2.07 m",
+          "Faros antiniebla delanteros y traseros",
+          "Ventanas manuales o delanteras eléctricas según versión",
+          "Interior funcional y equipamiento básico"
+        ]
+      },
+      {
+        "id": "dfsk-c35-2025",
+        "nombre": "C35 Cargo Van",
+        "año": "2025",
+        "categoria": "Van carguera / Furgón",
+        "combustible": "Nafta",
+        "transmision": "Manual 5 velocidades",
+        "precio": "≈ USD 21.500 (precio de lista estimado Argentina)",
+        "imagen": "/images/models/dfsk/dfsk-c35-2025.jpg",
+        "descripcion": "Van de carga con motor 1.5 L, diseño tipo furgón ideal para transporte urbano de mercadería ligera.",
+        "especificaciones": {
+          "motor": "1.5 L nafta",
+          "potencia": "≈ 115 HP",
+          "traccion": "4x2 trasera",
+          "capacidad_tanque": "Por especificar",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "ABS",
+          "Doble airbag frontal",
+          "Puertas traseras tipo van",
+          "Espacio de carga amplio (~5,1 m³ según ficha técnica externa)",
+          "Capacidad de carga útil alrededor de 840-900 kg",
+          "Interior funcional"
+        ]
+      },
+      {
+        "id": "dfsk-glory-500-2025",
+        "nombre": "Glory 500",
+        "año": "2025",
+        "categoria": "SUV compacto",
+        "combustible": "Nafta",
+        "transmision": "Automática CVT",
+        "precio": "ARS $31.000.000 (versión base Argentina)",
+        "imagen": "/images/models/dfsk/dfsk-glory-500-2025.jpg",
+        "descripcion": "SUV segmento B, con motor 1.5 L de 115 CV, buen diseño interior y equipamiento adecuado para ciudad y ruta ligera.",
+        "especificaciones": {
+          "motor": "1.5 L 4 cilindros nafta",
+          "potencia": "115 HP",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "Por especificar",
+          "peso": "Por especificar"
+        },
+        "caracteristicas": [
+          "ABS + EBD",
+          "Doble airbag frontal",
+          "ESP",
+          "Pantalla central de 7ʺ con Bluetooth",
+          "Cámara de retroceso",
+          "Volante multifunción",
+          "Levantavidrios eléctricos",
+          "Encendido por botón",
+          "Garantía 3 años o 60.000 km"
+        ]
+      }
+    ]
+  },
   "JAC": {
     "marca": "JAC",
     "modelos": [

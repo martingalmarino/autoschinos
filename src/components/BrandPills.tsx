@@ -113,15 +113,17 @@ const BrandPills: React.FC = () => {
         </div>
 
         <div className="text-center mt-8">
-          <p className="text-gray-600 mb-4">
-            ¿Buscás información de otra marca?
-          </p>
-          <button 
-            className="btn-primary"
-            onClick={() => window.location.href = '/catalogo'}
-          >
-            Explorar catálogo completo
-          </button>
+          <div className="inline-block rounded-lg px-8 py-6" style={{ background: 'linear-gradient(to right, #f5f5f5 0%, #fafafa 60%, #ffffff 100%)' }}>
+            <p className="text-gray-600 mb-4">
+              ¿Buscás información de otra marca?
+            </p>
+            <button 
+              className="btn-primary"
+              onClick={() => window.location.href = '/catalogo'}
+            >
+              Explorar catálogo completo
+            </button>
+          </div>
         </div>
       </div>
     </section>

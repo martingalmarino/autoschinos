@@ -200,12 +200,14 @@ const FeaturedModels: React.FC = () => {
         </div>
 
         <div className="text-center mt-12">
-          <button 
-            className="btn-secondary text-lg px-8 py-3"
-            onClick={() => window.location.href = '/catalogo'}
-          >
-            Explorar catálogo completo
-          </button>
+          <div className="inline-block rounded-lg px-8 py-3" style={{ background: 'linear-gradient(to right, #f5f5f5 0%, #fafafa 60%, #ffffff 100%)' }}>
+            <button 
+              className="btn-secondary text-lg px-8 py-3"
+              onClick={() => window.location.href = '/catalogo'}
+            >
+              Explorar catálogo completo
+            </button>
+          </div>
         </div>
       </div>
     </section>

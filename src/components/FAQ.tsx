@@ -96,7 +96,7 @@ const FAQ: React.FC = () => {
         </div>
 
         <div className="text-center mt-12">
-          <div className="bg-gray-50 rounded-lg p-8">
+          <div className="rounded-lg p-8" style={{ background: 'linear-gradient(to right, #f5f5f5 0%, #fafafa 60%, #ffffff 100%)' }}>
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               ¿Tenés más preguntas sobre autos chinos?
             </h3>

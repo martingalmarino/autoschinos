@@ -87,7 +87,7 @@ const Catalogo: React.FC = () => {
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Filtros - Sidebar */}
             <div className="lg:w-1/4">
-              <CatalogFilters onFiltersChange={handleFiltersChange} />
+              <CatalogFilters onFiltersChange={handleFiltersChange} currentFilters={filters} />
             </div>
 
             {/* Contenido principal */}

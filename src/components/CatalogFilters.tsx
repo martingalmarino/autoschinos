@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { useModels } from '../hooks/useModels';
 
 interface FilterOptions {
   marcas: string[];
@@ -9,9 +10,12 @@ interface FilterOptions {
 
 interface CatalogFiltersProps {
   onFiltersChange: (filters: any) => void;
+  currentFilters: any;
 }
 
-const CatalogFilters: React.FC<CatalogFiltersProps> = ({ onFiltersChange }) => {
+const CatalogFilters: React.FC<CatalogFiltersProps> = ({ onFiltersChange, currentFilters }) => {
+  const { allModels, getFilteredModels } = useModels();
+  
   const [selectedFilters, setSelectedFilters] = useState({
     marca: '',
     combustible: '',
@@ -19,12 +23,22 @@ const CatalogFilters: React.FC<CatalogFiltersProps> = ({ onFiltersChange }) => {
     segmento: ''
   });
 
-  const filterOptions: FilterOptions = {
-    marcas: ['Todas las marcas', 'Chery', 'Geely', 'JAC', 'Haval', 'BYD', 'Dongfeng', 'Great Wall', 'Lifan', 'MG', 'Changan', 'Foton', 'BAIC'],
-    combustibles: ['Todos', 'Nafta', 'Híbrido', 'Eléctrico', 'Diésel'],
-    transmisiones: ['Todas', 'Manual', 'Automática', 'CVT'],
-    segmentos: ['Todos', 'SUV Compacto', 'SUV Mediano', 'SUV Grande', 'Pickup', 'Sedán', 'Hatchback']
-  };
+  // Generar opciones de filtros dinámicamente desde los modelos reales
+  const filterOptions: FilterOptions = useMemo(() => {
+    const marcas = ['Todas las marcas', ...new Set(allModels.map(model => model.brand))].sort();
+    const combustibles = ['Todos', ...new Set(allModels.map(model => model.combustible))].sort();
+    const transmisiones = ['Todas', ...new Set(allModels.flatMap(model => 
+      model.transmision.split(' / ').map(t => t.trim())
+    ))].sort();
+    const segmentos = ['Todos', ...new Set(allModels.map(model => model.categoria))].sort();
+
+    return {
+      marcas,
+      combustibles,
+      transmisiones,
+      segmentos
+    };
+  }, [allModels]);
 
   const handleFilterChange = (filterType: string, value: string) => {
     const newFilters = { ...selectedFilters, [filterType]: value };
@@ -131,10 +145,12 @@ const CatalogFilters: React.FC<CatalogFiltersProps> = ({ onFiltersChange }) => {
         </select>
       </div>
 
-      {/* Resultados */}
+      {/* Resultados dinámicos */}
       <div className="pt-4 border-t border-gray-200">
         <p className="text-sm text-gray-600">
-          <span className="font-medium">24 modelos</span> encontrados
+          <span className="font-medium">
+            {getFilteredModels(currentFilters).length} modelos
+          </span> encontrados
         </p>
       </div>
     </div>

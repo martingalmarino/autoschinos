@@ -1,16 +1,11 @@
 // Utility para manejar logos de marcas de forma dinámica
 
-export const getBrandLogo = (brandName: string, fallbackColor: string = '#6B7280'): string => {
+export const getBrandLogo = (brandName: string): string => {
   // Normalizar el nombre de la marca para el archivo
   const normalizedName = brandName.toLowerCase().replace(/\s+/g, '-');
   
-  // Intentar usar el logo PNG real
-  const logoPath = `/images/brands/logos/${normalizedName}-logo.png`;
-  
-  // Por ahora retornamos la ruta del PNG
-  // En una implementación más avanzada, podríamos verificar si el archivo existe
-  // y usar un fallback SVG si no existe
-  return logoPath;
+  // Retornar la ruta del PNG - el fallback se maneja con onError en los componentes
+  return `/images/brands/logos/${normalizedName}-logo.png`;
 };
 
 export const getBrandFallbackLogo = (brandName: string, color: string = '#6B7280'): string => {

@@ -47,6 +47,13 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonical }) =>
       
       {/* Language */}
       <meta httpEquiv="content-language" content="es-AR" />
+      
+      {/* Google AdSense */}
+      <script 
+        async 
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6771833588582297"
+        crossOrigin="anonymous"
+      ></script>
     </Helmet>
   );
 };

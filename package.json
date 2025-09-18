@@ -9,7 +9,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "sitemap": "node scripts/generate-sitemap.cjs",
-    "build:full": "npm run sitemap && npm run build"
+    "build:full": "npm run sitemap && npm run build",
+    "create-images": "node scripts/create-brand-images.cjs"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",

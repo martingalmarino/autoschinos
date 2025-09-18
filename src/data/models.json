@@ -1575,5 +1575,88 @@
         ]
       }
     ]
+  },
+  "BYD": {
+    "marca": "BYD",
+    "modelos": [
+      {
+        "id": "byd-song-pro-dmi-2025",
+        "nombre": "Song Pro DM-i",
+        "año": "2025",
+        "categoria": "SUV híbrido enchufable",
+        "combustible": "Híbrido enchufable (Nafta + Eléctrico)",
+        "transmision": "Automática E-CVT",
+        "precio": "Consultar Precio",
+        "imagen": "/images/models/byd/byd-song-pro-dmi-2025.jpg",
+        "descripcion": "SUV mediano híbrido enchufable con motor 1.5L y batería Blade, destacando eficiencia y autonomía extendida.",
+        "especificaciones": {
+          "motor": "1.5L + motor eléctrico",
+          "potencia": "≈ 197 HP combinados",
+          "traccion": "4x2",
+          "capacidad_tanque": "50 L",
+          "peso": "≈ 1.700 kg"
+        },
+        "caracteristicas": [
+          "Autonomía eléctrica ≈ 100 km",
+          "Batería Blade segura",
+          "Pantalla central giratoria 12,8″",
+          "Android Auto / Apple CarPlay",
+          "Control de crucero adaptativo",
+          "6 airbags"
+        ]
+      },
+      {
+        "id": "byd-dolphin-mini-2025",
+        "nombre": "Dolphin Mini",
+        "año": "2025",
+        "categoria": "Hatchback eléctrico",
+        "combustible": "100% Eléctrico",
+        "transmision": "Automática (e-drive)",
+        "precio": "Consultar Precio",
+        "imagen": "/images/models/byd/byd-dolphin-mini-2025.jpg",
+        "descripcion": "Hatchback eléctrico compacto con diseño Ocean Aesthetics, batería Blade y autonomía urbana destacada.",
+        "especificaciones": {
+          "motor": "Motor eléctrico",
+          "potencia": "≈ 95-110 HP",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "N/A (batería 30-38 kWh)",
+          "peso": "≈ 1.250 kg"
+        },
+        "caracteristicas": [
+          "Autonomía hasta 300 km",
+          "Carga rápida (10% a 80% en 30 min)",
+          "Pantalla táctil giratoria 10,1″",
+          "Android Auto / Apple CarPlay",
+          "6 airbags",
+          "Control por voz «Hi BYD»"
+        ]
+      },
+      {
+        "id": "byd-yuan-pro-2025",
+        "nombre": "Yuan Pro",
+        "año": "2025",
+        "categoria": "SUV compacto eléctrico",
+        "combustible": "100% Eléctrico",
+        "transmision": "Automática (e-drive)",
+        "precio": "Consultar Precio",
+        "imagen": "/images/models/byd/byd-yuan-pro-2025.jpg",
+        "descripcion": "SUV eléctrico compacto con batería Blade y hasta 401 km de autonomía, ideal para uso urbano y suburbano.",
+        "especificaciones": {
+          "motor": "Motor eléctrico",
+          "potencia": "136 HP",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "N/A (batería 50 kWh)",
+          "peso": "≈ 1.490 kg"
+        },
+        "caracteristicas": [
+          "Autonomía hasta 401 km",
+          "Batería Blade de última generación",
+          "Pantalla táctil 10,1″",
+          "Android Auto / Apple CarPlay",
+          "Control de estabilidad (ESP)",
+          "6 airbags"
+        ]
+      }
+    ]
   }
 }

@@ -111,11 +111,11 @@ const FilterableCatalog: React.FC<FilterableCatalogProps> = ({ models }) => {
           {/* Botón scroll izquierda */}
           <button
             onClick={scrollLeft}
-            className="flex-shrink-0 p-3 rounded-full bg-gray-100 border-2 border-gray-300 hover:bg-gray-200 hover:border-gray-400 mr-4 transition-all duration-200 shadow-sm hover:shadow-md"
+            className="flex-shrink-0 p-2.5 rounded-full bg-gray-100 border-2 border-gray-300 hover:bg-gray-200 hover:border-gray-400 mr-4 transition-all duration-200 shadow-sm hover:shadow-md"
             title="Desplazar filtros hacia la izquierda"
             aria-label="Desplazar filtros hacia la izquierda"
           >
-            <ChevronLeftIcon className="w-6 h-6 text-gray-600" />
+            <ChevronLeftIcon className="w-5 h-5 text-gray-600" />
           </button>
 
           {/* Container de filtros */}
@@ -141,11 +141,11 @@ const FilterableCatalog: React.FC<FilterableCatalogProps> = ({ models }) => {
           {/* Botón scroll derecha */}
           <button
             onClick={scrollRight}
-            className="flex-shrink-0 p-3 rounded-full bg-gray-100 border-2 border-gray-300 hover:bg-gray-200 hover:border-gray-400 ml-4 transition-all duration-200 shadow-sm hover:shadow-md"
+            className="flex-shrink-0 p-2.5 rounded-full bg-gray-100 border-2 border-gray-300 hover:bg-gray-200 hover:border-gray-400 ml-4 transition-all duration-200 shadow-sm hover:shadow-md"
             title="Desplazar filtros hacia la derecha"
             aria-label="Desplazar filtros hacia la derecha"
           >
-            <ChevronRightIcon className="w-6 h-6 text-gray-600" />
+            <ChevronRightIcon className="w-5 h-5 text-gray-600" />
           </button>
         </div>
       </div>
@@ -181,7 +181,7 @@ const FilterableCatalog: React.FC<FilterableCatalogProps> = ({ models }) => {
                 const modelSlug = model.nombre.toLowerCase().replace(/\s+/g, '-');
                 window.location.href = `/marcas/${brandSlug}/${modelSlug}`;
               }}
-              className="w-full mt-2 px-3 py-2 bg-red-500 hover:bg-red-600 text-white text-xs font-semibold rounded-md transition-all duration-200 hover:shadow-md transform hover:scale-105"
+              className="w-full mt-2 px-3 py-2 bg-gray-900 hover:bg-black text-white text-xs font-semibold rounded-md transition-all duration-200 hover:shadow-md transform hover:scale-105"
             >
               VER
             </button>

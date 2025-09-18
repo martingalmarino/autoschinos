@@ -1,5 +1,7 @@
 import React from 'react';
 import SEO from '../components/SEO';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const PoliticaCookies: React.FC = () => {
   return (
@@ -8,6 +10,7 @@ const PoliticaCookies: React.FC = () => {
         title="Política de Cookies - AutosChinos.ar"
         description="Política de cookies de autoschinos.ar. Información sobre el uso de cookies en nuestro sitio web."
       />
+      <Navbar />
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-lg shadow-lg p-8">
@@ -66,6 +69,7 @@ const PoliticaCookies: React.FC = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

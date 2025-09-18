@@ -1,5 +1,7 @@
 import React from 'react';
 import SEO from '../components/SEO';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const TerminosCondiciones: React.FC = () => {
   return (
@@ -8,6 +10,7 @@ const TerminosCondiciones: React.FC = () => {
         title="Términos y Condiciones - AutosChinos.ar"
         description="Términos y condiciones de uso del sitio web autoschinos.ar. Conocé las reglas y condiciones para el uso de nuestro portal de autos chinos."
       />
+      <Navbar />
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-lg shadow-lg p-8">
@@ -67,6 +70,7 @@ const TerminosCondiciones: React.FC = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

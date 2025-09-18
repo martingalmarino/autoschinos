@@ -1,5 +1,7 @@
 import React from 'react';
 import SEO from '../components/SEO';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const AvisoLegal: React.FC = () => {
   return (
@@ -8,6 +10,7 @@ const AvisoLegal: React.FC = () => {
         title="Aviso Legal - AutosChinos.ar"
         description="Aviso legal de autoschinos.ar. Información legal sobre el sitio web y sus condiciones de uso."
       />
+      <Navbar />
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-lg shadow-lg p-8">
@@ -58,6 +61,7 @@ const AvisoLegal: React.FC = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

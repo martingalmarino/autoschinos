@@ -16,6 +16,7 @@ const Home: React.FC = () => {
         description="Conocé todas las marcas y modelos de autos chinos disponibles en Argentina. Información actualizada, precios de referencia, seguridad y tendencias 2025."
         keywords="autos chinos, argentina, marcas chinas, modelos 2025, chery, geely, byd, haval, jac"
         canonical="https://www.autoschinos.ar/"
+        image="/images/hero-bg.jpg"
       />
       <Navbar />
       <main>

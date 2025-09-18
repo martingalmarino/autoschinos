@@ -19,7 +19,7 @@ interface FilterableCatalogProps {
 }
 
 const FilterableCatalog: React.FC<FilterableCatalogProps> = ({ models }) => {
-  const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Filtros disponibles basados en la imagen y los datos
@@ -81,19 +81,13 @@ const FilterableCatalog: React.FC<FilterableCatalogProps> = ({ models }) => {
   };
 
   // Filtrar modelos
-  const filteredModels = activeFilters.length === 0 
+  const filteredModels = !activeFilter 
     ? models 
-    : models.filter(model => 
-        activeFilters.some(filterId => matchesFilter(model, filterId))
-      );
+    : models.filter(model => matchesFilter(model, activeFilter));
 
-  // Función para toggle de filtros
-  const toggleFilter = (filterId: string) => {
-    setActiveFilters(prev => 
-      prev.includes(filterId) 
-        ? prev.filter(id => id !== filterId)
-        : [...prev, filterId]
-    );
+  // Función para seleccionar filtro único
+  const selectFilter = (filterId: string) => {
+    setActiveFilter(prev => prev === filterId ? null : filterId);
   };
 
   // Funciones de scroll
@@ -117,11 +111,11 @@ const FilterableCatalog: React.FC<FilterableCatalogProps> = ({ models }) => {
           {/* Botón scroll izquierda */}
           <button
             onClick={scrollLeft}
-            className="flex-shrink-0 p-2 rounded-full border border-gray-300 hover:bg-gray-50 mr-4"
+            className="flex-shrink-0 p-2 rounded-full bg-blue-50 border border-blue-200 hover:bg-blue-100 mr-4 transition-colors"
             title="Desplazar filtros hacia la izquierda"
             aria-label="Desplazar filtros hacia la izquierda"
           >
-            <ChevronLeftIcon className="w-5 h-5" />
+            <ChevronLeftIcon className="w-5 h-5 text-blue-600" />
           </button>
 
           {/* Container de filtros */}
@@ -132,11 +126,11 @@ const FilterableCatalog: React.FC<FilterableCatalogProps> = ({ models }) => {
             {filters.map((filter) => (
               <button
                 key={filter.id}
-                onClick={() => toggleFilter(filter.id)}
+                onClick={() => selectFilter(filter.id)}
                 className={`flex-shrink-0 px-4 py-2 rounded-full border text-sm font-medium transition-colors ${
-                  activeFilters.includes(filter.id)
-                    ? 'bg-blue-600 text-white border-blue-600'
-                    : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                  activeFilter === filter.id
+                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
+                    : 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100 hover:border-gray-300'
                 }`}
               >
                 {filter.label}
@@ -147,11 +141,11 @@ const FilterableCatalog: React.FC<FilterableCatalogProps> = ({ models }) => {
           {/* Botón scroll derecha */}
           <button
             onClick={scrollRight}
-            className="flex-shrink-0 p-2 rounded-full border border-gray-300 hover:bg-gray-50 ml-4"
+            className="flex-shrink-0 p-2 rounded-full bg-blue-50 border border-blue-200 hover:bg-blue-100 ml-4 transition-colors"
             title="Desplazar filtros hacia la derecha"
             aria-label="Desplazar filtros hacia la derecha"
           >
-            <ChevronRightIcon className="w-5 h-5" />
+            <ChevronRightIcon className="w-5 h-5 text-blue-600" />
           </button>
         </div>
       </div>
@@ -187,7 +181,7 @@ const FilterableCatalog: React.FC<FilterableCatalogProps> = ({ models }) => {
                 const modelSlug = model.nombre.toLowerCase().replace(/\s+/g, '-');
                 window.location.href = `/marcas/${brandSlug}/${modelSlug}`;
               }}
-              className="w-full mt-2 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium rounded transition-colors"
+              className="w-full mt-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-md transition-all duration-200 hover:shadow-md transform hover:scale-105"
             >
               VER
             </button>
@@ -208,9 +202,9 @@ const FilterableCatalog: React.FC<FilterableCatalogProps> = ({ models }) => {
       {/* Contador de resultados */}
       <div className="text-center mt-4 text-sm text-gray-500">
         Mostrando {Math.min(filteredModels.length, 12)} de {filteredModels.length} modelos
-        {activeFilters.length > 0 && (
-          <span className="ml-2">
-            (Filtros activos: {activeFilters.length})
+        {activeFilter && (
+          <span className="ml-2 text-blue-600 font-medium">
+            (Filtro: {filters.find(f => f.id === activeFilter)?.label})
           </span>
         )}
       </div>

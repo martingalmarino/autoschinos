@@ -181,7 +181,7 @@ const FilterableCatalog: React.FC<FilterableCatalogProps> = ({ models }) => {
                 const modelSlug = model.nombre.toLowerCase().replace(/\s+/g, '-');
                 window.location.href = `/marcas/${brandSlug}/${modelSlug}`;
               }}
-              className="w-full mt-2 px-3 py-2 bg-gray-900 hover:bg-black text-white text-xs font-semibold rounded-md transition-all duration-200 hover:shadow-md transform hover:scale-105"
+              className="w-full mt-2 px-3 py-2 bg-red-500 hover:bg-red-600 text-white text-xs font-semibold rounded-md transition-all duration-200 hover:shadow-md transform hover:scale-105"
             >
               VER
             </button>

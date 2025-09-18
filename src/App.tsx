@@ -8,6 +8,7 @@ import TerminosCondiciones from './pages/TerminosCondiciones';
 import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
 import PoliticaCookies from './pages/PoliticaCookies';
 import AvisoLegal from './pages/AvisoLegal';
+import TestCatalog from './pages/TestCatalog';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
       <Route path="/politica-cookies" element={<PoliticaCookies />} />
       <Route path="/aviso-legal" element={<AvisoLegal />} />
+      <Route path="/test-catalog" element={<TestCatalog />} />
     </Routes>
   );
 }

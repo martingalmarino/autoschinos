@@ -3,7 +3,7 @@ import SEO from '../components/SEO';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import SearchBlock from '../components/SearchBlock';
-import FeaturedModels from '../components/FeaturedModels';
+import FeaturedCatalog from '../components/FeaturedCatalog';
 import BrandPills from '../components/BrandPills';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
       <main>
         <Hero />
         <SearchBlock />
-        <FeaturedModels />
+        <FeaturedCatalog />
         <BrandPills />
         <FAQ />
       </main>

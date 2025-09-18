@@ -1282,5 +1282,298 @@
         ]
       }
     ]
+  },
+  "Dongfeng": {
+    "marca": "Dongfeng",
+    "modelos": [
+      {
+        "id": "dongfeng-captain-w310-2025",
+        "nombre": "Captain W 310",
+        "año": "2025",
+        "categoria": "Camión liviano",
+        "combustible": "Diésel",
+        "transmision": "Manual 6 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/dongfeng/dongfeng-captain-w310-2025.jpg",
+        "descripcion": "Camión liviano ideal para reparto urbano, con motor diésel eficiente y chasis reforzado.",
+        "especificaciones": {
+          "motor": "2.5L Turbo Diésel",
+          "potencia": "110-130 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "80 L",
+          "peso": "≈ 3.100 kg"
+        },
+        "caracteristicas": [
+          "ABS",
+          "Dirección asistida",
+          "Cabina simple",
+          "Capacidad de carga ≈ 2.5 toneladas"
+        ]
+      },
+      {
+        "id": "dongfeng-captain-w412-2025",
+        "nombre": "Captain W 412",
+        "año": "2025",
+        "categoria": "Camión liviano",
+        "combustible": "Diésel",
+        "transmision": "Manual 6 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/dongfeng/dongfeng-captain-w412-2025.jpg",
+        "descripcion": "Camión liviano de mayor porte en la línea W, adecuado para distribución interurbana.",
+        "especificaciones": {
+          "motor": "3.0L Turbo Diésel",
+          "potencia": "140-150 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "100 L",
+          "peso": "≈ 4.200 kg"
+        },
+        "caracteristicas": [
+          "Frenos ABS + EBD",
+          "Cabina simple o extendida",
+          "Capacidad de carga ≈ 3 toneladas",
+          "Asiento ergonómico"
+        ]
+      },
+      {
+        "id": "dongfeng-captain-c615-2025",
+        "nombre": "Captain C 615",
+        "año": "2025",
+        "categoria": "Camión mediano",
+        "combustible": "Diésel",
+        "transmision": "Manual 6 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/dongfeng/dongfeng-captain-c615-2025.jpg",
+        "descripcion": "Camión mediano de la serie C, con buena capacidad de carga y eficiencia en consumo.",
+        "especificaciones": {
+          "motor": "3.8L Turbo Diésel",
+          "potencia": "160 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "120 L",
+          "peso": "≈ 6.500 kg"
+        },
+        "caracteristicas": [
+          "Cabina confortable",
+          "ABS + EBD",
+          "Capacidad de carga ≈ 4 toneladas",
+          "Dirección hidráulica"
+        ]
+      },
+      {
+        "id": "dongfeng-captain-c815-2025",
+        "nombre": "Captain C 815",
+        "año": "2025",
+        "categoria": "Camión mediano",
+        "combustible": "Diésel",
+        "transmision": "Manual 6 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/dongfeng/dongfeng-captain-c815-2025.jpg",
+        "descripcion": "Camión mediano robusto con motor diésel de mayor potencia y chasis reforzado.",
+        "especificaciones": {
+          "motor": "4.0L Turbo Diésel",
+          "potencia": "180 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "120 L",
+          "peso": "≈ 8.000 kg"
+        },
+        "caracteristicas": [
+          "Cabina amplia",
+          "Sistema de frenos neumáticos",
+          "Capacidad de carga ≈ 5 toneladas",
+          "Dirección asistida"
+        ]
+      },
+      {
+        "id": "dongfeng-captain-c1016-2025",
+        "nombre": "Captain C 1016",
+        "año": "2025",
+        "categoria": "Camión pesado",
+        "combustible": "Diésel",
+        "transmision": "Manual 8 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/dongfeng/dongfeng-captain-c1016-2025.jpg",
+        "descripcion": "Camión de carga pesada de la serie C, con mayor capacidad para transporte interurbano e industrial.",
+        "especificaciones": {
+          "motor": "5.9L Turbo Diésel",
+          "potencia": "220 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "150 L",
+          "peso": "≈ 10.000 kg"
+        },
+        "caracteristicas": [
+          "Cabina ergonómica",
+          "Frenos de aire",
+          "Capacidad de carga ≈ 7 toneladas",
+          "ABS"
+        ]
+      },
+      {
+        "id": "dongfeng-captain-c1217-2025",
+        "nombre": "Captain C 1217",
+        "año": "2025",
+        "categoria": "Camión pesado",
+        "combustible": "Diésel",
+        "transmision": "Manual 8 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/dongfeng/dongfeng-captain-c1217-2025.jpg",
+        "descripcion": "Camión de la gama más alta de la serie C, con excelente capacidad de carga y robustez.",
+        "especificaciones": {
+          "motor": "6.7L Turbo Diésel",
+          "potencia": "240 HP",
+          "traccion": "4x2 / 6x2",
+          "capacidad_tanque": "200 L",
+          "peso": "≈ 12.000 kg"
+        },
+        "caracteristicas": [
+          "Cabina dormitorio",
+          "Frenos neumáticos ABS",
+          "Capacidad de carga ≈ 9 toneladas",
+          "Dirección asistida hidráulica"
+        ]
+      },
+      {
+        "id": "dongfeng-captain-d-2025",
+        "nombre": "Captain D",
+        "año": "2025",
+        "categoria": "Camión urbano",
+        "combustible": "Diésel",
+        "transmision": "Manual 5 velocidades",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/dongfeng/dongfeng-captain-d-2025.jpg",
+        "descripcion": "Camión urbano ligero de bajo costo operativo, pensado para logística en ciudad.",
+        "especificaciones": {
+          "motor": "2.2L Turbo Diésel",
+          "potencia": "102 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "70 L",
+          "peso": "≈ 2.800 kg"
+        },
+        "caracteristicas": [
+          "Cabina simple",
+          "ABS",
+          "Dirección asistida",
+          "Capacidad de carga ≈ 1.5 toneladas"
+        ]
+      },
+      {
+        "id": "dongfeng-van-312-2025",
+        "nombre": "Van 312",
+        "año": "2025",
+        "categoria": "Van / utilitario",
+        "combustible": "Nafta",
+        "transmision": "Manual",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/dongfeng/dongfeng-van-312-2025.jpg",
+        "descripcion": "Van compacta para uso mixto, ideal para transporte urbano de personas o carga ligera.",
+        "especificaciones": {
+          "motor": "1.2L Nafta",
+          "potencia": "85 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "40 L",
+          "peso": "≈ 1.200 kg"
+        },
+        "caracteristicas": [
+          "ABS",
+          "Airbag conductor",
+          "Dirección asistida",
+          "Configurable pasajeros/carga"
+        ]
+      },
+      {
+        "id": "dongfeng-van-312l-cargo-2025",
+        "nombre": "Van 312L Cargo",
+        "año": "2025",
+        "categoria": "Furgón utilitario",
+        "combustible": "Nafta",
+        "transmision": "Manual",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/dongfeng/dongfeng-van-312l-cargo-2025.jpg",
+        "descripcion": "Versión cargo de la Van 312L con espacio cerrado y mayor capacidad de carga.",
+        "especificaciones": {
+          "motor": "1.2L Nafta",
+          "potencia": "85 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "40 L",
+          "peso": "≈ 1.250 kg"
+        },
+        "caracteristicas": [
+          "Puertas traseras doble hoja",
+          "ABS",
+          "Airbag conductor",
+          "Capacidad de carga ≈ 800-900 kg"
+        ]
+      },
+      {
+        "id": "dongfeng-van-312l-bus-2025",
+        "nombre": "Van 312L Bus",
+        "año": "2025",
+        "categoria": "Minibús",
+        "combustible": "Nafta",
+        "transmision": "Manual",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/dongfeng/dongfeng-van-312l-bus-2025.jpg",
+        "descripcion": "Versión bus de la Van 312L, con capacidad para pasajeros y motor económico.",
+        "especificaciones": {
+          "motor": "1.2L Nafta",
+          "potencia": "85 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "40 L",
+          "peso": "≈ 1.300 kg"
+        },
+        "caracteristicas": [
+          "Capacidad 7-9 pasajeros",
+          "ABS",
+          "Airbag conductor",
+          "Aire acondicionado trasero"
+        ]
+      },
+      {
+        "id": "dongfeng-uvan-414-cargo-2025",
+        "nombre": "U-Van 414 Cargo",
+        "año": "2025",
+        "categoria": "Furgón mediano",
+        "combustible": "Diésel",
+        "transmision": "Manual",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/dongfeng/dongfeng-uvan-414-cargo-2025.jpg",
+        "descripcion": "Furgón mediano pensado para carga logística con motor diésel de bajo consumo.",
+        "especificaciones": {
+          "motor": "2.0L Turbo Diésel",
+          "potencia": "120 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "65 L",
+          "peso": "≈ 1.800 kg"
+        },
+        "caracteristicas": [
+          "ABS",
+          "Airbag conductor",
+          "Puertas laterales corredizas",
+          "Capacidad de carga ≈ 1.2 toneladas"
+        ]
+      },
+      {
+        "id": "dongfeng-uvan-414-bus-2025",
+        "nombre": "U-Van 414 Bus",
+        "año": "2025",
+        "categoria": "Minibús mediano",
+        "combustible": "Diésel",
+        "transmision": "Manual",
+        "precio": "Consultar precio",
+        "imagen": "/images/models/dongfeng/dongfeng-uvan-414-bus-2025.jpg",
+        "descripcion": "Minibús de pasajeros basado en la U-Van, con capacidad de hasta 15 personas.",
+        "especificaciones": {
+          "motor": "2.0L Turbo Diésel",
+          "potencia": "120 HP",
+          "traccion": "4x2",
+          "capacidad_tanque": "65 L",
+          "peso": "≈ 1.850 kg"
+        },
+        "caracteristicas": [
+          "Capacidad 12-15 pasajeros",
+          "ABS",
+          "Airbag conductor",
+          "Aire acondicionado trasero"
+        ]
+      }
+    ]
   }
 }

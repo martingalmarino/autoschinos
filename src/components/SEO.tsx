@@ -6,9 +6,10 @@ interface SEOProps {
   description: string;
   keywords?: string;
   canonical?: string;
+  noindex?: boolean;
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonical }) => {
+const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonical, noindex = false }) => {
   const siteUrl = 'https://www.autoschinos.ar';
   const fullTitle = `${title} | autoschinos.ar`;
 
@@ -40,7 +41,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonical }) =>
       {canonical && <link rel="canonical" href={canonical} />}
       
       {/* Robots */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
       
       {/* Viewport */}
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />

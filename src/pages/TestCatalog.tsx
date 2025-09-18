@@ -43,6 +43,7 @@ const TestCatalog: React.FC = () => {
         title="Catálogo de Prueba - AutosChinos.ar"
         description="Página de prueba para el nuevo componente de catálogo filtrable con todos los modelos de autos chinos disponibles."
         keywords="catálogo, filtros, autos chinos, prueba, SUV, pickup, sedán"
+        noindex={true}
       />
       <Navbar />
       <div className="min-h-screen bg-gray-50 py-12">

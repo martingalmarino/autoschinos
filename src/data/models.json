@@ -1658,5 +1658,85 @@
         ]
       }
     ]
+  },
+  "Lifan": {
+    "marca": "Lifan",
+    "modelos": [
+      {
+        "id": "lifan-x70-2025",
+        "nombre": "X70",
+        "año": "2025",
+        "categoria": "SUV mediano",
+        "combustible": "Nafta",
+        "transmision": "Manual / Automática CVT",
+        "precio": "Consultar Precio",
+        "imagen": "/images/models/lifan/lifan-x70-2025.jpg",
+        "descripcion": "SUV mediano con motor 2.0L, amplio espacio interior y buena relación precio-equipamiento.",
+        "especificaciones": {
+          "motor": "2.0L Nafta",
+          "potencia": "140 HP",
+          "traccion": "4x2 delantera",
+          "capacidad_tanque": "55 L",
+          "peso": "≈ 1.550 kg"
+        },
+        "caracteristicas": [
+          "Pantalla táctil multimedia",
+          "Cámara de retroceso",
+          "Airbags frontales y laterales",
+          "ABS + EBD",
+          "Control de estabilidad (ESP)"
+        ]
+      },
+      {
+        "id": "lifan-myway-2025",
+        "nombre": "MyWay",
+        "año": "2025",
+        "categoria": "SUV familiar 7 asientos",
+        "combustible": "Nafta",
+        "transmision": "Manual 5 velocidades",
+        "precio": "Consultar Precio",
+        "imagen": "/images/models/lifan/lifan-myway-2025.jpg",
+        "descripcion": "SUV familiar de 7 plazas, con motor 1.8L y un diseño práctico pensado para viajes y uso urbano.",
+        "especificaciones": {
+          "motor": "1.8L Nafta",
+          "potencia": "132 HP",
+          "traccion": "4x2 trasera",
+          "capacidad_tanque": "55 L",
+          "peso": "≈ 1.450 kg"
+        },
+        "caracteristicas": [
+          "7 asientos",
+          "Aire acondicionado doble zona",
+          "ABS + EBD",
+          "Airbags frontales",
+          "Pantalla multimedia"
+        ]
+      },
+      {
+        "id": "lifan-mamut-2025",
+        "nombre": "Mamut",
+        "año": "2025",
+        "categoria": "Pickup grande",
+        "combustible": "Diésel",
+        "transmision": "Manual / Automática",
+        "precio": "Consultar Precio",
+        "imagen": "/images/models/lifan/lifan-mamut-2025.jpg",
+        "descripcion": "Pickup full size de Lifan, equipada con motor 2.0 turbo diésel, gran capacidad de carga y tracción 4x4.",
+        "especificaciones": {
+          "motor": "2.0L Turbo Diésel",
+          "potencia": "≈ 190 HP",
+          "traccion": "4x4",
+          "capacidad_tanque": "70 L",
+          "peso": "≈ 2.100 kg"
+        },
+        "caracteristicas": [
+          "Airbags múltiples",
+          "ABS + EBD",
+          "Control de estabilidad",
+          "Pantalla táctil multimedia",
+          "Capacidad de carga 1.000 kg"
+        ]
+      }
+    ]
   }
 }

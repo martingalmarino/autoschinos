@@ -19,10 +19,10 @@ const Footer: React.FC = () => {
 
   // Enlaces legales
   const legalLinks = [
-    { name: 'Términos y Condiciones', href: '#' },
-    { name: 'Política de Privacidad', href: '#' },
-    { name: 'Cookies', href: '#' },
-    { name: 'Aviso Legal', href: '#' }
+    { name: 'Términos y Condiciones', href: '/terminos-condiciones' },
+    { name: 'Política de Privacidad', href: '/politica-privacidad' },
+    { name: 'Cookies', href: '/politica-cookies' },
+    { name: 'Aviso Legal', href: '/aviso-legal' }
   ];
 
   // Redes sociales removidas - reemplazadas por crédito de desarrollo

@@ -150,11 +150,11 @@ Enviado desde autoschinos.ar
               </button>
             </div>
 
-            <p className="mt-6 text-center text-sm text-gray-500">
-              {WHATSAPP_NUMBER
-                ? 'Al enviar se abrirá WhatsApp con tu consulta lista para mandar.'
-                : `Al enviar se abrirá tu cliente de correo hacia ${CONTACT_EMAIL}. Configurá NEXT_PUBLIC_WHATSAPP para usar WhatsApp.`}
-            </p>
+            {WHATSAPP_NUMBER ? (
+              <p className="mt-6 text-center text-sm text-gray-500">
+                Al enviar se abrirá WhatsApp con tu consulta lista para mandar.
+              </p>
+            ) : null}
           </form>
         </div>
       </div>

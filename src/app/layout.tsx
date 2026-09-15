@@ -4,6 +4,7 @@ import './globals.css';
 import { absoluteUrl, pageTitle, SITE_NAME, SITE_URL } from '@/lib/site';
 import { organizationJsonLd, websiteJsonLd } from '@/lib/json-ld';
 import JsonLd from '@/components/JsonLd';
+import CookieNotice from '@/components/CookieNotice';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -61,6 +62,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         {children}
+        <CookieNotice />
       </body>
     </html>
   );

@@ -5,6 +5,7 @@ import {
   getBrandNames,
   modelSlug,
 } from '@/lib/models';
+import { guides } from '@/lib/guides';
 import { SITE_URL } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -14,12 +15,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
     { url: `${SITE_URL}/catalogo`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE_URL}/marcas`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE_URL}/guias`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${SITE_URL}/acerca-de`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${SITE_URL}/contacto`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/terminos-condiciones`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
     { url: `${SITE_URL}/politica-privacidad`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
     { url: `${SITE_URL}/politica-cookies`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
     { url: `${SITE_URL}/aviso-legal`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
   ];
+
+  const guideRoutes: MetadataRoute.Sitemap = guides.map((guide) => ({
+    url: `${SITE_URL}/guias/${guide.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.75,
+  }));
 
   const brandRoutes: MetadataRoute.Sitemap = getBrandNames().map((brand) => ({
     url: `${SITE_URL}/marcas/${brandSlug(brand)}`,
@@ -35,5 +45,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...brandRoutes, ...modelRoutes];
+  return [...staticRoutes, ...guideRoutes, ...brandRoutes, ...modelRoutes];
 }

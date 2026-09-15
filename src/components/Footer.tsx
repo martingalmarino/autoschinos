@@ -5,13 +5,15 @@ const navigationLinks = [
   { name: 'Inicio', href: '/' },
   { name: 'Catálogo', href: '/catalogo' },
   { name: 'Marcas', href: '/marcas' },
+  { name: 'Guías', href: '/guias' },
   { name: 'Contacto', href: '/contacto' },
 ];
 
 const companyLinks = [
+  { name: 'Acerca de', href: '/acerca-de' },
   { name: 'Contacto', href: '/contacto' },
+  { name: 'Guías', href: '/guias' },
   { name: 'Preguntas frecuentes', href: '/#faq' },
-  { name: 'Catálogo completo', href: '/catalogo' },
 ];
 
 const legalLinks = [

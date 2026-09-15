@@ -9,7 +9,7 @@ const navigation = [
   { name: 'Inicio', href: '/' },
   { name: 'Modelos', href: '/catalogo' },
   { name: 'Marcas', href: '/marcas' },
-  { name: 'FAQ', href: '/#faq' },
+  { name: 'Guías', href: '/guias' },
   { name: 'Contacto', href: '/contacto' },
 ];
 

@@ -1586,7 +1586,7 @@
         "categoria": "SUV híbrido enchufable",
         "combustible": "Híbrido enchufable (Nafta + Eléctrico)",
         "transmision": "Automática E-CVT",
-        "precio": "Consultar Precio",
+        "precio": "Consultar precio",
         "imagen": "/images/models/byd/byd-song-pro-dm-i-2025.jpg",
         "descripcion": "SUV mediano híbrido enchufable con motor 1.5L y batería Blade, destacando eficiencia y autonomía extendida.",
         "especificaciones": {
@@ -1612,7 +1612,7 @@
         "categoria": "Hatchback eléctrico",
         "combustible": "100% Eléctrico",
         "transmision": "Automática (e-drive)",
-        "precio": "Consultar Precio",
+        "precio": "Consultar precio",
         "imagen": "/images/models/byd/byd-dolphin-mini-2025.jpg",
         "descripcion": "Hatchback eléctrico compacto con diseño Ocean Aesthetics, batería Blade y autonomía urbana destacada.",
         "especificaciones": {
@@ -1638,7 +1638,7 @@
         "categoria": "SUV compacto eléctrico",
         "combustible": "100% Eléctrico",
         "transmision": "Automática (e-drive)",
-        "precio": "Consultar Precio",
+        "precio": "Consultar precio",
         "imagen": "/images/models/byd/byd-yuan-pro-2025.jpg",
         "descripcion": "SUV eléctrico compacto con batería Blade y hasta 401 km de autonomía, ideal para uso urbano y suburbano.",
         "especificaciones": {
@@ -1669,7 +1669,7 @@
         "categoria": "SUV mediano",
         "combustible": "Nafta",
         "transmision": "Manual / Automática CVT",
-        "precio": "Consultar Precio",
+        "precio": "Consultar precio",
         "imagen": "/images/models/lifan/lifan-x70-2025.jpg",
         "descripcion": "SUV mediano con motor 2.0L, amplio espacio interior y buena relación precio-equipamiento.",
         "especificaciones": {
@@ -1694,7 +1694,7 @@
         "categoria": "SUV familiar 7 asientos",
         "combustible": "Nafta",
         "transmision": "Manual 5 velocidades",
-        "precio": "Consultar Precio",
+        "precio": "Consultar precio",
         "imagen": "/images/models/lifan/lifan-myway-2025.jpg",
         "descripcion": "SUV familiar de 7 plazas, con motor 1.8L y un diseño práctico pensado para viajes y uso urbano.",
         "especificaciones": {
@@ -1719,7 +1719,7 @@
         "categoria": "Pickup grande",
         "combustible": "Diésel",
         "transmision": "Manual / Automática",
-        "precio": "Consultar Precio",
+        "precio": "Consultar precio",
         "imagen": "/images/models/lifan/lifan-mamut-2025.jpg",
         "descripcion": "Pickup full size de Lifan, equipada con motor 2.0 turbo diésel, gran capacidad de carga y tracción 4x4.",
         "especificaciones": {

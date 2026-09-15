@@ -42,3 +42,13 @@ Copiá `.env.example` a `.env.local`:
 2. Enviar sitemap: `https://www.autoschinos.ar/sitemap.xml`
 3. Inspeccionar 5–10 URLs de marca/modelo y solicitar indexación
 4. Revisar Cobertura / Páginas en las semanas siguientes
+
+## AdSense (checklist antes de pedir revisión)
+
+1. Verificar en producción:
+   - `https://www.autoschinos.ar/ads.txt`
+   - `/acerca-de`, `/guias`, `/politica-privacidad`, `/politica-cookies`, `/contacto`
+2. Misma cuenta Google en Search Console y AdSense; sitemap enviado
+3. Confirmar que `contacto@autoschinos.ar` recibe correo
+4. Solicitar revisión desde AdSense (el snippet `ca-pub-6771833588582297` ya está en el layout)
+5. Evitar unidades de anuncio densas o clickbait hasta la aprobación

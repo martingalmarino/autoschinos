@@ -1,99 +1,51 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
 import { ChevronRightIcon, HomeIcon } from '@heroicons/react/24/outline';
 
-interface BreadcrumbItem {
+export interface BreadcrumbItem {
   name: string;
   href: string;
-  current: boolean;
 }
 
-const Breadcrumbs: React.FC = () => {
-  const location = useLocation();
+interface BreadcrumbsProps {
+  items: BreadcrumbItem[];
+}
 
-  // Mapeo de rutas a nombres legibles
-  const routeNames: { [key: string]: string } = {
-    '/': 'Inicio',
-    '/catalogo': 'Catálogo',
-    '/marcas': 'Marcas',
-    '/modelo': 'Modelo',
-    '/resenas': 'Reseñas',
-    '/contacto': 'Contacto'
-  };
-
-  // Generar breadcrumbs basado en la ruta actual
-  const generateBreadcrumbs = (): BreadcrumbItem[] => {
-    const pathSegments = location.pathname.split('/').filter(segment => segment !== '');
-    const breadcrumbs: BreadcrumbItem[] = [];
-
-    // Siempre incluir "Inicio" como primer elemento (excepto si estamos en home)
-    if (location.pathname !== '/') {
-      breadcrumbs.push({
-        name: 'Inicio',
-        href: '/',
-        current: false
-      });
-    }
-
-    // Construir breadcrumbs para cada segmento de la ruta
-    let currentPath = '';
-    pathSegments.forEach((segment, index) => {
-      currentPath += `/${segment}`;
-      const isLast = index === pathSegments.length - 1;
-      
-      breadcrumbs.push({
-        name: routeNames[currentPath] || segment.charAt(0).toUpperCase() + segment.slice(1),
-        href: currentPath,
-        current: isLast
-      });
-    });
-
-    return breadcrumbs;
-  };
-
-  const breadcrumbs = generateBreadcrumbs();
-
-  // No mostrar breadcrumbs en la página de inicio
-  if (location.pathname === '/') {
-    return null;
-  }
+export default function Breadcrumbs({ items }: BreadcrumbsProps) {
+  if (!items.length) return null;
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-sm" style={{ marginTop: '7rem' }} aria-label="Breadcrumb">
+    <nav
+      className="bg-white border-b border-gray-200 shadow-sm pt-[7rem]"
+      aria-label="Breadcrumb"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center py-6">
-          <ol className="flex items-center space-x-1">
-            {breadcrumbs.map((breadcrumb, index) => (
-              <li key={breadcrumb.href} className="flex items-center">
+        <ol className="flex flex-wrap items-center gap-1 py-6">
+          {items.map((item, index) => {
+            const isLast = index === items.length - 1;
+            return (
+              <li key={item.href} className="flex items-center">
                 {index > 0 && (
                   <ChevronRightIcon className="h-4 w-4 text-gray-400 mx-2" />
                 )}
-                
-                {breadcrumb.current ? (
+                {isLast ? (
                   <span className="flex items-center text-sm font-semibold text-gray-600 bg-gray-100 px-3 py-1 rounded-md">
-                    {index === 0 && breadcrumb.name === 'Inicio' && (
-                      <HomeIcon className="h-4 w-4 mr-2" />
-                    )}
-                    {breadcrumb.name}
+                    {index === 0 && <HomeIcon className="h-4 w-4 mr-2" />}
+                    {item.name}
                   </span>
                 ) : (
                   <Link
-                    to={breadcrumb.href}
-                    className="flex items-center text-sm font-medium text-gray-700 hover:text-primary-500 hover:bg-gray-50 px-3 py-1 rounded-md transition-all duration-200"
+                    href={item.href}
+                    className="flex items-center text-sm font-medium text-gray-700 hover:text-primary-500 px-3 py-1 rounded-md"
                   >
-                    {index === 0 && breadcrumb.name === 'Inicio' && (
-                      <HomeIcon className="h-4 w-4 mr-2" />
-                    )}
-                    {breadcrumb.name}
+                    {index === 0 && <HomeIcon className="h-4 w-4 mr-2" />}
+                    {item.name}
                   </Link>
                 )}
               </li>
-            ))}
-          </ol>
-        </div>
+            );
+          })}
+        </ol>
       </div>
     </nav>
   );
-};
-
-export default Breadcrumbs;
+}

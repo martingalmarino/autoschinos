@@ -1,118 +1,44 @@
-# autoschinos.ar - Portal de Autos Chinos
+# autoschinos.ar
 
-Un portal moderno y responsive para la comercialización de vehículos chinos en Argentina.
+Portal informativo de autos chinos en Argentina.
 
-## 🚀 Características
+## Stack
 
-- **Diseño Moderno**: Interfaz limpia y profesional inspirada en los mejores portales automotrices
-- **Totalmente Responsive**: Optimizado para desktop, tablet y móvil
-- **Componentes Modulares**: Arquitectura escalable con componentes reutilizables
-- **TypeScript**: Tipado estático para mayor robustez del código
-- **TailwindCSS**: Estilos modernos y consistentes
+- **Next.js 15** (App Router) con SSG
+- React 19 + TypeScript + TailwindCSS
+- Hosting: Vercel
 
-## 🛠️ Stack Tecnológico
-
-- **React 18** con TypeScript
-- **Vite** como build tool
-- **TailwindCSS** para estilos
-- **Headless UI** para componentes interactivos
-- **Heroicons** para iconografía
-
-## 📦 Instalación
+## Desarrollo
 
 ```bash
-# Instalar dependencias
 npm install
-
-# Ejecutar en modo desarrollo
 npm run dev
+```
 
-# Construir para producción
+## Build
+
+```bash
 npm run build
-
-# Preview de la build
-npm run preview
+npm start
 ```
 
-## 🏗️ Estructura del Proyecto
+## Variables de entorno
 
-```
-autoschinos_home/
-├── src/
-│   ├── components/
-│   │   ├── Navbar.tsx          # Navegación principal
-│   │   ├── Hero.tsx            # Sección hero con CTA
-│   │   ├── SearchBlock.tsx     # Búsqueda por marca/modelo/año
-│   │   ├── FeaturedModels.tsx  # Grid de 12 modelos destacados
-│   │   ├── BrandPills.tsx      # Pills de marcas chinas
-│   │   ├── FAQ.tsx             # Accordion de preguntas frecuentes
-│   │   └── Footer.tsx          # Footer completo
-│   ├── assets/                 # Imágenes y recursos
-│   ├── App.tsx                 # Componente principal
-│   ├── main.tsx               # Punto de entrada
-│   └── index.css              # Estilos globales
-├── index.html                 # HTML base
-├── package.json              # Dependencias y scripts
-├── tailwind.config.js        # Configuración de Tailwind
-├── tsconfig.json             # Configuración de TypeScript
-└── vite.config.ts            # Configuración de Vite
-```
+Copiá `.env.example` a `.env.local`:
 
-## 🎨 Paleta de Colores
+- `NEXT_PUBLIC_SITE_URL` — por defecto `https://www.autoschinos.ar`
+- `NEXT_PUBLIC_CONTACT_EMAIL` — email público
+- `NEXT_PUBLIC_WHATSAPP` — número internacional sin `+` (opcional; si falta, el formulario usa mailto)
 
-- **Primario**: #E11D48 (Rojo)
-- **Gris Oscuro**: #1E293B (Texto principal)
-- **Gris Claro**: #F9FAFB (Fondos)
-- **Blanco**: #FFFFFF (Fondos de tarjetas)
+## SEO
 
-## 📱 Componentes Incluidos
+- HTML estático por ruta (`generateStaticParams`)
+- `/robots.txt` y `/sitemap.xml` generados por Next
+- JSON-LD: Organization, WebSite, BreadcrumbList, Vehicle, FAQPage
 
-### Navbar
-- Navegación fija en la parte superior
-- Menú hamburguesa para móvil
-- Logo y enlaces de navegación
+## Search Console (post-deploy)
 
-### Hero Section
-- Imagen de fondo con overlay
-- Título y subtítulo llamativos
-- Botón CTA principal
-
-### Search Block
-- Formulario de búsqueda con dropdowns
-- Filtros por marca, modelo y año
-- Diseño en tarjeta con sombra
-
-### Featured Models
-- Grid responsive de 12 vehículos
-- Información detallada de cada modelo
-- Botones de acción
-
-### Brand Pills
-- Pills horizontales de marcas chinas
-- Logos y colores distintivos
-- Enlaces a páginas de marca
-
-### FAQ
-- Accordion interactivo
-- 6 preguntas frecuentes
-- Animaciones suaves
-
-### Footer
-- Información de contacto
-- Enlaces rápidos
-- Redes sociales
-- Barra de copyright
-
-## 🚀 Próximos Pasos
-
-1. **Integración con Backend**: Conectar con API para datos reales
-2. **Sistema de Filtros**: Implementar filtros avanzados
-3. **Carrito de Compras**: Funcionalidad de favoritos
-4. **Chat en Vivo**: Integración con WhatsApp
-5. **SEO**: Optimización para motores de búsqueda
-
-## 📄 Licencia
-
-© 2025 autoschinos.ar - Todos los derechos reservados
-
-
+1. Confirmar que apex redirige a `www`
+2. Enviar sitemap: `https://www.autoschinos.ar/sitemap.xml`
+3. Inspeccionar 5–10 URLs de marca/modelo y solicitar indexación
+4. Revisar Cobertura / Páginas en las semanas siguientes

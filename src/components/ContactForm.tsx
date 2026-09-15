@@ -1,85 +1,90 @@
-import React, { useState } from 'react';
+'use client';
+
+import { useState } from 'react';
+import { CONTACT_EMAIL, WHATSAPP_NUMBER } from '@/lib/site';
 
 interface ContactFormProps {
   vehicleOfInterest?: string;
+  title?: string;
+  subtitle?: string;
 }
 
-const ContactForm: React.FC<ContactFormProps> = ({ vehicleOfInterest = '' }) => {
+export default function ContactForm({
+  vehicleOfInterest = '',
+  title = '¿Te interesa este vehículo?',
+  subtitle = 'Completá el formulario y te contactamos con toda la información',
+}: ContactFormProps) {
   const [formData, setFormData] = useState({
     vehiculo: vehicleOfInterest,
     nombre: '',
     telefono: '',
     email: '',
-    mensaje: ''
+    mensaje: '',
   });
+  const [error, setError] = useState('');
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Crear mensaje para WhatsApp
-    const whatsappMessage = `
+    setError('');
+
+    const message = `
 Hola! Me interesa obtener información sobre:
 
-🚗 *Vehículo de interés:* ${formData.vehiculo}
+Vehículo de interés: ${formData.vehiculo}
 
-👤 *Datos de contacto:*
+Datos de contacto:
 • Nombre: ${formData.nombre}
 • Teléfono: ${formData.telefono}
 • Email: ${formData.email}
 
-💬 *Mensaje:*
-${formData.mensaje}
+Mensaje:
+${formData.mensaje || '(sin mensaje adicional)'}
 
 Enviado desde autoschinos.ar
     `.trim();
 
-    // Codificar para URL
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/5493515000000?text=${encodedMessage}`;
-    
-    // Abrir WhatsApp
-    window.open(whatsappUrl, '_blank');
+    if (WHATSAPP_NUMBER) {
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+      return;
+    }
+
+    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      `Consulta: ${formData.vehiculo || 'autoschinos.ar'}`
+    )}&body=${encodeURIComponent(message)}`;
+    window.location.href = mailto;
   };
 
   return (
     <section className="py-16 bg-gradient-to-br from-slate-50 to-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-          {/* Header del formulario */}
           <div className="bg-gradient-to-r from-primary-500 to-primary-600 px-8 py-6">
             <h2 className="text-2xl md:text-3xl font-bold text-white text-center">
-              ¿Te interesa este vehículo?
+              {title}
             </h2>
-            <p className="text-primary-100 text-center mt-2">
-              Completá el formulario y te contactamos con toda la información
-            </p>
+            <p className="text-primary-100 text-center mt-2">{subtitle}</p>
           </div>
 
-          {/* Formulario */}
           <form onSubmit={handleSubmit} className="p-8">
-            {/* Vehículo de interés */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Vehículo de interés
+                Vehículo o consulta
               </label>
               <input
                 type="text"
                 value={formData.vehiculo}
                 onChange={(e) => handleInputChange('vehiculo', e.target.value)}
-                placeholder="ford RANGER BLACK 4X4 2.0 2025 0KM COLOR GRIS PLATA"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
+                placeholder="Ej: BYD Dolphin Mini"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
                 required
               />
             </div>
 
-            {/* Nombre y Teléfono en fila */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -89,8 +94,7 @@ Enviado desde autoschinos.ar
                   type="text"
                   value={formData.nombre}
                   onChange={(e) => handleInputChange('nombre', e.target.value)}
-                  placeholder="Nombre completo"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
                   required
                 />
               </div>
@@ -102,14 +106,12 @@ Enviado desde autoschinos.ar
                   type="tel"
                   value={formData.telefono}
                   onChange={(e) => handleInputChange('telefono', e.target.value)}
-                  placeholder="Teléfono"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
                   required
                 />
               </div>
             </div>
 
-            {/* Email */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Correo electrónico
@@ -118,13 +120,11 @@ Enviado desde autoschinos.ar
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
-                placeholder="Correo electrónico"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
                 required
               />
             </div>
 
-            {/* Mensaje */}
             <div className="mb-8">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Mensaje
@@ -132,31 +132,32 @@ Enviado desde autoschinos.ar
               <textarea
                 value={formData.mensaje}
                 onChange={(e) => handleInputChange('mensaje', e.target.value)}
-                placeholder="Mensaje"
                 rows={5}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm resize-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm resize-none"
               />
             </div>
 
-            {/* Botón de envío */}
+            {error && (
+              <p className="text-red-600 text-sm mb-4 text-center">{error}</p>
+            )}
+
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-200 shadow-lg hover:shadow-xl w-full md:w-auto"
+                className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors shadow-lg w-full md:w-auto"
               >
-                Enviar
+                {WHATSAPP_NUMBER ? 'Enviar por WhatsApp' : 'Enviar por email'}
               </button>
             </div>
 
-            {/* Información adicional */}
-            <div className="mt-6 text-center text-sm text-gray-500">
-              <p>Al enviar el formulario serás redirigido a WhatsApp para completar la consulta</p>
-            </div>
+            <p className="mt-6 text-center text-sm text-gray-500">
+              {WHATSAPP_NUMBER
+                ? 'Al enviar se abrirá WhatsApp con tu consulta lista para mandar.'
+                : `Al enviar se abrirá tu cliente de correo hacia ${CONTACT_EMAIL}. Configurá NEXT_PUBLIC_WHATSAPP para usar WhatsApp.`}
+            </p>
           </form>
         </div>
       </div>
     </section>
   );
-};
-
-export default ContactForm;
+}

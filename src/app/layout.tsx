@@ -15,12 +15,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: pageTitle(
-      'Autos Chinos en Argentina – Marcas, Modelos y Novedades'
+      'Autos Chinos Argentina 2026: Marcas, Precios y Modelos'
     ),
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    'Conocé todas las marcas y modelos de autos chinos disponibles en Argentina. Información actualizada, precios de referencia y fichas técnicas.',
+    'Autos chinos en Argentina 2026: marcas, precios de referencia, modelos y fichas técnicas actualizadas.',
   verification: {
     google: 'lbDenuhkDKb6-ShFhLocZ1qHqo-gP94tEZuM5Clgh-4',
   },

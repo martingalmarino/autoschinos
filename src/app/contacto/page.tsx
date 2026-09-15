@@ -4,10 +4,14 @@ import ContactForm from '@/components/ContactForm';
 import { absoluteUrl, CONTACT_EMAIL, WHATSAPP_NUMBER } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Contacto',
+  title: 'Contacto Autos Chinos Argentina: Consultas',
   description:
-    'Contactá al equipo de autoschinos.ar para consultas sobre marcas y modelos de autos chinos en Argentina.',
+    'Consultas sobre autos chinos en Argentina: marcas, modelos, precios de referencia y fichas técnicas.',
   alternates: { canonical: absoluteUrl('/contacto') },
+  openGraph: {
+    title: 'Contacto Autos Chinos Argentina: Consultas | autoschinos.ar',
+    url: absoluteUrl('/contacto'),
+  },
 };
 
 export default function ContactoPage() {

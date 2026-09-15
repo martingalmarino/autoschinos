@@ -1,7 +1,7 @@
 import { LegalLayout, legalMetadata } from '@/components/LegalLayout';
 
 export const metadata = legalMetadata(
-  'Términos y Condiciones',
+  'Términos y Condiciones del Sitio',
   'Términos y condiciones de uso del sitio web autoschinos.ar.',
   '/terminos-condiciones'
 );

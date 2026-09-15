@@ -31,12 +31,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!model) return { title: 'Modelo no encontrado' };
 
   return {
-    title: `${model.brand} ${model.nombre} ${model.año} – Ficha Técnica`,
-    description: `${model.descripcion} Especificaciones y precio de referencia del ${model.brand} ${model.nombre}.`,
+    title: `${model.brand} ${model.nombre} ${model.año} Precio y Ficha Técnica Argentina`,
+    description: `${model.brand} ${model.nombre} ${model.año} en Argentina: precio de referencia, ficha técnica y especificaciones. ${model.descripcion}`,
     alternates: {
       canonical: absoluteUrl(`/marcas/${brand}/${modelParam}`),
     },
     openGraph: {
+      title: `${model.brand} ${model.nombre} ${model.año} Precio y Ficha Técnica Argentina | autoschinos.ar`,
       images: [{ url: absoluteUrl(model.imagen) }],
     },
   };

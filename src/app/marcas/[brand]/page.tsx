@@ -29,9 +29,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!brandName) return { title: 'Marca no encontrada' };
 
   return {
-    title: `${brandName} Argentina – Modelos, Precios y Fichas Técnicas`,
-    description: `Conocé todos los modelos ${brandName} disponibles en Argentina: SUV, sedanes, pick-ups. Fichas técnicas y precios de referencia.`,
+    title: `${brandName} Argentina: Modelos, Precios y Ficha Técnica`,
+    description: `Modelos ${brandName} en Argentina: precios de referencia, fichas técnicas, SUV, sedanes y pick-ups.`,
     alternates: { canonical: absoluteUrl(`/marcas/${brand}`) },
+    openGraph: {
+      title: `${brandName} Argentina: Modelos, Precios y Ficha Técnica | autoschinos.ar`,
+      url: absoluteUrl(`/marcas/${brand}`),
+    },
   };
 }
 

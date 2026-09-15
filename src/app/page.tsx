@@ -9,14 +9,16 @@ import { getAllModels } from '@/lib/models';
 import { absoluteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Autos Chinos en Argentina – Marcas, Modelos y Novedades',
+  title: {
+    absolute: 'Autos Chinos Argentina 2026: Marcas, Precios y Modelos | autoschinos.ar',
+  },
   description:
-    'Conocé todas las marcas y modelos de autos chinos disponibles en Argentina. Información actualizada, precios de referencia, seguridad y tendencias.',
+    'Autos chinos en Argentina 2026: marcas, precios de referencia, modelos y fichas técnicas para comparar antes de comprar.',
   alternates: { canonical: absoluteUrl('/') },
   openGraph: {
-    title: 'Autos Chinos en Argentina – Marcas, Modelos y Novedades | autoschinos.ar',
+    title: 'Autos Chinos Argentina 2026: Marcas, Precios y Modelos | autoschinos.ar',
     description:
-      'Conocé todas las marcas y modelos de autos chinos disponibles en Argentina.',
+      'Autos chinos en Argentina 2026: marcas, precios de referencia, modelos y fichas técnicas.',
     url: absoluteUrl('/'),
     images: [{ url: absoluteUrl('/images/hero-bg.jpg') }],
   },

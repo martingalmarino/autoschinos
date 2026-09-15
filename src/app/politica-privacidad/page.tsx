@@ -1,7 +1,7 @@
 import { LegalLayout, legalMetadata } from '@/components/LegalLayout';
 
 export const metadata = legalMetadata(
-  'Política de Privacidad',
+  'Política de Privacidad del Sitio',
   'Política de privacidad de autoschinos.ar.',
   '/politica-privacidad'
 );

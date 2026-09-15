@@ -6,12 +6,12 @@ import { getAllModels } from '@/lib/models';
 import { absoluteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Catálogo de Autos Chinos en Argentina – Modelos y Fichas Técnicas',
+  title: 'Catálogo Autos Chinos Argentina: Precios y Fichas 2026',
   description:
-    'Explorá el catálogo completo de autos chinos en Argentina: SUV, sedanes, pick-ups y eléctricos. Detalles de cada modelo, versiones y características.',
+    'Catálogo de autos chinos en Argentina 2026: precios de referencia, fichas técnicas, SUV, sedanes, pick-ups y eléctricos.',
   alternates: { canonical: absoluteUrl('/catalogo') },
   openGraph: {
-    title: 'Catálogo de Autos Chinos en Argentina | autoschinos.ar',
+    title: 'Catálogo Autos Chinos Argentina: Precios y Fichas 2026 | autoschinos.ar',
     url: absoluteUrl('/catalogo'),
   },
 };

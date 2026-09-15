@@ -1,7 +1,7 @@
 import { LegalLayout, legalMetadata } from '@/components/LegalLayout';
 
 export const metadata = legalMetadata(
-  'Aviso Legal',
+  'Aviso Legal del Sitio',
   'Aviso legal de autoschinos.ar.',
   '/aviso-legal'
 );

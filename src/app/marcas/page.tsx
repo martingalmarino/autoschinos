@@ -9,10 +9,14 @@ import { absoluteUrl } from '@/lib/site';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Marcas de Autos Chinos en Argentina – Guía Completa',
+  title: 'Marcas de Autos Chinos en Argentina: Guía y Modelos',
   description:
-    'Descubrí todas las marcas chinas con fichas en autoschinos.ar: Chery, JAC, Haval, Geely, BYD, DFSK y más.',
+    'Guía de marcas de autos chinos en Argentina: Chery, JAC, Haval, Geely, BYD, DFSK y más, con modelos y fichas técnicas.',
   alternates: { canonical: absoluteUrl('/marcas') },
+  openGraph: {
+    title: 'Marcas de Autos Chinos en Argentina: Guía y Modelos | autoschinos.ar',
+    url: absoluteUrl('/marcas'),
+  },
 };
 
 export default function MarcasPage() {

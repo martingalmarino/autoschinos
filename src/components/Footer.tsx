@@ -5,6 +5,7 @@ const navigationLinks = [
   { name: 'Inicio', href: '/' },
   { name: 'Catálogo', href: '/catalogo' },
   { name: 'Marcas', href: '/marcas' },
+  { name: 'Calculadora de ahorro', href: '/calculadora-ahorro' },
   { name: 'Guías', href: '/guias' },
   { name: 'Contacto', href: '/contacto' },
 ];

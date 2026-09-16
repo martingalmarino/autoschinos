@@ -97,6 +97,7 @@ export const guides: Guide[] = [
         heading: 'Costos totales',
         paragraphs: [
           'Sumá seguro, patente, eventual peaje de neumáticos (más peso) y el precio de la energía o el combustible. Compará costo por kilómetro estimado, no solo el precio de lista. En el catálogo podés filtrar por combustible para ver opciones nafta, híbridas o eléctricas publicadas.',
+          'También podés usar nuestra calculadora de ahorro para estimar el gasto anual de energía/combustible de un electrificado del catálogo frente a un naftero o diésel comparable.',
         ],
       },
     ],

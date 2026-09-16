@@ -53,6 +53,18 @@ export default function AvisoLegalPage() {
 
       <section>
         <h2 className="text-2xl font-semibold text-gray-800 mb-3">
+          Calculadora de ahorro
+        </h2>
+        <p>
+          La calculadora de ahorro estima únicamente costos de
+          energía/combustible a partir de kilómetros, tarifas y consumos (a
+          veces estimados por segmento). No incluye patente, seguro,
+          mantenimiento ni precio de compra. Los resultados son referenciales.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-semibold text-gray-800 mb-3">
           Propiedad intelectual
         </h2>
         <p>

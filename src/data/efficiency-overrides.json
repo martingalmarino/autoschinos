@@ -1,0 +1,53 @@
+{
+  "byd-dolphin-mini-2025": {
+    "batteryKwh": 38.8,
+    "rangeKm": 380,
+    "kwhPer100km": 10.2,
+    "source": "Referencia pública NEDC / calculadora BYD AR (aprox.)"
+  },
+  "byd-yuan-pro-2025": {
+    "batteryKwh": 45.1,
+    "rangeKm": 380,
+    "kwhPer100km": 11.9,
+    "source": "Referencia pública NEDC / calculadora BYD AR (aprox.)"
+  },
+  "byd-song-pro-dmi-2025": {
+    "batteryKwh": 18.3,
+    "rangeKmEv": 100,
+    "kwhPer100km": 18.3,
+    "lPer100kmHybrid": 5.9,
+    "source": "Referencia pública NEDC / PHEV (aprox.)"
+  },
+  "ora-3-2025": {
+    "batteryKwh": 47.8,
+    "rangeKm": 400,
+    "kwhPer100km": 12.0,
+    "source": "Estimado desde batería/autonomía publicada en ficha"
+  },
+  "baic-eu5-2025": {
+    "batteryKwh": 60,
+    "rangeKm": 416,
+    "kwhPer100km": 14.4,
+    "source": "Estimado desde batería/autonomía publicada en ficha"
+  },
+  "mg-4-2025": {
+    "batteryKwh": 51,
+    "rangeKm": 450,
+    "kwhPer100km": 11.3,
+    "source": "Estimado desde batería/autonomía publicada en ficha"
+  },
+  "mg-cyberster-2025": {
+    "batteryKwh": 77,
+    "rangeKm": 500,
+    "kwhPer100km": 15.4,
+    "source": "Estimado desde batería/autonomía publicada en ficha"
+  },
+  "haval-h6-hev-2025": {
+    "lPer100kmHybrid": 5.8,
+    "source": "Default HEV segmento SUV mediano (estimado)"
+  },
+  "haval-jolion-pro-hev-2025": {
+    "lPer100kmHybrid": 5.5,
+    "source": "Default HEV segmento SUV compacto (estimado)"
+  }
+}

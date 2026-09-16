@@ -6,6 +6,7 @@ import FeaturedCatalog from '@/components/FeaturedCatalog';
 import BrandPills from '@/components/BrandPills';
 import FAQ from '@/components/FAQ';
 import GuidesTeaser from '@/components/GuidesTeaser';
+import CalculatorTeaser from '@/components/CalculatorTeaser';
 import { getAllModels } from '@/lib/models';
 import { absoluteUrl } from '@/lib/site';
 
@@ -33,6 +34,7 @@ export default function HomePage() {
       <Hero />
       <SearchBlock models={models} />
       <FeaturedCatalog models={models} />
+      <CalculatorTeaser />
       <GuidesTeaser />
       <BrandPills />
       <FAQ />

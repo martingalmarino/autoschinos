@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { createElement } from 'react';
+import ModelCard from '../src/components/ModelCard';
 import TechnicalSheet from '../src/components/TechnicalSheet';
 import { getAllSheets, getSheet } from '../src/data/technical';
 import sitemap from '../src/app/sitemap';
@@ -18,6 +19,7 @@ import {
   modelSlug,
   sortModels,
 } from '../src/lib/models';
+import { publicPrices, publicSurfaceText, publicTransmission } from '../src/lib/technical/editorial';
 import { legacyRedirects } from '../src/lib/technical/redirects';
 import { coverageCounts } from '../src/lib/technical/coverage';
 import type { CarModel } from '../src/lib/models';
@@ -157,14 +159,16 @@ describe('catálogo y rutas', () => {
 describe('correcciones críticas', () => {
   it('retira identidades ambiguas sin convertirlas en otro modelo', () => {
     const v9 = ficha(byId('foton-v9-2025'));
-    assert.match(v9, /Sin confirmar/);
+    assert.equal(byId('foton-v9-2025').combustible, '');
+    assert.equal(getSheet('foton-v9-2025')?.public.combustible, 'Sin confirmar');
+    assert.doesNotMatch(v9, /Sin confirmar/);
     assert.doesNotMatch(v9, /15 pasajeros|150 HP|Tunland|mild hybrid/i);
-    assert.match(byId('foton-v9-2025').identidadAviso || '', /Tunland V9/);
+    assert.match(getSheet('foton-v9-2025')?.public.aviso || '', /Tunland V9/);
     assert.equal(byId('foton-v9-2025').fichaCobertura, 'retiro');
 
     const captain = ficha(byId('dongfeng-captain-d-2025'));
     assert.doesNotMatch(captain, /102 HP|2\.2|296 HP|6\.7|Cummins/);
-    assert.match(byId('dongfeng-captain-d-2025').identidadAviso || '', /D1830/);
+    assert.match(getSheet('dongfeng-captain-d-2025')?.public.aviso || '', /D1830/);
     assert.equal(getSheet('dongfeng-captain-d-2025')?.secciones.length, 0);
 
     const mamut = byId('lifan-mamut-2025');
@@ -234,13 +238,14 @@ describe('correcciones críticas', () => {
   it('separa versiones que no son intercambiables', () => {
     const h6 = byId('haval-h6-2025');
     assert.equal(h6.especificaciones.potencia, '235 CV');
-    assert.match(h6.avisoCorto || '', /201 HP/);
+    assert.match(getSheet('haval-h6-2025')?.public.avisoCorto || '', /201 HP/);
     assert.doesNotMatch(h6.precio, /35\.500|35500/);
 
     const hev = byId('haval-h6-hev-2025');
     assert.match(hev.transmision, /DHT/);
     assert.match(hev.especificaciones.capacidad_tanque, /61/);
-    assert.match(hev.precio, /H6 PRO HEV/);
+    assert.match(getSheet('haval-h6-hev-2025')?.public.precio || '', /H6 PRO HEV/);
+    assert.equal(hev.precio, '');
     assert.match(ficha(hev), /Supreme/);
     assert.doesNotMatch(hev.transmision, /E-CVT/);
 
@@ -257,7 +262,7 @@ describe('correcciones críticas', () => {
     assert.match(tiggo2.precio, /PRO MAX/);
     assert.doesNotMatch(tiggo2.precio, /29\.500\.000/);
     assert.match(ficha(byId('chery-tiggo-4-pro-2025')), /28\.700/);
-    assert.match(byId('chery-tiggo-4-pro-2025').anioNota || '', /2026/);
+    assert.match(getSheet('chery-tiggo-4-pro-2025')?.public.anioNota || '', /2026/);
     assert.match(ficha(byId('chery-tiggo-8-pro-2023')), /41\.800/);
     assert.doesNotMatch(ficha(byId('chery-tiggo-8-pro-2023')), /54\.056|54056|32\.000\.000/);
 
@@ -271,12 +276,17 @@ describe('correcciones críticas', () => {
     assert.match(zs, /168 CV/);
     assert.equal(byId('mg-zs-2025').combustible, 'Nafta');
     assert.doesNotMatch(byId('mg-zs-2025').especificaciones.potencia, /118/);
-    assert.match(zs, /no se mezclan con el ZS Hybrid\+/);
+    assert.match(
+      (getSheet('mg-zs-2025')?.public.caracteristicas || []).join(' '),
+      /no se mezclan con el ZS Hybrid\+/
+    );
+    assert.doesNotMatch(zs, /Hybrid\+/);
     const mg3 = ficha(byId('mg-3-2025'));
     assert.match(mg3, /114 HP/);
     assert.doesNotMatch(mg3, /híbrido/i);
 
-    assert.equal(byId('mg-4-2025').especificaciones.potencia, 'Por especificar');
+    assert.equal(getSheet('mg-4-2025')?.public.especificaciones.potencia, 'Por especificar');
+    assert.equal(byId('mg-4-2025').especificaciones.potencia, '');
     assert.doesNotMatch(ficha(byId('mg-4-2025')), /450 km|51|64 kWh|170/);
     assert.equal(resolveEfficiency(byId('mg-4-2025')).batteryKwh, undefined);
     assert.equal(isElectrified(byId('mg-4-2025')), false);
@@ -336,15 +346,21 @@ describe('fuentes, precios y datos pendientes', () => {
     assert.match(byId('haval-jolion-pro-hev-2025').precio, /32\.990/);
     assert.match(byId('haval-jolion-pro-hev-2025').precio, /30\.990/);
 
-    assert.match(byId('jac-s2-2025').precio, /1\/5\/2026/);
-    assert.match(byId('jac-s2-2025').precio, /20\.900/);
-    assert.match(byId('jac-x200-2025').precio, /24\.700/);
-    assert.doesNotMatch(byId('jac-x200-2025').precio, /31\.900/);
-    assert.match(byId('byd-dolphin-mini-2025').precio, /8\/10\/2025/);
-    assert.match(byId('byd-yuan-pro-2025').precio, /29\.990/);
-    assert.match(byId('byd-song-pro-dmi-2025').precio, /36\.990/);
+    assert.match(getSheet('jac-s2-2025')?.public.precio || '', /1\/5\/2026/);
+    assert.match(getSheet('jac-s2-2025')?.public.precio || '', /20\.900/);
+    assert.equal(byId('jac-s2-2025').precio, '');
+    assert.match(getSheet('jac-x200-2025')?.public.precio || '', /24\.700/);
+    assert.doesNotMatch(getSheet('jac-x200-2025')?.public.precio || '', /31\.900/);
+    assert.equal(byId('jac-x200-2025').precio, '');
+    assert.match(getSheet('byd-dolphin-mini-2025')?.public.precio || '', /8\/10\/2025/);
+    assert.match(getSheet('byd-yuan-pro-2025')?.public.precio || '', /29\.990/);
+    assert.match(getSheet('byd-song-pro-dmi-2025')?.public.precio || '', /36\.990/);
+    assert.equal(byId('byd-dolphin-mini-2025').precio, '');
+    assert.equal(byId('byd-yuan-pro-2025').precio, '');
+    assert.equal(byId('byd-song-pro-dmi-2025').precio, '');
     assert.doesNotMatch(ficha(byId('byd-song-pro-dmi-2025')), /197/);
-    assert.equal(byId('baic-x35-2025').precio.startsWith('Consultar precio'), true);
+    assert.equal(getSheet('baic-x35-2025')?.public.precio.startsWith('Consultar precio'), true);
+    assert.equal(byId('baic-x35-2025').precio, '');
     assert.doesNotMatch(ficha(byId('baic-x55-ii-2025')), /188 HP/);
     assert.match(getSheet('dfsk-c35-2025')?.conflictos.join(' ') || '', /1\.435/);
     assert.equal(getSheet('haval-h6gt-2025')?.secciones.some((section) => section.id === 'dimensiones'), false);
@@ -377,19 +393,17 @@ describe('fuentes, precios y datos pendientes', () => {
       createElement(TechnicalSheet, { model: eu5, sheet: getSheet(eu5.id)! })
     );
     assert.match(html, /49,6 kWh/);
-    assert.match(html, /2026-11-08/);
-    assert.match(html, /Se retira la batería de 60 kWh/);
-    assert.equal(html.includes('N/A (batería 60'), false);
+    assert.doesNotMatch(html, /2026-11-08/);
+    assert.doesNotMatch(html, /Se retira/);
+    assert.doesNotMatch(html, /60 kWh/);
     assert.equal((html.match(/<h3/g) || []).length > 0, true);
 
     const v9 = byId('foton-v9-2025');
     const v9html = renderToStaticMarkup(
       createElement(TechnicalSheet, { model: v9, sheet: getSheet(v9.id)! })
     );
-    assert.match(v9html, /Tunland V9/);
-    assert.doesNotMatch(v9html, /grid-cols-1 lg:grid-cols-2/);
-    assert.doesNotMatch(v9html, /<h3[^>]*>Motor/);
-    assert.doesNotMatch(v9html, /150 HP/);
+    assert.equal(v9html, '');
+    assert.doesNotMatch(v9html, /Tunland|150 HP|15 pasajeros/);
 
     const wonder = byId('foton-wonder-cd-2025');
     const wonderHtml = renderToStaticMarkup(
@@ -407,8 +421,9 @@ describe('fuentes, precios y datos pendientes', () => {
     const tiggo8 = byId('chery-tiggo-8-pro-2023');
     assert.equal(tiggo8.año, '2023');
     assert.equal(vehicleJsonLd(tiggo8, modelPath(tiggo8)).vehicleModelDate, undefined);
-    assert.match(tiggo8.anioNota || '', /MY25/);
-    assert.match(tiggo8.anioNota || '', /no confirma la etiqueta 2023/);
+    assert.match(getSheet(tiggo8.id)?.public.anioNota || '', /MY25/);
+    assert.match(getSheet(tiggo8.id)?.public.anioNota || '', /no confirma la etiqueta 2023/);
+    assert.equal(tiggo8.anioNota, undefined);
 
     for (const id of [
       'geely-emgrand-gs-2025',
@@ -438,13 +453,15 @@ describe('fuentes, precios y datos pendientes', () => {
   it('no publica la tracción BYD como si fuera la caja', () => {
     for (const id of ['byd-dolphin-mini-2025', 'byd-song-pro-dmi-2025', 'byd-yuan-pro-2025']) {
       const model = byId(id);
-      assert.equal(model.transmision, 'Sin confirmar');
+      assert.equal(getSheet(id)?.public.transmision, 'Sin confirmar');
+      assert.equal(model.transmision, '');
       assert.equal(vehicleJsonLd(model, modelPath(model)).vehicleTransmission, undefined);
       const titles = (getSheet(id)?.secciones || []).map((section) => section.titulo);
       assert.equal(titles.includes('Transmisión'), false);
     }
 
-    assert.equal(byId('byd-dolphin-mini-2025').especificaciones.traccion, 'Por especificar');
+    assert.equal(getSheet('byd-dolphin-mini-2025')?.public.especificaciones.traccion, 'Por especificar');
+    assert.equal(byId('byd-dolphin-mini-2025').especificaciones.traccion, '');
     const dolphinFacts = (getSheet('byd-dolphin-mini-2025')?.secciones || []).flatMap(
       (section) => section.hechos
     );
@@ -470,5 +487,62 @@ describe('fuentes, precios y datos pendientes', () => {
         .some((fact) => fact.etiqueta === 'Tracción' && fact.valor === 'Delantera'),
       true
     );
+  });
+
+  it('no muestra notas internas ni completa un dato incierto', () => {
+    const banned = [
+      /ficha hist/i,
+      /fuente hist/i,
+      /identidad sin resolver/i,
+      /sin confirmar/i,
+      /por especificar/i,
+      /pendiente de confirmar/i,
+      /se retir/i,
+      /consulta del relevamiento/i,
+      /año en catálogo/i,
+      /relevamiento/i,
+      /vigencia de noviembre/i,
+      /no es una vigencia/i,
+      /2026-11-08/,
+      /datos que sí cubre/i,
+      /en silencio/i,
+      /conflictos sin cerrar/i,
+    ];
+
+    for (const model of getAllModels()) {
+      const sheet = getSheet(model.id);
+      assert.ok(sheet, model.id);
+      const html = renderToStaticMarkup(
+        createElement(TechnicalSheet, { model, sheet })
+      );
+      const card = renderToStaticMarkup(createElement(ModelCard, { model }));
+      const json = JSON.stringify(vehicleJsonLd(model, modelPath(model)));
+      const surface = [html, card, json, publicSurfaceText(model, sheet)].join('\n');
+      for (const pattern of banned) {
+        assert.doesNotMatch(surface, pattern, `${model.id} ${pattern}`);
+      }
+    }
+
+    const gs = byId('geely-emgrand-gs-2025');
+    const gsHtml = renderToStaticMarkup(
+      createElement(TechnicalSheet, { model: gs, sheet: getSheet(gs.id)! })
+    );
+    const gsCard = renderToStaticMarkup(createElement(ModelCard, { model: gs }));
+    assert.match(gsHtml, /2 airbags y sin ESP/);
+    assert.match(gsHtml, /6 airbags, ESP/);
+    assert.doesNotMatch(`${gsHtml} ${gsCard}`, /El ESP no corresponde/);
+
+    const chery = publicPrices(getSheet('chery-tiggo-2-pro-2025'));
+    assert.ok(chery.some((price) => price.note === 'Lista del 6 de octubre de 2026'));
+    assert.equal(publicPrices(getSheet('byd-dolphin-mini-2025')).length, 0);
+    assert.equal(publicPrices(getSheet('jac-s2-2025')).length, 0);
+    assert.equal(publicPrices(getSheet('mg-zs-2025'))?.length ?? 0, 0);
+
+    const v9 = byId('foton-v9-2025');
+    const v9Json = JSON.stringify(vehicleJsonLd(v9, modelPath(v9)));
+    assert.doesNotMatch(v9Json, /Tunland|identidad|150 HP/);
+    assert.equal(v9Json.includes('bodyType'), false);
+    assert.equal(publicTransmission(byId('byd-dolphin-mini-2025')), undefined);
+    assert.equal(publicTransmission(byId('baic-bj40-2025')), '2WD/4WD seleccionable');
   });
 });

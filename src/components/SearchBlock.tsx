@@ -3,8 +3,8 @@
 import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import type { CarModel } from '@/lib/models';
-import { brandSlug, modelSlug } from '@/lib/models';
+import type { CarModel } from '@/lib/catalog';
+import { brandSlug, modelSlug } from '@/lib/catalog';
 
 interface SearchBlockProps {
   models: CarModel[];

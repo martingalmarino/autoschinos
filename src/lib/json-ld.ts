@@ -1,6 +1,7 @@
 import { getSheet } from '@/data/technical';
 import { absoluteUrl, SITE_NAME, SITE_URL, CONTACT_EMAIL } from '@/lib/site';
 import type { CarModel } from '@/lib/models';
+import { publicProfile } from '@/lib/technical/editorial';
 
 export function organizationJsonLd() {
   return {
@@ -54,7 +55,7 @@ export function accreditedVehicleModelDate(model: CarModel): string | undefined 
 }
 
 export function vehicleJsonLd(model: CarModel, path: string) {
-  const confirmed = (value: string) => !/sin confirmar/i.test(value);
+  const profile = publicProfile(model, getSheet(model.id));
   const data: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Vehicle',
@@ -64,16 +65,16 @@ export function vehicleJsonLd(model: CarModel, path: string) {
       name: model.brand,
     },
     model: model.nombre,
-    description: model.descripcion,
     image: absoluteUrl(model.imagen),
     url: absoluteUrl(path),
-    bodyType: model.categoria,
   };
 
+  if (profile.descripcion) data.description = profile.descripcion;
+  if (profile.categoria) data.bodyType = profile.categoria;
   const modelYear = accreditedVehicleModelDate(model);
   if (modelYear) data.vehicleModelDate = modelYear;
-  if (confirmed(model.combustible)) data.fuelType = model.combustible;
-  if (confirmed(model.transmision)) data.vehicleTransmission = model.transmision;
+  if (profile.combustible) data.fuelType = profile.combustible;
+  if (profile.transmision) data.vehicleTransmission = profile.transmision;
 
   return data;
 }

@@ -3,8 +3,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import type { CarModel } from '@/lib/models';
-import { modelPath } from '@/lib/models';
+import type { CarModel } from '@/lib/catalog';
+import { modelPath } from '@/lib/catalog';
 import {
   DEFAULT_PRICES,
   computeSavings,
@@ -12,6 +12,7 @@ import {
   resolveEfficiency,
   suggestCombustionPeer,
 } from '@/lib/efficiency';
+import { publicCategory } from '@/lib/technical/editorial';
 
 interface SavingsCalculatorProps {
   electrifiedModels: CarModel[];
@@ -35,7 +36,7 @@ export default function SavingsCalculator({
   const [iceId, setIceId] = useState(() => {
     const fromUrl = searchParams.get('vs');
     if (fromUrl && combustionModels.some((m) => m.id === fromUrl)) return fromUrl;
-    const peer = initialEv ? suggestCombustionPeer(initialEv) : null;
+    const peer = initialEv ? suggestCombustionPeer(initialEv, combustionModels) : null;
     return peer?.id || combustionModels[0]?.id || '';
   });
   const [annualKm, setAnnualKm] = useState(
@@ -67,7 +68,7 @@ export default function SavingsCalculator({
   // When EV changes, suggest a new combustion peer if current is empty
   useEffect(() => {
     if (!evModel) return;
-    const peer = suggestCombustionPeer(evModel);
+    const peer = suggestCombustionPeer(evModel, combustionModels);
     if (peer && !combustionModels.find((m) => m.id === iceId)) {
       setIceId(peer.id);
     }
@@ -152,7 +153,7 @@ export default function SavingsCalculator({
                 const first = electrifiedModels.find((m) => m.brand === brand);
                 if (first) {
                   setEvId(first.id);
-                  const peer = suggestCombustionPeer(first);
+                  const peer = suggestCombustionPeer(first, combustionModels);
                   if (peer) {
                     setIceId(peer.id);
                     setIceBrand(peer.brand);
@@ -176,7 +177,7 @@ export default function SavingsCalculator({
                 setEvId(id);
                 const m = electrifiedModels.find((x) => x.id === id);
                 if (m) {
-                  const peer = suggestCombustionPeer(m);
+                  const peer = suggestCombustionPeer(m, combustionModels);
                   if (peer) {
                     setIceId(peer.id);
                     setIceBrand(peer.brand);
@@ -327,7 +328,6 @@ export default function SavingsCalculator({
           perKm={result.electrified.costPerKm}
           fuelLabel={result.electrified.fuelLabel}
           estimated={result.electrified.efficiency.estimated}
-          source={result.electrified.efficiency.source}
           href={modelPath(evModel)}
         />
         <CostCard
@@ -336,7 +336,6 @@ export default function SavingsCalculator({
           perKm={result.combustion.costPerKm}
           fuelLabel={result.combustion.fuelLabel}
           estimated={result.combustion.efficiency.estimated}
-          source={result.combustion.efficiency.source}
           href={modelPath(iceModel)}
         />
       </div>
@@ -467,6 +466,7 @@ function NumberField({
 
 function ModelSummary({ model }: { model: CarModel }) {
   const eff = resolveEfficiency(model);
+  const category = publicCategory(model);
   return (
     <div className="flex gap-4 items-center pt-2 border-t border-gray-100">
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -479,19 +479,14 @@ function ModelSummary({ model }: { model: CarModel }) {
         <p className="font-semibold text-gray-900">
           {model.brand} {model.nombre}
         </p>
-        <p className="text-gray-600">{model.categoria}</p>
-        <p className="text-gray-500 mt-1">
-          {eff.estimated ? (
-            <span className="inline-block bg-amber-100 text-amber-800 text-xs font-medium px-2 py-0.5 rounded-full mr-1">
+        {category && <p className="text-gray-600">{category}</p>}
+        {eff.estimated && (
+          <p className="text-gray-500 mt-1">
+            <span className="inline-block bg-amber-100 text-amber-800 text-xs font-medium px-2 py-0.5 rounded-full">
               estimado
             </span>
-          ) : (
-            <span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-medium px-2 py-0.5 rounded-full mr-1">
-              ficha
-            </span>
-          )}
-          <span className="text-xs">{eff.source}</span>
-        </p>
+          </p>
+        )}
       </div>
     </div>
   );
@@ -503,7 +498,6 @@ function CostCard({
   perKm,
   fuelLabel,
   estimated,
-  source,
   href,
 }: {
   title: string;
@@ -511,7 +505,6 @@ function CostCard({
   perKm: number;
   fuelLabel: string;
   estimated: boolean;
-  source: string;
   href: string;
 }) {
   return (
@@ -524,11 +517,14 @@ function CostCard({
       <p className="text-sm text-gray-600 mb-3">
         {formatArs(perKm)} / km · {fuelLabel}
       </p>
-      <p className="text-xs text-gray-500 mb-4">
-        {estimated ? 'Dato estimado · ' : 'Dato de referencia · '}
-        {source}
-      </p>
-      <Link href={href} className="text-primary-600 text-sm font-semibold underline">
+      {estimated && (
+        <p className="text-xs text-gray-500 mb-4">
+          <span className="inline-block bg-amber-100 text-amber-800 font-medium px-2 py-0.5 rounded-full">
+            estimado
+          </span>
+        </p>
+      )}
+      <Link href={href} className="text-primary-600 text-sm font-semibold underline mt-4 inline-block">
         Ver ficha técnica →
       </Link>
     </div>

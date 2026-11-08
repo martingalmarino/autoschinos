@@ -6,7 +6,7 @@ import SavingsCalculator from '@/components/SavingsCalculator';
 import {
   getCombustionModels,
   getElectrifiedModels,
-} from '@/lib/efficiency';
+} from '@/lib/efficiency-catalog';
 import { absoluteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {

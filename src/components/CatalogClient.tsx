@@ -2,9 +2,10 @@
 
 import { useMemo } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import type { CarModel, SortOption } from '@/lib/models';
-import { CARS_PER_PAGE, filterModels, sortModels } from '@/lib/models';
+import type { CarModel, SortOption } from '@/lib/catalog';
+import { CARS_PER_PAGE, filterModels, sortModels } from '@/lib/catalog';
 import ModelCard from '@/components/ModelCard';
+import { isPublicValue, publicCategory, publicFuel, publicTransmission } from '@/lib/technical/editorial';
 import Pagination from '@/components/Pagination';
 
 interface CatalogClientProps {
@@ -46,13 +47,17 @@ export default function CatalogClient({ models }: CatalogClientProps) {
     const marcas = [...new Set(models.map((m) => m.brand))].sort((a, b) =>
       a.localeCompare(b, 'es')
     );
-    const combustibles = [...new Set(models.map((m) => m.combustible))].sort();
+    const combustibles = [...new Set(models.map(publicFuel).filter((value): value is string => Boolean(value)))].sort();
     const transmisiones = [
       ...new Set(
-        models.flatMap((m) => m.transmision.split(' / ').map((t) => t.trim()))
+        models.flatMap((model) => {
+          const transmission = publicTransmission(model);
+          if (!transmission) return [];
+          return transmission.split(' / ').map((item) => item.trim()).filter(isPublicValue);
+        })
       ),
     ].sort();
-    const segmentos = [...new Set(models.map((m) => m.categoria))].sort();
+    const segmentos = [...new Set(models.map(publicCategory).filter((value): value is string => Boolean(value)))].sort();
     return { marcas, combustibles, transmisiones, segmentos };
   }, [models]);
 

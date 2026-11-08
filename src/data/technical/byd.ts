@@ -177,7 +177,7 @@ export const bydSheets = [
     ],
     public: basePublic({
       descripcion:
-        'SUV híbrido enchufable. Motor naftero de 78 kW y motor eléctrico de 145 kW, informados por separado. GL y GS difieren en batería y en asistencias.',
+        'SUV híbrido enchufable. Motor naftero de 78 kW y motor eléctrico de 145 kW. GL y GS tienen batería y asistencias distintas.',
       combustible: 'Híbrido enchufable (Nafta + Eléctrico)',
       transmision: 'Sin confirmar',
       precio:

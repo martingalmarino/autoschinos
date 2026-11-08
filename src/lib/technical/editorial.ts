@@ -112,7 +112,7 @@ export function displayFactValue(value: string): string | undefined {
     .replace(/\s+en ese documento de \d{4}\b/gi, '')
     .replace(/\s+en esa documentación\b/gi, '')
     .replace(/\s+en ese texto\b/gi, '')
-    .replace(/\s+en (la|esta) ficha\b/gi, '')
+    .replace(/,?\s+en (la|esta) ficha\b/gi, '')
     .replace(/\s+enumerados en el PDF\b/gi, '')
     .replace(/;\s*la web redondea.*$/gi, '')
     .replace(/\s+en el PDF\b/gi, '')
@@ -267,7 +267,7 @@ export function publicSections(sheet: ModelSheet): TechSection[] {
 
 export function quietEdition(source: Source): string | undefined {
   const raw = (source.edicion || '').trim();
-  if (!raw || isAuditCopy(raw)) return undefined;
+  if (!raw || isAuditCopy(raw) || /no es la fecha del contenido/i.test(raw)) return undefined;
   if (/\bruta\b|código interno|leído en|escanead|conflicto interno|históric|relevamiento/i.test(raw)) {
     const date = raw.match(
       /(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\s+\d{4}/i

@@ -528,6 +528,9 @@ describe('fuentes, precios y datos pendientes', () => {
       /sin cifra única/i,
       /informados por separado/i,
       /por separado/i,
+      /no es la fecha del contenido/i,
+      /Archivo 20251203/i,
+      /carpeta 2018\/08/i,
     ];
 
     for (const model of getAllModels()) {
@@ -585,6 +588,27 @@ describe('fuentes, precios y datos pendientes', () => {
       byId('byd-song-pro-dmi-2025').descripcion,
       'SUV híbrido enchufable. Motor naftero de 78 kW y motor eléctrico de 145 kW. GL y GS tienen batería y asistencias distintas.'
     );
+    const x200 = getSheet('jac-x200-2025');
+    assert.match(
+      x200?.fuentes.find((source) => source.id === 'jac-x200')?.edicion || '',
+      /Archivo 20251203\. La carpeta 2018\/08 no es la fecha del contenido\./
+    );
+    const x200Html = renderToStaticMarkup(
+      createElement(TechnicalSheet, { model: byId('jac-x200-2025'), sheet: x200! })
+    );
+    assert.match(x200Html, /Ficha técnica JAC X200/);
+    assert.match(x200Html, /20251203_jacx200_fichatecnica\.pdf/);
+    assert.doesNotMatch(x200Html, /Archivo 20251203/);
+    assert.doesNotMatch(x200Html, /La carpeta 2018\/08 no es la fecha del contenido/);
+
+    const h6 = getSheet('haval-h6-2025');
+    const h6Html = renderToStaticMarkup(
+      createElement(TechnicalSheet, { model: byId('haval-h6-2025'), sheet: h6! })
+    );
+    assert.equal(h6?.secciones.flatMap((section) => section.hechos).find((fact) => fact.etiqueta === 'HUD')?.valor, 'Sí, en esta ficha');
+    assert.match(h6Html, /HUD<\/dt>[\s\S]*?<span class="font-semibold">Sí<\/span>/);
+    assert.doesNotMatch(h6Html, /Sí,/);
+
     assert.equal(publicTransmission(byId('byd-dolphin-mini-2025')), undefined);
     assert.equal(publicTransmission(byId('baic-bj40-2025')), '2WD/4WD seleccionable');
   });

@@ -19,8 +19,8 @@ export const lifanSheets = [
         hecho('Motor', '2.0, 140 CV', 'lifan-x70', 'historico'),
         hecho('Tracción', 'Delantera', 'lifan-x70', 'historico'),
         hecho('Caja', 'Manual de 5 marchas o CVT', 'lifan-x70', 'historico'),
-      ], 'Fuente histórica del 5/7/2018.'),
-      seccion('dimensiones', 'Dimensiones citadas', [
+      ]),
+      seccion('dimensiones', 'Dimensiones', [
         hecho('Distancia entre ejes', '2.620 mm', 'lifan-x70', 'historico'),
         hecho('Neumáticos', '225/55 R18', 'lifan-x70', 'historico'),
       ]),
@@ -44,12 +44,12 @@ export const lifanSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'SUV 2.0 de 140 CV según el importador en 2018, con caja manual o CVT y dos airbags. No es una ficha MY2025.',
+        'SUV con motor 2.0 de 140 CV, caja manual o CVT y dos airbags.',
       combustible: 'Nafta',
       transmision: 'MT5 o CVT',
       precio: consultar,
       especificaciones: {
-        motor: '2.0 nafta (comunicación 2018)',
+        motor: '2.0 nafta',
         potencia: '140 CV',
         traccion: 'Delantera',
         capacidad_tanque: PEND,
@@ -77,7 +77,7 @@ export const lifanSheets = [
         hecho('Cajas', 'Manual de 5 marchas; automática de 5 desde la comunicación de 2018', 'lifan-myway-18', 'historico'),
         hecho('Tracción', 'Trasera', 'lifan-myway-17', 'historico'),
       ]),
-      seccion('dimensiones', 'Dimensiones citadas', [
+      seccion('dimensiones', 'Dimensiones', [
         hecho('Largo y ancho', '4.400 mm de largo y 1.760 mm de ancho', 'lifan-myway-17', 'historico'),
         hecho('Distancia entre ejes', '2.720 mm', 'lifan-myway-17', 'historico'),
         hecho('Baúl', '210 L con tres filas o 703 L con la tercera rebatida', 'lifan-myway-17', 'historico'),
@@ -98,7 +98,7 @@ export const lifanSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'SUV de siete plazas en comunicaciones de 2017 y 2018: 1.794 cm³, 132 CV y tracción trasera. Desde 2018 también hay automática de 5 marchas.',
+        'SUV de siete plazas: motor de 1.794 cm³ y 132 CV, con tracción trasera. También hay caja automática de 5 marchas.',
       combustible: 'Nafta',
       transmision: 'MT5 o AT5 (AT desde 2018)',
       precio: consultar,
@@ -110,7 +110,6 @@ export const lifanSheets = [
         peso: PEND,
       },
       caracteristicas: [
-        'Fuentes históricas de 2017 y 2018',
         '7 plazas, 2 airbags, ESP, ABS, EBD e ISOFIX',
         'Baúl de 210 L con tres filas o 703 L con la tercera rebatida',
       ],
@@ -132,7 +131,7 @@ export const lifanSheets = [
         hecho('Torque', '143 Nm', 'kyc-mamut', 'historico'),
         hecho('Caja', 'Manual de 5 marchas', 'kyc-mamut', 'historico'),
         hecho('Tracción', 'Trasera', 'kyc-mamut', 'historico'),
-      ], 'Comunicación del 5/11/2019.'),
+      ]),
       seccion('chasis', 'Suspensión y frenos', [
         hecho('Suspensión', 'McPherson y ballestas', 'kyc-mamut', 'historico'),
         hecho('Frenos', 'Disco y tambor', 'kyc-mamut', 'historico'),
@@ -157,13 +156,13 @@ export const lifanSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Utilitario KYC documentado en 2019: 1.5 nafta de 108 CV, manual de 5 marchas y tracción trasera.',
+        'Utilitario KYC con motor 1.5 nafta de 108 CV, caja manual de 5 marchas y tracción trasera.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       categoria: 'Utilitario',
       precio: consultar,
       especificaciones: {
-        motor: '1.5 nafta KYC (comunicación 2019)',
+        motor: '1.5 nafta',
         potencia: '108 CV',
         traccion: 'Trasera',
         capacidad_tanque: PEND,

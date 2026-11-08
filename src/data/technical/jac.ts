@@ -108,14 +108,14 @@ export const jacSheets = [
     ],
     public: basePublic({
       descripcion:
-        'SUV 1.5 con versión Intelligent manual y Luxury CVT. La potencia queda sin cifra única porque el folleto dice 111 CV en la tabla y 105 CV en la portada.',
+        'SUV 1.5 con versión Intelligent manual y Luxury CVT.',
       combustible: 'Nafta',
       transmision: 'Manual (Intelligent) o CVT (Luxury)',
       precio:
         'Lista histórica del 1/5/2026: Intelligent MT USD 20.900 y Luxury CVT USD 22.900. No es vigencia de noviembre 2026.',
       especificaciones: {
         motor: '1.499 cm³',
-        potencia: 'Sin cifra única (tabla 111 CV / 83 kW; portada 105 CV)',
+        potencia: 'Sin cifra única',
         traccion: 'Delantera',
         capacidad_tanque: '42 L',
         peso: '1.155 kg',
@@ -141,7 +141,7 @@ export const jacSheets = [
         hecho('Motor', '2.0 diésel common rail, turbo, intercooler y DPF', 'jac-t8', 'historico'),
         hecho('Potencia', '136 CV / 100 kW a 3.600 rpm', 'jac-t8', 'historico'),
         hecho('Torque', '320 Nm entre 1.600 y 2.600 rpm', 'jac-t8', 'historico'),
-      ], 'Fuente histórica de marzo de 2023.'),
+      ]),
       seccion('transmision', 'Transmisión y tracción', [
         hecho('Caja', 'Manual de 6 marchas', 'jac-t8', 'historico'),
         hecho('Tracción', '4x4', 'jac-t8', 'historico'),
@@ -168,7 +168,7 @@ export const jacSheets = [
         hecho('Acceso', 'Arranque sin llave y aire acondicionado', 'jac-t8', 'historico'),
       ]),
       seccion('garantia', 'Garantía', [
-        hecho('Vehículo', '5 años o 150.000 km en ese documento de 2023', 'jac-t8', 'historico'),
+        hecho('Vehículo', '5 años o 150.000 km', 'jac-t8', 'historico'),
       ]),
     ],
     conflictos: [],
@@ -187,23 +187,22 @@ export const jacSheets = [
     ],
     public: basePublic({
       descripcion:
-        'Pick-up 4x4 del folleto Intelligent de marzo de 2023: 2.0 diésel de 136 CV y manual de 6 marchas. Es fuente histórica, no una certificación del año que muestra el catálogo.',
+        'Pick-up 4x4: 2.0 diésel de 136 CV y caja manual de 6 marchas.',
       combustible: 'Diésel',
       transmision: 'Manual 6 velocidades',
       precio:
         'Lista histórica del 1/5/2026: Intelligent 4x4 MT USD 34.900. El folleto técnico es de marzo de 2023.',
       especificaciones: {
-        motor: '2.0 diésel CR turbo (folleto marzo 2023)',
+        motor: '2.0 diésel turbo',
         potencia: '136 CV / 100 kW a 3.600 rpm',
         traccion: '4x4',
         capacidad_tanque: '76 L',
         peso: '1.970 kg en vacío',
       },
       caracteristicas: [
-        'Fuente histórica: marzo de 2023',
         '2 airbags y controles ESC, ABS, HBA, BOS, EBD, HHC, TCS y VDC',
         'Pantalla de 9 pulgadas, Android Auto, Apple CarPlay y cámara',
-        'Garantía de ese documento: 5 años o 150.000 km',
+        'Garantía: 5 años o 150.000 km',
       ],
       anioNota: anioDe('folleto de marzo de 2023, que no certifica la etiqueta 2024'),
       avisoCorto: 'Folleto de marzo 2023. Precio de lista mayo 2026, histórico.',
@@ -216,14 +215,13 @@ export const jacSheets = [
       'El documento separa diésel Luxury y nafteras nuevas. No se mezclan ni se mantiene un 2.8 ni 134 HP ni normas Euro de otro país. Las cabinas tienen medidas distintas y no se resume una sola. El precio único de USD 31.900 se reemplaza por la lista histórica de mayo, por versión.',
     fuentes: [x200, x200web, lista],
     secciones: [
-      seccion('motor', 'Motores, sin mezclar', [
+      seccion('motor', 'Motores', [
         hecho('Diésel', '2.0, 136 CV / 100 kW, 285 Nm entre 2.200 y 2.600 rpm, manual de 6 marchas', 'jac-x200'),
         hecho('Nafta', '2.0, 150 CV / 110 kW, 196 Nm entre 3.000 y 4.500 rpm, manual de 5 marchas', 'jac-x200'),
       ]),
-      seccion('dimensiones', 'Capacidades comunes citadas', [
+      seccion('dimensiones', 'Capacidades', [
         hecho('Tanque', '65 L', 'jac-x200'),
-        hecho('Carga publicada', '1.500 kg', 'jac-x200'),
-        hecho('Cabinas', 'Simple estándar, simple larga y doble tienen medidas distintas en la matriz del documento', 'jac-x200'),
+        hecho('Carga', '1.500 kg', 'jac-x200'),
       ]),
       seccion('chasis', 'Frenos y neumáticos', [
         hecho('Frenos', 'Discos delanteros y tambores traseros', 'jac-x200'),
@@ -276,7 +274,7 @@ export const jacSheets = [
     ],
     public: basePublic({
       descripcion:
-        'Utilitario con dos mecánicas en la ficha argentina: diésel 2.0 de 136 CV con manual de 6 marchas, y nafta 2.0 de 150 CV con manual de 5. No son intercambiables.',
+        'Utilitario con dos mecánicas: diésel 2.0 de 136 CV y manual de 6 marchas, o nafta 2.0 de 150 CV y manual de 5 marchas.',
       combustible: 'Nafta / Diésel',
       transmision: 'MT6 diésel o MT5 nafta, según versión',
       precio:
@@ -289,7 +287,7 @@ export const jacSheets = [
         peso: PEND,
       },
       caracteristicas: [
-        'Carga publicada 1.500 kg',
+        'Carga de 1.500 kg',
         '2 airbags, ABS y sensores',
         'Aire acondicionado, Bluetooth, crucero y asiento del conductor calefaccionado',
         'Garantía publicada en la web: 5 años o 150.000 km',

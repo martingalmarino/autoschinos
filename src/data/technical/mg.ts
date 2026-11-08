@@ -39,13 +39,13 @@ export const mgSheets = [
         hecho('Cilindrada', '1.498 cm³', 'mg3-ice'),
         hecho('Potencia', '114 HP', 'mg3-ice'),
         hecho('Torque', '142 Nm', 'mg3-ice'),
-      ], 'Luxury ICE 2026. Fuente de concesionario.'),
+      ]),
       seccion('transmision', 'Transmisión y tracción', [
         hecho('Caja', 'CVT', 'mg3-ice'),
         hecho('Tracción', 'Delantera', 'mg3-ice'),
         hecho('Tanque', '45 L', 'mg3-ice'),
       ]),
-      seccion('dimensiones', 'Dimensiones de la tabla', [
+      seccion('dimensiones', 'Dimensiones', [
         hecho('Medidas', '4.120 × 1.799 × 1.501 mm', 'mg3-ice'),
         hecho('Distancia entre ejes', '2.570 mm', 'mg3-ice'),
         hecho('Baúl', '241 L', 'mg3-ice'),
@@ -61,7 +61,7 @@ export const mgSheets = [
         hecho('Otros', 'Cámara 360° y techo solar', 'mg3-ice'),
       ]),
       seccion('garantia', 'Garantía', [
-        hecho('Vehículo', '6 años o 120.000 km, según ese PDF', 'mg3-ice'),
+        hecho('Vehículo', '6 años o 120.000 km', 'mg3-ice'),
       ]),
     ],
     conflictos: [],
@@ -78,9 +78,9 @@ export const mgSheets = [
     ],
     public: basePublic({
       descripcion:
-        'Hatchback naftero. La ficha local usada es Luxury ICE de 2026: 1.498 cm³, 114 HP y CVT. No confirma la etiqueta 2025.',
+        'Hatchback naftero Luxury: 1.498 cm³, 114 HP y CVT.',
       combustible: 'Nafta',
-      transmision: 'CVT (Luxury ICE 2026)',
+      transmision: 'CVT',
       precio:
         'Prensa del 2/10/2026: MG3 ICE USD 21.900. Sin condiciones completas; no es un presupuesto cerrado.',
       especificaciones: {
@@ -91,10 +91,9 @@ export const mgSheets = [
         peso: '1.237 kg',
       },
       caracteristicas: [
-        'Ficha de concesionario, no del importador',
         '6 airbags, ESP, ACC, LDWS, FCW y LKA',
         'Pantalla de 10,25 pulgadas, cámara 360° y techo solar',
-        'Garantía del PDF: 6 años o 120.000 km',
+        'Garantía: 6 años o 120.000 km',
       ],
       anioNota: anioDe('ficha Luxury ICE de junio 2026, que no confirma un MY2025'),
       avisoCorto: 'Naftero Luxury 2026. No usar datos híbridos.',
@@ -107,10 +106,10 @@ export const mgSheets = [
       'No hay PDF argentino cerrado de las versiones nafteras. La prensa del 2/10/2026 separa Comfort ICE 1.5/114 CV y Luxury ICE 1.5T/168 CV/275 Nm. No se usa el PDF del ZS Hybrid+ ni se mantienen 118 HP, tanque de 48 L ni un solo motor.',
     fuentes: [zs],
     secciones: [
-      seccion('motor', 'Motores ICE citados por la prensa', [
+      seccion('motor', 'Motores', [
         hecho('Comfort ICE', '1.5, 114 CV', 'mg-zs-prensa'),
         hecho('Luxury ICE', '1.5 turbo, 168 CV y 275 Nm', 'mg-zs-prensa'),
-      ], 'No son datos del híbrido.'),
+      ]),
     ],
     conflictos: [],
     pendientes: [
@@ -137,9 +136,9 @@ export const mgSheets = [
     ],
     public: basePublic({
       descripcion:
-        'SUV naftero con dos versiones en la prensa del 2/10/2026: Comfort 1.5 de 114 CV y Luxury 1.5 turbo de 168 CV. El híbrido no se usa para completar esta ficha.',
+        'SUV naftero en dos versiones: Comfort 1.5 de 114 CV y Luxury 1.5 turbo de 168 CV.',
       combustible: 'Nafta',
-      transmision: 'Sin confirmar en una ficha oficial',
+      transmision: 'Sin confirmar',
       precio:
         'Prensa del 2/10/2026: Comfort ICE USD 23.900 y Luxury ICE USD 25.900. Sin condiciones completas.',
       especificaciones: {
@@ -149,9 +148,8 @@ export const mgSheets = [
         capacidad_tanque: PEND,
         peso: PEND,
       },
-      caracteristicas: [
-        'Comfort ICE y Luxury ICE no se mezclan con el ZS Hybrid+',
-      ],
+      caracteristicas: ['Comfort 1.5 de 114 CV y Luxury 1.5 turbo de 168 CV'],
+      aviso: 'Comfort ICE y Luxury ICE no se mezclan con el ZS Hybrid+.',
       anioNota: anioDe('prensa del 2/10/2026, sin ficha oficial que confirme un MY2025'),
       avisoCorto: 'Dos nafteros distintos. El PDF híbrido no se aplicó.',
     }),
@@ -201,7 +199,7 @@ export const mgSheets = [
         hecho('Potencia', '375 kW', 'mg-cyber'),
         hecho('Torque', '725 Nm', 'mg-cyber'),
         hecho('Prestación', '0–100 km/h en 3,7 s', 'mg-cyber'),
-      ], 'GT AWD. Fuente de concesionario.'),
+      ]),
       seccion('ev', 'Batería', [
         hecho('Capacidad', '77 kWh', 'mg-cyber'),
         hecho('Autonomía', '446 km WLTP', 'mg-cyber'),
@@ -232,9 +230,9 @@ export const mgSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Roadster eléctrico GT con tracción integral en el PDF local: 375 kW, 77 kWh y 446 km WLTP. El 0–100 documentado es 3,7 segundos.',
+        'Roadster eléctrico GT de tracción integral: 375 kW, batería de 77 kWh, 446 km WLTP y 0 a 100 km/h en 3,7 segundos.',
       combustible: '100% Eléctrico',
-      transmision: 'AWD (GT del PDF)',
+      transmision: 'AWD',
       precio: 'Consultar precio.',
       especificaciones: {
         motor: 'Eléctrico, GT AWD',
@@ -244,7 +242,6 @@ export const mgSheets = [
         peso: '1.885 kg',
       },
       caracteristicas: [
-        'Fuente de concesionario: el sitio del importador devolvió 403',
         '446 km WLTP y 0–100 en 3,7 s',
         '6 airbags, ESP, ADAS, Brembo y audio BOSE',
         'Garantía 6 años/120.000 km y batería 7 años/150.000 km',

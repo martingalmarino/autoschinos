@@ -37,15 +37,15 @@ export const geelySheets = [
       seccion('motor', 'Motor', [
         hecho('Motor', '1.8 nafta, 140 HP', 'geely-gs', 'historico'),
         hecho('Versiones', 'GS MT6, GL MT6 y GSP AT6', 'geely-gs', 'historico'),
-      ], 'Fuente histórica. No es una ficha MY2025.'),
+      ]),
       seccion('dimensiones', 'Dimensiones', [
         hecho('Medidas', '4.440 × 1.833 × 1.560 mm', 'geely-gs', 'historico'),
         hecho('Distancia entre ejes', '2.700 mm', 'geely-gs', 'historico'),
         hecho('Neumáticos', 'GS 205/60 R16; GL 225/50 R17; GSP 225/45 R18', 'geely-gs', 'historico'),
       ]),
       seccion('seguridad', 'Seguridad por versión', [
-        hecho('GS', '2 airbags y sin ESP, según la ficha', 'geely-gs', 'historico'),
-        hecho('GL', '6 airbags y sin ESP, según la ficha', 'geely-gs', 'historico'),
+        hecho('GS', '2 airbags y sin ESP', 'geely-gs', 'historico'),
+        hecho('GL', '6 airbags y sin ESP', 'geely-gs', 'historico'),
         hecho('GSP', '6 airbags, ESP, TCS y HBA', 'geely-gs', 'historico'),
       ]),
       seccion('confort', 'Confort', [
@@ -53,7 +53,7 @@ export const geelySheets = [
         hecho('GSP', 'Control de crucero y calefacción', 'geely-gs', 'historico'),
       ]),
       seccion('garantia', 'Garantía', [
-        hecho('Histórica', '5 años o 150.000 km en esa documentación', 'geely-gs', 'historico'),
+        hecho('Vehículo', '5 años o 150.000 km', 'geely-gs', 'historico'),
       ]),
     ],
     conflictos: [],
@@ -61,7 +61,7 @@ export const geelySheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Crossover 1.8 de 140 HP en una ficha histórica argentina, con tres versiones. Solo la GSP documenta ESP; GS y GL figuran sin ESP.',
+        'Crossover 1.8 de 140 HP en versiones GS, GL y GSP. La GSP tiene ESP; las GS y GL no.',
       combustible: 'Nafta',
       transmision: 'MT6 (GS/GL) o AT6 (GSP)',
       precio: consultar,
@@ -73,9 +73,8 @@ export const geelySheets = [
         peso: PEND,
       },
       caracteristicas: [
-        'Fuente histórica, no MY2025',
         'GS: 2 airbags y sin ESP; GL: 6 airbags y sin ESP; GSP: 6 airbags y ESP',
-        'Garantía histórica de 5 años o 150.000 km',
+        'Garantía: 5 años o 150.000 km',
       ],
       anioNota: anioDe('ficha histórica, sin respaldo de MY2025'),
       avisoCorto: 'Ficha histórica. El ESP no corresponde a todas las versiones.',
@@ -92,7 +91,7 @@ export const geelySheets = [
         hecho('GS', '2.0, 141 HP, manual de 6 marchas, tracción delantera', 'geely-x7', 'historico'),
         hecho('GL', '2.4, 162 HP, automática de 6 marchas, tracción delantera', 'geely-x7', 'historico'),
         hecho('GT', '2.4, automática de 6 marchas, 4WD', 'geely-x7', 'historico'),
-      ], 'Fuente histórica. El lanzamiento de prensa es del 11/6/2017.'),
+      ]),
       seccion('dimensiones', 'Dimensiones', [
         hecho('Medidas', '4.519 × 1.831 × 1.694 mm', 'geely-x7', 'historico'),
         hecho('Distancia entre ejes', '2.670 mm', 'geely-x7', 'historico'),
@@ -102,7 +101,7 @@ export const geelySheets = [
         hecho('Frenos', 'Discos ventilados', 'geely-x7', 'historico'),
       ]),
       seccion('seguridad', 'Seguridad', [
-        hecho('ESP', 'De serie, según el PDF', 'geely-x7', 'historico'),
+        hecho('ESP', 'De serie', 'geely-x7', 'historico'),
       ]),
       seccion('confort', 'Confort', [
         hecho('Multimedia', '8 pulgadas, USB, AUX y Bluetooth', 'geely-x7', 'historico'),
@@ -119,12 +118,12 @@ export const geelySheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'SUV familiar de ficha histórica: 2.0 de 141 HP o 2.4 de 162 HP, según versión. No hay respaldo para tratarla como unidad usada 2025 ni para publicar un precio actual.',
+        'SUV familiar con dos motorizaciones: 2.0 de 141 HP o 2.4 de 162 HP, según versión.',
       combustible: 'Nafta',
       transmision: 'MT6, AT6 o AT6 4WD, según versión',
       precio: consultar,
       especificaciones: {
-        motor: '2.0 o 2.4, según versión histórica',
+        motor: '2.0 o 2.4, según versión',
         potencia: '141 HP (2.0) / 162 HP (2.4)',
         traccion: 'Delantera en GS/GL; 4WD en GT',
         capacidad_tanque: PEND,
@@ -132,9 +131,9 @@ export const geelySheets = [
       },
       caracteristicas: [
         'Fuente histórica, lanzamiento de prensa 11/6/2017',
-        'ESP de serie según el PDF',
+        'ESP de serie',
         'Multimedia de 8 pulgadas; climatizador bizona en GL y GT',
-        'Garantía histórica de 5 años o 150.000 km',
+        'Garantía: 5 años o 150.000 km',
       ],
       anioNota: anioDe('ficha histórica y prensa del 11/6/2017'),
       avisoCorto: 'Ficha histórica. Se retiró el precio de usado 2025.',

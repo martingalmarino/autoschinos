@@ -52,11 +52,11 @@ export const cherySheets = [
         hecho('Configuración', '4 cilindros, 16 válvulas', 'chery-tiggo2-my25'),
         hecho('Potencia', '85 kW / 116 CV a 6.150 rpm', 'chery-tiggo2-my25'),
         hecho('Torque', '138 Nm a 4.000 rpm', 'chery-tiggo2-my25'),
-      ], 'Alcance: Tiggo 2 PRO MAX MY25.'),
+      ]),
       seccion('transmision', 'Transmisión y tracción', [
         hecho('Caja', 'MT5 o CVT, según versión Comfort', 'chery-tiggo2-my25'),
         hecho('Tracción', '4x2', 'chery-tiggo2-my25'),
-      ], 'La descripción interna de la CVT y de la dirección cambia entre los PDF de agosto y diciembre. No se publica un detalle único.'),
+      ]),
       seccion('dimensiones', 'Dimensiones y capacidades', [
         hecho('Medidas', '4.200 × 1.760 × 1.570 mm', 'chery-tiggo2-my25'),
         hecho('Distancia entre ejes', '2.550 mm', 'chery-tiggo2-my25'),
@@ -73,7 +73,7 @@ export const cherySheets = [
         hecho('Visión', 'Cámara y sensores', 'chery-tiggo2-my25'),
       ]),
       seccion('garantia', 'Garantía', [
-        hecho('Vehículo', '7 años o 150.000 km, según ese documento', 'chery-tiggo2-my25'),
+        hecho('Vehículo', '7 años o 150.000 km', 'chery-tiggo2-my25'),
       ]),
     ],
     conflictos: [
@@ -105,7 +105,7 @@ export const cherySheets = [
     ],
     public: basePublic({
       descripcion:
-        'La ficha argentina vigente que Chery enlaza es el Tiggo 2 PRO MAX MY25, en Comfort manual o CVT. No reemplaza por sí sola el nombre Tiggo 2 Pro de esta página.',
+        'Tiggo 2 PRO MAX MY25 en versión Comfort, con caja manual de 5 marchas o CVT.',
       combustible: 'Nafta',
       transmision: 'MT5 o CVT (Tiggo 2 PRO MAX MY25)',
       precio:
@@ -119,10 +119,9 @@ export const cherySheets = [
         peso: PEND,
       },
       caracteristicas: [
-        'Documento aplicado: Tiggo 2 PRO MAX MY25 Comfort MT y CVT',
         '4 airbags, ESP, ABS, EBD y TCS',
         'Pantalla de 9 pulgadas, cámara y sensores',
-        'Garantía del documento: 7 años o 150.000 km',
+        'Garantía: 7 años o 150.000 km',
       ],
       anioNota: anioDe('Tiggo 2 PRO MAX MY25 (PDF de diciembre 2025), no un MY2025 genérico de Tiggo 2 Pro'),
       avisoCorto: 'El PDF vigente es el Tiggo 2 PRO MAX MY25, no un Tiggo 2 Pro genérico.',
@@ -141,7 +140,7 @@ export const cherySheets = [
         hecho('Cilindrada', '1.498 cm³, turbo', 'chery-tiggo4'),
         hecho('Potencia', '147 CV / 108 kW', 'chery-tiggo4'),
         hecho('Torque', '210 Nm', 'chery-tiggo4'),
-      ], 'Versión documentada: 1.5T CVT Luxury.'),
+      ]),
       seccion('transmision', 'Transmisión y tracción', [
         hecho('Caja', 'CVT', 'chery-tiggo4'),
         hecho('Tracción', 'Delantera', 'chery-tiggo4'),
@@ -165,7 +164,7 @@ export const cherySheets = [
         hecho('Carga', 'Cargador inalámbrico', 'chery-tiggo4'),
       ]),
       seccion('garantia', 'Garantía', [
-        hecho('Vehículo', '7 años o 150.000 km, según el documento', 'chery-tiggo4'),
+        hecho('Vehículo', '7 años o 150.000 km', 'chery-tiggo4'),
       ]),
     ],
     conflictos: [],
@@ -185,9 +184,9 @@ export const cherySheets = [
     ],
     public: basePublic({
       descripcion:
-        'SUV con motor 1.5 turbo. La ficha oficial actual describe la versión Luxury CVT de un lanzamiento 2026, con seis airbags y pantallas de 10,25 pulgadas.',
+        'SUV 1.5 turbo en versión Luxury con CVT, seis airbags y pantallas de 10,25 pulgadas.',
       combustible: 'Nafta',
-      transmision: 'CVT (Luxury 1.5T, documento 2026)',
+      transmision: 'CVT',
       precio:
         'USD 28.700 — Tiggo 4 PRO Luxury FL CVT, lista Chery 6/10/2026 hasta su reemplazo.',
       precioOrden: { moneda: 'USD', monto: 28700 },
@@ -199,11 +198,10 @@ export const cherySheets = [
         peso: '1.388 kg en orden de marcha',
       },
       caracteristicas: [
-        'Alcance: Luxury 1.5T CVT, lanzamiento 2026',
         '6 airbags, ESP y TCS',
         'Pantallas de 10,25 pulgadas, cámara 360° y cargador inalámbrico',
-        'La lista de precios suma ACC, FCW, AEB, LDW e IHC para esa versión',
-        'Garantía del documento: 7 años o 150.000 km',
+        'ACC, FCW, AEB, LDW e IHC',
+        'Garantía: 7 años o 150.000 km',
       ],
       anioNota: anioDe('ficha Tiggo 4 Pro Luxury de 2026, no un MY2025'),
       avisoCorto: 'Datos del Luxury CVT 2026, no de un MY2025 genérico.',
@@ -221,7 +219,7 @@ export const cherySheets = [
         hecho('Potencia', '137 kW / 186 CV a 5.500 rpm', 'chery-tiggo8-my25'),
         hecho('Torque', '290 Nm a 4.000 rpm', 'chery-tiggo8-my25'),
         hecho('Combustible', 'Nafta RON 92', 'chery-tiggo8-my25'),
-      ], 'Alcance: MY25 290T 7DCT Luxury.'),
+      ]),
       seccion('transmision', 'Transmisión y tracción', [
         hecho('Caja', 'DCT de 7 marchas', 'chery-tiggo8-my25'),
         hecho('Tracción', 'Delantera', 'chery-tiggo8-my25'),
@@ -235,7 +233,7 @@ export const cherySheets = [
       seccion('seguridad', 'Seguridad', [
         hecho('Airbags', '6', 'chery-tiggo8-my25'),
         hecho('Estabilidad', 'ESP y TCS', 'chery-tiggo8-my25'),
-        hecho('ADAS', 'El PDF indica ADAS en esta versión Luxury', 'chery-tiggo8-my25'),
+        hecho('ADAS', 'Incluye ADAS en la versión Luxury', 'chery-tiggo8-my25'),
       ]),
       seccion('confort', 'Confort y multimedia', [
         hecho('Plazas', '7, en la versión Luxury MY25', 'chery-tiggo8-my25'),
@@ -267,7 +265,7 @@ export const cherySheets = [
     ],
     public: basePublic({
       descripcion:
-        'SUV de tres filas. Los datos de esta página salen del PDF MY25 290T 7DCT Luxury y de la lista del 6/10/2026. No confirman la ficha etiquetada 2023 ni el precio anterior en pesos.',
+        'SUV de tres filas en versión 290T Luxury, con DCT de 7 marchas.',
       combustible: 'Nafta',
       transmision: 'DCT 7 (MY25 290T Luxury)',
       precio:
@@ -281,8 +279,7 @@ export const cherySheets = [
         peso: '1.629 kg',
       },
       caracteristicas: [
-        'Alcance: MY25 290T 7DCT Luxury, no la etiqueta 2023',
-        '7 plazas en ese documento',
+        '7 plazas',
         '6 airbags, ESP, TCS y ADAS',
         'Pantallas de 12,3 pulgadas, audio Sony, cámara 360° y techo panorámico',
         'Garantía MY25: 7 años o 150.000 km',

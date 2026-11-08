@@ -3,7 +3,7 @@ import type { Fact, ModelSheet, PriceQuote, Source, TechSection } from '@/lib/te
 
 /** Frases de trabajo interno. No deben llegar a la página, al catálogo ni al schema. */
 const AUDIT =
-  /ficha hist|fuente hist|identidad sin|sin confirmar|por especificar|se retir|no confirma|no se (publica|calcula|cierra|elige|atribuye|combina|muestra|usa|mezcl)|no publica|sin cifra|se contradice|conflicto|pendiente|relevamiento|consulta del|año-modelo|año en catálogo|etiqueta del catálogo|en silencio|sin ficha|sin lista|documento aplicado|vigencia de noviembre|no es una vigencia|no certifica|no acredita|alcance:|ver conflicto|conviven|leído en|extracto|escanead|no reemplaza|no hay una sola|no hay ficha|dato de 20|según el importador documentó|se corrigió|sin condiciones|sin desglose|sin cantidad de airbags|no es doble|redondea|que mostraba|esta página|no se reemplaz|se reemplaz|no se complet|código interno|la ruta dice|no se usaron|no está resuelta|no alcanza para identificar|no hay respaldo|sin mezclar|no se reproduc|no es una ficha|no trae el resto|publicado antes|devolvió 403|no del importador|alcance técnico|no son datos del|anuncia \d+ airbags|fuente de concesionario/i;
+  /ficha hist|fuente hist|fuentes hist|identidad sin|sin confirmar|por especificar|se retir|no confirma|no se (publica|calcula|cierra|elige|atribuye|combina|muestra|usa|mezcl|afirma|puede leer)|no publica|sin cifra|se contradice|conflicto|pendiente|relevamiento|consulta del|año-modelo|año en catálogo|año que muestra|etiqueta del catálogo|en silencio|sin ficha|sin lista|documento aplicado|vigencia de noviembre|no es una vigencia|no certifica|certificación del año|no acredita|alcance:|ver conflicto|conviven|leído en|extracto|escanead|no reemplaza|no hay una sola|no hay ficha|dato de 20|según el importador documentó|se corrigió|sin condiciones|sin desglose|sin cantidad de airbags|no es doble|redondea|que mostraba|esta página|no se reemplaz|se reemplaz|no se complet|código interno|la ruta dice|no se usaron|no está resuelta|no alcanza para identificar|no hay respaldo|sin mezclar|no se reproduc|no es una ficha|no trae el resto|publicado antes|devolvió 403|no del importador|alcance técnico|no son datos del|anuncia \d+ airbags|fuente de concesionario|figuraba antes|que figuraba|unidad utilizable|no tiene una unidad|unidad del artículo|matriz del documento|torque del pdf|potencia de la tabla|no es el naftero|no es la versión|no es diésel|no es diesel|descripción interna|pdf se contradice|no cierra una sola|potencia queda sin/i;
 
 const OMIT_VALUE =
   /^(sin confirmar|por especificar|no aplica(?: \(eléctrico\))?|—|-|n\/a)$/i;
@@ -64,39 +64,67 @@ function sentences(value: string): string[] {
     .filter(Boolean);
 }
 
+function isBrokenFragment(sentence: string): boolean {
+  const text = sentence.trim();
+  if (/^es,/i.test(text)) return true;
+  if (/^[,.;:]/.test(text)) return true;
+  if (
+    /^(de|del)\s+(\d|enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\b/i.test(
+      text
+    ) &&
+    text.split(/\s+/).length <= 8
+  ) {
+    return true;
+  }
+  return false;
+}
+
+/** Una oración se publica entera o no se publica. No se recortan palabras adentro. */
+function isRejectedSentence(sentence: string, minLength: number): boolean {
+  const text = sentence.trim();
+  if (text.length < minLength || isBrokenFragment(text)) return true;
+  if (/^no my20/i.test(text) || /^alcance limitado/i.test(text)) return true;
+  if (isAuditCopy(text)) return true;
+  return false;
+}
+
+function keepSentence(sentence: string): boolean {
+  return !isRejectedSentence(sentence, 8);
+}
+
 /** Conserva solo oraciones que un lector puede usar, sin el relato de la revisión. */
 export function publicCopy(value?: string | null): string | undefined {
   if (!value) return undefined;
-  const kept = sentences(value)
-    .map((sentence) => softenHistorical(sentence).replace(/^[,.:;\s]+/, '').trim())
-    .filter(
-      (sentence) =>
-        sentence.length >= 8 &&
-        !/^no my20/i.test(sentence) &&
-        !/^alcance limitado/i.test(sentence) &&
-        isPublicValue(sentence)
-    );
+  const kept = sentences(value).filter(keepSentence);
   const text = kept.join(' ').replace(/\s{2,}/g, ' ').trim();
   return text || undefined;
 }
 
 export function displayFactValue(value: string): string | undefined {
   const cleaned = value
-    .replace(/,?\s*según (la ficha|el pdf|ese pdf|esta ficha|el anuncio del documento|ese documento)/gi, '')
-    .replace(/,?\s*sin otro desglose/gi, '')
-    .replace(/,?\s*sin cantidad de marchas publicada/gi, '')
-    .replace(/,?\s*sin kilometraje en ese texto/gi, '')
-    .replace(/\s+en esa documentación/gi, '')
-    .replace(/\s+en ese texto/gi, '')
-    .replace(/\s+en (la|esta) ficha/gi, '')
-    .replace(/\s+enumerados en el PDF/gi, '')
-    .replace(/; la web redondea.*$/gi, '')
-    .replace(/\s+en el PDF$/gi, '')
+    .replace(/,?\s*según (la ficha|el pdf|ese pdf|esta ficha|el anuncio del documento|ese documento|el documento)\b/gi, '')
+    .replace(/,?\s*como cifras combinadas del documento\b/gi, '')
+    .replace(/,?\s*unidad del artículo\b/gi, '')
+    .replace(/,?\s*garantía común publicada\b/gi, '')
+    .replace(/,?\s*sin otro desglose\b[^.]*/gi, '')
+    .replace(/,?\s*sin cantidad de marchas publicada\b/gi, '')
+    .replace(/,?\s*sin kilometraje en ese texto\b/gi, '')
+    .replace(/\s+en ese documento de \d{4}\b/gi, '')
+    .replace(/\s+en esa documentación\b/gi, '')
+    .replace(/\s+en ese texto\b/gi, '')
+    .replace(/\s+en (la|esta) ficha\b/gi, '')
+    .replace(/\s+enumerados en el PDF\b/gi, '')
+    .replace(/;\s*la web redondea.*$/gi, '')
+    .replace(/\s+en el PDF\b/gi, '')
+    .replace(/\.\s*No indica el año-modelo\.?/gi, '')
     .replace(/\s+/g, ' ')
     .trim();
-  const kept = sentences(softenHistorical(cleaned))
+  const kept = sentences(cleaned)
     .map((sentence) => sentence.replace(/^[,.\s]+/, '').trim())
-    .filter((sentence) => sentence.length >= 2 && isPublicValue(sentence) && !/^no es\b/i.test(sentence));
+    .filter(
+      (sentence) =>
+        !isRejectedSentence(sentence, 1) && !/^no (es|se|hay|indica|incluye)\b/i.test(sentence)
+    );
   const text = kept.join(' ').replace(/\s{2,}/g, ' ').trim();
   return text || undefined;
 }
@@ -238,9 +266,16 @@ export function publicSections(sheet: ModelSheet): TechSection[] {
 }
 
 export function quietEdition(source: Source): string | undefined {
-  const edition = softenHistorical(source.edicion || '').replace(/^[,.\s]+/, '').trim();
-  if (!edition || isAuditCopy(edition) || edition.length > 90) return undefined;
-  return edition;
+  const raw = (source.edicion || '').trim();
+  if (!raw || isAuditCopy(raw)) return undefined;
+  if (/\bruta\b|código interno|leído en|escanead|conflicto interno|históric|relevamiento/i.test(raw)) {
+    const date = raw.match(
+      /(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\s+\d{4}/i
+    );
+    return date ? date[0].charAt(0).toUpperCase() + date[0].slice(1) : undefined;
+  }
+  if (raw.length > 90) return undefined;
+  return raw;
 }
 
 export interface PublicProfile {

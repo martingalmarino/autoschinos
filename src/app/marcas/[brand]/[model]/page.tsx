@@ -10,9 +10,10 @@ import {
   getModelBySlugs,
   modelSlug,
 } from '@/lib/models';
-import { SPEC_LABELS } from '@/lib/brand-info';
 import { absoluteUrl, WHATSAPP_NUMBER } from '@/lib/site';
 import { breadcrumbJsonLd, vehicleJsonLd } from '@/lib/json-ld';
+import { getSheet } from '@/data/technical';
+import TechnicalSheet from '@/components/TechnicalSheet';
 
 interface PageProps {
   params: Promise<{ brand: string; model: string }>;
@@ -49,12 +50,7 @@ export default async function ModelPage({ params }: PageProps) {
   if (!model) notFound();
 
   const path = `/marcas/${brand}/${modelParam}`;
-  const specs = Object.entries(model.especificaciones).filter(
-    ([, value]) => value && value !== 'Por especificar'
-  );
-  const unspecified = Object.entries(model.especificaciones).filter(
-    ([, value]) => value === 'Por especificar'
-  );
+  const sheet = getSheet(model.id);
 
   const waMessage = encodeURIComponent(
     `Hola! Quiero información sobre el ${model.brand} ${model.nombre} ${model.año}.`
@@ -104,8 +100,11 @@ export default async function ModelPage({ params }: PageProps) {
 
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <span className="text-sm text-gray-500">Año</span>
+                  <span className="text-sm text-gray-500">Año en catálogo</span>
                   <p className="font-bold text-gray-900">{model.año}</p>
+                  {model.anioNota && (
+                    <p className="text-xs text-gray-500 mt-1">{model.anioNota}</p>
+                  )}
                 </div>
                 <div className="bg-white p-4 rounded-lg shadow-sm">
                   <span className="text-sm text-gray-500">Categoría</span>
@@ -125,7 +124,7 @@ export default async function ModelPage({ params }: PageProps) {
                 <span className="text-sm text-primary-600 font-medium">
                   Precio de referencia
                 </span>
-                <p className="text-2xl font-bold text-primary-600">
+                <p className="text-lg md:text-xl font-bold text-primary-600 break-words">
                   {model.precio}
                 </p>
               </div>
@@ -149,56 +148,7 @@ export default async function ModelPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                Especificaciones técnicas
-              </h2>
-              <div className="space-y-4">
-                {specs.map(([key, value]) => (
-                  <div
-                    key={key}
-                    className="flex justify-between items-center py-3 border-b border-gray-200"
-                  >
-                    <span className="font-medium text-gray-700">
-                      {SPEC_LABELS[key] || key}
-                    </span>
-                    <span className="font-bold text-gray-900">{value}</span>
-                  </div>
-                ))}
-              </div>
-              {unspecified.length > 0 && (
-                <p className="text-sm text-gray-500 mt-4">
-                  Datos pendientes de confirmar:{' '}
-                  {unspecified
-                    .map(([key]) => SPEC_LABELS[key] || key)
-                    .join(', ')}
-                  .
-                </p>
-              )}
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                Características y equipamiento
-              </h2>
-              <div className="grid grid-cols-1 gap-3">
-                {model.caracteristicas.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center p-3 bg-gray-50 rounded-lg"
-                  >
-                    <span className="text-green-600 mr-3">✓</span>
-                    <span className="text-gray-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {sheet ? <TechnicalSheet model={model} sheet={sheet} /> : null}
 
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

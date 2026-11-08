@@ -64,15 +64,23 @@ const BEV_BY_SEGMENT: Record<SegmentSize, number> = {
 const PHEV_KWH = 18.5;
 const PHEV_L_HYBRID = 6.0;
 
+export function isPowertrainConfirmed(combustible: string): boolean {
+  return !combustible.toLowerCase().includes('sin confirmar');
+}
+
 export function classifyPowertrain(combustible: string): PowertrainKind {
   const c = combustible.toLowerCase();
+  if (!isPowertrainConfirmed(combustible)) return 'nafta';
   if (c.includes('enchufable') || c.includes('phev') || c.includes('dm-i') || c.includes('dm i')) {
     return 'phev';
   }
-  if (c.includes('100%') || (c.includes('eléct') && !c.includes('híbr') && !c.includes('hibr'))) {
+  if (c.includes('100%') || (c.includes('eléct') && !c.includes('híbr') && !c.includes('hibr') && !c.includes('hybrid'))) {
     return 'bev';
   }
-  if (c.includes('híbr') || c.includes('hibr')) {
+  if (c.includes('mild hybrid') || c.includes('mild-hybrid')) {
+    return 'nafta';
+  }
+  if (c.includes('híbr') || c.includes('hibr') || c.includes('hybrid')) {
     return 'hev';
   }
   if (c.includes('diés') || c.includes('dies')) {
@@ -100,11 +108,13 @@ export function classifySegment(categoria: string): SegmentSize {
 }
 
 export function isElectrified(model: CarModel): boolean {
+  if (!isPowertrainConfirmed(model.combustible)) return false;
   const kind = classifyPowertrain(model.combustible);
   return kind === 'bev' || kind === 'hev' || kind === 'phev';
 }
 
 export function isCombustion(model: CarModel): boolean {
+  if (!isPowertrainConfirmed(model.combustible)) return false;
   const kind = classifyPowertrain(model.combustible);
   return kind === 'nafta' || kind === 'diesel';
 }

@@ -1,23 +1,12 @@
 import type { NextConfig } from 'next';
+import { legacyRedirects } from './src/lib/technical/redirects';
 
 const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
   async redirects() {
-    return [
-      {
-        // Paréntesis escapados: en path-to-regexp () son grupos
-        source: '/marcas/haval/ora-3-\\(good-cat\\)',
-        destination: '/marcas/haval/ora-3-good-cat',
-        permanent: true,
-      },
-      {
-        source: '/test-catalog',
-        destination: '/catalogo',
-        permanent: true,
-      },
-    ];
+    return legacyRedirects;
   },
 };
 

@@ -1,5 +1,25 @@
+const LOGO_FILES = new Set([
+  'baic',
+  'byd',
+  'changan',
+  'chery',
+  'dfsk',
+  'dongfeng',
+  'faw',
+  'foton',
+  'geely',
+  'great-wall',
+  'haval',
+  'jac',
+  'lifan',
+  'mg',
+]);
+
 export function getBrandLogo(brandName: string): string {
   const normalizedName = brandName.toLowerCase().replace(/\s+/g, '-');
+  if (!LOGO_FILES.has(normalizedName)) {
+    return getBrandFallbackLogo(brandName);
+  }
   return `/images/brands/logos/${normalizedName}-logo.png`;
 }
 

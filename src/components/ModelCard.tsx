@@ -30,8 +30,13 @@ export default function ModelCard({ model }: ModelCardProps) {
         <p className="text-sm text-gray-600 mb-3">
           {model.año} | {model.combustible} | {model.transmision}
         </p>
-        <div className="flex justify-between items-center gap-2">
-          <span className="text-sm font-bold text-primary-500 flex-1">
+        {model.avisoCorto && (
+          <p className="text-xs text-amber-900 bg-amber-50 border border-amber-200 rounded px-2 py-1 mb-3">
+            {model.avisoCorto}
+          </p>
+        )}
+        <div className="flex justify-between items-start gap-2">
+          <span className="text-sm font-bold text-primary-500 flex-1 break-words">
             {model.precio}
           </span>
           <Link

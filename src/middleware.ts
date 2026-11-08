@@ -11,7 +11,7 @@ export function middleware(request: NextRequest) {
     decodeURIComponent(pathname) === '/marcas/haval/ora-3-(good-cat)'
   ) {
     const url = request.nextUrl.clone();
-    url.pathname = '/marcas/haval/ora-3-good-cat';
+    url.pathname = '/marcas/ora/ora-3-good-cat';
     return NextResponse.redirect(url, 308);
   }
 

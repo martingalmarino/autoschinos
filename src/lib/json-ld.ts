@@ -1,3 +1,4 @@
+import { getSheet } from '@/data/technical';
 import { absoluteUrl, SITE_NAME, SITE_URL, CONTACT_EMAIL } from '@/lib/site';
 import type { CarModel } from '@/lib/models';
 
@@ -46,8 +47,15 @@ export function breadcrumbJsonLd(
   };
 }
 
+/** Año-modelo estructurado. La etiqueta `model.año` no alcanza. */
+export function accreditedVehicleModelDate(model: CarModel): string | undefined {
+  const year = getSheet(model.id)?.anioModelo?.trim();
+  return year || undefined;
+}
+
 export function vehicleJsonLd(model: CarModel, path: string) {
-  return {
+  const confirmed = (value: string) => !/sin confirmar/i.test(value);
+  const data: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Vehicle',
     name: `${model.brand} ${model.nombre}`,
@@ -56,14 +64,18 @@ export function vehicleJsonLd(model: CarModel, path: string) {
       name: model.brand,
     },
     model: model.nombre,
-    vehicleModelDate: model.año,
     description: model.descripcion,
     image: absoluteUrl(model.imagen),
     url: absoluteUrl(path),
-    fuelType: model.combustible,
-    vehicleTransmission: model.transmision,
     bodyType: model.categoria,
   };
+
+  const modelYear = accreditedVehicleModelDate(model);
+  if (modelYear) data.vehicleModelDate = modelYear;
+  if (confirmed(model.combustible)) data.fuelType = model.combustible;
+  if (confirmed(model.transmision)) data.vehicleTransmission = model.transmision;
+
+  return data;
 }
 
 export function faqJsonLd(

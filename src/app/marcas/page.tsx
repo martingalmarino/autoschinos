@@ -66,7 +66,7 @@ export default function MarcasPage() {
           </h2>
           <p className="text-slate-300 max-w-2xl mx-auto mb-8">
             Nuestro objetivo es ayudarte a comparar marcas y modelos chinos con
-            fichas técnicas y precios de referencia actualizados.
+            fichas técnicas y precios solo cuando la fuente indica versión y fecha.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
             <div className="bg-white/5 rounded-xl p-6">

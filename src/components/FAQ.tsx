@@ -3,15 +3,26 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
-import { getTotalBrandCount, getTotalModelCount } from '@/lib/models';
 import JsonLd from '@/components/JsonLd';
-import { faqJsonLd } from '@/lib/json-ld';
 
-export const faqItems = [
+function faqJsonLd(items: { question: string; answer: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  };
+}
+
+export function faqItems(brandCount: number, modelCount: number) {
+  return [
   {
     id: 1,
     question: '¿Qué marcas chinas de autos hay en Argentina?',
-    answer: `En este portal reunimos información de ${getTotalBrandCount()} marcas con datos de Argentina, entre ellas Chery, Geely, BYD, Haval, ORA, JAC, DFSK, Great Wall, Changan, MG, BAIC, Foton, FAW, Dongfeng, Lifan y KYC.`,
+    answer: `En este portal reunimos información de ${brandCount} marcas con datos de Argentina, entre ellas Chery, Geely, BYD, Haval, ORA, JAC, DFSK, Great Wall, Changan, MG, BAIC, Foton, FAW, Dongfeng, Lifan y KYC.`,
   },
   {
     id: 2,
@@ -28,23 +39,31 @@ export const faqItems = [
   {
     id: 4,
     question: '¿Cuántos modelos hay en el catálogo?',
-    answer: `Actualmente el catálogo de autoschinos.ar incluye ${getTotalModelCount()} modelos con fichas técnicas y precios de referencia.`,
+    answer: `El catálogo de autoschinos.ar incluye ${modelCount} modelos. El precio se muestra cuando hay una lista o un valor oficial verificable para esa versión.`,
   },
   {
     id: 5,
     question: '¿Los precios son oficiales?',
     answer:
-      'No. Cada precio indica moneda, versión y fecha de la fuente cuando existen. Una lista de mayo o de 2025 no está vigente por consultarse después. Confirmá siempre el valor con el importador.',
+      'Cuando una ficha muestra un precio, indica la versión y la fecha de la lista, o aclara que el valor está publicado en el sitio oficial. Conviene confirmar el importe con el concesionario antes de comprar.',
   },
   {
     id: 6,
     question: '¿Hay autos chinos eléctricos en Argentina?',
     answer:
       'Sí. Marcas como BYD lideran la oferta de eléctricos e híbridos. En el catálogo podés filtrar por combustible para ver opciones electrificadas.',
-  },
-];
+    },
+  ];
+}
 
-export default function FAQ() {
+export default function FAQ({
+  brandCount,
+  modelCount,
+}: {
+  brandCount: number;
+  modelCount: number;
+}) {
+  const items = faqItems(brandCount, modelCount);
   const [openItems, setOpenItems] = useState<number[]>([]);
 
   const toggleItem = (id: number) => {
@@ -57,7 +76,7 @@ export default function FAQ() {
     <section id="faq" className="py-20 bg-white scroll-mt-28">
       <JsonLd
         data={faqJsonLd(
-          faqItems.map(({ question, answer }) => ({ question, answer }))
+          items.map(({ question, answer }) => ({ question, answer }))
         )}
       />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,7 +90,7 @@ export default function FAQ() {
         </div>
 
         <div className="space-y-4">
-          {faqItems.map((item) => (
+          {items.map((item) => (
             <div key={item.id} className="card overflow-hidden">
               <button
                 type="button"

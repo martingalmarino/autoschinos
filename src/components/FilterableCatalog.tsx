@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import type { CarModel } from '@/lib/models';
+import type { CarModel } from '@/lib/catalog';
 import ModelCard from '@/components/ModelCard';
 
 interface FilterableCatalogProps {

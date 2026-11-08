@@ -7,7 +7,7 @@ import BrandPills from '@/components/BrandPills';
 import FAQ from '@/components/FAQ';
 import GuidesTeaser from '@/components/GuidesTeaser';
 import CalculatorTeaser from '@/components/CalculatorTeaser';
-import { getAllModels } from '@/lib/models';
+import { getAllModels, getTotalBrandCount, getTotalModelCount } from '@/lib/models';
 import { absoluteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function HomePage() {
       <CalculatorTeaser />
       <GuidesTeaser />
       <BrandPills />
-      <FAQ />
+      <FAQ brandCount={getTotalBrandCount()} modelCount={getTotalModelCount()} />
     </SiteShell>
   );
 }

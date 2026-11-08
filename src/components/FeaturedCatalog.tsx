@@ -1,4 +1,4 @@
-import type { CarModel } from '@/lib/models';
+import type { CarModel } from '@/lib/catalog';
 import FilterableCatalog from '@/components/FilterableCatalog';
 
 interface FeaturedCatalogProps {

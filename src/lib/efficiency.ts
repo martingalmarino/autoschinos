@@ -1,5 +1,4 @@
-import type { CarModel } from '@/lib/models';
-import { getAllModels } from '@/lib/models';
+import type { CarModel } from '@/lib/catalog';
 import overridesData from '@/data/efficiency-overrides.json';
 
 export type PowertrainKind = 'bev' | 'hev' | 'phev' | 'nafta' | 'diesel';
@@ -65,7 +64,9 @@ const PHEV_KWH = 18.5;
 const PHEV_L_HYBRID = 6.0;
 
 export function isPowertrainConfirmed(combustible: string): boolean {
-  return !combustible.toLowerCase().includes('sin confirmar');
+  const value = combustible.trim().toLowerCase();
+  if (!value || value === '—' || value === '-') return false;
+  return !value.includes('sin confirmar');
 }
 
 export function classifyPowertrain(combustible: string): PowertrainKind {
@@ -119,30 +120,12 @@ export function isCombustion(model: CarModel): boolean {
   return kind === 'nafta' || kind === 'diesel';
 }
 
-export function getElectrifiedModels(): CarModel[] {
-  return getAllModels()
-    .filter(isElectrified)
-    .sort(
-      (a, b) =>
-        a.brand.localeCompare(b.brand, 'es') ||
-        a.nombre.localeCompare(b.nombre, 'es')
-    );
-}
-
-export function getCombustionModels(): CarModel[] {
-  return getAllModels()
-    .filter(isCombustion)
-    .sort(
-      (a, b) =>
-        a.brand.localeCompare(b.brand, 'es') ||
-        a.nombre.localeCompare(b.nombre, 'es')
-    );
-}
-
 /** Suggest a combustion peer in a similar category/segment. */
-export function suggestCombustionPeer(electrified: CarModel): CarModel | null {
+export function suggestCombustionPeer(
+  electrified: CarModel,
+  combustion: CarModel[]
+): CarModel | null {
   const segment = classifySegment(electrified.categoria);
-  const combustion = getCombustionModels();
   const sameCategory = combustion.filter(
     (m) =>
       classifySegment(m.categoria) === segment &&

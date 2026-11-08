@@ -14,6 +14,7 @@ import { absoluteUrl, WHATSAPP_NUMBER } from '@/lib/site';
 import { breadcrumbJsonLd, vehicleJsonLd } from '@/lib/json-ld';
 import { getSheet } from '@/data/technical';
 import TechnicalSheet from '@/components/TechnicalSheet';
+import { publicProfile } from '@/lib/technical/editorial';
 
 interface PageProps {
   params: Promise<{ brand: string; model: string }>;
@@ -31,14 +32,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const model = getModelBySlugs(brand, modelParam);
   if (!model) return { title: 'Modelo no encontrado' };
 
+  const profile = publicProfile(model, getSheet(model.id));
+  const year = profile.anio ? ` ${profile.anio}` : '';
+  const subject = profile.precios.length ? 'Precio y ficha técnica' : 'Ficha técnica';
+  const title = `${model.brand} ${model.nombre}${year}: ${subject} en Argentina`;
+  const description = [
+    `${model.brand} ${model.nombre}${year} en Argentina.`,
+    profile.descripcion,
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return {
-    title: `${model.brand} ${model.nombre} ${model.año} Precio y Ficha Técnica Argentina`,
-    description: `${model.brand} ${model.nombre} ${model.año} en Argentina: precio de referencia, ficha técnica y especificaciones. ${model.descripcion}`,
+    title,
+    description,
     alternates: {
       canonical: absoluteUrl(`/marcas/${brand}/${modelParam}`),
     },
     openGraph: {
-      title: `${model.brand} ${model.nombre} ${model.año} Precio y Ficha Técnica Argentina | autoschinos.ar`,
+      title: `${title} | autoschinos.ar`,
       images: [{ url: absoluteUrl(model.imagen) }],
     },
   };
@@ -51,9 +63,17 @@ export default async function ModelPage({ params }: PageProps) {
 
   const path = `/marcas/${brand}/${modelParam}`;
   const sheet = getSheet(model.id);
+  const profile = publicProfile(model, sheet);
+  const facts = [
+    profile.anio ? { label: 'Año', value: profile.anio } : null,
+    profile.categoria ? { label: 'Categoría', value: profile.categoria } : null,
+    profile.combustible ? { label: 'Combustible', value: profile.combustible } : null,
+    profile.transmision ? { label: 'Transmisión', value: profile.transmision } : null,
+  ].filter((fact): fact is { label: string; value: string } => fact !== null);
+  const interest = [model.brand, model.nombre, profile.anio].filter(Boolean).join(' ');
 
   const waMessage = encodeURIComponent(
-    `Hola! Quiero información sobre el ${model.brand} ${model.nombre} ${model.año}.`
+    `Hola! Quiero información sobre el ${interest}.`
   );
 
   return (
@@ -94,40 +114,45 @@ export default async function ModelPage({ params }: PageProps) {
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">
                 {model.nombre}
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed mb-6">
-                {model.descripcion}
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <span className="text-sm text-gray-500">Año en catálogo</span>
-                  <p className="font-bold text-gray-900">{model.año}</p>
-                  {model.anioNota && (
-                    <p className="text-xs text-gray-500 mt-1">{model.anioNota}</p>
-                  )}
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <span className="text-sm text-gray-500">Categoría</span>
-                  <p className="font-bold text-gray-900">{model.categoria}</p>
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <span className="text-sm text-gray-500">Combustible</span>
-                  <p className="font-bold text-gray-900">{model.combustible}</p>
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <span className="text-sm text-gray-500">Transmisión</span>
-                  <p className="font-bold text-gray-900">{model.transmision}</p>
-                </div>
-              </div>
-
-              <div className="bg-primary-50 border border-primary-200 p-6 rounded-xl mb-6">
-                <span className="text-sm text-primary-600 font-medium">
-                  Precio de referencia
-                </span>
-                <p className="text-lg md:text-xl font-bold text-primary-600 break-words">
-                  {model.precio}
+              {profile.descripcion && (
+                <p className="text-xl text-gray-600 leading-relaxed mb-6">
+                  {profile.descripcion}
                 </p>
-              </div>
+              )}
+
+              {facts.length > 0 && (
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  {facts.map((fact) => (
+                    <div key={fact.label} className="bg-white p-4 rounded-lg shadow-sm">
+                      <span className="text-sm text-gray-500">{fact.label}</span>
+                      <p className="font-bold text-gray-900">{fact.value}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {profile.precios.length > 0 && (
+                <div className="bg-primary-50 border border-primary-200 p-6 rounded-xl mb-6 space-y-3">
+                  <span className="text-sm text-primary-600 font-medium">Precio</span>
+                  {profile.precios.map((price) => (
+                    <div key={`${price.version}-${price.amount}`}>
+                      <p className="text-lg md:text-xl font-bold text-primary-600 break-words">
+                        {price.amount}
+                        <span className="block text-sm font-semibold text-gray-800">
+                          {price.version}
+                        </span>
+                      </p>
+                      {price.bonificado && (
+                        <p className="text-sm text-gray-700">Con bonificación: {price.bonificado}</p>
+                      )}
+                      <p className="text-sm text-gray-600">{price.note}</p>
+                      {price.condiciones && (
+                        <p className="text-sm text-gray-600">{price.condiciones}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {WHATSAPP_NUMBER ? (
                 <a
@@ -176,7 +201,7 @@ export default async function ModelPage({ params }: PageProps) {
       </section>
 
       <ContactForm
-        vehicleOfInterest={`${model.brand} ${model.nombre} ${model.año}`}
+        vehicleOfInterest={interest}
       />
     </SiteShell>
   );

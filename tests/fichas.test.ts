@@ -521,7 +521,7 @@ describe('fuentes, precios y datos pendientes', () => {
       /^es,/im,
       /no es el naftero/i,
       /no es la versión cvt que/i,
-      /en ruta/i,
+      /\bruta\b/i,
       /código interno/i,
     ];
 

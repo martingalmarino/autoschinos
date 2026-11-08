@@ -268,7 +268,7 @@ export function publicSections(sheet: ModelSheet): TechSection[] {
 export function quietEdition(source: Source): string | undefined {
   const raw = (source.edicion || '').trim();
   if (!raw || isAuditCopy(raw)) return undefined;
-  if (/en ruta|código interno|leído en|escanead/i.test(raw)) {
+  if (/\bruta\b|código interno|leído en|escanead|conflicto interno|históric|relevamiento/i.test(raw)) {
     const date = raw.match(
       /(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\s+\d{4}/i
     );

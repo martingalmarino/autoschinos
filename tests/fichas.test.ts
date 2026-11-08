@@ -276,10 +276,7 @@ describe('correcciones críticas', () => {
     assert.match(zs, /168 CV/);
     assert.equal(byId('mg-zs-2025').combustible, 'Nafta');
     assert.doesNotMatch(byId('mg-zs-2025').especificaciones.potencia, /118/);
-    assert.match(
-      (getSheet('mg-zs-2025')?.public.caracteristicas || []).join(' '),
-      /no se mezclan con el ZS Hybrid\+/
-    );
+    assert.match(getSheet('mg-zs-2025')?.public.aviso || '', /no se mezclan con el ZS Hybrid\+/);
     assert.doesNotMatch(zs, /Hybrid\+/);
     const mg3 = ficha(byId('mg-3-2025'));
     assert.match(mg3, /114 HP/);
@@ -507,6 +504,25 @@ describe('fuentes, precios y datos pendientes', () => {
       /datos que sí cubre/i,
       /en silencio/i,
       /conflictos sin cerrar/i,
+      /certificación del año/i,
+      /año que muestra el catálogo/i,
+      /figuraba antes/i,
+      /que figuraba/i,
+      /no se afirma/i,
+      /no se puede leer/i,
+      /unidad utilizable/i,
+      /no tiene una unidad/i,
+      /torque del pdf/i,
+      /potencia de la tabla/i,
+      /el extracto/i,
+      /descripción interna/i,
+      /unidad del artículo/i,
+      /matriz del documento/i,
+      /^es,/im,
+      /no es el naftero/i,
+      /no es la versión cvt que/i,
+      /en ruta/i,
+      /código interno/i,
     ];
 
     for (const model of getAllModels()) {
@@ -520,6 +536,14 @@ describe('fuentes, precios y datos pendientes', () => {
       const surface = [html, card, json, publicSurfaceText(model, sheet)].join('\n');
       for (const pattern of banned) {
         assert.doesNotMatch(surface, pattern, `${model.id} ${pattern}`);
+      }
+      if (model.descripcion) {
+        assert.doesNotMatch(model.descripcion, /^Es,/);
+        assert.doesNotMatch(
+          model.descripcion,
+          /pdf|extracto|documento|relevamiento|figuraba|certificación|unidad utilizable|no se afirma|no se puede leer/i,
+          model.id
+        );
       }
     }
 

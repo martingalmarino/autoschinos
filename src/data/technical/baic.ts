@@ -119,22 +119,20 @@ export const baicSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'SUV 1.5 turbo con DCT de 7 marchas. El folleto argentino Luxury no cierra una sola potencia: conviven 183 HP en el texto y 138 kW en la tabla.',
+        'SUV 1.5 turbo con DCT de 7 marchas y tracción delantera.',
       combustible: 'Nafta',
       transmision: 'DCT 7',
       precio: sinPrecio,
       especificaciones: {
         motor: '1.498 cm³ A156T2H',
-        potencia: 'Sin cifra única (183 HP en el texto y 138 kW en la tabla)',
+        potencia: 'Sin cifra única',
         traccion: 'Delantera',
         capacidad_tanque: '56 L',
         peso: PEND,
       },
       caracteristicas: [
-        'Alcance: X55 II Luxury 1.5T',
         'DCT 7 y tracción delantera',
         'Pantallas de 10,1 y 10,25 pulgadas, butacas calefaccionadas y ventiladas, BSD',
-        'Potencia y cantidad de airbags: ver conflictos, no hay una cifra cerrada',
       ],
       anioNota: anioBaic,
       avisoCorto: 'Potencia y airbags quedan en conflicto dentro del folleto.',
@@ -152,7 +150,7 @@ export const baicSheets = [
         hecho('Potencia', '185 HP', 'baic-x55-plus'),
       ]),
       seccion('transmision', 'Transmisión y tracción', [
-        hecho('Caja', 'DCT de 7 marchas, no CVT', 'baic-x55-plus'),
+        hecho('Caja', 'DCT de 7 marchas', 'baic-x55-plus'),
         hecho('Tracción', 'Delantera', 'baic-x55-plus'),
       ]),
       seccion('dimensiones', 'Dimensiones', [
@@ -182,7 +180,7 @@ export const baicSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'SUV 1.5 turbo con doble embrague de 7 marchas y 185 HP en el folleto argentino. No es la versión CVT que figuraba antes.',
+        'SUV 1.5 turbo con doble embrague de 7 marchas y 185 HP.',
       combustible: 'Nafta',
       transmision: 'DCT 7',
       precio: sinPrecio,
@@ -210,7 +208,7 @@ export const baicSheets = [
     secciones: [
       seccion('motor', 'Motor', [
         hecho('Tipo', 'Híbrido HEV: nafta más batería', 'baic-bj30'),
-        hecho('Combinados publicados', '404 HP y 685 Nm, como cifras combinadas del documento', 'baic-bj30'),
+        hecho('Potencia combinada', '404 HP y 685 Nm', 'baic-bj30'),
         hecho('Eléctrico delantero', '174 HP y 315 Nm', 'baic-bj30'),
         hecho('Eléctrico trasero', '74 HP y 135 Nm', 'baic-bj30'),
       ]),
@@ -236,9 +234,6 @@ export const baicSheets = [
         hecho('Pantallas', '10,25 y 14,6 pulgadas', 'baic-bj30'),
         hecho('Climatización', 'Bizona', 'baic-bj30'),
       ]),
-      seccion('ev', 'Sistema híbrido', [
-        hecho('Batería', 'Capacidad no extraída con certeza', 'baic-bj30'),
-      ]),
     ],
     conflictos: [],
     pendientes: [
@@ -249,20 +244,20 @@ export const baicSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'SUV del folleto argentino BJ30 4x4: híbrido con DHT y tracción integral. No es el naftero de caja automática de 8 marchas que figuraba antes.',
+        'SUV híbrido BJ30 4x4 con caja DHT y tracción integral.',
       combustible: 'Híbrido (HEV)',
       transmision: 'DHT',
       categoria: 'SUV híbrido',
       precio: sinPrecio,
       especificaciones: {
         motor: 'HEV nafta + batería (BJ30 4x4)',
-        potencia: '404 HP y 685 Nm combinados publicados; eléctricos 174 HP y 74 HP',
+        potencia: '404 HP y 685 Nm combinados; eléctricos 174 HP y 74 HP',
         traccion: 'AWD',
         capacidad_tanque: '51 L',
         peso: PEND,
       },
       caracteristicas: [
-        'DHT y AWD, según el brochure BJ30 4x4',
+        'Caja DHT y tracción integral',
         '6 airbags',
         'AEB, IACC, LKA, BSD, RCTA y cámara 360°',
         'Pantallas de 10,25 y 14,6 pulgadas, climatizador bizona',
@@ -282,7 +277,7 @@ export const baicSheets = [
         hecho('Motor', '2.0 turbo', 'baic-bj40'),
         hecho('Potencia', '221 HP', 'baic-bj40'),
         hecho('Torque', '380 Nm entre 1.800 y 3.600 rpm', 'baic-bj40'),
-      ], 'Alcance: BJ40 PLUS.'),
+      ]),
       seccion('transmision', 'Transmisión y tracción', [
         hecho('Tracción', 'Seleccionable 2WD/4WD', 'baic-bj40'),
       ]),
@@ -316,9 +311,9 @@ export const baicSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'El folleto argentino usado acá es el BJ40 PLUS: 2.0 turbo, 221 HP y tracción 2WD/4WD seleccionable. No representa otras generaciones del BJ40.',
+        'BJ40 PLUS: motor 2.0 turbo de 221 HP y tracción 2WD o 4WD seleccionable.',
       combustible: 'Nafta',
-      transmision: '2WD/4WD seleccionable (caja sin confirmar)',
+      transmision: '2WD/4WD seleccionable',
       precio: sinPrecio,
       especificaciones: {
         motor: '2.0 turbo (BJ40 PLUS)',
@@ -383,7 +378,7 @@ export const baicSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'SUV grande del folleto Flagship: 2.0 turbo mild hybrid 48 V, 263 HP, automática de 8 marchas y siete plazas. La suspensión documentada no es neumática.',
+        'SUV grande: motor 2.0 turbo mild hybrid de 48 V, 263 HP, caja automática de 8 marchas y siete plazas.',
       combustible: 'Nafta (mild hybrid 48 V)',
       transmision: 'AT8, 2WD/4WD seleccionable',
       precio: sinPrecio,
@@ -422,8 +417,8 @@ export const baicSheets = [
       seccion('ev', 'Batería y carga', [
         hecho('Química y capacidad', 'CATL ternaria, 49,6 kWh', 'baic-eu5'),
         hecho('Autonomía', '416 km NEDC', 'baic-eu5'),
-        hecho('Carga DC', '30–80 % en 30 minutos o menos, según la tabla', 'baic-eu5'),
-        hecho('Carga general', '10–100 % en 9 horas o menos a 25 °C, según la tabla', 'baic-eu5'),
+        hecho('Carga DC', '30–80 % en 30 minutos o menos', 'baic-eu5'),
+        hecho('Carga general', '10–100 % en 9 horas o menos a 25 °C', 'baic-eu5'),
       ]),
       seccion('dimensiones', 'Dimensiones', [
         hecho('Medidas', '4.650 × 1.820 × 1.520 mm', 'baic-eu5'),
@@ -451,7 +446,7 @@ export const baicSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Sedán eléctrico del folleto argentino: 120 kW, batería de 49,6 kWh y 416 km en ciclo NEDC.',
+        'Sedán eléctrico: 120 kW, batería de 49,6 kWh y 416 km NEDC.',
       combustible: '100% Eléctrico',
       transmision: 'Una marcha',
       precio: sinPrecio,
@@ -516,7 +511,7 @@ export const baicSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Sedán Honor del folleto argentino: 1.5 de 111 HP y CVT. La cantidad de airbags no se cierra porque el propio PDF se contradice.',
+        'Sedán 1.5 de 111 HP con CVT.',
       combustible: 'Nafta',
       transmision: 'CVT',
       precio: sinPrecio,
@@ -579,13 +574,13 @@ export const baicSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'SUV chico Luxury 1.5 turbo con CVT, dos airbags y tanque de 46 L. La potencia de la tabla no se puede leer como HP.',
+        'SUV chico Luxury con motor 1.5 turbo, CVT, dos airbags y tanque de 46 litros.',
       combustible: 'Nafta',
       transmision: 'CVT',
       precio: sinPrecio,
       especificaciones: {
         motor: '1.499 cm³ turbo',
-        potencia: 'Sin cifra confirmada (tabla “110(100)” mal rotulada)',
+        potencia: 'Sin cifra única',
         traccion: 'Delantera',
         capacidad_tanque: '46 L',
         peso: PEND,

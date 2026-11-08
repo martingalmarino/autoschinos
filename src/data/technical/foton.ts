@@ -51,7 +51,7 @@ export const fotonSheets = [
         hecho('Frenos ABS', 'ABS y EBD', 'foton-tm-cs'),
       ]),
       seccion('seguridad', 'Seguridad', [
-        hecho('Airbag', 'Opcional en la ficha. No es doble airbag de serie', 'foton-tm-cs'),
+        hecho('Airbag', 'Opcional', 'foton-tm-cs'),
       ]),
       seccion('confort', 'Confort', [
         hecho('Habitáculo', 'Pantalla de 7 pulgadas, USB, cámara y aire acondicionado', 'foton-tm-cs'),
@@ -62,7 +62,7 @@ export const fotonSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Camión liviano cabina simple del PDF TM1: 1.597 cm³ y 120 HP. El airbag está indicado como opcional.',
+        'Camión liviano de cabina simple: 1.597 cm³ y 120 HP. El airbag es opcional.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       precio: consultar,
@@ -75,7 +75,7 @@ export const fotonSheets = [
       },
       caracteristicas: [
         'ABS y EBD',
-        'Airbag opcional, no de serie doble',
+        'Airbag opcional',
         'Pantalla de 7 pulgadas, USB, cámara y aire acondicionado',
         'Caja de 3,05 m',
       ],
@@ -110,7 +110,7 @@ export const fotonSheets = [
         hecho('Frenos', 'Discos y tambores; ABS y EBD', 'foton-tm-cd'),
       ]),
       seccion('seguridad', 'Seguridad', [
-        hecho('Airbag', 'Opcional en la ficha. No es doble airbag de serie', 'foton-tm-cd'),
+        hecho('Airbag', 'Opcional', 'foton-tm-cd'),
       ]),
       seccion('confort', 'Confort', [
         hecho('Habitáculo', 'Pantalla de 7 pulgadas, USB, cámara y aire acondicionado', 'foton-tm-cd'),
@@ -121,7 +121,7 @@ export const fotonSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'TM1 cabina doble: mismo 1.597 cm³ de 120 HP, tara de 1.305 kg y caja de 2,30 m. El airbag figura como opcional.',
+        'Camión liviano de cabina doble: 1.597 cm³ y 120 HP, tara de 1.305 kg y caja de 2,30 m. El airbag es opcional.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       precio: consultar,
@@ -151,10 +151,10 @@ export const fotonSheets = [
       seccion('motor', 'Motor', [
         hecho('Motor', '1.2', 'foton-gratour', 'historico'),
         hecho('Potencia', '86 CV', 'foton-gratour', 'historico'),
-        hecho('Torque', '10,2 kgm, unidad del artículo', 'foton-gratour', 'historico'),
+        hecho('Torque', '10,2 kgm', 'foton-gratour', 'historico'),
         hecho('Caja', 'Manual de 5 marchas', 'foton-gratour', 'historico'),
         hecho('Tracción', 'Trasera', 'foton-gratour', 'historico'),
-      ], 'Fuente histórica del 17/9/2018. No es una ficha 2025.'),
+      ]),
       seccion('carga', 'Carga', [
         hecho('Carga', '1.339 kg', 'foton-gratour', 'historico'),
         hecho('Caja', '2,80 m', 'foton-gratour', 'historico'),
@@ -175,19 +175,18 @@ export const fotonSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Utilitario cabina simple con datos históricos de 2018: 1.2 de 86 CV y carga publicada de 1.339 kg. No hay ficha oficial vigente en este relevamiento.',
+        'Utilitario de cabina simple: motor 1.2 de 86 CV y 1.339 kg de carga.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       precio: consultar,
       especificaciones: {
-        motor: '1.2 (nota de 2018)',
+        motor: '1.2',
         potencia: '86 CV',
         traccion: 'Trasera',
         capacidad_tanque: PEND,
         peso: PEND,
       },
       caracteristicas: [
-        'Fuente histórica del 17/9/2018',
         'Doble airbag, ABS, radio USB y aire acondicionado',
         'Garantía de lanzamiento: 3 años o 100.000 km',
       ],
@@ -205,10 +204,10 @@ export const fotonSheets = [
       seccion('motor', 'Motor', [
         hecho('Motor', '1.2', 'foton-gratour', 'historico'),
         hecho('Potencia', '86 CV', 'foton-gratour', 'historico'),
-        hecho('Torque', '10,2 kgm, unidad del artículo', 'foton-gratour', 'historico'),
+        hecho('Torque', '10,2 kgm', 'foton-gratour', 'historico'),
         hecho('Caja', 'Manual de 5 marchas', 'foton-gratour', 'historico'),
         hecho('Tracción', 'Trasera', 'foton-gratour', 'historico'),
-      ], 'Fuente histórica del 17/9/2018.'),
+      ]),
       seccion('carga', 'Carga', [
         hecho('Carga', '1.320 kg', 'foton-gratour', 'historico'),
         hecho('Caja', '2,10 m', 'foton-gratour', 'historico'),
@@ -230,19 +229,18 @@ export const fotonSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Gratour T3 doble cabina según la nota de lanzamiento de 2018: 86 CV, cinco plazas y carga de 1.320 kg. No es una ficha vigente.',
+        'Gratour T3 de doble cabina: 86 CV, cinco plazas y 1.320 kg de carga.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       precio: consultar,
       especificaciones: {
-        motor: '1.2 (nota de 2018)',
+        motor: '1.2',
         potencia: '86 CV',
         traccion: 'Trasera',
         capacidad_tanque: PEND,
         peso: PEND,
       },
       caracteristicas: [
-        'Fuente histórica del 17/9/2018',
         '5 plazas y caja de 2,10 m',
         'Doble airbag y ABS',
       ],
@@ -292,7 +290,7 @@ export const fotonSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Pick-up diésel AUCAN de 161 HP, no Cummins. La línea documentada ofrece Lite manual y Ultimate automática ZF, en 4x2 o 4x4.',
+        'Pick-up diésel con motor AUCAN de 161 HP. La versión Lite es manual y la Ultimate, automática ZF, en 4x2 o 4x4.',
       combustible: 'Diésel',
       transmision: 'MT6 Lite o ZF AT8 Ultimate',
       precio: consultar,
@@ -407,7 +405,7 @@ export const fotonSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Mini truck cabina simple del PDF actual: 1.597 cm³ y 120 HP, con dos airbags y ESC.',
+        'Mini truck de cabina simple: 1.597 cm³ y 120 HP, con dos airbags y ESC.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       precio: consultar,

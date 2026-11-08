@@ -66,10 +66,10 @@ export const dfskSheets = [
       'Datos del brochure de julio 2025. Hay un PDF de febrero 2026 que no se combina. La carga publicada es 1.000 kg, no 1.250 kg. El precio secundario de C31 Plus no se presenta como lista oficial de este PDF.',
     fuentes: [c31, c31b, catalogo],
     secciones: [
-      seccion('motor', 'Motor', motorComun, 'Motor común de la serie en los folletos de julio 2025.'),
+      seccion('motor', 'Motor', motorComun),
       seccion('transmision', 'Transmisión y tracción', [
         hecho('Caja', 'Manual de 5 marchas', 'dfsk-c31'),
-      ], 'El extracto no explicita el eje de tracción. No se afirma tracción trasera.'),
+      ]),
       seccion('dimensiones', 'Dimensiones y caja', [
         hecho('Medidas', '4.730 × 1.655 × 1.960 mm', 'dfsk-c31'),
         hecho('Distancia entre ejes', '3.050 mm', 'dfsk-c31'),
@@ -106,7 +106,7 @@ export const dfskSheets = [
     ],
     public: basePublic({
       descripcion:
-        'Pick-up cabina simple del brochure argentino de julio 2025: 1.5 de 101 CV, caja de 2,90 m y 1.000 kg de carga publicada.',
+        'Pick-up de cabina simple: 1.5 de 101 CV, caja de 2,90 m y 1.000 kg de carga.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       precio:
@@ -121,7 +121,7 @@ export const dfskSheets = [
       caracteristicas: [
         'Brochure de julio 2025, sin mezclar el PDF de 2026',
         '2 airbags, ESP, ABS y EBD',
-        'Carga publicada 1.000 kg',
+        'Carga de 1.000 kg',
       ],
       anioNota: anio,
       avisoCorto: 'Carga 1.000 kg. El PDF 2026 no se mezcló.',
@@ -143,7 +143,7 @@ export const dfskSheets = [
       ]),
       seccion('transmision', 'Transmisión', [
         hecho('Caja', 'Manual de 5 marchas', 'dfsk-c32'),
-      ], 'El extracto no explicita el eje de tracción.'),
+      ]),
       seccion('dimensiones', 'Dimensiones y caja', [
         hecho('Medidas', '4.740 × 1.655 × 1.910 mm', 'dfsk-c32'),
         hecho('Distancia entre ejes', '3.050 mm', 'dfsk-c32'),
@@ -178,7 +178,7 @@ export const dfskSheets = [
     ],
     public: basePublic({
       descripcion:
-        'Pick-up doble cabina del brochure de julio 2025: 1.5 de 101 CV, cinco plazas, carga de 1.000 kg y PBV de 2.315 kg.',
+        'Pick-up de doble cabina: 1.5 de 101 CV, cinco plazas, 1.000 kg de carga y 2.315 kg de peso bruto.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       precio:
@@ -247,7 +247,7 @@ export const dfskSheets = [
     ],
     public: basePublic({
       descripcion:
-        'Furgón del brochure de julio 2025: 1.5 de 101 CV, 5,1 m³ y 1.000 kg de carga. La distancia entre ejes del PDF no se usa.',
+        'Furgón 1.5 de 101 CV, con 5,1 m³ y 1.000 kg de carga.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       precio:
@@ -316,7 +316,7 @@ export const dfskSheets = [
     ],
     public: basePublic({
       descripcion:
-        'SUV compacto del brochure de octubre 2025: 1.5 de 114 HP y CVT. El folleto acredita dos airbags, ABS y EBD.',
+        'SUV compacto con motor 1.5 de 114 HP y CVT, dos airbags, ABS y EBD.',
       combustible: 'Nafta',
       transmision: 'CVT secuencial',
       precio:

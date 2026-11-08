@@ -26,11 +26,11 @@ export const gwmSheets = [
       'La ficha oficial actual es H6 4WD 2.0T de 235 CV, 320 Nm y 9DCT. No actualiza en silencio al H6 publicado con 201 HP y DCT7. El precio de USD 39.900 es el de esa página 4WD.',
     fuentes: [h6, h6web],
     secciones: [
-      seccion('motor', 'Motor de la ficha H6 4WD actual', [
+      seccion('motor', 'Motor', [
         hecho('Motor', '2.0 turbo', 'gwm-h6'),
         hecho('Potencia', '235 CV', 'gwm-h6'),
         hecho('Torque', '320 Nm', 'gwm-h6'),
-      ], 'Este bloque no reemplaza una ficha 201 HP/DCT7: es otro conjunto mecánico.'),
+      ]),
       seccion('transmision', 'Transmisión y tracción', [
         hecho('Caja', '9DCT', 'gwm-h6'),
         hecho('Tracción', '4WD', 'gwm-h6'),
@@ -73,9 +73,9 @@ export const gwmSheets = [
     ],
     public: basePublic({
       descripcion:
-        'La ficha oficial actual del H6 en GWM Argentina es 4WD, 2.0 turbo de 235 CV y 9DCT. No es el conjunto de 201 HP y DCT7 que mostraba esta página.',
+        'Haval H6 4WD con motor 2.0 turbo de 235 CV y caja 9DCT.',
       combustible: 'Nafta',
-      transmision: '9DCT (ficha actual H6 4WD)',
+      transmision: '9DCT',
       precio:
         'USD 39.900 — H6 4WD, observado en gwm.com.ar el 8/11/2026, sin vencimiento comprobado.',
       precioOrden: { moneda: 'USD', monto: 39900 },
@@ -87,7 +87,6 @@ export const gwmSheets = [
         peso: PEND,
       },
       caracteristicas: [
-        'Alcance: ficha actual H6 4WD, no el 201 HP/DCT7',
         'Airbags frontales, laterales y de cortina, ESP',
         'ACC, AEB, LKA y BSD',
         'Pantalla de 14,6 pulgadas y HUD',
@@ -108,7 +107,7 @@ export const gwmSheets = [
       seccion('motor', 'Motores', [
         hecho('Térmico', '1.5 turbo, 147 HP y 230 Nm', 'gwm-h6-hev'),
         hecho('Eléctrico', '174 HP y 300 Nm', 'gwm-h6-hev'),
-        hecho('Combinados publicados', '243 HP y 530 Nm', 'gwm-h6-hev'),
+        hecho('Potencia combinada', '243 HP y 530 Nm', 'gwm-h6-hev'),
         hecho('Batería', '1,76 kWh', 'gwm-h6-hev'),
       ]),
       seccion('transmision', 'Transmisión y tracción', [
@@ -126,7 +125,7 @@ export const gwmSheets = [
         hecho('Frenos', 'Discos ventilados y sólidos', 'gwm-h6-hev'),
       ]),
       seccion('seguridad', 'Seguridad por versión', [
-        hecho('Airbags', '6 en la ficha', 'gwm-h6-hev'),
+        hecho('Airbags', '6', 'gwm-h6-hev'),
         hecho('AEB', 'Deluxe y Supreme', 'gwm-h6-hev'),
         hecho('Solo Supreme', 'ACC, BSD, LKA y cámara 360°', 'gwm-h6-hev'),
       ]),
@@ -143,19 +142,18 @@ export const gwmSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Híbrido H6 HEV, no H6 PRO HEV: térmico 1.5 turbo de 147 HP, eléctrico de 174 HP y combinados publicados de 243 HP. La caja del documento es DHT y el tanque, 61 L.',
+        'Haval H6 HEV, distinto del H6 PRO HEV: motor térmico 1.5 turbo de 147 HP, eléctrico de 174 HP y 243 HP combinados. Caja DHT y tanque de 61 litros.',
       combustible: 'Híbrido (HEV)',
       transmision: 'DHT',
       precio: 'Consultar precio. No se usa el valor publicado para el H6 PRO HEV.',
       especificaciones: {
-        motor: '1.5T 147 HP + eléctrico 174 HP (H6 HEV, no PRO)',
-        potencia: '243 HP y 530 Nm combinados publicados',
+        motor: '1.5T 147 HP + eléctrico 174 HP',
+        potencia: '243 HP y 530 Nm combinados',
         traccion: '2WD',
         capacidad_tanque: '61 L',
         peso: PEND,
       },
       caracteristicas: [
-        'No confundir con H6 PRO HEV',
         '6 airbags; AEB en Deluxe y Supreme',
         'ACC, BSD, LKA y cámara 360° solo en Supreme',
         'Pantalla de 12,3 pulgadas, bizona y techo panorámico',
@@ -183,8 +181,7 @@ export const gwmSheets = [
         hecho('Neumáticos', '235/55 R19', 'gwm-h6gt'),
       ]),
       seccion('seguridad', 'Seguridad', [
-        hecho('Airbags', '7, según el anuncio del documento', 'gwm-h6gt'),
-        hecho('ADAS', 'El documento anuncia ADAS, sin desglose en el extracto', 'gwm-h6gt'),
+        hecho('Airbags', '7', 'gwm-h6gt'),
       ]),
     ],
     conflictos: [
@@ -204,7 +201,7 @@ export const gwmSheets = [
     ],
     public: basePublic({
       descripcion:
-        'SUV coupé 2.0 turbo de 201 HP, DCT de 7 marchas y 4WD en la ficha GWM. El documento anuncia 7 airbags. Medidas y suspensión de ese PDF no se reproducen.',
+        'SUV coupé con motor 2.0 turbo de 201 HP, DCT de 7 marchas y tracción 4WD.',
       combustible: 'Nafta',
       transmision: 'DCT 7',
       precio:
@@ -218,8 +215,7 @@ export const gwmSheets = [
         peso: PEND,
       },
       caracteristicas: [
-        '7 airbags anunciados en el documento',
-        'ADAS anunciado, sin desglose en este extracto',
+        '7 airbags',
       ],
       anioNota: anioGwm,
       avisoCorto: 'Sin medidas ni suspensión: el PDF las deja en duda.',
@@ -261,7 +257,7 @@ export const gwmSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Jolion naftero Deluxe/Supreme: 1.5 turbo de 141 HP y DCT de 7 marchas. No es el Jolion PRO HEV. El torque del PDF no tiene una unidad utilizable.',
+        'Jolion naftero en versiones Deluxe y Supreme: 1.5 turbo de 141 HP y DCT de 7 marchas. Es distinto del Jolion PRO HEV.',
       combustible: 'Nafta',
       transmision: 'DCT 7',
       precio: 'Consultar precio. No hay lista oficial actual de esta variante naftera.',
@@ -273,7 +269,7 @@ export const gwmSheets = [
         peso: PEND,
       },
       caracteristicas: [
-        'Versiones Deluxe y Supreme en la ficha naftera',
+        'Versiones Deluxe y Supreme',
         'Discos en las cuatro ruedas',
       ],
       anioNota: anioGwm,
@@ -290,7 +286,7 @@ export const gwmSheets = [
       seccion('motor', 'Motores', [
         hecho('Térmico', '1.5 atmosférico, 94 HP y 125 Nm', 'gwm-jolion-hev'),
         hecho('Eléctrico', '154 HP y 250 Nm', 'gwm-jolion-hev'),
-        hecho('Combinados publicados', '188 HP y 376 Nm', 'gwm-jolion-hev'),
+        hecho('Potencia combinada', '188 HP y 376 Nm', 'gwm-jolion-hev'),
         hecho('Batería', '1,76 kWh', 'gwm-jolion-hev'),
       ]),
       seccion('transmision', 'Transmisión y tracción', [
@@ -332,7 +328,7 @@ export const gwmSheets = [
     ],
     public: basePublic({
       descripcion:
-        'Jolion PRO HEV con 1.5 atmosférico: 94 HP térmicos, 154 HP eléctricos y 188 HP combinados publicados. Caja DHT.',
+        'Jolion PRO HEV con motor 1.5 atmosférico: 94 HP térmicos, 154 HP eléctricos y 188 HP combinados. Caja DHT.',
       combustible: 'Híbrido (HEV)',
       transmision: 'DHT',
       precio:
@@ -362,7 +358,7 @@ export const gwmSheets = [
     fuentes: [ora, oraweb],
     secciones: [
       seccion('motor', 'Motor', [
-        hecho('Potencia', '126 kW / 169 HP en el PDF; la web redondea 170 HP', 'gwm-ora'),
+        hecho('Potencia', '126 kW / 169 HP', 'gwm-ora'),
         hecho('Torque', '250 Nm', 'gwm-ora'),
         hecho('Tracción', 'Delantera', 'gwm-ora'),
       ]),
@@ -410,7 +406,7 @@ export const gwmSheets = [
     ],
     public: basePublic({
       descripcion:
-        'Hatchback eléctrico de ORA, marca de GWM. El PDF indica 126 kW, batería LFP de 48 kWh y 370 km NEDC o 310 km WLTP.',
+        'Hatchback eléctrico ORA, de Great Wall: 126 kW, batería LFP de 48 kWh y 370 km NEDC o 310 km WLTP.',
       combustible: '100% Eléctrico',
       transmision: 'Delantera, relación del motor eléctrico',
       precio:
@@ -418,13 +414,13 @@ export const gwmSheets = [
       precioOrden: { moneda: 'USD', monto: 31000 },
       especificaciones: {
         motor: 'Eléctrico',
-        potencia: '126 kW / 169 HP (PDF); la web redondea 170 HP',
+        potencia: '126 kW / 169 HP',
         traccion: 'Delantera',
         capacidad_tanque: SIN_TANQUE,
         peso: '1.540 kg',
       },
       caracteristicas: [
-        'Marca ORA (GWM), no Haval',
+        'Marca ORA, de Great Wall',
         'Batería LFP de 48 kWh',
         '370 km NEDC o 310 km WLTP',
         'AC 11 kW, DC 60 kW, CCS2 y 7 airbags',
@@ -490,7 +486,7 @@ export const gwmSheets = [
     ],
     public: basePublic({
       descripcion:
-        'Pick-up diésel 4WD Super Luxury con automática ZF de 8 marchas. La ficha local indica 163 CV y 400 Nm.',
+        'Pick-up diésel 4WD Super Luxury con caja automática ZF de 8 marchas, 163 CV y 400 Nm.',
       combustible: 'Diésel',
       transmision: 'ZF AT8',
       precio:
@@ -542,7 +538,7 @@ export const gwmSheets = [
       ]),
       seccion('seguridad', 'Seguridad', [
         hecho('Estabilidad', 'ESP', 'gwm-poer-e'),
-        hecho('Airbags', 'El PDF enumera frontales y laterales, sin otro desglose', 'gwm-poer-e'),
+        hecho('Airbags', 'Frontales y laterales', 'gwm-poer-e'),
       ]),
       seccion('confort', 'Confort', [
         hecho('Pantalla', '9 pulgadas, Android Auto y Apple CarPlay', 'gwm-poer-e'),
@@ -578,7 +574,7 @@ export const gwmSheets = [
     ],
     public: basePublic({
       descripcion:
-        'Pick-up diésel Elite de 161 HP con manual de 6 marchas, en tracción simple o 4x4. No incluye una automática ni 188 HP.',
+        'Pick-up diésel Elite de 161 HP con caja manual de 6 marchas, en tracción simple o 4x4.',
       combustible: 'Diésel',
       transmision: 'Manual 6 velocidades',
       precio:
@@ -593,7 +589,7 @@ export const gwmSheets = [
       },
       caracteristicas: [
         'Carga 1.050 kg',
-        'ESP y airbags frontales y laterales enumerados en el PDF',
+        'ESP y airbags frontales y laterales',
         'Pantalla de 9 pulgadas con Android Auto y Apple CarPlay',
         'Garantía 6 años o 150.000 km',
       ],

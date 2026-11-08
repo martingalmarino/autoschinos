@@ -101,7 +101,7 @@ export const bydSheets = [
     ],
     public: basePublic({
       descripcion:
-        'Hatchback eléctrico. El PDF argentino actual da 65 kW a GL y GS, con baterías y autonomías NEDC distintas. No se usa la ficha vieja de 38,88 kWh.',
+        'Hatchback eléctrico. Las versiones GL y GS tienen 65 kW, con baterías y autonomías NEDC distintas.',
       combustible: '100% Eléctrico',
       transmision: 'Sin confirmar',
       precio:
@@ -116,7 +116,7 @@ export const bydSheets = [
       caracteristicas: [
         'GL y GS: 65 kW y 175 Nm',
         'Baterías y autonomías NEDC distintas por versión',
-        '6 airbags; el PDF incluye ACC, AEB, LDW y LCC',
+        '6 airbags, ACC, AEB, LDW y LCC',
         'Pantalla giratoria de 10,1 pulgadas',
       ],
       anioNota: anio,
@@ -130,10 +130,9 @@ export const bydSheets = [
       'PHEV. Térmico 1.5 de 78 kW/130 Nm y eléctrico de 145 kW/300 Nm. No se suman. GL y GS tienen baterías Blade, autonomías y ADAS distintos. Tanque 52 L. El precio de octubre 2025 es histórico.',
     fuentes: [song, precios, fin],
     secciones: [
-      seccion('motor', 'Motores, sin sumar', [
+      seccion('motor', 'Motores', [
         hecho('Nafta', '1.5, 78 kW y 130 Nm', 'byd-song'),
         hecho('Eléctrico', '145 kW y 300 Nm', 'byd-song'),
-        hecho('Nota', 'El documento no publica una potencia combinada y no se calcula una', 'byd-song'),
       ]),
       seccion('traccion', 'Tracción', [
         hecho('Tracción', 'Delantera', 'byd-song'),
@@ -178,14 +177,14 @@ export const bydSheets = [
     ],
     public: basePublic({
       descripcion:
-        'SUV híbrido enchufable. El PDF separa un naftero de 78 kW y un eléctrico de 145 kW, sin publicarlos como una sola potencia. GL y GS no comparten batería ni ADAS.',
+        'SUV híbrido enchufable. Motor naftero de 78 kW y motor eléctrico de 145 kW, informados por separado. GL y GS difieren en batería y en asistencias.',
       combustible: 'Híbrido enchufable (Nafta + Eléctrico)',
       transmision: 'Sin confirmar',
       precio:
         'Comunicado del 8/10/2025, sin vigencia 2026 probada: GL USD 34.990 y GS USD 36.990.',
       especificaciones: {
         motor: '1.5 nafta 78 kW + eléctrico 145 kW',
-        potencia: 'Sin cifra combinada: el PDF no la publica y no se calcula',
+        potencia: 'Sin cifra única',
         traccion: 'Delantera',
         capacidad_tanque: '52 L',
         peso: PEND,
@@ -211,7 +210,7 @@ export const bydSheets = [
         hecho('Potencia', '130 kW', 'byd-yuan'),
         hecho('Torque', '290 Nm', 'byd-yuan'),
         hecho('Tracción', 'Delantera', 'byd-yuan'),
-      ], 'Alcance: Yuan Pro GS.'),
+      ]),
       seccion('ev', 'Batería y carga', [
         hecho('Batería', '45,12 kWh', 'byd-yuan'),
         hecho('Autonomía', '380 km NEDC', 'byd-yuan'),
@@ -249,21 +248,20 @@ export const bydSheets = [
     ],
     public: basePublic({
       descripcion:
-        'SUV eléctrico. La ficha argentina usada es la GS: 130 kW, 45,12 kWh y 380 km NEDC. No describe sola a la versión GL.',
+        'SUV eléctrico en versión GS: 130 kW, batería de 45,12 kWh y 380 km NEDC.',
       combustible: '100% Eléctrico',
       transmision: 'Sin confirmar',
       precio:
         'Comunicado del 8/10/2025, sin vigencia 2026 probada: GL USD 29.990 y GS USD 30.990.',
       especificaciones: {
-        motor: 'Eléctrico (ficha GS)',
+        motor: 'Eléctrico',
         potencia: '130 kW',
         traccion: 'Delantera',
         capacidad_tanque: SIN_TANQUE,
         peso: '1.550 kg (GS)',
       },
       caracteristicas: [
-        'Alcance técnico: GS, no GL',
-        '6 airbags, ESC, ADAS y cámara panorámica en esa ficha',
+        '6 airbags, ESC, ADAS y cámara panorámica',
         'Pantalla de 12,8 pulgadas y techo panorámico',
       ],
       anioNota: anio,

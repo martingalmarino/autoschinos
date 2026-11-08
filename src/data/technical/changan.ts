@@ -37,7 +37,7 @@ export const changanSheets = [
       'MD201 Cargo Box en el PDF de 2019: 92 HP, no 97. Carga 855 kg. Garantía histórica de 4 años o 100.000 km.',
     fuentes: [pdf, nota],
     secciones: [
-      seccion('motor', 'Motor', motor, 'Fuente histórica de 2019, común a las tres carrocerías.'),
+      seccion('motor', 'Motor', motor),
       seccion('dimensiones', 'Dimensiones y caja', [
         hecho('Medidas', '4.615 × 1.620 × 2.265 mm', 'changan-2019', 'historico'),
         hecho('Distancia entre ejes', '2.900 mm', 'changan-2019', 'historico'),
@@ -57,7 +57,7 @@ export const changanSheets = [
         hecho('Habitáculo', 'Aire acondicionado y radio AM/FM/AUX', 'changan-2019', 'historico'),
       ]),
       seccion('garantia', 'Garantía', [
-        hecho('Lanzamiento', '4 años o 100.000 km', 'changan-nota', 'historico'),
+        hecho('Garantía', '4 años o 100.000 km', 'changan-nota', 'historico'),
       ]),
     ],
     conflictos: [],
@@ -65,22 +65,21 @@ export const changanSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Furgón de caja cerrada MD201 según el PDF argentino de 2019: 1.243 cm³, 92 HP y 855 kg de carga. Es fuente histórica.',
+        'Furgón MD201 de caja cerrada: motor de 1.243 cm³ y 92 HP, con 855 kg de carga.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       precio: consultar,
       especificaciones: {
-        motor: '1.243 cm³ (PDF 2019)',
+        motor: '1.243 cm³',
         potencia: '92 HP a 6.000 rpm',
         traccion: 'Trasera',
         capacidad_tanque: '40 L',
         peso: PEND,
       },
       caracteristicas: [
-        'Fuente histórica de 2019',
         '2 airbags, ABS y aire acondicionado',
-        'Carga 855 kg',
-        'Garantía histórica de 4 años o 100.000 km',
+        'Carga de 855 kg',
+        'Garantía: 4 años o 100.000 km',
       ],
       anioNota: anio,
       avisoCorto: 'PDF de 2019: 92 HP, no 97.',
@@ -93,7 +92,7 @@ export const changanSheets = [
       'En la documentación argentina de 2019 el furgón se llama M201 Cargo Van, no MD201. Mide distinto del box y carga 650 kg. El nombre de la página se corrigió y la URL anterior redirige.',
     fuentes: [pdf, nota],
     secciones: [
-      seccion('motor', 'Motor', motor, 'Mismo motor histórico de 2019.'),
+      seccion('motor', 'Motor', motor),
       seccion('dimensiones', 'Dimensiones y caja', [
         hecho('Medidas', '3.980 × 1.620 × 1.890 mm', 'changan-2019', 'historico'),
         hecho('Distancia entre ejes', '2.560 mm', 'changan-2019', 'historico'),
@@ -113,7 +112,7 @@ export const changanSheets = [
         hecho('Habitáculo', 'Aire acondicionado y radio AM/FM/AUX', 'changan-2019', 'historico'),
       ]),
       seccion('garantia', 'Garantía', [
-        hecho('Lanzamiento', '4 años o 100.000 km', 'changan-nota', 'historico'),
+        hecho('Garantía', '4 años o 100.000 km', 'changan-nota', 'historico'),
       ]),
     ],
     conflictos: [],
@@ -121,22 +120,20 @@ export const changanSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Furgón que la ficha argentina de 2019 denomina M201 Cargo Van, no MD201. Motor 1.243 cm³ de 92 HP y carga de 650 kg.',
+        'Furgón M201 Cargo Van: motor de 1.243 cm³ y 92 HP, con 650 kg de carga.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       categoria: 'Van de carga',
       precio: consultar,
       especificaciones: {
-        motor: '1.243 cm³ (PDF 2019)',
+        motor: '1.243 cm³',
         potencia: '92 HP a 6.000 rpm',
         traccion: 'Trasera',
         capacidad_tanque: '40 L',
         peso: PEND,
       },
       caracteristicas: [
-        'Denominación documental: M201 Cargo Van',
-        'Fuente histórica de 2019',
-        'Carga 650 kg',
+        'Carga de 650 kg',
         '2 airbags y ABS',
       ],
       anioNota: anio,
@@ -152,7 +149,7 @@ export const changanSheets = [
       'MD201 Pickup del mismo PDF de 2019. Carga 950 kg y caja de 2,75 m. Potencia 92 HP, no 97.',
     fuentes: [pdf, nota],
     secciones: [
-      seccion('motor', 'Motor', motor, 'Fuente histórica de 2019.'),
+      seccion('motor', 'Motor', motor),
       seccion('dimensiones', 'Dimensiones y caja', [
         hecho('Medidas', '4.560 × 1.645 × 1.890 mm', 'changan-2019', 'historico'),
         hecho('Distancia entre ejes', '2.900 mm', 'changan-2019', 'historico'),
@@ -172,7 +169,7 @@ export const changanSheets = [
         hecho('Habitáculo', 'Aire acondicionado y radio AM/FM/AUX', 'changan-2019', 'historico'),
       ]),
       seccion('garantia', 'Garantía', [
-        hecho('Lanzamiento', '4 años o 100.000 km', 'changan-nota', 'historico'),
+        hecho('Garantía', '4 años o 100.000 km', 'changan-nota', 'historico'),
       ]),
     ],
     conflictos: [],
@@ -180,20 +177,19 @@ export const changanSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Pickup MD201 del PDF de 2019: 92 HP, caja de 2,75 m y 950 kg de carga. No es una ficha vigente.',
+        'Pickup MD201: 92 HP, caja de 2,75 m y 950 kg de carga.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       precio: consultar,
       especificaciones: {
-        motor: '1.243 cm³ (PDF 2019)',
+        motor: '1.243 cm³',
         potencia: '92 HP a 6.000 rpm',
         traccion: 'Trasera',
         capacidad_tanque: '40 L',
         peso: PEND,
       },
       caracteristicas: [
-        'Fuente histórica de 2019',
-        'Carga 950 kg',
+        'Carga de 950 kg',
         '2 airbags, ABS y aire acondicionado',
       ],
       anioNota: anio,

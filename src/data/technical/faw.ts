@@ -59,7 +59,7 @@ export const fawSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Mini truck de caja abierta. La ficha del importador indica 1.5 de 102 CV y 650 kg de carga, no el 1.0 de 60 HP publicado antes.',
+        'Mini truck de caja abierta: motor 1.5 de 102 CV y 650 kg de carga.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       precio: consultar,
@@ -111,7 +111,7 @@ export const fawSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'Furgón cerrado Actis Box: 1.5 de 102 CV, 6,44 m³ y 650 kg de carga según la ficha del importador.',
+        'Furgón Actis Box: motor 1.5 de 102 CV, 6,44 m³ y 650 kg de carga.',
       combustible: 'Nafta',
       transmision: 'Manual 5 velocidades',
       precio: consultar,
@@ -142,7 +142,7 @@ export const fawSheets = [
         hecho('Motor', '1.2 turbo, inyección directa, 4 cilindros y 16 válvulas', 'faw-t33', 'historico'),
         hecho('Potencia', '143 CV', 'faw-t33', 'historico'),
         hecho('Caja', 'DCT de 7 marchas', 'faw-t33', 'historico'),
-      ], 'Comunicación del 11/1/2023. No trae el resto de la ficha.'),
+      ]),
     ],
     conflictos: [],
     pendientes: [
@@ -153,7 +153,7 @@ export const fawSheets = [
     precios: [],
     public: basePublic({
       descripcion:
-        'SUV del que el importador confirmó, el 11/1/2023, un 1.2 turbo de 143 CV y DCT de 7 marchas. El resto de la ficha sigue pendiente.',
+        'SUV con motor 1.2 turbo de 143 CV y DCT de 7 marchas.',
       combustible: 'Nafta',
       transmision: 'DCT 7',
       precio: consultar,
@@ -165,7 +165,6 @@ export const fawSheets = [
         peso: PEND,
       },
       caracteristicas: [
-        'Dato del importador, 11/1/2023',
         '4 cilindros y 16 válvulas',
       ],
       anioNota: anioDe('comunicación del 11/1/2023, no una ficha MY2025'),

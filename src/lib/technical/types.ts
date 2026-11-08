@@ -92,6 +92,11 @@ export interface PublicSheet {
 export interface ModelSheet {
   id: string;
   cobertura: Cobertura;
+  /**
+   * Año-modelo solo cuando una fuente lo acredita para esta ficha y esta versión.
+   * No es la etiqueta del catálogo, la fecha del PDF ni el MY de otro documento.
+   */
+  anioModelo?: string;
   correspondencia: string;
   fuentes: Source[];
   secciones: TechSection[];

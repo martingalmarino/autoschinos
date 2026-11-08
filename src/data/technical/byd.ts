@@ -91,7 +91,10 @@ export const bydSheets = [
       ]),
     ],
     conflictos: [],
-    pendientes: ['Qué versión recibe DC de 65 kW y cuál de 85 kW no quedó separado en el extracto.'],
+    pendientes: [
+      'Qué versión recibe DC de 65 kW y cuál de 85 kW no quedó separado en el extracto.',
+      'El extracto no indica tracción ni tipo de caja.',
+    ],
     precios: [
       precio({ version: 'Dolphin Mini GL', lista: 22990, fechaLista: '8/10/2025', vigencia: vig, fuenteId: 'byd-precios-2025', estado: 'historico' }),
       precio({ version: 'Dolphin Mini GS', lista: 23990, fechaLista: '8/10/2025', vigencia: vig, fuenteId: 'byd-precios-2025', estado: 'historico' }),
@@ -100,13 +103,13 @@ export const bydSheets = [
       descripcion:
         'Hatchback eléctrico. El PDF argentino actual da 65 kW a GL y GS, con baterías y autonomías NEDC distintas. No se usa la ficha vieja de 38,88 kWh.',
       combustible: '100% Eléctrico',
-      transmision: 'Delantera',
+      transmision: 'Sin confirmar',
       precio:
         'Comunicado del 8/10/2025, sin vigencia 2026 probada: GL USD 22.990 y GS USD 23.990.',
       especificaciones: {
         motor: 'Eléctrico',
         potencia: '65 kW',
-        traccion: 'Delantera',
+        traccion: PEND,
         capacidad_tanque: SIN_TANQUE,
         peso: PEND,
       },
@@ -132,9 +135,8 @@ export const bydSheets = [
         hecho('Eléctrico', '145 kW y 300 Nm', 'byd-song'),
         hecho('Nota', 'El documento no publica una potencia combinada y no se calcula una', 'byd-song'),
       ]),
-      seccion('transmision', 'Transmisión', [
-        hecho('Tracción', 'Delantera, híbrido enchufable', 'byd-song'),
-        hecho('Tanque', '52 L', 'byd-song'),
+      seccion('traccion', 'Tracción', [
+        hecho('Tracción', 'Delantera', 'byd-song'),
       ]),
       seccion('ev', 'Batería y autonomía', [
         hecho('GL', 'Blade 12,9 kWh, 71 km eléctricos NEDC y 1.001 km combinados', 'byd-song'),
@@ -144,6 +146,7 @@ export const bydSheets = [
       seccion('dimensiones', 'Dimensiones', [
         hecho('Medidas', '4.738 × 1.860 × 1.710 mm', 'byd-song'),
         hecho('Distancia entre ejes', '2.712 mm', 'byd-song'),
+        hecho('Tanque', '52 L', 'byd-song'),
         hecho('Neumáticos', '225/60 R18', 'byd-song'),
       ]),
       seccion('chasis', 'Suspensión y frenos', [
@@ -165,7 +168,10 @@ export const bydSheets = [
       ]),
     ],
     conflictos: [],
-    pendientes: ['Carga DC: no está en el extracto.'],
+    pendientes: [
+      'Carga DC: no está en el extracto.',
+      'El extracto indica tracción delantera y no indica el tipo de caja.',
+    ],
     precios: [
       precio({ version: 'Song Pro GL', lista: 34990, fechaLista: '8/10/2025', vigencia: vig, fuenteId: 'byd-precios-2025', estado: 'historico' }),
       precio({ version: 'Song Pro GS', lista: 36990, fechaLista: '8/10/2025', vigencia: vig, fuenteId: 'byd-precios-2025', estado: 'historico' }),
@@ -174,7 +180,7 @@ export const bydSheets = [
       descripcion:
         'SUV híbrido enchufable. El PDF separa un naftero de 78 kW y un eléctrico de 145 kW, sin publicarlos como una sola potencia. GL y GS no comparten batería ni ADAS.',
       combustible: 'Híbrido enchufable (Nafta + Eléctrico)',
-      transmision: 'Delantera',
+      transmision: 'Sin confirmar',
       precio:
         'Comunicado del 8/10/2025, sin vigencia 2026 probada: GL USD 34.990 y GS USD 36.990.',
       especificaciones: {
@@ -233,7 +239,10 @@ export const bydSheets = [
     conflictos: [
       'El PDF rotula por error “combustión interna”. El vehículo de esa ficha es eléctrico y el rótulo no se publica.',
     ],
-    pendientes: ['Ficha GL: este PDF no acredita su equipamiento.'],
+    pendientes: [
+      'Ficha GL: este PDF no acredita su equipamiento.',
+      'El extracto indica tracción delantera y no indica el tipo de caja.',
+    ],
     precios: [
       precio({ version: 'Yuan Pro GL', lista: 29990, fechaLista: '8/10/2025', vigencia: vig, fuenteId: 'byd-precios-2025', estado: 'historico', nota: 'El precio GL no trae la ficha técnica GL.' }),
       precio({ version: 'Yuan Pro GS', lista: 30990, fechaLista: '8/10/2025', vigencia: vig, fuenteId: 'byd-precios-2025', estado: 'historico' }),
@@ -242,7 +251,7 @@ export const bydSheets = [
       descripcion:
         'SUV eléctrico. La ficha argentina usada es la GS: 130 kW, 45,12 kWh y 380 km NEDC. No describe sola a la versión GL.',
       combustible: '100% Eléctrico',
-      transmision: 'Delantera',
+      transmision: 'Sin confirmar',
       precio:
         'Comunicado del 8/10/2025, sin vigencia 2026 probada: GL USD 29.990 y GS USD 30.990.',
       especificaciones: {

@@ -7,7 +7,7 @@ import { getAllSheets, getSheet } from '../src/data/technical';
 import sitemap from '../src/app/sitemap';
 import { resolveEfficiency } from '../src/lib/efficiency';
 import { isCombustion, isElectrified } from '../src/lib/efficiency';
-import { vehicleJsonLd } from '../src/lib/json-ld';
+import { accreditedVehicleModelDate, vehicleJsonLd } from '../src/lib/json-ld';
 import {
   brandSlug,
   filterModels,
@@ -397,5 +397,78 @@ describe('fuentes, precios y datos pendientes', () => {
     );
     assert.match(wonderHtml, /120 HP/);
     assert.match(wonderHtml, /grid-cols-1/);
+  });
+
+  it('omite el año-modelo estructurado si la ficha no lo acredita', () => {
+    assert.equal(
+      getAllSheets().some((sheet) => Boolean(sheet.anioModelo)),
+      false
+    );
+    const tiggo8 = byId('chery-tiggo-8-pro-2023');
+    assert.equal(tiggo8.año, '2023');
+    assert.equal(vehicleJsonLd(tiggo8, modelPath(tiggo8)).vehicleModelDate, undefined);
+    assert.match(tiggo8.anioNota || '', /MY25/);
+    assert.match(tiggo8.anioNota || '', /no confirma la etiqueta 2023/);
+
+    for (const id of [
+      'geely-emgrand-gs-2025',
+      'geely-emgrand-x7-sport-2025',
+      'jac-t8-2024',
+      'changan-md201-cargo-van-2025',
+      'lifan-x70-2025',
+      'lifan-myway-2025',
+      'lifan-mamut-2025',
+      'foton-gratour-t3-cs-2025',
+      'faw-t33-2025',
+      'dongfeng-van-312-2025',
+      'haval-h6-2025',
+      'foton-v9-2025',
+      'mg-4-2025',
+    ]) {
+      const model = byId(id);
+      assert.equal(accreditedVehicleModelDate(model), undefined, id);
+      assert.equal(vehicleJsonLd(model, modelPath(model)).vehicleModelDate, undefined, id);
+    }
+
+    for (const model of getAllModels()) {
+      assert.equal(vehicleJsonLd(model, modelPath(model)).vehicleModelDate, undefined, model.id);
+    }
+  });
+
+  it('no publica la tracción BYD como si fuera la caja', () => {
+    for (const id of ['byd-dolphin-mini-2025', 'byd-song-pro-dmi-2025', 'byd-yuan-pro-2025']) {
+      const model = byId(id);
+      assert.equal(model.transmision, 'Sin confirmar');
+      assert.equal(vehicleJsonLd(model, modelPath(model)).vehicleTransmission, undefined);
+      const titles = (getSheet(id)?.secciones || []).map((section) => section.titulo);
+      assert.equal(titles.includes('Transmisión'), false);
+    }
+
+    assert.equal(byId('byd-dolphin-mini-2025').especificaciones.traccion, 'Por especificar');
+    const dolphinFacts = (getSheet('byd-dolphin-mini-2025')?.secciones || []).flatMap(
+      (section) => section.hechos
+    );
+    assert.equal(
+      dolphinFacts.some((fact) => /delantera/i.test(`${fact.etiqueta} ${fact.valor}`)),
+      false
+    );
+
+    assert.equal(byId('byd-song-pro-dmi-2025').especificaciones.traccion, 'Delantera');
+    assert.equal(byId('byd-yuan-pro-2025').especificaciones.traccion, 'Delantera');
+    const song = getSheet('byd-song-pro-dmi-2025');
+    assert.equal(
+      song?.secciones.some(
+        (section) =>
+          section.titulo === 'Tracción' &&
+          section.hechos.some((fact) => fact.valor === 'Delantera')
+      ),
+      true
+    );
+    assert.equal(
+      (getSheet('byd-yuan-pro-2025')?.secciones || [])
+        .flatMap((section) => section.hechos)
+        .some((fact) => fact.etiqueta === 'Tracción' && fact.valor === 'Delantera'),
+      true
+    );
   });
 });

@@ -11,7 +11,7 @@ export const faqItems = [
   {
     id: 1,
     question: '¿Qué marcas chinas de autos hay en Argentina?',
-    answer: `En este portal reunimos información de ${getTotalBrandCount()} marcas chinas con presencia o disponibilidad de datos en Argentina, entre ellas Chery, Geely, BYD, Haval, JAC, DFSK, Great Wall, Changan, MG, BAIC, Foton, FAW, Dongfeng y Lifan.`,
+    answer: `En este portal reunimos información de ${getTotalBrandCount()} marcas con datos de Argentina, entre ellas Chery, Geely, BYD, Haval, ORA, JAC, DFSK, Great Wall, Changan, MG, BAIC, Foton, FAW, Dongfeng, Lifan y KYC.`,
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ export const faqItems = [
     id: 5,
     question: '¿Los precios son oficiales?',
     answer:
-      'Los precios publicados son de referencia informativa y pueden cambiar. Siempre confirmá valores actualizados con concesionarios o importadores oficiales.',
+      'No. Cada precio indica moneda, versión y fecha de la fuente cuando existen. Una lista de mayo o de 2025 no está vigente por consultarse después. Confirmá siempre el valor con el importador.',
   },
   {
     id: 6,

@@ -13,7 +13,7 @@ export default function BrandPills() {
             Marcas chinas en Argentina
           </h2>
           <p className="text-base sm:text-lg text-gray-600">
-            {brands.length} marcas con fichas técnicas actualizadas
+            {brands.length} marcas con fichas y la fuente de cada dato
           </p>
         </div>
 

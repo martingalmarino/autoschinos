@@ -21,6 +21,8 @@ export const brandDescriptions: Record<string, string> = {
     'Changan es una de las marcas chinas más antiguas y respetadas, presente en Argentina con SUV modernos y tecnología avanzada.',
   byd: 'BYD es líder mundial en vehículos eléctricos e híbridos, llegando a Argentina con tecnología de vanguardia en movilidad sustentable.',
   faw: 'FAW (First Automotive Works) es una de las marcas automotrices más grandes de China, con décadas de experiencia en manufactura y una amplia gama de vehículos.',
+  ora: 'ORA es la marca eléctrica de GWM. En Argentina el ORA 03 no forma parte de la gama Haval.',
+  kyc: 'KYC es la marca del utilitario Mamut documentado por el importador en Argentina. No es la pickup diésel que alguna vez figuró bajo Lifan.',
 };
 
 export function getBrandDescription(brandSlug: string, displayName: string): string {

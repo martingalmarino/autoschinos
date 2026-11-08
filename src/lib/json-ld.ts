@@ -47,7 +47,8 @@ export function breadcrumbJsonLd(
 }
 
 export function vehicleJsonLd(model: CarModel, path: string) {
-  return {
+  const confirmed = (value: string) => !/sin confirmar/i.test(value);
+  const data: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Vehicle',
     name: `${model.brand} ${model.nombre}`,
@@ -56,14 +57,19 @@ export function vehicleJsonLd(model: CarModel, path: string) {
       name: model.brand,
     },
     model: model.nombre,
-    vehicleModelDate: model.año,
     description: model.descripcion,
     image: absoluteUrl(model.imagen),
     url: absoluteUrl(path),
-    fuelType: model.combustible,
-    vehicleTransmission: model.transmision,
     bodyType: model.categoria,
   };
+
+  if (model.fichaCobertura !== 'retiro' && model.fichaCobertura !== 'pendiente') {
+    data.vehicleModelDate = model.año;
+  }
+  if (confirmed(model.combustible)) data.fuelType = model.combustible;
+  if (confirmed(model.transmision)) data.vehicleTransmission = model.transmision;
+
+  return data;
 }
 
 export function faqJsonLd(

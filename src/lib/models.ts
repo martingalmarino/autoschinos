@@ -1,4 +1,7 @@
 import modelsData from '@/data/models.json';
+import { presentCatalogModel } from '@/lib/technical/present';
+import type { PriceSort, SpecSummary } from '@/lib/technical/types';
+import type { ModelSheet } from '@/lib/technical/types';
 
 export interface CarModel {
   id: string;
@@ -10,15 +13,14 @@ export interface CarModel {
   precio: string;
   imagen: string;
   descripcion: string;
-  especificaciones: {
-    motor: string;
-    potencia: string;
-    traccion: string;
-    capacidad_tanque: string;
-    peso: string;
-  };
+  especificaciones: SpecSummary;
   caracteristicas: string[];
   brand: string;
+  anioNota?: string;
+  avisoCorto?: string;
+  identidadAviso?: string;
+  precioOrden: PriceSort | null;
+  fichaCobertura?: ModelSheet['cobertura'];
 }
 
 export interface BrandInfo {
@@ -27,11 +29,16 @@ export interface BrandInfo {
   modelCount: number;
 }
 
+type RawModel = Omit<
+  CarModel,
+  'brand' | 'precioOrden' | 'anioNota' | 'avisoCorto' | 'identidadAviso' | 'fichaCobertura'
+>;
+
 type RawModelsData = Record<
   string,
   {
     marca: string;
-    modelos: Omit<CarModel, 'brand'>[];
+    modelos: RawModel[];
   }
 >;
 
@@ -60,7 +67,7 @@ export function getAllModels(): CarModel[] {
   const models: CarModel[] = [];
   Object.entries(data).forEach(([brandName, brandData]) => {
     brandData.modelos.forEach((modelo) => {
-      models.push({ ...modelo, brand: brandName });
+      models.push(presentCatalogModel({ ...modelo, brand: brandName }));
     });
   });
   return models;
@@ -168,9 +175,13 @@ export function sortModels(
       );
     case 'precio':
       return copy.sort((a, b) => {
-        const pa = Number(a.precio.replace(/[^\d]/g, '')) || 0;
-        const pb = Number(b.precio.replace(/[^\d]/g, '')) || 0;
-        return pa - pb;
+        const pa = a.precioOrden;
+        const pb = b.precioOrden;
+        if (!pa && !pb) return a.nombre.localeCompare(b.nombre, 'es');
+        if (!pa) return 1;
+        if (!pb) return -1;
+        if (pa.moneda !== pb.moneda) return pa.moneda < pb.moneda ? -1 : 1;
+        return pa.monto - pb.monto;
       });
     case 'marca-asc':
     default:

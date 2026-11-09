@@ -4,7 +4,7 @@ import SiteShell from '@/components/SiteShell';
 import BlogArticle from '@/components/BlogArticle';
 import JsonLd from '@/components/JsonLd';
 import { getPostBySlug, getPosts } from '@/lib/blog';
-import { breadcrumbJsonLd } from '@/lib/json-ld';
+import { blogPostingJsonLd, breadcrumbJsonLd } from '@/lib/json-ld';
 import { absoluteUrl, SITE_NAME } from '@/lib/site';
 
 interface PageProps {
@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return { title: 'Artículo no encontrado' };
 
   const url = absoluteUrl(`/blog/${post.slug}`);
+  const image = absoluteUrl(post.image.src);
   return {
     title: post.title,
     description: post.description,
@@ -33,6 +34,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.description,
       url,
       publishedTime: post.date,
+      images: [{ url: image, width: post.image.width, height: post.image.height, alt: post.image.alt }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [image],
     },
   };
 }
@@ -60,20 +66,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           { name: post.title, path },
         ])}
       />
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'BlogPosting',
-          headline: post.title,
-          description: post.description,
-          datePublished: post.date,
-          dateModified: post.date,
-          articleSection: post.category,
-          mainEntityOfPage: absoluteUrl(path),
-          author: { '@type': 'Organization', name: SITE_NAME },
-          publisher: { '@type': 'Organization', name: SITE_NAME },
-        }}
-      />
+      <JsonLd data={blogPostingJsonLd(post)} />
       <BlogArticle post={post} />
     </SiteShell>
   );

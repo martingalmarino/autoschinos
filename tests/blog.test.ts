@@ -11,8 +11,9 @@ import BlogList from '../src/components/BlogList';
 import BlogTeaser from '../src/components/BlogTeaser';
 import Footer from '../src/components/Footer';
 import { navigation } from '../src/components/Navbar';
-import { getPostBySlug, getPosts, parsePost } from '../src/lib/blog';
+import { assertPublishedImage, getPostBySlug, getPosts, parsePost, publishedImagePath } from '../src/lib/blog';
 import { linkifyParagraph } from '../src/lib/blog-links';
+import { blogPostingJsonLd } from '../src/lib/json-ld';
 import { isRemovedGuidePath } from '../src/lib/removed-guides';
 import { legacyRedirects } from '../src/lib/technical/redirects';
 
@@ -90,14 +91,60 @@ describe('blog', () => {
         date: '2026-11-16',
         description: 'Resumen.',
         category: 'Mercado',
+        image: {
+          src: '/blog/nota/portada.webp',
+          alt: 'Auto de frente',
+          credit: 'Imagen: Marca',
+          width: 1600,
+          height: 900,
+        },
         sources: [{ title: 'Fuente', url: 'https://example.com/fuente' }],
         sections: [{ heading: 'Apartado', paragraphs: ['Párrafo.'] }],
       },
       'nota.json'
     );
     assert.equal(post.slug, 'nota');
+    assert.equal(post.image.src, '/blog/nota/portada.webp');
     assert.throws(() => parsePost({ slug: 'nota' }, 'nota.json'), /falta title|falta date/);
-    assert.equal(getPosts().some((post) => post.slug === 'nota'), false);
+    assert.equal(getPosts().some((item) => item.slug === 'nota'), false);
+  });
+
+  it('rechaza una nota sin imagen o con un archivo que no está en public', () => {
+    const posts = getPosts();
+    assert.ok(posts.length >= 1);
+    for (const post of posts) {
+      assert.equal(post.image.src.startsWith(`/blog/${post.slug}/`), true);
+      assert.equal(fs.existsSync(publishedImagePath(post.image.src)), true);
+      assert.ok(post.image.alt.trim());
+      assert.ok(post.image.credit.trim());
+    }
+
+    const published = posts[0];
+    assert.throws(
+      () => parsePost({ ...published, image: undefined }, `${published.slug}.json`),
+      /falta image/
+    );
+    assert.throws(
+      () =>
+        parsePost(
+          { ...published, image: { ...published.image, src: '/fotos/portada.webp' } },
+          `${published.slug}.json`
+        ),
+      /image\.src/
+    );
+    assert.throws(
+      () =>
+        assertPublishedImage(
+          {
+            image: {
+              ...published.image,
+              src: `/blog/${published.slug}/no-existe.webp`,
+            },
+          },
+          `${published.slug}.json`
+        ),
+      /no existe public/
+    );
   });
 
   it('publica la nota de la X55 II Hybrid con enlaces internos y sin texto de revisión', async () => {
@@ -112,6 +159,8 @@ describe('blog', () => {
     assert.match(list, new RegExp(`href="/blog/${slug}"`));
     assert.match(list, /BAIC X55 II Hybrid/);
     assert.match(list, /9 de noviembre de 2026/);
+    assert.match(list, /BAIC X55 II Hybrid de perfil, en color gris claro/);
+    assert.match(list, /portada\.webp/);
     assert.doesNotMatch(list, /Todavía no hay artículos publicados/);
 
     const html = renderToStaticMarkup(createElement(BlogArticle, { post }));
@@ -135,7 +184,11 @@ describe('blog', () => {
     assert.match(html, /BAIC Argentina — X55 Hybrid/);
     assert.match(html, /href="https:\/\/baic.com.ar\/baic-x55-hybrid\/"/);
     assert.match(html, /href="https:\/\/autoxarg.com.ar\/2026\/11\/04\//);
-    assert.doesNotMatch(html, /<img/);
+    assert.match(html, /<img[^>]+alt="BAIC X55 II Hybrid de perfil, en color gris claro"/);
+    assert.match(html, /width="1700"/);
+    assert.match(html, /height="750"/);
+    assert.match(html, /Imagen: BAIC Argentina/);
+    assert.doesNotMatch(html, /X55II_Hybrid_Miniatura_Menu/);
     assert.doesNotMatch(
       html,
       /extracto|relevamiento|sin confirmar|no se publica|ficha hist|código interno|pendiente de confirmar/i
@@ -152,6 +205,14 @@ describe('blog', () => {
       meta.alternates && 'canonical' in meta.alternates ? meta.alternates.canonical : '',
       `https://www.autoschinos.ar/blog/${slug}`
     );
+    const imageUrl = `https://www.autoschinos.ar/blog/${slug}/portada.webp`;
+    const ogImage = meta.openGraph?.images;
+    const ogFirst = Array.isArray(ogImage) ? ogImage[0] : ogImage;
+    assert.equal(ogFirst && typeof ogFirst === 'object' && 'url' in ogFirst ? ogFirst.url : '', imageUrl);
+    const twitterImage = meta.twitter && 'images' in meta.twitter ? meta.twitter.images : undefined;
+    const twitterFirst = Array.isArray(twitterImage) ? twitterImage[0] : twitterImage;
+    assert.equal(typeof twitterFirst === 'string' ? twitterFirst : '', imageUrl);
+    assert.equal(blogPostingJsonLd(post).image, imageUrl);
   });
 });
 

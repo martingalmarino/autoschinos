@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { linkifyParagraph } from '@/lib/blog-links';
 import { formatPostDate, type BlogPost } from '@/lib/blog';
@@ -43,6 +44,18 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
             <time dateTime={post.date}>{formatPostDate(post.date)}</time>
           </p>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
+          <figure className="mb-8">
+            <Image
+              src={post.image.src}
+              alt={post.image.alt}
+              width={post.image.width}
+              height={post.image.height}
+              priority
+              sizes="(min-width: 768px) 768px, 100vw"
+              className="w-full h-auto rounded-lg"
+            />
+            <figcaption className="mt-2 text-xs text-gray-500">{post.image.credit}</figcaption>
+          </figure>
           <p className="text-lg text-gray-600 mb-10">{post.description}</p>
 
           <div className="space-y-10 text-gray-700 leading-relaxed">

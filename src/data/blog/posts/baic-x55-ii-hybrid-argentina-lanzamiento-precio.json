@@ -4,6 +4,13 @@
   "date": "2026-11-09",
   "description": "BAIC presentó formalmente la X55 II Hybrid en su red argentina. Es una híbrida REHEV no enchufable; repasamos qué dice la marca y el precio difundido el 4 de noviembre.",
   "category": "Lanzamientos",
+  "image": {
+    "src": "/blog/baic-x55-ii-hybrid-argentina-lanzamiento-precio/portada.webp",
+    "alt": "BAIC X55 II Hybrid de perfil, en color gris claro",
+    "credit": "Imagen: BAIC Argentina",
+    "width": 1700,
+    "height": 750
+  },
   "sources": [
     {"title": "BAIC Argentina — X55 Hybrid", "url": "https://baic.com.ar/baic-x55-hybrid/"},
     {"title": "Brochure BAIC X55 II Hybrid (PDF)", "url": "https://baic.com.ar/wp-content/uploads/2026/08/Brochure_BAIC_X55II_Hybrid_web-2.pdf"},

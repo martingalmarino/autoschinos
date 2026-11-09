@@ -1,4 +1,5 @@
 import { getSheet } from '@/data/technical';
+import type { BlogPost } from '@/lib/blog';
 import { absoluteUrl, SITE_NAME, SITE_URL, CONTACT_EMAIL } from '@/lib/site';
 import type { CarModel } from '@/lib/models';
 import { publicProfile } from '@/lib/technical/editorial';
@@ -45,6 +46,23 @@ export function breadcrumbJsonLd(
       name: item.name,
       item: absoluteUrl(item.path),
     })),
+  };
+}
+
+export function blogPostingJsonLd(post: BlogPost) {
+  const path = `/blog/${post.slug}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    image: absoluteUrl(post.image.src),
+    datePublished: post.date,
+    dateModified: post.date,
+    articleSection: post.category,
+    mainEntityOfPage: absoluteUrl(path),
+    author: { '@type': 'Organization', name: SITE_NAME },
+    publisher: { '@type': 'Organization', name: SITE_NAME },
   };
 }
 

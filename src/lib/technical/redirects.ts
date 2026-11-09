@@ -34,4 +34,9 @@ export const legacyRedirects: LegacyRedirect[] = [
     destination: '/catalogo',
     permanent: true,
   },
+  {
+    source: '/guias',
+    destination: '/blog',
+    permanent: true,
+  },
 ];

@@ -5,7 +5,8 @@ import SearchBlock from '@/components/SearchBlock';
 import FeaturedCatalog from '@/components/FeaturedCatalog';
 import BrandPills from '@/components/BrandPills';
 import FAQ from '@/components/FAQ';
-import GuidesTeaser from '@/components/GuidesTeaser';
+import BlogTeaser from '@/components/BlogTeaser';
+import { getPosts } from '@/lib/blog';
 import CalculatorTeaser from '@/components/CalculatorTeaser';
 import { getAllModels, getTotalBrandCount, getTotalModelCount } from '@/lib/models';
 import { absoluteUrl } from '@/lib/site';
@@ -35,7 +36,7 @@ export default function HomePage() {
       <SearchBlock models={models} />
       <FeaturedCatalog models={models} />
       <CalculatorTeaser />
-      <GuidesTeaser />
+      <BlogTeaser posts={getPosts()} />
       <BrandPills />
       <FAQ brandCount={getTotalBrandCount()} modelCount={getTotalModelCount()} />
     </SiteShell>

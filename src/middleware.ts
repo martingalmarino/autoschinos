@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { isRemovedGuidePath } from '@/lib/removed-guides';
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -15,9 +16,19 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 308);
   }
 
+  if (isRemovedGuidePath(pathname)) {
+    return new NextResponse('Esta página fue retirada.', {
+      status: 410,
+      headers: {
+        'content-type': 'text/plain; charset=utf-8',
+        'x-robots-tag': 'noindex',
+      },
+    });
+  }
+
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/marcas/haval/:path*'],
+  matcher: ['/marcas/haval/:path*', '/guias/:path*'],
 };

@@ -45,8 +45,8 @@ export default function AcercaDePage() {
                 <strong>Martín Galmarino</strong>. Nació para reunir en un solo
                 lugar información clara y actualizada sobre marcas y modelos
                 chinos disponibles o relevantes para el mercado argentino:
-                fichas técnicas, categorías, precios de referencia y guías
-                prácticas para comparar opciones.
+                fichas técnicas, categorías, precios de referencia y el blog
+                del sitio.
               </p>
             </section>
 
@@ -57,7 +57,7 @@ export default function AcercaDePage() {
               <ul className="list-disc list-inside space-y-2">
                 <li>Catálogo de marcas y modelos con fichas técnicas.</li>
                 <li>Precios de referencia cuando hay datos públicos disponibles.</li>
-                <li>Guías para entender SUV, eléctricos, híbridos y criterios de compra.</li>
+                <li>Blog para los artículos que publique el sitio.</li>
                 <li>Navegación simple para explorar por marca o por modelo.</li>
               </ul>
             </section>
@@ -101,8 +101,8 @@ export default function AcercaDePage() {
               <Link href="/catalogo" className="btn-primary text-center">
                 Ver catálogo
               </Link>
-              <Link href="/guias" className="btn-secondary text-center">
-                Leer guías
+              <Link href="/blog" className="btn-secondary text-center">
+                Ir al blog
               </Link>
             </div>
           </div>

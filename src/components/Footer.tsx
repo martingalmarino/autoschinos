@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import { CONTACT_EMAIL } from '@/lib/site';
 
@@ -6,14 +7,14 @@ const navigationLinks = [
   { name: 'Catálogo', href: '/catalogo' },
   { name: 'Marcas', href: '/marcas' },
   { name: 'Calculadora de ahorro', href: '/calculadora-ahorro' },
-  { name: 'Guías', href: '/guias' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Contacto', href: '/contacto' },
 ];
 
 const companyLinks = [
   { name: 'Acerca de', href: '/acerca-de' },
   { name: 'Contacto', href: '/contacto' },
-  { name: 'Guías', href: '/guias' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Preguntas frecuentes', href: '/#faq' },
 ];
 

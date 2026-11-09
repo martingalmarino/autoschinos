@@ -5,11 +5,14 @@ import { describe, it } from 'node:test';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import sitemap from '../src/app/sitemap';
+import { generateMetadata as postMetadata } from '../src/app/blog/[slug]/page';
+import BlogArticle from '../src/components/BlogArticle';
 import BlogList from '../src/components/BlogList';
 import BlogTeaser from '../src/components/BlogTeaser';
 import Footer from '../src/components/Footer';
 import { navigation } from '../src/components/Navbar';
-import { getPosts, parsePost } from '../src/lib/blog';
+import { getPostBySlug, getPosts, parsePost } from '../src/lib/blog';
+import { linkifyParagraph } from '../src/lib/blog-links';
 import { isRemovedGuidePath } from '../src/lib/removed-guides';
 import { legacyRedirects } from '../src/lib/technical/redirects';
 
@@ -22,8 +25,7 @@ const RETIRED = [
 ];
 
 describe('blog', () => {
-  it('no publica artículos ni conserva las guías en el código público', () => {
-    assert.deepEqual(getPosts(), []);
+  it('no conserva las guías retiradas en el código público', () => {
     assert.equal(fs.existsSync(path.join(process.cwd(), 'src/lib/guides.ts')), false);
     assert.equal(fs.existsSync(path.join(process.cwd(), 'src/app/guias')), false);
 
@@ -74,7 +76,10 @@ describe('blog', () => {
     const urls = sitemap().map((item) => item.url);
     assert.equal(urls.filter((url) => url.endsWith('/blog')).length, 1);
     assert.equal(urls.some((url) => url.includes('/guias')), false);
-    assert.equal(urls.some((url) => url.includes('/blog/')), false);
+    assert.equal(
+      urls.filter((url) => url.endsWith('/blog/baic-x55-ii-hybrid-argentina-lanzamiento-precio')).length,
+      1
+    );
   });
 
   it('acepta el formato de un artículo sin publicarlo', () => {
@@ -92,7 +97,61 @@ describe('blog', () => {
     );
     assert.equal(post.slug, 'nota');
     assert.throws(() => parsePost({ slug: 'nota' }, 'nota.json'), /falta title|falta date/);
-    assert.equal(getPosts().length, 0);
+    assert.equal(getPosts().some((post) => post.slug === 'nota'), false);
+  });
+
+  it('publica la nota de la X55 II Hybrid con enlaces internos y sin texto de revisión', async () => {
+    const slug = 'baic-x55-ii-hybrid-argentina-lanzamiento-precio';
+    const post = getPostBySlug(slug);
+    assert.ok(post);
+    assert.equal(post.title, 'BAIC X55 II Hybrid: lanzamiento formal en Argentina, precio y lugar en la gama');
+    assert.equal(post.date, '2026-11-09');
+    assert.equal(getPosts().filter((item) => item.slug === slug).length, 1);
+
+    const list = renderToStaticMarkup(createElement(BlogList, { posts: getPosts() }));
+    assert.match(list, new RegExp(`href="/blog/${slug}"`));
+    assert.match(list, /BAIC X55 II Hybrid/);
+    assert.match(list, /9 de noviembre de 2026/);
+    assert.doesNotMatch(list, /Todavía no hay artículos publicados/);
+
+    const html = renderToStaticMarkup(createElement(BlogArticle, { post }));
+    assert.match(html, /<h1[^>]*>BAIC X55 II Hybrid: lanzamiento formal en Argentina, precio y lugar en la gama<\/h1>/);
+    assert.match(html, /<time dateTime="2026-11-09">9 de noviembre de 2026<\/time>/);
+    assert.match(html, /BAIC presentó formalmente la X55 II Hybrid/);
+    for (const heading of [
+      'Presentación formal en la red BAIC',
+      'Qué dice BAIC sobre la mecánica',
+      'Precio y lugar en la gama BAIC',
+      'Equipamiento destacado',
+      'Cómo encaja con el resto de la oferta BAIC',
+    ]) {
+      assert.match(html, new RegExp(heading));
+    }
+    assert.match(html, /US\$ 34\.500/);
+    assert.match(html, /href="\/marcas\/baic"/);
+    assert.match(html, /href="\/marcas\/baic\/x55-ii"/);
+    assert.match(html, /Más información de la marca: /);
+    assert.match(html, /Ficha de la X55 II naftera: /);
+    assert.match(html, /BAIC Argentina — X55 Hybrid/);
+    assert.match(html, /href="https:\/\/baic.com.ar\/baic-x55-hybrid\/"/);
+    assert.match(html, /href="https:\/\/autoxarg.com.ar\/2026\/11\/04\//);
+    assert.doesNotMatch(html, /<img/);
+    assert.doesNotMatch(
+      html,
+      /extracto|relevamiento|sin confirmar|no se publica|ficha hist|código interno|pendiente de confirmar/i
+    );
+
+    const last = post.sections.at(-1)?.paragraphs.at(-1) || '';
+    const links = linkifyParagraph(last).flatMap((part) => (part.kind === 'text' ? [] : [part.href]));
+    assert.deepEqual(links, ['/marcas/baic', '/marcas/baic/x55-ii']);
+
+    const meta = await postMetadata({ params: Promise.resolve({ slug }) });
+    assert.equal(meta.title, post.title);
+    assert.equal(meta.description, post.description);
+    assert.equal(
+      meta.alternates && 'canonical' in meta.alternates ? meta.alternates.canonical : '',
+      `https://www.autoschinos.ar/blog/${slug}`
+    );
   });
 });
 

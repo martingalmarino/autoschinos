@@ -31,8 +31,8 @@ export default function AvisoLegalPage() {
           Naturaleza del contenido
         </h2>
         <p>
-          Los contenidos (fichas técnicas, precios de referencia, guías y
-          descripciones) tienen carácter meramente informativo y orientativo.
+          Los contenidos (fichas técnicas, precios de referencia, artículos del
+          blog y descripciones) tienen carácter meramente informativo y orientativo.
           <strong> No constituyen oferta comercial vinculante</strong>,
           cotización oficial ni asesoramiento legal o financiero. autoschinos.ar
           no es concesionario, importador ni representante de marcas.

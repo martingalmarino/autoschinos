@@ -5,7 +5,7 @@ import {
   getBrandNames,
   modelSlug,
 } from '@/lib/models';
-import { guides } from '@/lib/guides';
+import { getPosts } from '@/lib/blog';
 import { SITE_URL } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
     { url: `${SITE_URL}/catalogo`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE_URL}/marcas`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE_URL}/guias`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
     { url: `${SITE_URL}/calculadora-ahorro`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${SITE_URL}/acerca-de`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${SITE_URL}/contacto`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
@@ -25,9 +25,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/aviso-legal`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
   ];
 
-  const guideRoutes: MetadataRoute.Sitemap = guides.map((guide) => ({
-    url: `${SITE_URL}/guias/${guide.slug}`,
-    lastModified: now,
+  const postRoutes: MetadataRoute.Sitemap = getPosts().map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: new Date(`${post.date}T00:00:00Z`),
     changeFrequency: 'monthly',
     priority: 0.75,
   }));
@@ -46,5 +46,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...guideRoutes, ...brandRoutes, ...modelRoutes];
+  return [...staticRoutes, ...postRoutes, ...brandRoutes, ...modelRoutes];
 }

@@ -5,12 +5,12 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-const navigation = [
+export const navigation = [
   { name: 'Inicio', href: '/' },
   { name: 'Modelos', href: '/catalogo' },
   { name: 'Marcas', href: '/marcas' },
   { name: 'Ahorro', href: '/calculadora-ahorro' },
-  { name: 'Guías', href: '/guias' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Contacto', href: '/contacto' },
 ];
 

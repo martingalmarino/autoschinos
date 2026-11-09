@@ -47,7 +47,7 @@ Copiá `.env.example` a `.env.local`:
 
 1. Verificar en producción:
    - `https://www.autoschinos.ar/ads.txt`
-   - `/acerca-de`, `/guias`, `/politica-privacidad`, `/politica-cookies`, `/contacto`
+   - `/acerca-de`, `/blog`, `/politica-privacidad`, `/politica-cookies`, `/contacto`
 2. Misma cuenta Google en Search Console y AdSense; sitemap enviado
 3. Confirmar que `contacto@autoschinos.ar` recibe correo
 4. Solicitar revisión desde AdSense (el snippet `ca-pub-6771833588582297` ya está en el layout)

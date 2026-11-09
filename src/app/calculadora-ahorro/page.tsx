@@ -44,10 +44,7 @@ export default function CalculadoraAhorroPage() {
           </p>
           <p className="text-sm text-gray-500">
             Superior a las calculadoras de una sola marca: multi-marca, kWh
-            editable, desglose y proyección a varios años.{' '}
-            <Link href="/guias/autos-chinos-electricos-hibridos" className="text-primary-600 underline">
-              Leer guía de electrificados
-            </Link>
+            editable, desglose y proyección a varios años.
           </p>
         </div>
       </section>

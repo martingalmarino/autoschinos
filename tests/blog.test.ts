@@ -81,6 +81,10 @@ describe('blog', () => {
       urls.filter((url) => url.endsWith('/blog/baic-x55-ii-hybrid-argentina-lanzamiento-precio')).length,
       1
     );
+    assert.equal(
+      urls.filter((url) => url.endsWith('/blog/kaiyi-x3-pro-argentina-precio-oficial')).length,
+      1
+    );
   });
 
   it('acepta el formato de un artículo sin publicarlo', () => {
@@ -213,6 +217,45 @@ describe('blog', () => {
     const twitterFirst = Array.isArray(twitterImage) ? twitterImage[0] : twitterImage;
     assert.equal(typeof twitterFirst === 'string' ? twitterFirst : '', imageUrl);
     assert.equal(blogPostingJsonLd(post).image, imageUrl);
+  });
+
+  it('publica la nota del Kaiyi X3 Pro con la foto oficial y el enlace externo prolijo', async () => {
+    const slug = 'kaiyi-x3-pro-argentina-precio-oficial';
+    const post = getPostBySlug(slug);
+    assert.ok(post);
+    assert.equal(post.category, 'Precios');
+    assert.equal(post.date, '2026-11-11');
+    assert.equal(post.image.width, 1920);
+    assert.equal(post.image.height, 1280);
+    assert.equal(post.image.credit, 'Imagen: Kaiyi Argentina');
+
+    const list = renderToStaticMarkup(createElement(BlogList, { posts: getPosts() }));
+    assert.match(list, new RegExp(`href="/blog/${slug}"`));
+    assert.match(list, /Kaiyi X3 Pro blanco, de tres cuartos delanteros, sobre una calle urbana/);
+
+    const html = renderToStaticMarkup(createElement(BlogArticle, { post }));
+    assert.match(html, /<h1[^>]*>Kaiyi X3 Pro en Argentina: precio oficial, mecánica y lugar en la gama<\/h1>/);
+    assert.match(html, /<time dateTime="2026-11-11">11 de noviembre de 2026<\/time>/);
+    assert.match(html, /US\$ 26\.000/);
+    assert.match(html, /<img[^>]+alt="Kaiyi X3 Pro blanco, de tres cuartos delanteros, sobre una calle urbana"/);
+    assert.match(html, /width="1920"/);
+    assert.match(html, /height="1280"/);
+    assert.match(html, /Imagen: Kaiyi Argentina/);
+    assert.match(
+      html,
+      /Más información en el sitio oficial de la marca: <a href="https:\/\/www\.kaiyiauto\.com\.ar\/x3pro\.html"[^>]*>https:\/\/www\.kaiyiauto\.com\.ar\/x3pro\.html<\/a>\./
+    );
+    assert.doesNotMatch(html, /x3_7\.jpg/);
+    assert.doesNotMatch(
+      html,
+      /extracto|relevamiento|sin confirmar|no se publica|ficha hist|código interno|pendiente de confirmar/i
+    );
+
+    const meta = await postMetadata({ params: Promise.resolve({ slug }) });
+    const imageUrl = `https://www.autoschinos.ar/blog/${slug}/portada.webp`;
+    const ogImage = meta.openGraph?.images;
+    const ogFirst = Array.isArray(ogImage) ? ogImage[0] : ogImage;
+    assert.equal(ogFirst && typeof ogFirst === 'object' && 'url' in ogFirst ? ogFirst.url : '', imageUrl);
   });
 });
 

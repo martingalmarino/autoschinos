@@ -12,6 +12,8 @@ import BlogTeaser from '../src/components/BlogTeaser';
 import Footer from '../src/components/Footer';
 import { navigation } from '../src/components/Navbar';
 import { assertPublishedImage, getPostBySlug, getPosts, parsePost, publishedImagePath } from '../src/lib/blog';
+import { brandPath, modelPath } from '../src/lib/catalog';
+import { getAllModels } from '../src/lib/models';
 import { linkifyParagraph } from '../src/lib/blog-links';
 import { blogPostingJsonLd } from '../src/lib/json-ld';
 import { isRemovedGuidePath } from '../src/lib/removed-guides';
@@ -83,6 +85,10 @@ describe('blog', () => {
     );
     assert.equal(
       urls.filter((url) => url.endsWith('/blog/kaiyi-x3-pro-argentina-precio-oficial')).length,
+      1
+    );
+    assert.equal(
+      urls.filter((url) => url.endsWith('/blog/byd-ti7-argentina-precio-oficial')).length,
       1
     );
   });
@@ -256,6 +262,56 @@ describe('blog', () => {
     const ogImage = meta.openGraph?.images;
     const ogFirst = Array.isArray(ogImage) ? ogImage[0] : ogImage;
     assert.equal(ogFirst && typeof ogFirst === 'object' && 'url' in ogFirst ? ogFirst.url : '', imageUrl);
+  });
+
+  it('publica la nota del BYD Ti7 con la foto oficial y enlaces internos reales', async () => {
+    const slug = 'byd-ti7-argentina-precio-oficial';
+    const post = getPostBySlug(slug);
+    assert.ok(post);
+    assert.equal(post.category, 'Precios');
+    assert.equal(post.date, '2026-11-13');
+    assert.equal(post.image.width, 1920);
+    assert.equal(post.image.height, 1075);
+    assert.equal(post.image.credit, 'Imagen: BYD Argentina');
+
+    const song = getAllModels().find((model) => model.id === 'byd-song-pro-dmi-2025');
+    assert.ok(song);
+    assert.equal(brandPath('BYD'), '/marcas/byd');
+    assert.equal(modelPath(song), '/marcas/byd/song-pro-dm-i');
+
+    const html = renderToStaticMarkup(createElement(BlogArticle, { post }));
+    assert.match(html, /<h1[^>]*>BYD Ti7 en Argentina: versiones, precios de lanzamiento y mecánica oficial<\/h1>/);
+    assert.match(html, /<time dateTime="2026-11-13">13 de noviembre de 2026<\/time>/);
+    assert.match(html, /US\$ 59\.990/);
+    assert.match(html, /<img[^>]+alt="BYD Ti7 verde, de tres cuartos delanteros, circulando por una calle urbana"/);
+    assert.match(html, /width="1920"/);
+    assert.match(html, /height="1075"/);
+    assert.match(html, /Imagen: BYD Argentina/);
+    assert.match(html, /href="\/marcas\/byd"/);
+    assert.match(html, /href="\/marcas\/byd\/song-pro-dm-i"/);
+    assert.match(
+      html,
+      /Sitio oficial del Ti7: <a href="https:\/\/www\.byd\.com\/ar\/byd-ti7"[^>]*target="_blank"[^>]*>https:\/\/www\.byd\.com\/ar\/byd-ti7<\/a>\./
+    );
+    assert.doesNotMatch(html, /imagen4\.jpeg/);
+    assert.doesNotMatch(
+      html,
+      /extracto|relevamiento|sin confirmar|no se publica|ficha hist|código interno|pendiente de confirmar/i
+    );
+
+    const last = post.sections.at(-1)?.paragraphs.at(-1) || '';
+    const links = linkifyParagraph(last).flatMap((part) =>
+      part.kind === 'text' ? [] : [{ kind: part.kind, href: part.href }]
+    );
+    assert.deepEqual(links, [
+      { kind: 'internal', href: '/marcas/byd' },
+      { kind: 'internal', href: '/marcas/byd/song-pro-dm-i' },
+      { kind: 'external', href: 'https://www.byd.com/ar/byd-ti7' },
+    ]);
+
+    const list = renderToStaticMarkup(createElement(BlogList, { posts: getPosts() }));
+    assert.match(list, new RegExp(`href="/blog/${slug}"`));
+    assert.match(list, /BYD Ti7 verde, de tres cuartos delanteros, circulando por una calle urbana/);
   });
 });
 

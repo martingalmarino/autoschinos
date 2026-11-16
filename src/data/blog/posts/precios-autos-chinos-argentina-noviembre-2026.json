@@ -12,96 +12,686 @@
     "height": 1067
   },
   "sources": [
-    {"title": "Kaiyi Argentina — Inicio", "url": "https://www.kaiyiauto.com.ar/"},
-    {"title": "Jetour Argentina — Legales modelos", "url": "https://jetour.com.ar/legales-modelos/"},
-    {"title": "Chery Argentina — Lista de precios N°15 (4/11/2026)", "url": "https://chery.com.ar/wp-content/uploads/2026/11/20261104_CHERY-ARG-PUBLICA-N%C2%B015-NOV26.pdf"},
-    {"title": "GWM Argentina — Modelos", "url": "https://gwm.com.ar/modelos"},
-    {"title": "MG Motor Argentina", "url": "https://www.mgargentina.ar/"},
-    {"title": "Changan Argentina — CS55 Plus PHEV", "url": "https://changan.com.ar/modelos/cs55"},
-    {"title": "Changan Argentina — EADO Plus PHEV", "url": "https://changan.com.ar/modelos/eado-plus"},
-    {"title": "Dongfeng Motors Argentina — Legales modelos", "url": "https://www.dongfengmotors.com.ar/legales-modelos/"},
-    {"title": "JAC Motors Argentina — Modelos", "url": "https://jacargentina.com.ar/modelos"},
-    {"title": "Soueast Argentina — S06", "url": "https://soueast.com.ar/modelos/s06"},
-    {"title": "BYD Argentina — Comunicado de lanzamiento del Ti7 (16/10/2026)", "url": "https://www.byd.com/ar/news-list/byd-lanzo-Ti7-en-la-argentina"}
+    {
+      "title": "Kaiyi Argentina — Inicio",
+      "url": "https://www.kaiyiauto.com.ar/"
+    },
+    {
+      "title": "Jetour Argentina — Legales modelos",
+      "url": "https://jetour.com.ar/legales-modelos/"
+    },
+    {
+      "title": "Chery Argentina — Lista de precios N°15 (4/11/2026)",
+      "url": "https://chery.com.ar/wp-content/uploads/2026/11/20261104_CHERY-ARG-PUBLICA-N%C2%B015-NOV26.pdf"
+    },
+    {
+      "title": "GWM Argentina — Modelos",
+      "url": "https://gwm.com.ar/modelos"
+    },
+    {
+      "title": "MG Motor Argentina",
+      "url": "https://www.mgargentina.ar/"
+    },
+    {
+      "title": "Changan Argentina — CS55 Plus PHEV",
+      "url": "https://changan.com.ar/modelos/cs55"
+    },
+    {
+      "title": "Changan Argentina — EADO Plus PHEV",
+      "url": "https://changan.com.ar/modelos/eado-plus"
+    },
+    {
+      "title": "Dongfeng Motors Argentina — Legales modelos",
+      "url": "https://www.dongfengmotors.com.ar/legales-modelos/"
+    },
+    {
+      "title": "JAC Motors Argentina — Modelos",
+      "url": "https://jacargentina.com.ar/modelos"
+    },
+    {
+      "title": "Soueast Argentina — S06",
+      "url": "https://soueast.com.ar/modelos/s06"
+    },
+    {
+      "title": "BYD Argentina — Comunicado de lanzamiento del Ti7 (16/10/2026)",
+      "url": "https://www.byd.com/ar/news-list/byd-lanzo-Ti7-en-la-argentina"
+    }
   ],
   "sections": [
     {
       "heading": "Qué incluye este relevamiento",
-      "paragraphs": [
-        "Esta nota mensual reúne los precios públicos sugeridos que, al 16 de noviembre de 2026, publican en sus sitios oficiales las marcas chinas con lista vigente en Argentina. Cada valor indica modelo, versión, moneda y el tipo de precio informado por la marca, más la vigencia cuando la fuente la declara.",
-        "Los importes son de lista, de lanzamiento o, cuando la propia marca lo publica, con una bonificación especial. En varios casos no incluyen flete ni patentamiento, así que conviene contrastarlos en el concesionario al momento de la compra. Todas las notas de precios y lanzamientos están en el blog: https://www.autoschinos.ar/blog."
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Este relevamiento mensual reúne los precios que las marcas chinas con lista vigente en Argentina publican en sus sitios oficiales. Los consultamos el 16 de noviembre de 2026."
+        },
+        {
+          "type": "paragraph",
+          "text": "Para cada modelo indicamos la versión, el precio en dólares y el tipo de precio que informa la marca. Debajo de cada tabla van la vigencia y las condiciones."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hay precios de lista, sugeridos, de lanzamiento y, cuando la marca lo publica, con bonificación especial.",
+            "En varios casos no incluyen flete ni patentamiento.",
+            "El valor final se confirma en el concesionario."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Las notas de lanzamientos y precios anteriores están en el [blog de Autoschinos](https://www.autoschinos.ar/blog)."
+        }
       ]
     },
     {
       "heading": "BYD",
-      "paragraphs": [
-        "El comunicado oficial de BYD Argentina del 16 de octubre de 2026 fija para el Ti7 un precio de lanzamiento desde US$ 59.990 hasta US$ 62.990, o su equivalente en pesos, a través de la red oficial. El detalle de mecánica y equipamiento está en https://www.autoschinos.ar/blog/byd-ti7-argentina-precio-oficial. Más información de la marca: https://www.autoschinos.ar/marcas/byd."
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "BYD presentó el Ti7 el 16 de octubre con un precio de lanzamiento oficial. En la nota sobre el [lanzamiento del BYD Ti7 en Argentina](https://www.autoschinos.ar/blog/byd-ti7-argentina-precio-oficial) está el detalle de mecánica y equipamiento. El resto de la gama está en la [página de BYD](https://www.autoschinos.ar/marcas/byd)."
+        },
+        {
+          "type": "table",
+          "caption": "Precio de lanzamiento del BYD Ti7",
+          "headers": [
+            "Modelo",
+            "Versión",
+            "Precio (US$)",
+            "Tipo de precio"
+          ],
+          "rows": [
+            [
+              "Ti7",
+              "Gama",
+              "59.990 a 62.990",
+              "Lanzamiento"
+            ]
+          ],
+          "note": "Según el comunicado oficial de BYD Argentina del 16/10/2026. También se puede pagar el equivalente en pesos a través de la red oficial."
+        }
       ]
     },
     {
       "heading": "Changan",
-      "paragraphs": [
-        "En su sitio oficial, consultado el 16 de noviembre de 2026, Changan Argentina publica el CS55 Plus PHEV a un precio sugerido desde US$ 31.990, en dólares según la cotización oficial del Banco Nación. El EADO Plus PHEV figura con un precio sugerido de lanzamiento de US$ 29.990, con la misma aclaración. Más información de la marca: https://www.autoschinos.ar/marcas/changan."
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Changan ofrece dos híbridos enchufables. Más información en la [página de Changan](https://www.autoschinos.ar/marcas/changan)."
+        },
+        {
+          "type": "table",
+          "caption": "Precios de Changan en noviembre de 2026",
+          "headers": [
+            "Modelo",
+            "Versión",
+            "Precio (US$)",
+            "Tipo de precio"
+          ],
+          "rows": [
+            [
+              "CS55 Plus",
+              "PHEV",
+              "31.990",
+              "Sugerido (desde)"
+            ],
+            [
+              "EADO Plus",
+              "PHEV",
+              "29.990",
+              "Sugerido de lanzamiento"
+            ]
+          ],
+          "note": "Sitio oficial de Changan Argentina, consultado el 16/11/2026. Se pagan en dólares a la cotización oficial del Banco Nación."
+        }
       ]
     },
     {
       "heading": "Chery",
-      "paragraphs": [
-        "Chery Argentina publica en su sitio la Lista de precios N°15, del 4 de noviembre de 2026, con precios públicos sugeridos con impuestos, en dólares convertibles a pesos, válidos para el continente y vigentes hasta que una nueva comunicación los reemplace. No incluyen patentamiento, flete ni gastos administrativos.",
-        "Tiggo 2 Pro-Max 1.5 L MT Comfort, US$ 23.000; Tiggo 2 Pro-Max 1.5 L CVT Comfort, US$ 25.500; Tiggo 4 Pro 1.5T CVT Luxury FL, US$ 28.700; Tiggo 4 Hybrid 1.5 L DHT HEV Premium, US$ 32.000; Tiggo 7 Pro Hybrid 1.5T MHEV Premium, US$ 30.500; Tiggo 7 Pro Hybrid 1.5T PHEV Premium, US$ 37.500; Tiggo 8 Pro 290T 1.6T 7DCT Luxury, US$ 42.800.",
-        "En sedanes, el Arrizo 8 Hybrid 1.5T PHEV Comfort figura a US$ 34.600 y el Arrizo 8 Hybrid 1.5T PHEV Luxury a US$ 36.800. En pick-ups, el Himla 2.3 TDI MT6 Comfort 4x2 está a US$ 32.500 y el Himla 2.3 TDI AT8 Luxury 4x4 a US$ 40.900. Más información de la marca: https://www.autoschinos.ar/marcas/chery. Ficha del Tiggo 4 Pro: https://www.autoschinos.ar/marcas/chery/tiggo-4-pro."
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chery tiene la lista más amplia del relevamiento, con SUV, sedanes y pick-ups. Toda la gama está en la [página de Chery](https://www.autoschinos.ar/marcas/chery), y el [Chery Tiggo 4 Pro](https://www.autoschinos.ar/marcas/chery/tiggo-4-pro) tiene ficha propia."
+        },
+        {
+          "type": "table",
+          "caption": "Lista de precios N°15 de Chery",
+          "headers": [
+            "Modelo",
+            "Versión",
+            "Precio (US$)",
+            "Tipo de precio"
+          ],
+          "rows": [
+            [
+              "Tiggo 2 Pro-Max",
+              "1.5 L MT Comfort",
+              "23.000",
+              "Público sugerido"
+            ],
+            [
+              "Tiggo 2 Pro-Max",
+              "1.5 L CVT Comfort",
+              "25.500",
+              "Público sugerido"
+            ],
+            [
+              "Tiggo 4 Pro",
+              "1.5T CVT Luxury FL",
+              "28.700",
+              "Público sugerido"
+            ],
+            [
+              "Tiggo 4 Hybrid",
+              "1.5 L DHT HEV Premium",
+              "32.000",
+              "Público sugerido"
+            ],
+            [
+              "Tiggo 7 Pro Hybrid",
+              "1.5T MHEV Premium",
+              "30.500",
+              "Público sugerido"
+            ],
+            [
+              "Tiggo 7 Pro Hybrid",
+              "1.5T PHEV Premium",
+              "37.500",
+              "Público sugerido"
+            ],
+            [
+              "Tiggo 8 Pro",
+              "290T 1.6T 7DCT Luxury",
+              "42.800",
+              "Público sugerido"
+            ],
+            [
+              "Arrizo 8 Hybrid",
+              "1.5T PHEV Comfort",
+              "34.600",
+              "Público sugerido"
+            ],
+            [
+              "Arrizo 8 Hybrid",
+              "1.5T PHEV Luxury",
+              "36.800",
+              "Público sugerido"
+            ],
+            [
+              "Himla",
+              "2.3 TDI MT6 Comfort 4x2",
+              "32.500",
+              "Público sugerido"
+            ],
+            [
+              "Himla",
+              "2.3 TDI AT8 Luxury 4x4",
+              "40.900",
+              "Público sugerido"
+            ]
+          ],
+          "note": "Lista del 4/11/2026, vigente hasta una nueva comunicación de la marca. Incluye impuestos. Son dólares convertibles a pesos y rigen para el continente. No incluye patentamiento, flete ni gastos administrativos."
+        }
       ]
     },
     {
       "heading": "Dongfeng",
-      "paragraphs": [
-        "La lista sugerida de Dongfeng Motors Argentina, publicada en sus legales, es válida hasta el 30 de noviembre de 2026 inclusive, incluye IVA y rige en todo el país excepto Tierra del Fuego. No incluye flete, formularios ni patentamiento. BOX 430, US$ 24.990; MAGE HEV, US$ 30.990; HUGE HEV, US$ 33.990."
+      "blocks": [
+        {
+          "type": "table",
+          "caption": "Lista sugerida de Dongfeng",
+          "headers": [
+            "Modelo",
+            "Versión",
+            "Precio (US$)",
+            "Tipo de precio"
+          ],
+          "rows": [
+            [
+              "BOX",
+              "430",
+              "24.990",
+              "Sugerido"
+            ],
+            [
+              "MAGE",
+              "HEV",
+              "30.990",
+              "Sugerido"
+            ],
+            [
+              "HUGE",
+              "HEV",
+              "33.990",
+              "Sugerido"
+            ]
+          ],
+          "note": "Vigente hasta el 30/11/2026 inclusive, IVA incluido. Rige en todo el país excepto Tierra del Fuego. No incluye flete, formularios ni patentamiento."
+        }
       ]
     },
     {
-      "heading": "GWM, Haval, Ora, Poer y Tank",
-      "paragraphs": [
-        "GWM Argentina publica en su sitio oficial, consultado el 16 de noviembre de 2026, precios sugeridos de venta al público en dólares según la cotización oficial del Banco Nación. En varios modelos también informa una bonificación especial o un precio final con bonificación, que se detalla por separado.",
-        "En Haval, la H6 4WD figura a US$ 39.900; la H6 GT 4WD, a US$ 44.400, con bonificación especial a US$ 41.990; y la H6 PRO HEV, a US$ 35.500. La H7 y la H7 HEV se publican a US$ 37.900 cada una. La Jolion HEV Supreme está a US$ 28.990 y la Jolion Pro HEV Supreme, a US$ 32.990, con bonificación especial a US$ 30.990. Más información de la marca: https://www.autoschinos.ar/marcas/haval. Fichas de la H6 y de la Jolion Pro HEV: https://www.autoschinos.ar/marcas/haval/h6 y https://www.autoschinos.ar/marcas/haval/jolion-pro-hev.",
-        "En Ora, la versión Deluxe figura a US$ 31.000, con bonificación especial a US$ 29.900, y la Ora 5 HEV a US$ 30.990. Más información de la marca: https://www.autoschinos.ar/marcas/ora.",
-        "En las pick-ups Poer, la Elite 2WD se publica a US$ 28.730, con un precio final con bonificación de US$ 28.030; la Elite 4WD, a US$ 32.697, con un precio final con bonificación de US$ 30.697; y la 4WD Super Luxury 8AT, a US$ 41.990, con bonificación especial a US$ 39.990. El Tank 300 figura a US$ 51.900, con bonificación especial a US$ 49.900. Ficha de la Poer Elite: https://www.autoschinos.ar/marcas/great-wall/poer-elite."
+      "heading": "GWM: Haval, Ora, Poer y Tank",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "GWM publica precios de cuatro marcas. Muchos modelos tienen además una bonificación especial, que va en una columna aparte."
+        },
+        {
+          "type": "paragraph",
+          "text": "Para ver cada gama están las páginas de [Haval](https://www.autoschinos.ar/marcas/haval) y de [Ora](https://www.autoschinos.ar/marcas/ora), y las fichas de la [Haval H6](https://www.autoschinos.ar/marcas/haval/h6), la [Haval Jolion Pro HEV](https://www.autoschinos.ar/marcas/haval/jolion-pro-hev) y la [Great Wall Poer Elite](https://www.autoschinos.ar/marcas/great-wall/poer-elite)."
+        },
+        {
+          "type": "table",
+          "caption": "Precios de GWM en noviembre de 2026",
+          "headers": [
+            "Modelo",
+            "Versión",
+            "Precio (US$)",
+            "Con bonificación (US$)",
+            "Tipo de precio"
+          ],
+          "rows": [
+            [
+              "Haval H6",
+              "4WD",
+              "39.900",
+              "—",
+              "Sugerido"
+            ],
+            [
+              "Haval H6 GT",
+              "4WD",
+              "44.400",
+              "41.990",
+              "Sugerido"
+            ],
+            [
+              "Haval H6 PRO",
+              "HEV",
+              "35.500",
+              "—",
+              "Sugerido"
+            ],
+            [
+              "Haval H7",
+              "—",
+              "37.900",
+              "—",
+              "Sugerido"
+            ],
+            [
+              "Haval H7",
+              "HEV",
+              "37.900",
+              "—",
+              "Sugerido"
+            ],
+            [
+              "Haval Jolion",
+              "HEV Supreme",
+              "28.990",
+              "—",
+              "Sugerido"
+            ],
+            [
+              "Haval Jolion Pro",
+              "HEV Supreme",
+              "32.990",
+              "30.990",
+              "Sugerido"
+            ],
+            [
+              "Ora",
+              "Deluxe",
+              "31.000",
+              "29.900",
+              "Sugerido"
+            ],
+            [
+              "Ora 5",
+              "HEV",
+              "30.990",
+              "—",
+              "Sugerido"
+            ],
+            [
+              "Poer Elite",
+              "2WD",
+              "28.730",
+              "28.030",
+              "Sugerido"
+            ],
+            [
+              "Poer Elite",
+              "4WD",
+              "32.697",
+              "30.697",
+              "Sugerido"
+            ],
+            [
+              "Poer",
+              "4WD Super Luxury 8AT",
+              "41.990",
+              "39.990",
+              "Sugerido"
+            ],
+            [
+              "Tank 300",
+              "—",
+              "51.900",
+              "49.900",
+              "Sugerido"
+            ]
+          ],
+          "note": "Sitio oficial de GWM Argentina, consultado el 16/11/2026. Son precios sugeridos de venta al público en dólares, a la cotización oficial del Banco Nación."
+        }
       ]
     },
     {
       "heading": "JAC",
-      "paragraphs": [
-        "JAC Motors Argentina publica en las fichas de su sitio oficial, consultado el 16 de noviembre de 2026, precios sugeridos en dólares para su red de concesionarios. El S2 figura a US$ 23.900; el JS4, a US$ 27.900; el T8, a US$ 37.900; y el X200, a US$ 31.900. Más información de la marca: https://www.autoschinos.ar/marcas/jac. Ficha del S2: https://www.autoschinos.ar/marcas/jac/s2."
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La gama está en la [página de JAC](https://www.autoschinos.ar/marcas/jac), y el [JAC S2](https://www.autoschinos.ar/marcas/jac/s2) tiene ficha propia."
+        },
+        {
+          "type": "table",
+          "caption": "Precios de JAC en noviembre de 2026",
+          "headers": [
+            "Modelo",
+            "Versión",
+            "Precio (US$)",
+            "Tipo de precio"
+          ],
+          "rows": [
+            [
+              "S2",
+              "—",
+              "23.900",
+              "Sugerido"
+            ],
+            [
+              "JS4",
+              "—",
+              "27.900",
+              "Sugerido"
+            ],
+            [
+              "X200",
+              "—",
+              "31.900",
+              "Sugerido"
+            ],
+            [
+              "T8",
+              "—",
+              "37.900",
+              "Sugerido"
+            ]
+          ],
+          "note": "Fichas del sitio oficial de JAC Motors Argentina, consultadas el 16/11/2026. Son precios sugeridos para la red de concesionarios."
+        }
       ]
     },
     {
       "heading": "Jetour",
-      "paragraphs": [
-        "La lista sugerida de Jetour Argentina, publicada en sus legales, es válida hasta el 30 de noviembre de 2026 inclusive, incluye IVA y rige en todo el país excepto Tierra del Fuego. No incluye flete, formularios ni patentamiento.",
-        "X50, US$ 26.900; X70 FL, US$ 31.900; X70 Plus, US$ 37.900; Dashing 1.5T, US$ 29.900; Dashing 1.5T +, US$ 33.900; Dashing 1.6T, US$ 38.500; T1 Híbrido, US$ 35.800; T1, US$ 47.900; T2, US$ 56.500; y T2 Híbrido, US$ 66.500."
+      "blocks": [
+        {
+          "type": "table",
+          "caption": "Lista sugerida de Jetour",
+          "headers": [
+            "Modelo",
+            "Versión",
+            "Precio (US$)",
+            "Tipo de precio"
+          ],
+          "rows": [
+            [
+              "X50",
+              "—",
+              "26.900",
+              "Sugerido"
+            ],
+            [
+              "X70",
+              "FL",
+              "31.900",
+              "Sugerido"
+            ],
+            [
+              "X70 Plus",
+              "—",
+              "37.900",
+              "Sugerido"
+            ],
+            [
+              "Dashing",
+              "1.5T",
+              "29.900",
+              "Sugerido"
+            ],
+            [
+              "Dashing",
+              "1.5T +",
+              "33.900",
+              "Sugerido"
+            ],
+            [
+              "Dashing",
+              "1.6T",
+              "38.500",
+              "Sugerido"
+            ],
+            [
+              "T1",
+              "Híbrido",
+              "35.800",
+              "Sugerido"
+            ],
+            [
+              "T1",
+              "—",
+              "47.900",
+              "Sugerido"
+            ],
+            [
+              "T2",
+              "—",
+              "56.500",
+              "Sugerido"
+            ],
+            [
+              "T2",
+              "Híbrido",
+              "66.500",
+              "Sugerido"
+            ]
+          ],
+          "note": "Vigente hasta el 30/11/2026 inclusive, IVA incluido. Rige en todo el país excepto Tierra del Fuego. No incluye flete, formularios ni patentamiento."
+        }
       ]
     },
     {
       "heading": "Kaiyi",
-      "paragraphs": [
-        "En su sitio oficial, consultado el 16 de noviembre de 2026, Kaiyi Argentina publica estos precios con IVA incluido: X3 1.5 CVT, desde US$ 22.000; X3 Pro 1.5 turbo CVT, desde US$ 26.000; X7 Pro 2.0 turbo DCT, US$ 38.000; y X7 Hybrid, US$ 34.500. El detalle del X3 Pro está en https://www.autoschinos.ar/blog/kaiyi-x3-pro-argentina-precio-oficial."
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El detalle del modelo más nuevo está en la nota sobre el [precio oficial del Kaiyi X3 Pro](https://www.autoschinos.ar/blog/kaiyi-x3-pro-argentina-precio-oficial)."
+        },
+        {
+          "type": "table",
+          "caption": "Precios de Kaiyi en noviembre de 2026",
+          "headers": [
+            "Modelo",
+            "Versión",
+            "Precio (US$)",
+            "Tipo de precio"
+          ],
+          "rows": [
+            [
+              "X3",
+              "1.5 CVT",
+              "22.000",
+              "Lista (desde)"
+            ],
+            [
+              "X3 Pro",
+              "1.5 turbo CVT",
+              "26.000",
+              "Lista (desde)"
+            ],
+            [
+              "X7",
+              "Hybrid",
+              "34.500",
+              "Lista"
+            ],
+            [
+              "X7 Pro",
+              "2.0 turbo DCT",
+              "38.000",
+              "Lista"
+            ]
+          ],
+          "note": "Sitio oficial de Kaiyi Argentina, consultado el 16/11/2026. IVA incluido."
+        }
       ]
     },
     {
       "heading": "MG",
-      "paragraphs": [
-        "MG Motor Argentina publica en su sitio oficial, consultado el 16 de noviembre de 2026, precios de entrada en dólares: New MG 3, desde US$ 21.900; All New MG 3 Hybrid, desde US$ 23.500; New MG ZS, desde US$ 24.900; All New MG ZS Hybrid, desde US$ 27.500; MG HS Hybrid, desde US$ 33.900; y MG Cyberster, desde US$ 130.000. Más información de la marca: https://www.autoschinos.ar/marcas/mg. Ficha del New MG 3: https://www.autoschinos.ar/marcas/mg/new-mg-3."
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "MG publica el precio de entrada de cada modelo. La gama está en la [página de MG](https://www.autoschinos.ar/marcas/mg), y el [New MG 3](https://www.autoschinos.ar/marcas/mg/new-mg-3) tiene ficha propia."
+        },
+        {
+          "type": "table",
+          "caption": "Precios de MG en noviembre de 2026",
+          "headers": [
+            "Modelo",
+            "Versión",
+            "Precio (US$)",
+            "Tipo de precio"
+          ],
+          "rows": [
+            [
+              "New MG 3",
+              "Versión de entrada",
+              "21.900",
+              "Lista (desde)"
+            ],
+            [
+              "All New MG 3 Hybrid",
+              "Versión de entrada",
+              "23.500",
+              "Lista (desde)"
+            ],
+            [
+              "New MG ZS",
+              "Versión de entrada",
+              "24.900",
+              "Lista (desde)"
+            ],
+            [
+              "All New MG ZS Hybrid",
+              "Versión de entrada",
+              "27.500",
+              "Lista (desde)"
+            ],
+            [
+              "MG HS Hybrid",
+              "Versión de entrada",
+              "33.900",
+              "Lista (desde)"
+            ],
+            [
+              "MG Cyberster",
+              "Versión de entrada",
+              "130.000",
+              "Lista (desde)"
+            ]
+          ],
+          "note": "Sitio oficial de MG Motor Argentina, consultado el 16/11/2026."
+        }
       ]
     },
     {
       "heading": "Soueast",
-      "paragraphs": [
-        "En su sitio oficial, consultado el 16 de noviembre de 2026, Soueast Argentina publica el S06 Comfort a US$ 30.900."
+      "blocks": [
+        {
+          "type": "table",
+          "caption": "Precio de Soueast en noviembre de 2026",
+          "headers": [
+            "Modelo",
+            "Versión",
+            "Precio (US$)",
+            "Tipo de precio"
+          ],
+          "rows": [
+            [
+              "S06",
+              "Comfort",
+              "30.900",
+              "Lista"
+            ]
+          ],
+          "note": "Sitio oficial de Soueast Argentina, consultado el 16/11/2026."
+        }
       ]
     },
     {
-      "heading": "Para seguir comparando",
-      "paragraphs": [
-        "Además de esta lista mensual, en el blog ya está el repaso del lanzamiento formal de la BAIC X55 II Hybrid: https://www.autoschinos.ar/blog/baic-x55-ii-hybrid-argentina-lanzamiento-precio. Los precios de esta nota corresponden a las publicaciones oficiales consultadas en las fechas indicadas; el valor final se confirma en el concesionario."
+      "heading": "Los más accesibles del relevamiento",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Entre las listas de este mes, estas son las cinco versiones con el precio de entrada más bajo:"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Modelo",
+            "Versión",
+            "Precio (US$)",
+            "Tipo de precio"
+          ],
+          "rows": [
+            [
+              "New MG 3",
+              "Versión de entrada",
+              "21.900",
+              "Lista (desde)"
+            ],
+            [
+              "Kaiyi X3",
+              "1.5 CVT",
+              "22.000",
+              "Lista (desde)"
+            ],
+            [
+              "Chery Tiggo 2 Pro-Max",
+              "1.5 L MT Comfort",
+              "23.000",
+              "Público sugerido"
+            ],
+            [
+              "All New MG 3 Hybrid",
+              "Versión de entrada",
+              "23.500",
+              "Lista (desde)"
+            ],
+            [
+              "JAC S2",
+              "—",
+              "23.900",
+              "Sugerido"
+            ]
+          ],
+          "note": "Cada marca usa un tipo de precio y condiciones distintas. Antes de comparar, revisá la nota de cada tabla."
+        },
+        {
+          "type": "paragraph",
+          "text": "En el blog también está el repaso del [lanzamiento de la BAIC X55 II Hybrid](https://www.autoschinos.ar/blog/baic-x55-ii-hybrid-argentina-lanzamiento-precio). El valor final de cualquier modelo se confirma en el concesionario."
+        }
       ]
     }
   ]

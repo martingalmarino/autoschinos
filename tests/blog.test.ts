@@ -91,6 +91,10 @@ describe('blog', () => {
       urls.filter((url) => url.endsWith('/blog/byd-ti7-argentina-precio-oficial')).length,
       1
     );
+    assert.equal(
+      urls.filter((url) => url.endsWith('/blog/precios-autos-chinos-argentina-noviembre-2026')).length,
+      1
+    );
   });
 
   it('acepta el formato de un artículo sin publicarlo', () => {
@@ -312,6 +316,95 @@ describe('blog', () => {
     const list = renderToStaticMarkup(createElement(BlogList, { posts: getPosts() }));
     assert.match(list, new RegExp(`href="/blog/${slug}"`));
     assert.match(list, /BYD Ti7 verde, de tres cuartos delanteros, circulando por una calle urbana/);
+  });
+
+  it('publica el relevamiento de noviembre con foto oficial y enlaces internos', () => {
+    const slug = 'precios-autos-chinos-argentina-noviembre-2026';
+    const post = getPostBySlug(slug);
+    assert.ok(post);
+    assert.equal(post.date, '2026-11-16');
+    assert.equal(post.category, 'Precios');
+    assert.equal(post.image.width, 1600);
+    assert.equal(post.image.height, 1067);
+    assert.equal(post.image.credit, 'Imagen: GWM Argentina');
+
+    const routes = new Map(
+      getAllModels().map((model) => [modelPath(model), model.id])
+    );
+    for (const brand of ['BYD', 'Changan', 'Chery', 'Haval', 'ORA', 'Great Wall', 'JAC', 'MG']) {
+      routes.set(brandPath(brand), brand);
+    }
+    for (const path of [
+      '/marcas/byd',
+      '/marcas/changan',
+      '/marcas/chery',
+      '/marcas/chery/tiggo-4-pro',
+      '/marcas/haval',
+      '/marcas/haval/h6',
+      '/marcas/haval/jolion-pro-hev',
+      '/marcas/ora',
+      '/marcas/great-wall/poer-elite',
+      '/marcas/jac',
+      '/marcas/jac/s2',
+      '/marcas/mg',
+      '/marcas/mg/new-mg-3',
+    ]) {
+      assert.equal(routes.has(path), true, path);
+    }
+
+    const internal: string[] = [];
+    let periodsOutside = 0;
+    for (const section of post.sections) {
+      for (const paragraph of section.paragraphs) {
+        const parts = linkifyParagraph(paragraph);
+        parts.forEach((part, index) => {
+          if (part.kind === 'text') return;
+          assert.equal(part.kind, 'internal');
+          assert.equal(part.label.startsWith('https://www.autoschinos.ar'), true);
+          internal.push(part.href);
+          const next = parts[index + 1];
+          if (next?.kind === 'text' && next.value.startsWith('.')) periodsOutside += 1;
+        });
+      }
+    }
+    assert.deepEqual(internal, [
+      '/blog',
+      '/blog/byd-ti7-argentina-precio-oficial',
+      '/marcas/byd',
+      '/marcas/changan',
+      '/marcas/chery',
+      '/marcas/chery/tiggo-4-pro',
+      '/marcas/haval',
+      '/marcas/haval/h6',
+      '/marcas/haval/jolion-pro-hev',
+      '/marcas/ora',
+      '/marcas/great-wall/poer-elite',
+      '/marcas/jac',
+      '/marcas/jac/s2',
+      '/blog/kaiyi-x3-pro-argentina-precio-oficial',
+      '/marcas/mg',
+      '/marcas/mg/new-mg-3',
+      '/blog/baic-x55-ii-hybrid-argentina-lanzamiento-precio',
+    ]);
+    assert.equal(periodsOutside, 16);
+
+    const html = renderToStaticMarkup(createElement(BlogArticle, { post }));
+    assert.match(html, /<img[^>]+alt="Haval H6 beige, de tres cuartos delanteros, sobre un paseo junto a un puente"/);
+    assert.match(html, /width="1600"/);
+    assert.match(html, /height="1067"/);
+    assert.match(html, /Imagen: GWM Argentina/);
+    assert.match(html, /href="\/marcas\/haval\/h6"/);
+    assert.match(html, /href="\/marcas\/haval\/jolion-pro-hev"/);
+    assert.match(html, /href="\/blog"[^>]*>https:\/\/www\.autoschinos\.ar\/blog<\/a>\./);
+    assert.doesNotMatch(html, /h6-gal1/);
+    assert.doesNotMatch(
+      html,
+      /extracto|relevamiento interno|sin confirmar|no se publica|ficha hist|código interno|pendiente de confirmar/i
+    );
+
+    const list = renderToStaticMarkup(createElement(BlogList, { posts: [post] }));
+    assert.match(list, new RegExp(`href="/blog/${slug}"`));
+    assert.match(list, /Haval H6 beige, de tres cuartos delanteros, sobre un paseo junto a un puente/);
   });
 });
 

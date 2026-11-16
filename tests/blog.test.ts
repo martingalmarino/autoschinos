@@ -133,7 +133,10 @@ describe('blog', () => {
       assert.ok(post.image.credit.trim());
     }
 
-    const published = posts[0];
+    const published = posts.find((post) =>
+      post.sections.some((section) => section.paragraphs.length > 0)
+    );
+    assert.ok(published);
     assert.throws(
       () => parsePost({ ...published, image: undefined }, `${published.slug}.json`),
       /falta image/
@@ -352,19 +355,48 @@ describe('blog', () => {
       assert.equal(routes.has(path), true, path);
     }
 
-    const internal: string[] = [];
-    let periodsOutside = 0;
+    const blogPaths = new Set(getPosts().map((item) => `/blog/${item.slug}`));
+    blogPaths.add('/blog');
+    const texts: string[] = [];
+    let tables = 0;
     for (const section of post.sections) {
-      for (const paragraph of section.paragraphs) {
-        const parts = linkifyParagraph(paragraph);
-        parts.forEach((part, index) => {
-          if (part.kind === 'text') return;
-          assert.equal(part.kind, 'internal');
-          assert.equal(part.label.startsWith('https://www.autoschinos.ar'), true);
-          internal.push(part.href);
-          const next = parts[index + 1];
-          if (next?.kind === 'text' && next.value.startsWith('.')) periodsOutside += 1;
-        });
+      assert.deepEqual(section.paragraphs, [], section.heading);
+      assert.ok(section.blocks.length > 0, section.heading);
+      for (const block of section.blocks) {
+        if (block.type === 'paragraph' || block.type === 'subheading') {
+          texts.push(block.text);
+        } else if (block.type === 'list') {
+          texts.push(...block.items);
+        } else {
+          tables += 1;
+          if (block.caption) texts.push(block.caption);
+          texts.push(...block.headers);
+          for (const row of block.rows) {
+            assert.equal(row.length, block.headers.length, block.caption || section.heading);
+            texts.push(...row);
+          }
+          if (block.note) texts.push(block.note);
+        }
+      }
+    }
+    assert.equal(tables, 11);
+
+    const byd = post.sections.find((section) => section.heading === 'BYD');
+    const bydTable = byd?.blocks.find((block) => block.type === 'table');
+    assert.ok(bydTable && bydTable.type === 'table');
+    assert.deepEqual(bydTable.rows, [['Ti7', 'Gama', '59.990 a 62.990', 'Lanzamiento']]);
+
+    const internal: string[] = [];
+    for (const text of texts) {
+      for (const part of linkifyParagraph(text)) {
+        if (part.kind === 'text') {
+          assert.doesNotMatch(part.value, /https?:\/\//);
+          continue;
+        }
+        assert.equal(part.kind, 'internal', part.href);
+        assert.equal(/^https?:\/\//.test(part.label), false, part.label);
+        assert.equal(routes.has(part.href) || blogPaths.has(part.href), true, part.href);
+        internal.push(part.href);
       }
     }
     assert.deepEqual(internal, [
@@ -375,9 +407,9 @@ describe('blog', () => {
       '/marcas/chery',
       '/marcas/chery/tiggo-4-pro',
       '/marcas/haval',
+      '/marcas/ora',
       '/marcas/haval/h6',
       '/marcas/haval/jolion-pro-hev',
-      '/marcas/ora',
       '/marcas/great-wall/poer-elite',
       '/marcas/jac',
       '/marcas/jac/s2',
@@ -386,16 +418,20 @@ describe('blog', () => {
       '/marcas/mg/new-mg-3',
       '/blog/baic-x55-ii-hybrid-argentina-lanzamiento-precio',
     ]);
-    assert.equal(periodsOutside, 16);
 
     const html = renderToStaticMarkup(createElement(BlogArticle, { post }));
+    const body = html.split('>Fuentes<')[0] || '';
+    assert.doesNotMatch(body, />https?:\/\//);
+    assert.equal((html.match(/overflow-x-auto/g) || []).length, tables);
     assert.match(html, /<img[^>]+alt="Haval H6 beige, de tres cuartos delanteros, sobre un paseo junto a un puente"/);
     assert.match(html, /width="1600"/);
     assert.match(html, /height="1067"/);
     assert.match(html, /Imagen: GWM Argentina/);
     assert.match(html, /href="\/marcas\/haval\/h6"/);
     assert.match(html, /href="\/marcas\/haval\/jolion-pro-hev"/);
-    assert.match(html, /href="\/blog"[^>]*>https:\/\/www\.autoschinos\.ar\/blog<\/a>\./);
+    assert.match(html, /href="\/blog"[^>]*>blog de Autoschinos<\/a>/);
+    assert.match(html, /<td[^>]*>Gama<\/td>/);
+    assert.match(html, /<li[^>]*>Hay precios de lista, sugeridos, de lanzamiento/);
     assert.doesNotMatch(html, /h6-gal1/);
     assert.doesNotMatch(
       html,
@@ -407,11 +443,18 @@ describe('blog', () => {
     assert.match(list, /Haval H6 beige, de tres cuartos delanteros, sobre un paseo junto a un puente/);
   });
 
-  it('acepta anclas, tablas y listas, y deja las notas publicadas en párrafos', () => {
+  it('acepta anclas, tablas y listas, y deja las notas anteriores en párrafos', () => {
     for (const published of getPosts()) {
+      if (published.slug === 'precios-autos-chinos-argentina-noviembre-2026') {
+        for (const section of published.sections) {
+          assert.deepEqual(section.paragraphs, []);
+          assert.ok(section.blocks.length > 0, section.heading);
+        }
+        continue;
+      }
       for (const section of published.sections) {
         assert.ok(section.paragraphs.length > 0, published.slug);
-        assert.deepEqual(section.blocks, []);
+        assert.deepEqual(section.blocks, [], published.slug);
       }
     }
 

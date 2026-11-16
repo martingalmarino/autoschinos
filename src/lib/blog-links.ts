@@ -4,6 +4,7 @@ export type ParagraphPart =
   | { kind: 'external'; href: string; label: string };
 
 const URL_PATTERN = /https?:\/\/[^\s<>"']+/gi;
+const MARKDOWN_LINK = /\[([^\[\]]+)\]\(([^)\s]+)\)/g;
 const TRAILING = /[.,;:!?)]+$/;
 
 function classify(rawUrl: string): { href: string; external: boolean } | null {
@@ -23,8 +24,25 @@ function classify(rawUrl: string): { href: string; external: boolean } | null {
   return { href: rawUrl, external: true };
 }
 
-/** Separa las URLs de un párrafo. El texto visible no cambia: la puntuación final queda afuera del enlace. */
-export function linkifyParagraph(text: string): ParagraphPart[] {
+function classifyHref(raw: string): { href: string; external: boolean } | null {
+  if (raw.startsWith('/') && !raw.startsWith('//') && !raw.includes('..')) {
+    return { href: raw, external: false };
+  }
+  return classify(raw);
+}
+
+function pushParts(target: ParagraphPart[], extra: ParagraphPart[]) {
+  for (const part of extra) {
+    const previous = target.at(-1);
+    if (part.kind === 'text' && previous?.kind === 'text') {
+      previous.value += part.value;
+      continue;
+    }
+    target.push({ ...part });
+  }
+}
+
+function linkifyRaw(text: string): ParagraphPart[] {
   const parts: ParagraphPart[] = [];
   let cursor = 0;
   for (const match of text.matchAll(URL_PATTERN)) {
@@ -45,5 +63,32 @@ export function linkifyParagraph(text: string): ParagraphPart[] {
     cursor = start + raw.length;
   }
   if (cursor < text.length) parts.push({ kind: 'text', value: text.slice(cursor) });
+  return parts.length ? parts : [{ kind: 'text', value: text }];
+}
+
+/**
+ * Separa enlaces de un texto.
+ * [texto](url) muestra el texto. Una URL suelta sigue mostrándose tal cual,
+ * con la puntuación final fuera del enlace.
+ */
+export function linkifyParagraph(text: string): ParagraphPart[] {
+  const parts: ParagraphPart[] = [];
+  let cursor = 0;
+  for (const match of text.matchAll(MARKDOWN_LINK)) {
+    const start = match.index ?? 0;
+    if (start < cursor) continue;
+    const label = match[1]?.trim() ?? '';
+    const rawHref = match[2] ?? '';
+    const link = label ? classifyHref(rawHref) : null;
+    if (!link) continue;
+    pushParts(parts, linkifyRaw(text.slice(cursor, start)));
+    parts.push(
+      link.external
+        ? { kind: 'external', href: link.href, label }
+        : { kind: 'internal', href: link.href, label }
+    );
+    cursor = start + match[0].length;
+  }
+  pushParts(parts, linkifyRaw(text.slice(cursor)));
   return parts.length ? parts : [{ kind: 'text', value: text }];
 }

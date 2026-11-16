@@ -7,7 +7,10 @@ import path from 'node:path';
  *
  * Campos: slug, title, date (YYYY-MM-DD), description, category,
  * image { src, alt, credit, width, height },
- * sources[{ title, url? }], sections[{ heading, paragraphs[] }].
+ * sources[{ title, url? }],
+ * sections[{ heading, paragraphs[]?, blocks[]? }].
+ * Un bloque es paragraph, subheading, list o table.
+ * paragraphs sigue siendo válido. Una sección nueva puede usar solo blocks.
  * image.src es local, bajo /public/blog/{slug}/, y el archivo tiene que existir.
  * El nombre del archivo tiene que coincidir con el slug.
  */
@@ -18,9 +21,35 @@ export interface BlogSource {
   url?: string;
 }
 
+export interface BlogParagraphBlock {
+  type: 'paragraph';
+  text: string;
+}
+
+export interface BlogSubheadingBlock {
+  type: 'subheading';
+  text: string;
+}
+
+export interface BlogListBlock {
+  type: 'list';
+  items: string[];
+}
+
+export interface BlogTableBlock {
+  type: 'table';
+  caption?: string;
+  headers: string[];
+  rows: string[][];
+  note?: string;
+}
+
+export type BlogBlock = BlogParagraphBlock | BlogSubheadingBlock | BlogListBlock | BlogTableBlock;
+
 export interface BlogSection {
   heading: string;
   paragraphs: string[];
+  blocks: BlogBlock[];
 }
 
 export interface BlogImage {
@@ -95,6 +124,69 @@ export function assertPublishedImage(post: Pick<BlogPost, 'image'>, file: string
   }
 }
 
+function parseStringList(value: unknown, file: string, field: string): string[] {
+  if (!Array.isArray(value) || value.length === 0) {
+    throw new Error(`${file}: ${field} vacío`);
+  }
+  return value.map((item, index) => requiredString(item, `${field}[${index}]`, file));
+}
+
+function parseBlock(raw: unknown, file: string, where: string): BlogBlock {
+  if (!isRecord(raw)) throw new Error(`${file}: ${where} inválido`);
+  const type = requiredString(raw.type, `${where}.type`, file);
+  if (type === 'paragraph' || type === 'subheading') {
+    return { type, text: requiredString(raw.text, `${where}.text`, file) };
+  }
+  if (type === 'list') {
+    return { type, items: parseStringList(raw.items, file, `${where}.items`) };
+  }
+  if (type === 'table') {
+    const headers = parseStringList(raw.headers, file, `${where}.headers`);
+    if (!Array.isArray(raw.rows) || raw.rows.length === 0) {
+      throw new Error(`${file}: ${where}.rows vacío`);
+    }
+    const rows = raw.rows.map((row, rowIndex) => {
+      if (!Array.isArray(row) || row.length !== headers.length) {
+        throw new Error(`${file}: ${where}.rows[${rowIndex}] no coincide con headers`);
+      }
+      return row.map((cell, cellIndex) =>
+        requiredString(cell, `${where}.rows[${rowIndex}][${cellIndex}]`, file)
+      );
+    });
+    return {
+      type,
+      headers,
+      rows,
+      caption: raw.caption == null ? undefined : requiredString(raw.caption, `${where}.caption`, file),
+      note: raw.note == null ? undefined : requiredString(raw.note, `${where}.note`, file),
+    };
+  }
+  throw new Error(`${file}: ${where}.type inválido`);
+}
+
+function parseSection(raw: unknown, file: string, index: number): BlogSection {
+  if (!isRecord(raw)) throw new Error(`${file}: sections[${index}] inválida`);
+  const heading = requiredString(raw.heading, `sections[${index}].heading`, file);
+  const hasParagraphs = raw.paragraphs != null;
+  const hasBlocks = raw.blocks != null;
+  if (!hasParagraphs && !hasBlocks) {
+    throw new Error(`${file}: sections[${index}] sin paragraphs ni blocks`);
+  }
+  const paragraphs = hasParagraphs
+    ? parseStringList(raw.paragraphs, file, `sections[${index}].paragraphs`)
+    : [];
+  const blocks = parseBlocks(hasBlocks ? raw.blocks : [], file, index);
+  if (paragraphs.length === 0 && blocks.length === 0) {
+    throw new Error(`${file}: sections[${index}] sin paragraphs ni blocks`);
+  }
+  return { heading, paragraphs, blocks };
+}
+
+function parseBlocks(raw: unknown, file: string, index: number): BlogBlock[] {
+  if (!Array.isArray(raw)) throw new Error(`${file}: sections[${index}].blocks inválido`);
+  return raw.map((block, blockIndex) => parseBlock(block, file, `sections[${index}].blocks[${blockIndex}]`));
+}
+
 export function parsePost(raw: unknown, file: string): BlogPost {
   if (!isRecord(raw)) throw new Error(`${file}: el artículo tiene que ser un objeto`);
 
@@ -125,17 +217,7 @@ export function parsePost(raw: unknown, file: string): BlogPost {
   if (!Array.isArray(raw.sections) || raw.sections.length === 0) {
     throw new Error(`${file}: falta sections`);
   }
-  const sections = raw.sections.map((section, index) => {
-    if (!isRecord(section)) throw new Error(`${file}: sections[${index}] inválida`);
-    const heading = requiredString(section.heading, `sections[${index}].heading`, file);
-    if (!Array.isArray(section.paragraphs) || section.paragraphs.length === 0) {
-      throw new Error(`${file}: sections[${index}].paragraphs vacío`);
-    }
-    const paragraphs = section.paragraphs.map((paragraph, paragraphIndex) =>
-      requiredString(paragraph, `sections[${index}].paragraphs[${paragraphIndex}]`, file)
-    );
-    return { heading, paragraphs };
-  });
+  const sections = raw.sections.map((section, index) => parseSection(section, file, index));
 
   return {
     slug,

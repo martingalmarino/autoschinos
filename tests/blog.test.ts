@@ -406,6 +406,157 @@ describe('blog', () => {
     assert.match(list, new RegExp(`href="/blog/${slug}"`));
     assert.match(list, /Haval H6 beige, de tres cuartos delanteros, sobre un paseo junto a un puente/);
   });
+
+  it('acepta anclas, tablas y listas, y deja las notas publicadas en párrafos', () => {
+    for (const published of getPosts()) {
+      for (const section of published.sections) {
+        assert.ok(section.paragraphs.length > 0, published.slug);
+        assert.deepEqual(section.blocks, []);
+      }
+    }
+
+    const anchor = linkifyParagraph(
+      'La [ficha de BYD](https://www.autoschinos.ar/marcas/byd) y el [sitio oficial](https://www.byd.com/ar/byd-ti7).'
+    );
+    assert.deepEqual(
+      anchor.flatMap((part) => (part.kind === 'text' ? [part.value] : [`${part.kind}:${part.href}:${part.label}`])),
+      [
+        'La ',
+        'internal:/marcas/byd:ficha de BYD',
+        ' y el ',
+        'external:https://www.byd.com/ar/byd-ti7:sitio oficial',
+        '.',
+      ]
+    );
+    assert.deepEqual(
+      linkifyParagraph('Ver [BYD](/marcas/byd).').flatMap((part) =>
+        part.kind === 'text' ? [part.value] : [part.href]
+      ),
+      ['Ver ', '/marcas/byd', '.']
+    );
+    assert.deepEqual(
+      linkifyParagraph('Sigue https://www.autoschinos.ar/marcas/haval/h6.').flatMap((part) =>
+        part.kind === 'text' ? [] : [part.href]
+      ),
+      ['/marcas/haval/h6']
+    );
+
+    const post = parsePost(
+      {
+        slug: 'formato',
+        title: 'Formato',
+        date: '2026-11-16',
+        description: 'Resumen.',
+        category: 'Precios',
+        image: {
+          src: '/blog/formato/portada.webp',
+          alt: 'Auto de frente',
+          credit: 'Imagen: Marca',
+          width: 1600,
+          height: 900,
+        },
+        sources: [],
+        sections: [
+          {
+            heading: 'Chery',
+            blocks: [
+              {
+                type: 'paragraph',
+                text: 'El detalle está en la [ficha de Chery](/marcas/chery).',
+              },
+              { type: 'subheading', text: 'SUV' },
+              {
+                type: 'table',
+                caption: 'Precios sugeridos de Chery',
+                headers: ['Modelo', 'Versión', 'Precio (US$)', 'Tipo de precio'],
+                rows: [['Tiggo 4', 'Pro 1.5T CVT Luxury FL', '28.700', 'Público sugerido']],
+                note: 'Lista oficial. Ver el [catálogo](/marcas/chery/tiggo-4-pro).',
+              },
+              { type: 'list', items: ['Incluye impuestos.', 'Sin flete.'] },
+            ],
+          },
+        ],
+      },
+      'formato.json'
+    );
+    assert.deepEqual(post.sections[0]?.paragraphs, []);
+    assert.equal(post.sections[0]?.blocks.length, 4);
+    assert.equal(getPosts().some((item) => item.slug === 'formato'), false);
+
+    const html = renderToStaticMarkup(createElement(BlogArticle, { post }));
+    assert.match(html, /<h3[^>]*>SUV<\/h3>/);
+    assert.match(html, /href="\/marcas\/chery"[^>]*>ficha de Chery<\/a>\./);
+    assert.doesNotMatch(html, />\/marcas\/chery</);
+    assert.match(html, /overflow-x-auto/);
+    assert.match(html, /<th[^>]*>Modelo<\/th>/);
+    assert.match(html, /<th[^>]*>Versión<\/th>/);
+    assert.match(html, /<th[^>]*>Precio \(US\$\)<\/th>/);
+    assert.match(html, /<th[^>]*>Tipo de precio<\/th>/);
+    assert.match(html, /<td[^>]*>28\.700<\/td>/);
+    assert.match(html, /Precios sugeridos de Chery/);
+    assert.match(html, /href="\/marcas\/chery\/tiggo-4-pro"[^>]*>catálogo<\/a>\./);
+    assert.match(html, /<ul[^>]*>/);
+    assert.match(html, /<li[^>]*>Incluye impuestos\.<\/li>/);
+    assert.match(html, /<li[^>]*>Sin flete\.<\/li>/);
+
+    assert.throws(
+      () =>
+        parsePost(
+          {
+            slug: 'vacio',
+            title: 'Vacío',
+            date: '2026-11-16',
+            description: 'Resumen.',
+            category: 'Precios',
+            image: {
+              src: '/blog/vacio/portada.webp',
+              alt: 'Auto',
+              credit: 'Imagen: Marca',
+              width: 1600,
+              height: 900,
+            },
+            sources: [],
+            sections: [{ heading: 'Nada' }],
+          },
+          'vacio.json'
+        ),
+      /sin paragraphs ni blocks/
+    );
+    assert.throws(
+      () =>
+        parsePost(
+          {
+            slug: 'tabla',
+            title: 'Tabla',
+            date: '2026-11-16',
+            description: 'Resumen.',
+            category: 'Precios',
+            image: {
+              src: '/blog/tabla/portada.webp',
+              alt: 'Auto',
+              credit: 'Imagen: Marca',
+              width: 1600,
+              height: 900,
+            },
+            sources: [],
+            sections: [
+              {
+                heading: 'Precios',
+                blocks: [
+                  {
+                    type: 'table',
+                    headers: ['Modelo', 'Precio (US$)'],
+                    rows: [['Solo un valor']],
+                  },
+                ],
+              },
+            ],
+          },
+          'tabla.json'
+        ),
+      /no coincide con headers/
+    );
+  });
 });
 
 function walk(dir: string): string[] {

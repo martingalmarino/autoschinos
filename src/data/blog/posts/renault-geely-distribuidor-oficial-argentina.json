@@ -1,0 +1,50 @@
+{
+  "slug": "renault-geely-distribuidor-oficial-argentina",
+  "title": "Renault y Geely anuncian un acuerdo de distribución de vehículos de nuevas energías en Argentina",
+  "date": "2026-11-18",
+  "description": "El 17 de noviembre, Renault Group y Geely Auto anunciaron que Renault Argentina será el distribuidor oficial de los vehículos de nuevas energías de Geely. Autos Sustentables del Sur sostiene que su acuerdo con la marca sigue vigente.",
+  "category": "Novedades",
+  "image": {
+    "src": "/blog/renault-geely-distribuidor-oficial-argentina/portada.webp",
+    "alt": "Logos de Renault Group y Geely sobre un fondo degradé, imagen del comunicado del acuerdo en Argentina",
+    "credit": "Imagen: Renault Argentina",
+    "width": 1469,
+    "height": 545
+  },
+  "sources": [
+    {"title": "Renault Group y Geely Auto anuncian un acuerdo para la distribución de vehículos Geely en Argentina", "url": "https://prensa.renault.com.ar/comunicado/renault-group-y-geely-auto-anuncian-un-acuerdo-para-la-distribucion-de-vehiculos-geely-en-argentina"},
+    {"title": "Autos Sustentables del Sur asegura que el anuncio de Renault no cambia su operación con Geely — AUTOWEB Argentina", "url": "https://www.autoweb.com.ar/2026/11/17/autos-sustentables-del-sur-asegura-que-el-anuncio-de-renault-no-cambia-su-operacion-con-geely/"},
+    {"title": "Pese al anuncio de Renault: Autos Sustentables del Sur dice que seguirá vendiendo autos de Geely en Argentina — Autoblog Argentina", "url": "https://autoblog.com.ar/pese-al-anuncio-de-renault-autos-sustentables-del-sur-dice-que-seguira-vendiendo-autos-de-geely-en-argentina/"},
+    {"title": "Geely Argentina", "url": "https://geelyargentina.com.ar/"},
+    {"title": "Geely EX5 Pro", "url": "https://geelyargentina.com.ar/modelos/ex5"},
+    {"title": "Geely ICON", "url": "https://geelyargentina.com.ar/modelos/icon/"}
+  ],
+  "sections": [
+    {
+      "heading": "El anuncio de Renault y Geely",
+      "blocks": [
+        {"type": "paragraph", "text": "El 17 de noviembre de 2026, Renault Group y Geely Auto anunciaron un acuerdo de cooperación estratégica por el cual Renault Argentina se convierte en el [distribuidor oficial de los vehículos de nuevas energías de Geely](https://prensa.renault.com.ar/comunicado/renault-group-y-geely-auto-anuncian-un-acuerdo-para-la-distribucion-de-vehiculos-geely-en-argentina) en el país."},
+        {"type": "paragraph", "text": "Según el comunicado, la designación combina la experiencia global de Geely Auto con la red de concesionarios y las capacidades operativas de Renault en Argentina, y apunta a responder a la demanda de vehículos electrificados. Las compañías presentan el entendimiento como una alianza de largo plazo."},
+        {"type": "paragraph", "text": "Michael Gao, director general de Geely Auto Sudamérica, afirmó que Argentina es un mercado estratégico y que el acuerdo refleja la visión de crecimiento internacional de la marca a través de alianzas duraderas. Pablo Sibilla, presidente y director general de Renault Argentina, dijo que la firma refuerza la relación que ambas compañías desarrollaron a nivel global y que Renault Argentina está entusiasmada de explorar nuevas oportunidades de crecimiento junto a Geely."}
+      ]
+    },
+    {
+      "heading": "La respuesta de Autos Sustentables del Sur",
+      "blocks": [
+        {"type": "paragraph", "text": "Autos Sustentables del Sur, que opera la marca en el país, difundió un comunicado propio. [Autoweb reprodujo su respuesta](https://www.autoweb.com.ar/2026/11/17/autos-sustentables-del-sur-asegura-que-el-anuncio-de-renault-no-cambia-su-operacion-con-geely/): el anuncio «no cambia la operación en Argentina de importación y comercialización a través de su red porque su acuerdo formal con Geely no se modificó»."},
+        {"type": "paragraph", "text": "En ese texto, reproducido también por [Autoblog](https://autoblog.com.ar/pese-al-anuncio-de-renault-autos-sustentables-del-sur-dice-que-seguira-vendiendo-autos-de-geely-en-argentina/), la empresa reafirma su compromiso de desarrollar Geely en Argentina a largo plazo. Sostiene que su estrategia se enmarca en un acuerdo global con Geely Auto para importar y representar oficialmente la marca, «que se mantiene vigente en los mismos términos y condiciones con los que nació esta alianza en 2024»."},
+        {"type": "paragraph", "text": "También afirma que, durante el primer año, consolidó una red de concesionarias que comercializa un portfolio con motorizaciones eléctrica, híbrida y de combustión."}
+      ]
+    },
+    {
+      "heading": "La oferta actual de Geely en Argentina",
+      "blocks": [
+        {"type": "paragraph", "text": "[Geely](https://www.autoschinos.ar/marcas/geely) ya tiene presencia comercial en el país. El [sitio oficial de Geely Argentina](https://geelyargentina.com.ar/) ofrece hoy el [EX5 Pro](https://geelyargentina.com.ar/modelos/ex5), un SUV 100% eléctrico, y el [ICON](https://geelyargentina.com.ar/modelos/icon/), un SUV compacto con motor turbo 1.5 de 181 CV."},
+        {"type": "list", "items": [
+          "EX5 Pro: 214 HP y hasta 430 km de autonomía eléctrica combinada, según el ciclo WLTP, con calificación de cinco estrellas en Euro NCAP y ANCAP.",
+          "ICON: motor turbo 1.5 de 181 CV y 290 Nm, con un consumo declarado de 6,3 L/100 km en ciclo WLTC."
+        ]}
+      ]
+    }
+  ]
+}

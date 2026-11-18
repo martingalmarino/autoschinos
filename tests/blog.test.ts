@@ -95,6 +95,10 @@ describe('blog', () => {
       urls.filter((url) => url.endsWith('/blog/precios-autos-chinos-argentina-noviembre-2026')).length,
       1
     );
+    assert.equal(
+      urls.filter((url) => url.endsWith('/blog/renault-geely-distribuidor-oficial-argentina')).length,
+      1
+    );
   });
 
   it('acepta el formato de un artículo sin publicarlo', () => {
@@ -443,9 +447,87 @@ describe('blog', () => {
     assert.match(list, /Haval H6 beige, de tres cuartos delanteros, sobre un paseo junto a un puente/);
   });
 
+  it('publica el acuerdo de Renault y Geely con portada, anclas y sin noindex', async () => {
+    const slug = 'renault-geely-distribuidor-oficial-argentina';
+    const post = getPostBySlug(slug);
+    assert.ok(post);
+    assert.equal(post.category, 'Novedades');
+    assert.equal(post.date, '2026-11-18');
+    assert.equal(post.image.width, 1469);
+    assert.equal(post.image.height, 545);
+    assert.equal(post.image.credit, 'Imagen: Renault Argentina');
+    assert.equal(
+      post.image.alt,
+      'Logos de Renault Group y Geely sobre un fondo degradé, imagen del comunicado del acuerdo en Argentina'
+    );
+    assert.equal(brandPath('Geely'), '/marcas/geely');
+
+    const texts: string[] = [];
+    for (const section of post.sections) {
+      assert.deepEqual(section.paragraphs, []);
+      for (const block of section.blocks) {
+        if (block.type === 'paragraph' || block.type === 'subheading') texts.push(block.text);
+        else if (block.type === 'list') texts.push(...block.items);
+      }
+    }
+    const links: Array<{ kind: string; href: string; label: string }> = [];
+    for (const text of texts) {
+      for (const part of linkifyParagraph(text)) {
+        if (part.kind === 'text') {
+          assert.doesNotMatch(part.value, /https?:\/\//);
+          continue;
+        }
+        assert.equal(/^https?:\/\//.test(part.label), false, part.label);
+        links.push({ kind: part.kind, href: part.href, label: part.label });
+      }
+    }
+    assert.deepEqual(
+      links.map((link) => `${link.kind}:${link.href}`),
+      [
+        'external:https://prensa.renault.com.ar/comunicado/renault-group-y-geely-auto-anuncian-un-acuerdo-para-la-distribucion-de-vehiculos-geely-en-argentina',
+        'external:https://www.autoweb.com.ar/2026/11/17/autos-sustentables-del-sur-asegura-que-el-anuncio-de-renault-no-cambia-su-operacion-con-geely/',
+        'external:https://autoblog.com.ar/pese-al-anuncio-de-renault-autos-sustentables-del-sur-dice-que-seguira-vendiendo-autos-de-geely-en-argentina/',
+        'internal:/marcas/geely',
+        'external:https://geelyargentina.com.ar/',
+        'external:https://geelyargentina.com.ar/modelos/ex5',
+        'external:https://geelyargentina.com.ar/modelos/icon/',
+      ]
+    );
+
+    const html = renderToStaticMarkup(createElement(BlogArticle, { post }));
+    const body = html.split('>Fuentes<')[0] || '';
+    assert.doesNotMatch(body, />https?:\/\//);
+    assert.doesNotMatch(html, /noindex/i);
+    assert.match(html, /<img[^>]+alt="Logos de Renault Group y Geely sobre un fondo degradé, imagen del comunicado del acuerdo en Argentina"/);
+    assert.match(html, /width="1469"/);
+    assert.match(html, /height="545"/);
+    assert.match(html, /Imagen: Renault Argentina/);
+    assert.match(html, /href="\/marcas\/geely"[^>]*>Geely<\/a>/);
+    assert.match(html, /target="_blank"[^>]*>distribuidor oficial de los vehículos de nuevas energías de Geely<\/a>/);
+    assert.match(html, /<li[^>]*>EX5 Pro: 214 HP/);
+    assert.match(html, /Novedades/);
+
+    const meta = await postMetadata({ params: Promise.resolve({ slug }) });
+    assert.equal(meta.title, post.title);
+    assert.equal(meta.description, post.description);
+    assert.equal(meta.robots, undefined);
+    assert.equal(
+      meta.alternates && 'canonical' in meta.alternates ? meta.alternates.canonical : '',
+      `https://www.autoschinos.ar/blog/${slug}`
+    );
+
+    const list = renderToStaticMarkup(createElement(BlogList, { posts: getPosts() }));
+    assert.match(list, new RegExp(`href="/blog/${slug}"`));
+    assert.match(list, /Novedades/);
+  });
+
   it('acepta anclas, tablas y listas, y deja las notas anteriores en párrafos', () => {
+    const blockPosts = new Set([
+      'precios-autos-chinos-argentina-noviembre-2026',
+      'renault-geely-distribuidor-oficial-argentina',
+    ]);
     for (const published of getPosts()) {
-      if (published.slug === 'precios-autos-chinos-argentina-noviembre-2026') {
+      if (blockPosts.has(published.slug)) {
         for (const section of published.sections) {
           assert.deepEqual(section.paragraphs, []);
           assert.ok(section.blocks.length > 0, section.heading);
